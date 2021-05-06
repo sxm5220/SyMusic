@@ -1,0 +1,60 @@
+PODS:
+  - Alamofire (5.3.0)
+  - FLAnimatedImage (1.0.12)
+  - GPUImage (0.1.7)
+  - IQKeyboardManagerSwift (6.5.6)
+  - JT3DScrollView (2.0.0)
+  - lottie-ios (2.5.3)
+  - LTMorphingLabel (0.9.2)
+  - MarqueeLabel/Swift (3.2.1)
+  - MJRefresh (3.1.17)
+  - SVProgressHUD (2.2.5)
+  - XHLaunchAd (3.9.12):
+    - FLAnimatedImage (~> 1.0.12)
+  - ZZCircleProgress (0.3.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - GPUImage
+  - IQKeyboardManagerSwift
+  - JT3DScrollView (~> 2.0)
+  - lottie-ios (~> 2.5.2)
+  - LTMorphingLabel
+  - MarqueeLabel/Swift
+  - MJRefresh (~> 3.1.0)
+  - SVProgressHUD
+  - XHLaunchAd (~> 3.9.8)
+  - ZZCircleProgress
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - FLAnimatedImage
+    - GPUImage
+    - IQKeyboardManagerSwift
+    - JT3DScrollView
+    - lottie-ios
+    - LTMorphingLabel
+    - MarqueeLabel
+    - MJRefresh
+    - SVProgressHUD
+    - XHLaunchAd
+    - ZZCircleProgress
+
+SPEC CHECKSUMS:
+  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JT3DScrollView: 6b2ed022a866732228327ef058ebefd90ffe0d96
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  LTMorphingLabel: cdd338db82477d9ee80893b813cbbd7989f97b06
+  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
+  ZZCircleProgress: 207e454a96f05321be6df16357671d9a870656b6
+
+PODFILE CHECKSUM: a29713a02e42c54a49ef3d5bb85bdacb328e01d3
+
+COCOAPODS: 1.9.1

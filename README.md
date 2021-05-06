@@ -1,2 +1,2 @@
-# SyMusic
-基于swift开发的音乐app
+###  我喜欢的音乐app
+
