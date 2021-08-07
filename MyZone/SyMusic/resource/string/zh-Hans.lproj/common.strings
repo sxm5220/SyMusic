@@ -1,0 +1,41 @@
+//
+//  common.strings
+//  SyMusic
+//
+//  Created by sxm on 2017/5/17.
+//  Copyright © 2017年 wwsy. All rights reserved.
+//
+
+"sy_main_title"="主页";
+"sy_me_title"="我的";
+"sy_music_title"="音乐";
+"sy_please_wait_tip"="请稍后...";
+"sy_connect_exception"="网络请求异常";
+"sy_outtimer"="网络请求超时！";
+"sy_network_nil"="没有检测到可用网络！";
+"sy_tip"="提示";
+"sy_sure"="确定";
+"sy_canel"="取消";
+"sy_location_tip"="应用没有开启定位，需要在在设置-通用-后台应用刷新开启";
+"sy_location_fail_tip"="设备不能定位！";
+"sy_zero"="零";
+"sy_one"="一";
+"sy_two"="二";
+"sy_three"="三";
+"sy_four"="四";
+"sy_five"="五";
+"sy_six"="六";
+"sy_seven"="七";
+"sy_eight"="八";
+"sy_nine"="九";
+"sy_ten"="十";
+"sy_hundred"="百";
+"sy_thousand"="千";
+"sy_ten_thousand"="万";
+"sy_a_hundred_million"="亿";
+"sy_single_cycle_title"="单曲循环";
+"sy_list_cycle_title"="列表循环";
+"sy_sure"="确定";
+"sy_canel"="取消";
+"sy_first_song_title"="已经是第一首了！";
+"sy_last_song_title"="已经是最后一首了！";

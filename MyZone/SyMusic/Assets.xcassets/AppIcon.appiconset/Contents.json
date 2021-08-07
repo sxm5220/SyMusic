@@ -1,0 +1,158 @@
+{
+  "images" : [
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneNotification_20pt@3x-3.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneNotification_20pt@3x.png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight7_40pt@2x-2.png",
+      "idiom" : "iphone",
+      "scale" : "1x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight5_29pt@2x-1.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight5_29pt@3x.png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight7_40pt@2x-1.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneApp_60pt@2x.png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneNotification_20pt@3x-1.png",
+      "idiom" : "iphone",
+      "scale" : "1x",
+      "size" : "57x57"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本store_1024pt-4.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "57x57"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneApp_60pt@2x-1.png",
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "size" : "60x60"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本.png",
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "size" : "60x60"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本-1.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneNotification_20pt@3x-4.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "20x20"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneApp_60pt@2x-3.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight5_29pt@2x.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "29x29"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneApp_60pt@2x-2.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight7_40pt@2x.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "40x40"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneNotification_20pt@3x-2.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "50x50"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本store_1024pt-5.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "50x50"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight7_40pt@3x 2-1.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "72x72"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本store_1024pt-3.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "72x72"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本iPhoneSpootlight7_40pt@3x 2.png",
+      "idiom" : "ipad",
+      "scale" : "1x",
+      "size" : "76x76"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本store_1024pt-2.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "76x76"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本store_1024pt-1.png",
+      "idiom" : "ipad",
+      "scale" : "2x",
+      "size" : "83.5x83.5"
+    },
+    {
+      "filename" : "icon-60@3xstore_1024pt的副本store_1024pt.png",
+      "idiom" : "ios-marketing",
+      "scale" : "1x",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,34 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "13.0"
+use_frameworks!
+
+target 'SyMusic' do
+
+  # 请求网络
+  pod 'Alamofire'
+  
+  # Toast提示
+  pod 'Toast-Swift', '~> 5.0.1'
+  
+  # 环形进度条
+  pod 'ZZCircleProgress'
+  
+  # 开屏广告
+  pod 'XHLaunchAd','~> 3.9.8'
+  
+  # 弹出键盘
+  pod 'IQKeyboardManagerSwift'
+  
+  # 字体滚动
+  pod 'MarqueeLabel/Swift'
+  
+  # 下拉刷新
+  pod 'MJRefresh','~> 3.1.0'
+  
+  # 动画动效
+  pod 'lottie-ios','~> 2.5.2'
+  
+  # 特效字体
+  pod 'LTMorphingLabel'
+
+end

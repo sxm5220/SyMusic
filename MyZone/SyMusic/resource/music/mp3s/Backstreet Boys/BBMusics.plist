@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>01</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030101.lrc</string>
+		<key>filename</key>
+		<string>I want it that way.mp3</string>
+		<key>name</key>
+		<string>I Want It That Way</string>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>02</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030202.lrc</string>
+		<key>filename</key>
+		<string>As Long as You Love Me.mp3</string>
+		<key>name</key>
+		<string>As Long as You Love Me</string>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>03</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030303.lrc</string>
+		<key>filename</key>
+		<string>The Answer to Our Life.mp3</string>
+		<key>name</key>
+		<string>The Answer to Our Life</string>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>04</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030404.lrc</string>
+		<key>filename</key>
+		<string>In a World Like This.mp3</string>
+		<key>name</key>
+		<string>In a World Like This</string>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>05</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030505.lrc</string>
+		<key>filename</key>
+		<string>Get Another Boyfriend.mp3</string>
+		<key>name</key>
+		<string>Get Another Boyfriend</string>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>06</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030606.lrc</string>
+		<key>filename</key>
+		<string>All I Have to Give.mp3</string>
+		<key>name</key>
+		<string>All I Have to Give</string>
+	</dict>
+	<dict>
+		<key>category</key>
+		<string>03</string>
+		<key>id</key>
+		<string>07</string>
+		<key>icon</key>
+		<string>item_bsb_icon</string>
+		<key>singerIcon</key>
+		<string>item_bsb_icon</string>
+		<key>singer</key>
+		<string>Backstreet Boys</string>
+		<key>lrcname</key>
+		<string>030707.lrc</string>
+		<key>filename</key>
+		<string>Anywhere for You.mp3</string>
+		<key>name</key>
+		<string>Anywhere for You</string>
+	</dict>
+</array>
+</plist>

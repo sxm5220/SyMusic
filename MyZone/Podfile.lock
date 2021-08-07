@@ -1,0 +1,52 @@
+PODS:
+  - Alamofire (5.3.0)
+  - FLAnimatedImage (1.0.12)
+  - IQKeyboardManagerSwift (6.5.6)
+  - lottie-ios (2.5.3)
+  - LTMorphingLabel (0.9.2)
+  - MarqueeLabel/Swift (3.2.1)
+  - MJRefresh (3.1.17)
+  - Toast-Swift (5.0.1)
+  - XHLaunchAd (3.9.12):
+    - FLAnimatedImage (~> 1.0.12)
+  - ZZCircleProgress (0.3.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - lottie-ios (~> 2.5.2)
+  - LTMorphingLabel
+  - MarqueeLabel/Swift
+  - MJRefresh (~> 3.1.0)
+  - Toast-Swift (~> 5.0.1)
+  - XHLaunchAd (~> 3.9.8)
+  - ZZCircleProgress
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - FLAnimatedImage
+    - IQKeyboardManagerSwift
+    - lottie-ios
+    - LTMorphingLabel
+    - MarqueeLabel
+    - MJRefresh
+    - Toast-Swift
+    - XHLaunchAd
+    - ZZCircleProgress
+
+SPEC CHECKSUMS:
+  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
+  LTMorphingLabel: cdd338db82477d9ee80893b813cbbd7989f97b06
+  MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
+  ZZCircleProgress: 207e454a96f05321be6df16357671d9a870656b6
+
+PODFILE CHECKSUM: c32af283f02895220a0c6e934c339ef84f032f6b
+
+COCOAPODS: 1.10.1

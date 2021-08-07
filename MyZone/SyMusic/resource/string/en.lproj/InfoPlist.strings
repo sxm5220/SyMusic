@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  wwsq
+
+  Created by 宋晓明 on 2018/3/6.
+  Copyright © 2018年 wwsq. All rights reserved.
+*/
+CFBundleDisplayName = "MyZone";
+CFBundleName = "MyZone";

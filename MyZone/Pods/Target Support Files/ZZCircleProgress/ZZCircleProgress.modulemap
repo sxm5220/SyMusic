@@ -1,0 +1,6 @@
+framework module ZZCircleProgress {
+  umbrella header "ZZCircleProgress-umbrella.h"
+
+  export *
+  module * { export * }
+}

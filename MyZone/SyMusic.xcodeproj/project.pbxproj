@@ -1,0 +1,1601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		017470856F70AE65D9373B43 /* Pods_SyMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFA56EBE110B60EBCD51CE /* Pods_SyMusic.framework */; };
+		C02BB773247BE36D00F07E5A /* SyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BB772247BE36D00F07E5A /* SyImage.swift */; };
+		C02EB59F26BD461C0022C9E2 /* 030404.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59926BD461B0022C9E2 /* 030404.lrc */; };
+		C02EB5A026BD461C0022C9E2 /* 030202.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59A26BD461B0022C9E2 /* 030202.lrc */; };
+		C02EB5A126BD461C0022C9E2 /* 030303.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59B26BD461B0022C9E2 /* 030303.lrc */; };
+		C02EB5A226BD461C0022C9E2 /* 030505.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59C26BD461C0022C9E2 /* 030505.lrc */; };
+		C02EB5A326BD461C0022C9E2 /* 030606.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59D26BD461C0022C9E2 /* 030606.lrc */; };
+		C02EB5A426BD461C0022C9E2 /* 030707.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59E26BD461C0022C9E2 /* 030707.lrc */; };
+		C02EB5AB26BD462E0022C9E2 /* The Answer to Our Life.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A526BD462D0022C9E2 /* The Answer to Our Life.mp3 */; };
+		C02EB5AC26BD462E0022C9E2 /* As Long as You Love Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A626BD462D0022C9E2 /* As Long as You Love Me.mp3 */; };
+		C02EB5AD26BD462E0022C9E2 /* Get Another Boyfriend.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A726BD462D0022C9E2 /* Get Another Boyfriend.mp3 */; };
+		C02EB5AE26BD462E0022C9E2 /* All I Have to Give.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A826BD462E0022C9E2 /* All I Have to Give.mp3 */; };
+		C02EB5AF26BD462E0022C9E2 /* Anywhere for You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A926BD462E0022C9E2 /* Anywhere for You.mp3 */; };
+		C02EB5B026BD462E0022C9E2 /* In a World Like This.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5AA26BD462E0022C9E2 /* In a World Like This.mp3 */; };
+		C02EB5B226BD48430022C9E2 /* XZQMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B126BD48430022C9E2 /* XZQMusics.plist */; };
+		C02EB5B426BD485E0022C9E2 /* ZJLMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B326BD485E0022C9E2 /* ZJLMusics.plist */; };
+		C02EB5B626BD487B0022C9E2 /* BBMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B526BD487A0022C9E2 /* BBMusics.plist */; };
+		C04427F2245BD3BA00E70AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */; };
+		C04427F9245BD3BA00E70AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04427F7245BD3BA00E70AA4 /* Main.storyboard */; };
+		C04427FB245BD3BC00E70AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04427FA245BD3BC00E70AA4 /* Assets.xcassets */; };
+		C04427FE245BD3BC00E70AA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04427FC245BD3BC00E70AA4 /* LaunchScreen.storyboard */; };
+		C044284724683A4E00E70AA4 /* SyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044283D24683A4E00E70AA4 /* SyUserDefaults.swift */; };
+		C044284824683A4E00E70AA4 /* SyPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044283E24683A4E00E70AA4 /* SyPrint.swift */; };
+		C044284924683A4E00E70AA4 /* SyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044283F24683A4E00E70AA4 /* SyColor.swift */; };
+		C044284A24683A4E00E70AA4 /* SyAlertControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284024683A4E00E70AA4 /* SyAlertControllerView.swift */; };
+		C044284B24683A4E00E70AA4 /* SyLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284124683A4E00E70AA4 /* SyLanguage.swift */; };
+		C044284C24683A4E00E70AA4 /* SyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284224683A4E00E70AA4 /* SyString.swift */; };
+		C044284D24683A4E00E70AA4 /* SySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284324683A4E00E70AA4 /* SySystem.swift */; };
+		C044284F24683A4E00E70AA4 /* SyPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284524683A4E00E70AA4 /* SyPublic.swift */; };
+		C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284624683A4E00E70AA4 /* SyNetwork.swift */; };
+		C095493226B270AF003990C0 /* SyMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C095493126B270AF003990C0 /* SyMainItem.swift */; };
+		C09B27E226BA9355000ED751 /* 021414.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E026BA9355000ED751 /* 021414.lrc */; };
+		C09B27E326BA9355000ED751 /* 021313.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E126BA9355000ED751 /* 021313.lrc */; };
+		C09B27E626BA9364000ED751 /* 天外来物_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */; };
+		C09B27E726BA9364000ED751 /* 变废为宝_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */; };
+		C0DD7D10253E7D2A002C46BA /* SyNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DD7D0E253E7D2A002C46BA /* SyNetworkRequest.swift */; };
+		C0DD7D11253E7D2A002C46BA /* SyRequestCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DD7D0F253E7D2A002C46BA /* SyRequestCollection.swift */; };
+		C0DD7D4C2542712D002C46BA /* 017272.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D4B2542712D002C46BA /* 017272.lrc */; };
+		C0DD7D50254271D5002C46BA /* 断了的弦_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */; };
+		C0DD7D5625428504002C46BA /* 030101.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D5525428504002C46BA /* 030101.lrc */; };
+		C0DD7D592542850D002C46BA /* I want it that way.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D582542850D002C46BA /* I want it that way.mp3 */; };
+		C0EC1DDF249DA63600A8BD14 /* SyMusicPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDB249DA63600A8BD14 /* SyMusicPlayVC.swift */; };
+		C0EC1DE0249DA63600A8BD14 /* SyMainDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDC249DA63600A8BD14 /* SyMainDetailVC.swift */; };
+		C0EC1DE1249DA63600A8BD14 /* SyMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDD249DA63600A8BD14 /* SyMainVC.swift */; };
+		C0EC1DE2249DA63600A8BD14 /* SyLrcTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDE249DA63600A8BD14 /* SyLrcTVC.swift */; };
+		C0EC1DE7249DA8DE00A8BD14 /* SyLrcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DE5249DA8DE00A8BD14 /* SyLrcCell.swift */; };
+		C0EC1DE9249DC17900A8BD14 /* SyAudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DE8249DC17900A8BD14 /* SyAudioPlayerView.swift */; };
+		C0EC1E13249DDE0B00A8BD14 /* 020606.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E07249DDE0A00A8BD14 /* 020606.lrc */; };
+		C0EC1E14249DDE0B00A8BD14 /* 020303.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E08249DDE0A00A8BD14 /* 020303.lrc */; };
+		C0EC1E15249DDE0B00A8BD14 /* 020404.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E09249DDE0A00A8BD14 /* 020404.lrc */; };
+		C0EC1E16249DDE0B00A8BD14 /* 020707.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E0A249DDE0A00A8BD14 /* 020707.lrc */; };
+		C0EC1E17249DDE0B00A8BD14 /* 021111.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E0B249DDE0B00A8BD14 /* 021111.lrc */; };
+		C0EC1E18249DDE0B00A8BD14 /* 021212.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E0C249DDE0B00A8BD14 /* 021212.lrc */; };
+		C0EC1E19249DDE0B00A8BD14 /* 020808.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E0D249DDE0B00A8BD14 /* 020808.lrc */; };
+		C0EC1E1A249DDE0B00A8BD14 /* 020101.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E0E249DDE0B00A8BD14 /* 020101.lrc */; };
+		C0EC1E1B249DDE0B00A8BD14 /* 021010.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E0F249DDE0B00A8BD14 /* 021010.lrc */; };
+		C0EC1E1C249DDE0B00A8BD14 /* 020909.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E10249DDE0B00A8BD14 /* 020909.lrc */; };
+		C0EC1E1D249DDE0B00A8BD14 /* 020505.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E11249DDE0B00A8BD14 /* 020505.lrc */; };
+		C0EC1E1E249DDE0B00A8BD14 /* 020202.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E12249DDE0B00A8BD14 /* 020202.lrc */; };
+		C0EC1E21249DDE4F00A8BD14 /* 010101.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E20249DDE4F00A8BD14 /* 010101.lrc */; };
+		C0EC1E30249DDE9800A8BD14 /* 几个你_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E23249DDE9700A8BD14 /* 几个你_薛之谦.mp3 */; };
+		C0EC1E31249DDE9800A8BD14 /* 我害怕_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E24249DDE9700A8BD14 /* 我害怕_薛之谦.mp3 */; };
+		C0EC1E32249DDE9800A8BD14 /* 尘_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E25249DDE9700A8BD14 /* 尘_薛之谦.mp3 */; };
+		C0EC1E33249DDE9800A8BD14 /* 别_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E26249DDE9700A8BD14 /* 别_薛之谦.mp3 */; };
+		C0EC1E34249DDE9800A8BD14 /* 渡_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E27249DDE9700A8BD14 /* 渡_薛之谦.mp3 */; };
+		C0EC1E35249DDE9800A8BD14 /* 暧昧_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E28249DDE9700A8BD14 /* 暧昧_薛之谦.mp3 */; };
+		C0EC1E36249DDE9800A8BD14 /* 天份_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E29249DDE9700A8BD14 /* 天份_薛之谦.mp3 */; };
+		C0EC1E37249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E2A249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 */; };
+		C0EC1E38249DDE9800A8BD14 /* 演员_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E2B249DDE9800A8BD14 /* 演员_薛之谦.mp3 */; };
+		C0EC1E3A249DDE9800A8BD14 /* 方圆几里_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E2D249DDE9800A8BD14 /* 方圆几里_薛之谦.mp3 */; };
+		C0EC1E3B249DDE9800A8BD14 /* 认真的雪_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E2E249DDE9800A8BD14 /* 认真的雪_薛之谦.mp3 */; };
+		C0EC1E3C249DDE9800A8BD14 /* 初学者_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E2F249DDE9800A8BD14 /* 初学者_薛之谦.mp3 */; };
+		C0EC1E85249DDED200A8BD14 /* 雨下一整晚_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E3E249DDECB00A8BD14 /* 雨下一整晚_周杰伦.mp3 */; };
+		C0EC1E86249DDED200A8BD14 /* 最后的战役_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E3F249DDECB00A8BD14 /* 最后的战役_周杰伦.mp3 */; };
+		C0EC1E87249DDED200A8BD14 /* 枫_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E40249DDECB00A8BD14 /* 枫_周杰伦.mp3 */; };
+		C0EC1E88249DDED200A8BD14 /* Mine Mine_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E41249DDECB00A8BD14 /* Mine Mine_周杰伦.mp3 */; };
+		C0EC1E89249DDED200A8BD14 /* 东风破_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E42249DDECB00A8BD14 /* 东风破_周杰伦.mp3 */; };
+		C0EC1E8A249DDED200A8BD14 /* 大笨钟_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E43249DDECB00A8BD14 /* 大笨钟_周杰伦.mp3 */; };
+		C0EC1E8B249DDED200A8BD14 /* 对不起_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E44249DDECB00A8BD14 /* 对不起_周杰伦.mp3 */; };
+		C0EC1E8C249DDED200A8BD14 /* 发如雪_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E45249DDECB00A8BD14 /* 发如雪_周杰伦.mp3 */; };
+		C0EC1E8D249DDED200A8BD14 /* 红模仿_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E46249DDECC00A8BD14 /* 红模仿_周杰伦.mp3 */; };
+		C0EC1E8E249DDED200A8BD14 /* 黄金甲_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E47249DDECC00A8BD14 /* 黄金甲_周杰伦.mp3 */; };
+		C0EC1E8F249DDED200A8BD14 /* 简单爱_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E48249DDECC00A8BD14 /* 简单爱_周杰伦.mp3 */; };
+		C0EC1E90249DDED200A8BD14 /* 麦芽糖_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E49249DDECC00A8BD14 /* 麦芽糖_周杰伦.mp3 */; };
+		C0EC1E91249DDED200A8BD14 /* 迷迭香_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E4A249DDECC00A8BD14 /* 迷迭香_周杰伦.mp3 */; };
+		C0EC1E92249DDED200A8BD14 /* 迷魂曲_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E4B249DDECC00A8BD14 /* 迷魂曲_周杰伦.mp3 */; };
+		C0EC1E93249DDED200A8BD14 /* 明明就_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E4C249DDECC00A8BD14 /* 明明就_周杰伦.mp3 */; };
+		C0EC1E94249DDED200A8BD14 /* 你好吗_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E4D249DDECC00A8BD14 /* 你好吗_周杰伦.mp3 */; };
+		C0EC1E95249DDED200A8BD14 /* 七里香_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E4E249DDECC00A8BD14 /* 七里香_周杰伦.mp3 */; };
+		C0EC1E96249DDED200A8BD14 /* 青花瓷_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E4F249DDECC00A8BD14 /* 青花瓷_周杰伦.mp3 */; };
+		C0EC1E97249DDED200A8BD14 /* 时光机_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E50249DDECD00A8BD14 /* 时光机_周杰伦.mp3 */; };
+		C0EC1E98249DDED200A8BD14 /* 彩虹_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E51249DDECD00A8BD14 /* 彩虹_周杰伦.mp3 */; };
+		C0EC1E99249DDED200A8BD14 /* 稻香_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E52249DDECD00A8BD14 /* 稻香_周杰伦.mp3 */; };
+		C0EC1E9A249DDED200A8BD14 /* 暗号_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E53249DDECD00A8BD14 /* 暗号_周杰伦.mp3 */; };
+		C0EC1E9B249DDED200A8BD14 /* 搁浅_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E54249DDECD00A8BD14 /* 搁浅_周杰伦.mp3 */; };
+		C0EC1E9C249DDED200A8BD14 /* 将军_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E55249DDECD00A8BD14 /* 将军_周杰伦.mp3 */; };
+		C0EC1E9D249DDED200A8BD14 /* 借口_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E56249DDECD00A8BD14 /* 借口_周杰伦.mp3 */; };
+		C0EC1E9E249DDED200A8BD14 /* 晴天_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E57249DDECD00A8BD14 /* 晴天_周杰伦.mp3 */; };
+		C0EC1E9F249DDED200A8BD14 /* 梯田_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E58249DDECD00A8BD14 /* 梯田_周杰伦.mp3 */; };
+		C0EC1EA0249DDED200A8BD14 /* 甜甜的_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E59249DDECD00A8BD14 /* 甜甜的_周杰伦.mp3 */; };
+		C0EC1EA1249DDED200A8BD14 /* 退后_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E5A249DDECD00A8BD14 /* 退后_周杰伦.mp3 */; };
+		C0EC1EA2249DDED200A8BD14 /* 外婆_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E5B249DDECE00A8BD14 /* 外婆_周杰伦.mp3 */; };
+		C0EC1EA3249DDED200A8BD14 /* 我不配_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E5C249DDECE00A8BD14 /* 我不配_周杰伦.mp3 */; };
+		C0EC1EA4249DDED200A8BD14 /* 星晴_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E5D249DDECE00A8BD14 /* 星晴_周杰伦.mp3 */; };
+		C0EC1EA5249DDED200A8BD14 /* 夜曲_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E5E249DDECE00A8BD14 /* 夜曲_周杰伦.mp3 */; };
+		C0EC1EA6249DDED200A8BD14 /* 园游会_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E5F249DDECE00A8BD14 /* 园游会_周杰伦.mp3 */; };
+		C0EC1EA7249DDED200A8BD14 /* 周大侠_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E60249DDECE00A8BD14 /* 周大侠_周杰伦.mp3 */; };
+		C0EC1EA8249DDED200A8BD14 /* 千里之外_费玉清,周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E61249DDECE00A8BD14 /* 千里之外_费玉清,周杰伦.mp3 */; };
+		C0EC1EA9249DDED200A8BD14 /* 本草纲目_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E62249DDECE00A8BD14 /* 本草纲目_周杰伦.mp3 */; };
+		C0EC1EAA249DDED200A8BD14 /* 黑色毛衣_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E63249DDECE00A8BD14 /* 黑色毛衣_周杰伦.mp3 */; };
+		C0EC1EAB249DDED200A8BD14 /* 黑色幽默_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E64249DDECF00A8BD14 /* 黑色幽默_周杰伦.mp3 */; };
+		C0EC1EAC249DDED200A8BD14 /* 白色风车_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E65249DDECF00A8BD14 /* 白色风车_周杰伦.mp3 */; };
+		C0EC1EAD249DDED200A8BD14 /* 半岛铁盒_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E66249DDECF00A8BD14 /* 半岛铁盒_周杰伦.mp3 */; };
+		C0EC1EAE249DDED200A8BD14 /* 开不了口_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E67249DDECF00A8BD14 /* 开不了口_周杰伦.mp3 */; };
+		C0EC1EAF249DDED200A8BD14 /* 可爱女人_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E68249DDECF00A8BD14 /* 可爱女人_周杰伦.mp3 */; };
+		C0EC1EB0249DDED200A8BD14 /* 浪漫手机_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E69249DDECF00A8BD14 /* 浪漫手机_周杰伦.mp3 */; };
+		C0EC1EB1249DDED200A8BD14 /* 你听的到_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E6A249DDECF00A8BD14 /* 你听的到_周杰伦.mp3 */; };
+		C0EC1EB2249DDED200A8BD14 /* 乔克叔叔_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E6B249DDECF00A8BD14 /* 乔克叔叔_周杰伦.mp3 */; };
+		C0EC1EB3249DDED200A8BD14 /* 三年二班_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E6C249DDECF00A8BD14 /* 三年二班_周杰伦.mp3 */; };
+		C0EC1EB4249DDED200A8BD14 /* 四面楚歌_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E6D249DDED000A8BD14 /* 四面楚歌_周杰伦.mp3 */; };
+		C0EC1EB5249DDED200A8BD14 /* 她的睫毛_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E6E249DDED000A8BD14 /* 她的睫毛_周杰伦.mp3 */; };
+		C0EC1EB6249DDED200A8BD14 /* 完美主义_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E6F249DDED000A8BD14 /* 完美主义_周杰伦.mp3 */; };
+		C0EC1EB7249DDED200A8BD14 /* 威廉古堡_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E70249DDED000A8BD14 /* 威廉古堡_周杰伦.mp3 */; };
+		C0EC1EB8249DDED200A8BD14 /* 烟花易冷_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E71249DDED000A8BD14 /* 烟花易冷_周杰伦.mp3 */; };
+		C0EC1EB9249DDED200A8BD14 /* 不能说的秘密_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E72249DDED000A8BD14 /* 不能说的秘密_周杰伦.mp3 */; };
+		C0EC1EBA249DDED200A8BD14 /* 米兰的小铁匠_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E73249DDED000A8BD14 /* 米兰的小铁匠_周杰伦.mp3 */; };
+		C0EC1EBB249DDED200A8BD14 /* 蒲公英的约定_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E74249DDED000A8BD14 /* 蒲公英的约定_周杰伦.mp3 */; };
+		C0EC1EBC249DDED200A8BD14 /* 一路向北_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E75249DDED000A8BD14 /* 一路向北_周杰伦.mp3 */; };
+		C0EC1EBD249DDED200A8BD14 /* 伊斯坦堡_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E76249DDED100A8BD14 /* 伊斯坦堡_周杰伦.mp3 */; };
+		C0EC1EBE249DDED200A8BD14 /* 以父之名_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E77249DDED100A8BD14 /* 以父之名_周杰伦.mp3 */; };
+		C0EC1EBF249DDED200A8BD14 /* 印地安老斑鸠_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E78249DDED100A8BD14 /* 印地安老斑鸠_周杰伦.mp3 */; };
+		C0EC1EC0249DDED200A8BD14 /* 止战之殇_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E79249DDED100A8BD14 /* 止战之殇_周杰伦.mp3 */; };
+		C0EC1EC1249DDED200A8BD14 /* 火车叨位去_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E7A249DDED100A8BD14 /* 火车叨位去_周杰伦.mp3 */; };
+		C0EC1EC2249DDED200A8BD14 /* 爸我回来了_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E7B249DDED100A8BD14 /* 爸我回来了_周杰伦.mp3 */; };
+		C0EC1EC3249DDED200A8BD14 /* 爱在西元前_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E7C249DDED100A8BD14 /* 爱在西元前_周杰伦.mp3 */; };
+		C0EC1EC4249DDED200A8BD14 /* 超人不会飞_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E7D249DDED100A8BD14 /* 超人不会飞_周杰伦.mp3 */; };
+		C0EC1EC5249DDED200A8BD14 /* 反方向的钟_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E7E249DDED100A8BD14 /* 反方向的钟_周杰伦.mp3 */; };
+		C0EC1EC6249DDED200A8BD14 /* 公公偏头痛_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E7F249DDED200A8BD14 /* 公公偏头痛_周杰伦.mp3 */; };
+		C0EC1EC7249DDED200A8BD14 /* 疗伤烧肉粽_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E80249DDED200A8BD14 /* 疗伤烧肉粽_周杰伦.mp3 */; };
+		C0EC1EC8249DDED200A8BD14 /* 手写的从前_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E81249DDED200A8BD14 /* 手写的从前_周杰伦.mp3 */; };
+		C0EC1EC9249DDED200A8BD14 /* 听妈妈的话_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E82249DDED200A8BD14 /* 听妈妈的话_周杰伦.mp3 */; };
+		C0EC1ECA249DDED200A8BD14 /* 同一种调调_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E83249DDED200A8BD14 /* 同一种调调_周杰伦.mp3 */; };
+		C0EC1ECB249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1E84249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 */; };
+		C0EC1ECD249DDF3400A8BD14 /* 010202.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ECC249DDF3400A8BD14 /* 010202.lrc */; };
+		C0EC1ECF249DDF8C00A8BD14 /* 010303.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ECE249DDF8C00A8BD14 /* 010303.lrc */; };
+		C0EC1ED1249DDFE500A8BD14 /* 010404.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ED0249DDFE500A8BD14 /* 010404.lrc */; };
+		C0EC1ED3249DE02A00A8BD14 /* 010505.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ED2249DE02A00A8BD14 /* 010505.lrc */; };
+		C0EC1ED5249DE06300A8BD14 /* 010606.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ED4249DE06300A8BD14 /* 010606.lrc */; };
+		C0EC1ED7249DE09F00A8BD14 /* 010707.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ED6249DE09F00A8BD14 /* 010707.lrc */; };
+		C0EC1ED9249DE0D300A8BD14 /* 010808.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1ED8249DE0D300A8BD14 /* 010808.lrc */; };
+		C0EC1EDB249DE11900A8BD14 /* 010909.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EDA249DE11900A8BD14 /* 010909.lrc */; };
+		C0EC1EDD249DE13D00A8BD14 /* 011010.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EDC249DE13D00A8BD14 /* 011010.lrc */; };
+		C0EC1EDF249DE17B00A8BD14 /* 011111.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EDE249DE17B00A8BD14 /* 011111.lrc */; };
+		C0EC1EE1249DE1EB00A8BD14 /* 011212.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EE0249DE1EB00A8BD14 /* 011212.lrc */; };
+		C0EC1EE3249DE2DB00A8BD14 /* 011313.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EE2249DE2DB00A8BD14 /* 011313.lrc */; };
+		C0EC1EE5249DE30100A8BD14 /* 011414.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EE4249DE30100A8BD14 /* 011414.lrc */; };
+		C0EC1EE7249DE33D00A8BD14 /* 011515.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EE6249DE33D00A8BD14 /* 011515.lrc */; };
+		C0EC1EE9249DE3D900A8BD14 /* 011616.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EE8249DE3D900A8BD14 /* 011616.lrc */; };
+		C0EC1EEB249DE43100A8BD14 /* 011717.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EEA249DE43100A8BD14 /* 011717.lrc */; };
+		C0EC1EED249DE47C00A8BD14 /* 011818.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EEC249DE47C00A8BD14 /* 011818.lrc */; };
+		C0EC1EEF249DE4CF00A8BD14 /* 011919.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EEE249DE4CF00A8BD14 /* 011919.lrc */; };
+		C0EC1EF1249DE4DC00A8BD14 /* 012020.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EF0249DE4DC00A8BD14 /* 012020.lrc */; };
+		C0EC1EF3249DE52400A8BD14 /* 013434.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EF2249DE52400A8BD14 /* 013434.lrc */; };
+		C0EC1EF5249DE56F00A8BD14 /* 014545.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EF4249DE56F00A8BD14 /* 014545.lrc */; };
+		C0EC1EF7249DE5B300A8BD14 /* 015454.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EF6249DE5B300A8BD14 /* 015454.lrc */; };
+		C0EC1EF9249DE5FC00A8BD14 /* 014242.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EF8249DE5FC00A8BD14 /* 014242.lrc */; };
+		C0EC1EFB249DE64400A8BD14 /* 013535.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EFA249DE64400A8BD14 /* 013535.lrc */; };
+		C0EC1EFD249DE69100A8BD14 /* 016969.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EFC249DE69100A8BD14 /* 016969.lrc */; };
+		C0EC1EFF249DE6FD00A8BD14 /* 014949.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1EFE249DE6FD00A8BD14 /* 014949.lrc */; };
+		C0EC1F01249DE74100A8BD14 /* 015757.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F00249DE74100A8BD14 /* 015757.lrc */; };
+		C0EC1F03249DE80E00A8BD14 /* 012828.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F02249DE80E00A8BD14 /* 012828.lrc */; };
+		C0EC1F05249DE85700A8BD14 /* 015555.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F04249DE85700A8BD14 /* 015555.lrc */; };
+		C0EC1F07249DE89D00A8BD14 /* 014040.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F06249DE89D00A8BD14 /* 014040.lrc */; };
+		C0EC1F09249DE8FB00A8BD14 /* 013939.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F08249DE8FB00A8BD14 /* 013939.lrc */; };
+		C0EC1F0B249DE93E00A8BD14 /* 016060.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F0A249DE93E00A8BD14 /* 016060.lrc */; };
+		C0EC1F0D249DE96D00A8BD14 /* 012929.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F0C249DE96D00A8BD14 /* 012929.lrc */; };
+		C0EC1F0F249DE9A800A8BD14 /* 013737.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F0E249DE9A800A8BD14 /* 013737.lrc */; };
+		C0EC1F11249DEA0300A8BD14 /* 015959.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F10249DEA0300A8BD14 /* 015959.lrc */; };
+		C0EC1F13249DEA4200A8BD14 /* 012121.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F12249DEA4200A8BD14 /* 012121.lrc */; };
+		C0EC1F15249DEA9300A8BD14 /* 015656.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F14249DEA9300A8BD14 /* 015656.lrc */; };
+		C0EC1F17249DEB1C00A8BD14 /* 014444.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F16249DEB1C00A8BD14 /* 014444.lrc */; };
+		C0EC1F19249DEB6100A8BD14 /* 016565.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F18249DEB6100A8BD14 /* 016565.lrc */; };
+		C0EC1F1B249DEC2700A8BD14 /* 016464.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F1A249DEC2700A8BD14 /* 016464.lrc */; };
+		C0EC1F1D249DEC6600A8BD14 /* 016262.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F1C249DEC6600A8BD14 /* 016262.lrc */; };
+		C0EC1F1F249DECAD00A8BD14 /* 015858.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F1E249DECAD00A8BD14 /* 015858.lrc */; };
+		C0EC1F21249DECFE00A8BD14 /* 015252.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F20249DECFE00A8BD14 /* 015252.lrc */; };
+		C0EC1F23249DED4700A8BD14 /* 014848.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F22249DED4700A8BD14 /* 014848.lrc */; };
+		C0EC1F25249DEDD600A8BD14 /* 013636.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F24249DEDD600A8BD14 /* 013636.lrc */; };
+		C0EC1F27249DEE2100A8BD14 /* 013131.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F26249DEE2100A8BD14 /* 013131.lrc */; };
+		C0EC1F29249DEE7600A8BD14 /* 012525.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F28249DEE7600A8BD14 /* 012525.lrc */; };
+		C0EC1F2B249DF3FA00A8BD14 /* 012222.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F2A249DF3FA00A8BD14 /* 012222.lrc */; };
+		C0EC1F2F249DFC4900A8BD14 /* 012323.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F2E249DFC4900A8BD14 /* 012323.lrc */; };
+		C0EC1F31249DFC8900A8BD14 /* 012424.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F30249DFC8900A8BD14 /* 012424.lrc */; };
+		C0EC1F33249DFDC100A8BD14 /* 012626.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F32249DFDC100A8BD14 /* 012626.lrc */; };
+		C0EC1F35249DFE9500A8BD14 /* 012727.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F34249DFE9500A8BD14 /* 012727.lrc */; };
+		C0EC1F37249DFF1E00A8BD14 /* 013030.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F36249DFF1E00A8BD14 /* 013030.lrc */; };
+		C0EC1F39249E005C00A8BD14 /* 013232.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F38249E005C00A8BD14 /* 013232.lrc */; };
+		C0EC1F3B249E00D200A8BD14 /* 013333.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F3A249E00D200A8BD14 /* 013333.lrc */; };
+		C0EC1F3D249E020900A8BD14 /* 013838.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F3C249E020900A8BD14 /* 013838.lrc */; };
+		C0EC1F3F249E027D00A8BD14 /* 014141.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F3E249E027D00A8BD14 /* 014141.lrc */; };
+		C0EC1F41249E03DD00A8BD14 /* 014343.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F40249E03DD00A8BD14 /* 014343.lrc */; };
+		C0EC1F43249E05BF00A8BD14 /* 014646.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F42249E05BF00A8BD14 /* 014646.lrc */; };
+		C0EC1F45249E05F900A8BD14 /* 014747.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F44249E05F900A8BD14 /* 014747.lrc */; };
+		C0EC1F47249E067400A8BD14 /* 015050.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F46249E067400A8BD14 /* 015050.lrc */; };
+		C0EC1F49249E068000A8BD14 /* 015151.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F48249E068000A8BD14 /* 015151.lrc */; };
+		C0EC1F4B249E068D00A8BD14 /* 015353.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F4A249E068D00A8BD14 /* 015353.lrc */; };
+		C0EC1F4D249E0BA100A8BD14 /* 016161.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F4C249E0BA100A8BD14 /* 016161.lrc */; };
+		C0EC1F4F249E0D4300A8BD14 /* 016363.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F4E249E0D4300A8BD14 /* 016363.lrc */; };
+		C0EC1F51249E0D9700A8BD14 /* 016666.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F50249E0D9700A8BD14 /* 016666.lrc */; };
+		C0EC1F53249E0DA300A8BD14 /* 016767.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F52249E0DA300A8BD14 /* 016767.lrc */; };
+		C0EC1F55249E0DAE00A8BD14 /* 016868.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F54249E0DAE00A8BD14 /* 016868.lrc */; };
+		C0EC1F57249E0F2C00A8BD14 /* 017070.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F56249E0F2C00A8BD14 /* 017070.lrc */; };
+		C0EC1F59249E0F3800A8BD14 /* 017171.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0EC1F58249E0F3800A8BD14 /* 017171.lrc */; };
+		C0F7E1BB246BFBFC0027FE02 /* Home.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B3246BFBFB0027FE02 /* Home.json */; };
+		C0F7E1BC246BFBFC0027FE02 /* ASMR.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B4246BFBFB0027FE02 /* ASMR.json */; };
+		C0F7E1BD246BFBFC0027FE02 /* Meditate.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B5246BFBFB0027FE02 /* Meditate.json */; };
+		C0F7E1BE246BFBFC0027FE02 /* Sleep.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B6246BFBFB0027FE02 /* Sleep.json */; };
+		C0F7E1BF246BFBFC0027FE02 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B7246BFBFB0027FE02 /* loader.json */; };
+		C0F7E1C0246BFBFC0027FE02 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B8246BFBFB0027FE02 /* star.json */; };
+		C0F7E1C1246BFBFC0027FE02 /* Video.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1B9246BFBFB0027FE02 /* Video.json */; };
+		C0F7E1C2246BFBFC0027FE02 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1BA246BFBFC0027FE02 /* data.json */; };
+		C0F7E1CA246BFC7C0027FE02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1C4246BFC7C0027FE02 /* InfoPlist.strings */; };
+		C0F7E1CB246BFC7C0027FE02 /* common.strings in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E1C6246BFC7C0027FE02 /* common.strings */; };
+		C0F7E1D1246C03310027FE02 /* SyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E1D0246C03310027FE02 /* SyButton.swift */; };
+		C0F7E20D246D55F50027FE02 /* SyCycleRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E1FF246D55F40027FE02 /* SyCycleRollView.swift */; };
+		C0F7E20E246D55F50027FE02 /* SyCycleViewImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E200246D55F40027FE02 /* SyCycleViewImageModel.swift */; };
+		C0F7E20F246D55F50027FE02 /* SyImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E201246D55F40027FE02 /* SyImageDownloader.swift */; };
+		C0F7E211246D56A50027FE02 /* SyTimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E210246D56A50027FE02 /* SyTimeInterval.swift */; };
+		C0F7E213246D5C620027FE02 /* SyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E212246D5C620027FE02 /* SyImageView.swift */; };
+		C0F7E215246D68740027FE02 /* SyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E214246D68740027FE02 /* SyTableView.swift */; };
+		C0F7E217246D6CEB0027FE02 /* SyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E216246D6CEB0027FE02 /* SyLabel.swift */; };
+		C0F7E21D246E33FE0027FE02 /* SyMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E21A246E33FE0027FE02 /* SyMeVC.swift */; };
+		C0F7E223246E340B0027FE02 /* SyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E220246E340B0027FE02 /* SyTabBarController.swift */; };
+		C0F7E224246E340B0027FE02 /* SyBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E222246E340B0027FE02 /* SyBaseVC.swift */; };
+		C0F7E238246E57B90027FE02 /* SyAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */; };
+		C0F7E23A246E5AF00027FE02 /* SyPlayerShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E239246E5AF00027FE02 /* SyPlayerShowView.swift */; };
+		C0F7E23E2472C6400027FE02 /* SyChooseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E23D2472C6400027FE02 /* SyChooseListView.swift */; };
+		C0F7E2402472C6890027FE02 /* SyCityChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E23F2472C6890027FE02 /* SyCityChooseView.swift */; };
+		C0F7E244247388180027FE02 /* SyLaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E242247388170027FE02 /* SyLaunchManager.swift */; };
+		C0F7E245247388180027FE02 /* SyLaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E243247388170027FE02 /* SyLaunchModel.swift */; };
+		C0F7E24924738AB40027FE02 /* item_screen_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E24824738AB40027FE02 /* item_screen_icon.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C8E96B01C46141D72045970 /* Pods-SyMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyMusic.release.xcconfig"; path = "Target Support Files/Pods-SyMusic/Pods-SyMusic.release.xcconfig"; sourceTree = "<group>"; };
+		27EFA56EBE110B60EBCD51CE /* Pods_SyMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C02BB772247BE36D00F07E5A /* SyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyImage.swift; sourceTree = "<group>"; };
+		C02EB59926BD461B0022C9E2 /* 030404.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030404.lrc; sourceTree = "<group>"; };
+		C02EB59A26BD461B0022C9E2 /* 030202.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030202.lrc; sourceTree = "<group>"; };
+		C02EB59B26BD461B0022C9E2 /* 030303.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030303.lrc; sourceTree = "<group>"; };
+		C02EB59C26BD461C0022C9E2 /* 030505.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030505.lrc; sourceTree = "<group>"; };
+		C02EB59D26BD461C0022C9E2 /* 030606.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030606.lrc; sourceTree = "<group>"; };
+		C02EB59E26BD461C0022C9E2 /* 030707.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030707.lrc; sourceTree = "<group>"; };
+		C02EB5A526BD462D0022C9E2 /* The Answer to Our Life.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Answer to Our Life.mp3"; sourceTree = "<group>"; };
+		C02EB5A626BD462D0022C9E2 /* As Long as You Love Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "As Long as You Love Me.mp3"; sourceTree = "<group>"; };
+		C02EB5A726BD462D0022C9E2 /* Get Another Boyfriend.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Get Another Boyfriend.mp3"; sourceTree = "<group>"; };
+		C02EB5A826BD462E0022C9E2 /* All I Have to Give.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "All I Have to Give.mp3"; sourceTree = "<group>"; };
+		C02EB5A926BD462E0022C9E2 /* Anywhere for You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Anywhere for You.mp3"; sourceTree = "<group>"; };
+		C02EB5AA26BD462E0022C9E2 /* In a World Like This.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "In a World Like This.mp3"; sourceTree = "<group>"; };
+		C02EB5B126BD48430022C9E2 /* XZQMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XZQMusics.plist; sourceTree = "<group>"; };
+		C02EB5B326BD485E0022C9E2 /* ZJLMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZJLMusics.plist; sourceTree = "<group>"; };
+		C02EB5B526BD487A0022C9E2 /* BBMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BBMusics.plist; sourceTree = "<group>"; };
+		C04427EE245BD3BA00E70AA4 /* SyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C04427F8245BD3BA00E70AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C04427FA245BD3BC00E70AA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C04427FD245BD3BC00E70AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C04427FF245BD3BC00E70AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C044283D24683A4E00E70AA4 /* SyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyUserDefaults.swift; sourceTree = "<group>"; };
+		C044283E24683A4E00E70AA4 /* SyPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyPrint.swift; sourceTree = "<group>"; };
+		C044283F24683A4E00E70AA4 /* SyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyColor.swift; sourceTree = "<group>"; };
+		C044284024683A4E00E70AA4 /* SyAlertControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyAlertControllerView.swift; sourceTree = "<group>"; };
+		C044284124683A4E00E70AA4 /* SyLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLanguage.swift; sourceTree = "<group>"; };
+		C044284224683A4E00E70AA4 /* SyString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyString.swift; sourceTree = "<group>"; };
+		C044284324683A4E00E70AA4 /* SySystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SySystem.swift; sourceTree = "<group>"; };
+		C044284524683A4E00E70AA4 /* SyPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyPublic.swift; sourceTree = "<group>"; };
+		C044284624683A4E00E70AA4 /* SyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyNetwork.swift; sourceTree = "<group>"; };
+		C095493126B270AF003990C0 /* SyMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMainItem.swift; sourceTree = "<group>"; };
+		C09B27E026BA9355000ED751 /* 021414.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021414.lrc; sourceTree = "<group>"; };
+		C09B27E126BA9355000ED751 /* 021313.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021313.lrc; sourceTree = "<group>"; };
+		C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天外来物_薛之谦.mp3"; sourceTree = "<group>"; };
+		C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "变废为宝_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0DD7D0E253E7D2A002C46BA /* SyNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyNetworkRequest.swift; sourceTree = "<group>"; };
+		C0DD7D0F253E7D2A002C46BA /* SyRequestCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyRequestCollection.swift; sourceTree = "<group>"; };
+		C0DD7D4B2542712D002C46BA /* 017272.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 017272.lrc; sourceTree = "<group>"; };
+		C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "断了的弦_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0DD7D5525428504002C46BA /* 030101.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030101.lrc; sourceTree = "<group>"; };
+		C0DD7D582542850D002C46BA /* I want it that way.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I want it that way.mp3"; sourceTree = "<group>"; };
+		C0EC1DDB249DA63600A8BD14 /* SyMusicPlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMusicPlayVC.swift; sourceTree = "<group>"; };
+		C0EC1DDC249DA63600A8BD14 /* SyMainDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMainDetailVC.swift; sourceTree = "<group>"; };
+		C0EC1DDD249DA63600A8BD14 /* SyMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMainVC.swift; sourceTree = "<group>"; };
+		C0EC1DDE249DA63600A8BD14 /* SyLrcTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLrcTVC.swift; sourceTree = "<group>"; };
+		C0EC1DE5249DA8DE00A8BD14 /* SyLrcCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLrcCell.swift; sourceTree = "<group>"; };
+		C0EC1DE8249DC17900A8BD14 /* SyAudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyAudioPlayerView.swift; sourceTree = "<group>"; };
+		C0EC1E07249DDE0A00A8BD14 /* 020606.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020606.lrc; sourceTree = "<group>"; };
+		C0EC1E08249DDE0A00A8BD14 /* 020303.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020303.lrc; sourceTree = "<group>"; };
+		C0EC1E09249DDE0A00A8BD14 /* 020404.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020404.lrc; sourceTree = "<group>"; };
+		C0EC1E0A249DDE0A00A8BD14 /* 020707.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020707.lrc; sourceTree = "<group>"; };
+		C0EC1E0B249DDE0B00A8BD14 /* 021111.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021111.lrc; sourceTree = "<group>"; };
+		C0EC1E0C249DDE0B00A8BD14 /* 021212.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021212.lrc; sourceTree = "<group>"; };
+		C0EC1E0D249DDE0B00A8BD14 /* 020808.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020808.lrc; sourceTree = "<group>"; };
+		C0EC1E0E249DDE0B00A8BD14 /* 020101.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020101.lrc; sourceTree = "<group>"; };
+		C0EC1E0F249DDE0B00A8BD14 /* 021010.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021010.lrc; sourceTree = "<group>"; };
+		C0EC1E10249DDE0B00A8BD14 /* 020909.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020909.lrc; sourceTree = "<group>"; };
+		C0EC1E11249DDE0B00A8BD14 /* 020505.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020505.lrc; sourceTree = "<group>"; };
+		C0EC1E12249DDE0B00A8BD14 /* 020202.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 020202.lrc; sourceTree = "<group>"; };
+		C0EC1E20249DDE4F00A8BD14 /* 010101.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 010101.lrc; sourceTree = "<group>"; };
+		C0EC1E23249DDE9700A8BD14 /* 几个你_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "几个你_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E24249DDE9700A8BD14 /* 我害怕_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我害怕_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E25249DDE9700A8BD14 /* 尘_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "尘_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E26249DDE9700A8BD14 /* 别_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "别_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E27249DDE9700A8BD14 /* 渡_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "渡_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E28249DDE9700A8BD14 /* 暧昧_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "暧昧_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E29249DDE9700A8BD14 /* 天份_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天份_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E2A249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "哑巴_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E2B249DDE9800A8BD14 /* 演员_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "演员_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E2D249DDE9800A8BD14 /* 方圆几里_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "方圆几里_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E2E249DDE9800A8BD14 /* 认真的雪_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "认真的雪_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E2F249DDE9800A8BD14 /* 初学者_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "初学者_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0EC1E3E249DDECB00A8BD14 /* 雨下一整晚_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "雨下一整晚_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E3F249DDECB00A8BD14 /* 最后的战役_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "最后的战役_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E40249DDECB00A8BD14 /* 枫_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "枫_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E41249DDECB00A8BD14 /* Mine Mine_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mine Mine_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E42249DDECB00A8BD14 /* 东风破_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "东风破_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E43249DDECB00A8BD14 /* 大笨钟_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "大笨钟_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E44249DDECB00A8BD14 /* 对不起_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "对不起_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E45249DDECB00A8BD14 /* 发如雪_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "发如雪_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E46249DDECC00A8BD14 /* 红模仿_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "红模仿_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E47249DDECC00A8BD14 /* 黄金甲_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "黄金甲_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E48249DDECC00A8BD14 /* 简单爱_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "简单爱_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E49249DDECC00A8BD14 /* 麦芽糖_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "麦芽糖_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E4A249DDECC00A8BD14 /* 迷迭香_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "迷迭香_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E4B249DDECC00A8BD14 /* 迷魂曲_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "迷魂曲_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E4C249DDECC00A8BD14 /* 明明就_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "明明就_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E4D249DDECC00A8BD14 /* 你好吗_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你好吗_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E4E249DDECC00A8BD14 /* 七里香_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "七里香_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E4F249DDECC00A8BD14 /* 青花瓷_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "青花瓷_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E50249DDECD00A8BD14 /* 时光机_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "时光机_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E51249DDECD00A8BD14 /* 彩虹_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "彩虹_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E52249DDECD00A8BD14 /* 稻香_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "稻香_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E53249DDECD00A8BD14 /* 暗号_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "暗号_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E54249DDECD00A8BD14 /* 搁浅_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "搁浅_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E55249DDECD00A8BD14 /* 将军_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "将军_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E56249DDECD00A8BD14 /* 借口_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "借口_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E57249DDECD00A8BD14 /* 晴天_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "晴天_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E58249DDECD00A8BD14 /* 梯田_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "梯田_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E59249DDECD00A8BD14 /* 甜甜的_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "甜甜的_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E5A249DDECD00A8BD14 /* 退后_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "退后_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E5B249DDECE00A8BD14 /* 外婆_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "外婆_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E5C249DDECE00A8BD14 /* 我不配_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我不配_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E5D249DDECE00A8BD14 /* 星晴_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "星晴_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E5E249DDECE00A8BD14 /* 夜曲_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "夜曲_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E5F249DDECE00A8BD14 /* 园游会_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "园游会_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E60249DDECE00A8BD14 /* 周大侠_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "周大侠_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E61249DDECE00A8BD14 /* 千里之外_费玉清,周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "千里之外_费玉清,周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E62249DDECE00A8BD14 /* 本草纲目_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "本草纲目_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E63249DDECE00A8BD14 /* 黑色毛衣_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "黑色毛衣_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E64249DDECF00A8BD14 /* 黑色幽默_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "黑色幽默_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E65249DDECF00A8BD14 /* 白色风车_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白色风车_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E66249DDECF00A8BD14 /* 半岛铁盒_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "半岛铁盒_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E67249DDECF00A8BD14 /* 开不了口_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "开不了口_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E68249DDECF00A8BD14 /* 可爱女人_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "可爱女人_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E69249DDECF00A8BD14 /* 浪漫手机_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "浪漫手机_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E6A249DDECF00A8BD14 /* 你听的到_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你听的到_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E6B249DDECF00A8BD14 /* 乔克叔叔_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "乔克叔叔_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E6C249DDECF00A8BD14 /* 三年二班_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "三年二班_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E6D249DDED000A8BD14 /* 四面楚歌_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "四面楚歌_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E6E249DDED000A8BD14 /* 她的睫毛_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "她的睫毛_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E6F249DDED000A8BD14 /* 完美主义_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "完美主义_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E70249DDED000A8BD14 /* 威廉古堡_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "威廉古堡_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E71249DDED000A8BD14 /* 烟花易冷_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "烟花易冷_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E72249DDED000A8BD14 /* 不能说的秘密_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "不能说的秘密_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E73249DDED000A8BD14 /* 米兰的小铁匠_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "米兰的小铁匠_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E74249DDED000A8BD14 /* 蒲公英的约定_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "蒲公英的约定_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E75249DDED000A8BD14 /* 一路向北_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "一路向北_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E76249DDED100A8BD14 /* 伊斯坦堡_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "伊斯坦堡_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E77249DDED100A8BD14 /* 以父之名_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "以父之名_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E78249DDED100A8BD14 /* 印地安老斑鸠_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "印地安老斑鸠_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E79249DDED100A8BD14 /* 止战之殇_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "止战之殇_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E7A249DDED100A8BD14 /* 火车叨位去_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "火车叨位去_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E7B249DDED100A8BD14 /* 爸我回来了_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爸我回来了_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E7C249DDED100A8BD14 /* 爱在西元前_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爱在西元前_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E7D249DDED100A8BD14 /* 超人不会飞_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "超人不会飞_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E7E249DDED100A8BD14 /* 反方向的钟_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "反方向的钟_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E7F249DDED200A8BD14 /* 公公偏头痛_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "公公偏头痛_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E80249DDED200A8BD14 /* 疗伤烧肉粽_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "疗伤烧肉粽_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E81249DDED200A8BD14 /* 手写的从前_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "手写的从前_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E82249DDED200A8BD14 /* 听妈妈的话_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "听妈妈的话_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E83249DDED200A8BD14 /* 同一种调调_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "同一种调调_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1E84249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爷爷泡的茶_周杰伦.mp3"; sourceTree = "<group>"; };
+		C0EC1ECC249DDF3400A8BD14 /* 010202.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010202.lrc; sourceTree = "<group>"; };
+		C0EC1ECE249DDF8C00A8BD14 /* 010303.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010303.lrc; sourceTree = "<group>"; };
+		C0EC1ED0249DDFE500A8BD14 /* 010404.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010404.lrc; sourceTree = "<group>"; };
+		C0EC1ED2249DE02A00A8BD14 /* 010505.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010505.lrc; sourceTree = "<group>"; };
+		C0EC1ED4249DE06300A8BD14 /* 010606.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010606.lrc; sourceTree = "<group>"; };
+		C0EC1ED6249DE09F00A8BD14 /* 010707.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010707.lrc; sourceTree = "<group>"; };
+		C0EC1ED8249DE0D300A8BD14 /* 010808.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010808.lrc; sourceTree = "<group>"; };
+		C0EC1EDA249DE11900A8BD14 /* 010909.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 010909.lrc; sourceTree = "<group>"; };
+		C0EC1EDC249DE13D00A8BD14 /* 011010.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011010.lrc; sourceTree = "<group>"; };
+		C0EC1EDE249DE17B00A8BD14 /* 011111.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011111.lrc; sourceTree = "<group>"; };
+		C0EC1EE0249DE1EB00A8BD14 /* 011212.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011212.lrc; sourceTree = "<group>"; };
+		C0EC1EE2249DE2DB00A8BD14 /* 011313.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011313.lrc; sourceTree = "<group>"; };
+		C0EC1EE4249DE30100A8BD14 /* 011414.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011414.lrc; sourceTree = "<group>"; };
+		C0EC1EE6249DE33D00A8BD14 /* 011515.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011515.lrc; sourceTree = "<group>"; };
+		C0EC1EE8249DE3D900A8BD14 /* 011616.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011616.lrc; sourceTree = "<group>"; };
+		C0EC1EEA249DE43100A8BD14 /* 011717.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011717.lrc; sourceTree = "<group>"; };
+		C0EC1EEC249DE47C00A8BD14 /* 011818.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011818.lrc; sourceTree = "<group>"; };
+		C0EC1EEE249DE4CF00A8BD14 /* 011919.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 011919.lrc; sourceTree = "<group>"; };
+		C0EC1EF0249DE4DC00A8BD14 /* 012020.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012020.lrc; sourceTree = "<group>"; };
+		C0EC1EF2249DE52400A8BD14 /* 013434.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013434.lrc; sourceTree = "<group>"; };
+		C0EC1EF4249DE56F00A8BD14 /* 014545.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014545.lrc; sourceTree = "<group>"; };
+		C0EC1EF6249DE5B300A8BD14 /* 015454.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015454.lrc; sourceTree = "<group>"; };
+		C0EC1EF8249DE5FC00A8BD14 /* 014242.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014242.lrc; sourceTree = "<group>"; };
+		C0EC1EFA249DE64400A8BD14 /* 013535.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013535.lrc; sourceTree = "<group>"; };
+		C0EC1EFC249DE69100A8BD14 /* 016969.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016969.lrc; sourceTree = "<group>"; };
+		C0EC1EFE249DE6FD00A8BD14 /* 014949.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014949.lrc; sourceTree = "<group>"; };
+		C0EC1F00249DE74100A8BD14 /* 015757.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015757.lrc; sourceTree = "<group>"; };
+		C0EC1F02249DE80E00A8BD14 /* 012828.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012828.lrc; sourceTree = "<group>"; };
+		C0EC1F04249DE85700A8BD14 /* 015555.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015555.lrc; sourceTree = "<group>"; };
+		C0EC1F06249DE89D00A8BD14 /* 014040.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014040.lrc; sourceTree = "<group>"; };
+		C0EC1F08249DE8FB00A8BD14 /* 013939.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013939.lrc; sourceTree = "<group>"; };
+		C0EC1F0A249DE93E00A8BD14 /* 016060.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016060.lrc; sourceTree = "<group>"; };
+		C0EC1F0C249DE96D00A8BD14 /* 012929.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012929.lrc; sourceTree = "<group>"; };
+		C0EC1F0E249DE9A800A8BD14 /* 013737.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013737.lrc; sourceTree = "<group>"; };
+		C0EC1F10249DEA0300A8BD14 /* 015959.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015959.lrc; sourceTree = "<group>"; };
+		C0EC1F12249DEA4200A8BD14 /* 012121.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012121.lrc; sourceTree = "<group>"; };
+		C0EC1F14249DEA9300A8BD14 /* 015656.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015656.lrc; sourceTree = "<group>"; };
+		C0EC1F16249DEB1C00A8BD14 /* 014444.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014444.lrc; sourceTree = "<group>"; };
+		C0EC1F18249DEB6100A8BD14 /* 016565.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016565.lrc; sourceTree = "<group>"; };
+		C0EC1F1A249DEC2700A8BD14 /* 016464.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016464.lrc; sourceTree = "<group>"; };
+		C0EC1F1C249DEC6600A8BD14 /* 016262.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016262.lrc; sourceTree = "<group>"; };
+		C0EC1F1E249DECAD00A8BD14 /* 015858.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015858.lrc; sourceTree = "<group>"; };
+		C0EC1F20249DECFE00A8BD14 /* 015252.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015252.lrc; sourceTree = "<group>"; };
+		C0EC1F22249DED4700A8BD14 /* 014848.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014848.lrc; sourceTree = "<group>"; };
+		C0EC1F24249DEDD600A8BD14 /* 013636.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013636.lrc; sourceTree = "<group>"; };
+		C0EC1F26249DEE2100A8BD14 /* 013131.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013131.lrc; sourceTree = "<group>"; };
+		C0EC1F28249DEE7600A8BD14 /* 012525.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012525.lrc; sourceTree = "<group>"; };
+		C0EC1F2A249DF3FA00A8BD14 /* 012222.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012222.lrc; sourceTree = "<group>"; };
+		C0EC1F2E249DFC4900A8BD14 /* 012323.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012323.lrc; sourceTree = "<group>"; };
+		C0EC1F30249DFC8900A8BD14 /* 012424.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012424.lrc; sourceTree = "<group>"; };
+		C0EC1F32249DFDC100A8BD14 /* 012626.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012626.lrc; sourceTree = "<group>"; };
+		C0EC1F34249DFE9500A8BD14 /* 012727.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 012727.lrc; sourceTree = "<group>"; };
+		C0EC1F36249DFF1E00A8BD14 /* 013030.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013030.lrc; sourceTree = "<group>"; };
+		C0EC1F38249E005C00A8BD14 /* 013232.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013232.lrc; sourceTree = "<group>"; };
+		C0EC1F3A249E00D200A8BD14 /* 013333.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013333.lrc; sourceTree = "<group>"; };
+		C0EC1F3C249E020900A8BD14 /* 013838.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 013838.lrc; sourceTree = "<group>"; };
+		C0EC1F3E249E027D00A8BD14 /* 014141.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014141.lrc; sourceTree = "<group>"; };
+		C0EC1F40249E03DD00A8BD14 /* 014343.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014343.lrc; sourceTree = "<group>"; };
+		C0EC1F42249E05BF00A8BD14 /* 014646.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014646.lrc; sourceTree = "<group>"; };
+		C0EC1F44249E05F900A8BD14 /* 014747.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 014747.lrc; sourceTree = "<group>"; };
+		C0EC1F46249E067400A8BD14 /* 015050.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015050.lrc; sourceTree = "<group>"; };
+		C0EC1F48249E068000A8BD14 /* 015151.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015151.lrc; sourceTree = "<group>"; };
+		C0EC1F4A249E068D00A8BD14 /* 015353.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 015353.lrc; sourceTree = "<group>"; };
+		C0EC1F4C249E0BA100A8BD14 /* 016161.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016161.lrc; sourceTree = "<group>"; };
+		C0EC1F4E249E0D4300A8BD14 /* 016363.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016363.lrc; sourceTree = "<group>"; };
+		C0EC1F50249E0D9700A8BD14 /* 016666.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016666.lrc; sourceTree = "<group>"; };
+		C0EC1F52249E0DA300A8BD14 /* 016767.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016767.lrc; sourceTree = "<group>"; };
+		C0EC1F54249E0DAE00A8BD14 /* 016868.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 016868.lrc; sourceTree = "<group>"; };
+		C0EC1F56249E0F2C00A8BD14 /* 017070.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 017070.lrc; sourceTree = "<group>"; };
+		C0EC1F58249E0F3800A8BD14 /* 017171.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 017171.lrc; sourceTree = "<group>"; };
+		C0F7E1B3246BFBFB0027FE02 /* Home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Home.json; sourceTree = "<group>"; };
+		C0F7E1B4246BFBFB0027FE02 /* ASMR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ASMR.json; sourceTree = "<group>"; };
+		C0F7E1B5246BFBFB0027FE02 /* Meditate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Meditate.json; sourceTree = "<group>"; };
+		C0F7E1B6246BFBFB0027FE02 /* Sleep.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sleep.json; sourceTree = "<group>"; };
+		C0F7E1B7246BFBFB0027FE02 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		C0F7E1B8246BFBFB0027FE02 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
+		C0F7E1B9246BFBFB0027FE02 /* Video.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Video.json; sourceTree = "<group>"; };
+		C0F7E1BA246BFBFC0027FE02 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		C0F7E1C5246BFC7C0027FE02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C0F7E1C7246BFC7C0027FE02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/common.strings"; sourceTree = "<group>"; };
+		C0F7E1C8246BFC7C0027FE02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C0F7E1C9246BFC7C0027FE02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/common.strings; sourceTree = "<group>"; };
+		C0F7E1D0246C03310027FE02 /* SyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyButton.swift; sourceTree = "<group>"; };
+		C0F7E1FF246D55F40027FE02 /* SyCycleRollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyCycleRollView.swift; sourceTree = "<group>"; };
+		C0F7E200246D55F40027FE02 /* SyCycleViewImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyCycleViewImageModel.swift; sourceTree = "<group>"; };
+		C0F7E201246D55F40027FE02 /* SyImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyImageDownloader.swift; sourceTree = "<group>"; };
+		C0F7E210246D56A50027FE02 /* SyTimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyTimeInterval.swift; sourceTree = "<group>"; };
+		C0F7E212246D5C620027FE02 /* SyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyImageView.swift; sourceTree = "<group>"; };
+		C0F7E214246D68740027FE02 /* SyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyTableView.swift; sourceTree = "<group>"; };
+		C0F7E216246D6CEB0027FE02 /* SyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyLabel.swift; sourceTree = "<group>"; };
+		C0F7E21A246E33FE0027FE02 /* SyMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMeVC.swift; sourceTree = "<group>"; };
+		C0F7E220246E340B0027FE02 /* SyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyTabBarController.swift; sourceTree = "<group>"; };
+		C0F7E222246E340B0027FE02 /* SyBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyBaseVC.swift; sourceTree = "<group>"; };
+		C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyAVPlayer.swift; sourceTree = "<group>"; };
+		C0F7E239246E5AF00027FE02 /* SyPlayerShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyPlayerShowView.swift; sourceTree = "<group>"; };
+		C0F7E23D2472C6400027FE02 /* SyChooseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyChooseListView.swift; sourceTree = "<group>"; };
+		C0F7E23F2472C6890027FE02 /* SyCityChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyCityChooseView.swift; sourceTree = "<group>"; };
+		C0F7E242247388170027FE02 /* SyLaunchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLaunchManager.swift; sourceTree = "<group>"; };
+		C0F7E243247388170027FE02 /* SyLaunchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLaunchModel.swift; sourceTree = "<group>"; };
+		C0F7E24824738AB40027FE02 /* item_screen_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = item_screen_icon.jpg; sourceTree = "<group>"; };
+		F272BB1AAF7E9D1892B90C03 /* Pods-SyMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyMusic.debug.xcconfig"; path = "Target Support Files/Pods-SyMusic/Pods-SyMusic.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C04427EB245BD3BA00E70AA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				017470856F70AE65D9373B43 /* Pods_SyMusic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C04427E5245BD3BA00E70AA4 = {
+			isa = PBXGroup;
+			children = (
+				C04427F0245BD3BA00E70AA4 /* SyMusic */,
+				C04427EF245BD3BA00E70AA4 /* Products */,
+				C260674B1C720E029244D4E9 /* Pods */,
+				C8592F0D68AE468E4CFD4E20 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C04427EF245BD3BA00E70AA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C04427EE245BD3BA00E70AA4 /* SyMusic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C04427F0245BD3BA00E70AA4 /* SyMusic */ = {
+			isa = PBXGroup;
+			children = (
+				C0DD7D0D253E7D2A002C46BA /* core */,
+				C0F7E218246E336D0027FE02 /* viewcontroller */,
+				C044282C2468374A00E70AA4 /* common */,
+				C04428172467FD5C00E70AA4 /* resource */,
+				C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */,
+				C04427F7245BD3BA00E70AA4 /* Main.storyboard */,
+				C04427FA245BD3BC00E70AA4 /* Assets.xcassets */,
+				C04427FC245BD3BC00E70AA4 /* LaunchScreen.storyboard */,
+				C04427FF245BD3BC00E70AA4 /* Info.plist */,
+			);
+			path = SyMusic;
+			sourceTree = "<group>";
+		};
+		C04428172467FD5C00E70AA4 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E229246E4FA60027FE02 /* music */,
+				C0F7E1C3246BFC7C0027FE02 /* string */,
+				C0F7E1A7246BFB990027FE02 /* lottie */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		C044282C2468374A00E70AA4 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E241247388170027FE02 /* launch */,
+				C0F7E236246E57890027FE02 /* musicplayer */,
+				C0F7E221246E340B0027FE02 /* baseVC */,
+				C0F7E21F246E340B0027FE02 /* tabbar */,
+				C0F7E1F2246D55F40027FE02 /* scrollview */,
+				C044283C24683A4E00E70AA4 /* helper */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		C044283C24683A4E00E70AA4 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E210246D56A50027FE02 /* SyTimeInterval.swift */,
+				C044283D24683A4E00E70AA4 /* SyUserDefaults.swift */,
+				C044283E24683A4E00E70AA4 /* SyPrint.swift */,
+				C044283F24683A4E00E70AA4 /* SyColor.swift */,
+				C044284024683A4E00E70AA4 /* SyAlertControllerView.swift */,
+				C044284124683A4E00E70AA4 /* SyLanguage.swift */,
+				C044284224683A4E00E70AA4 /* SyString.swift */,
+				C044284324683A4E00E70AA4 /* SySystem.swift */,
+				C044284524683A4E00E70AA4 /* SyPublic.swift */,
+				C044284624683A4E00E70AA4 /* SyNetwork.swift */,
+				C0F7E1D0246C03310027FE02 /* SyButton.swift */,
+				C0F7E212246D5C620027FE02 /* SyImageView.swift */,
+				C0F7E214246D68740027FE02 /* SyTableView.swift */,
+				C0F7E216246D6CEB0027FE02 /* SyLabel.swift */,
+				C0F7E23D2472C6400027FE02 /* SyChooseListView.swift */,
+				C0F7E23F2472C6890027FE02 /* SyCityChooseView.swift */,
+				C02BB772247BE36D00F07E5A /* SyImage.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		C095493026B27088003990C0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C095493126B270AF003990C0 /* SyMainItem.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C0DD7D0D253E7D2A002C46BA /* core */ = {
+			isa = PBXGroup;
+			children = (
+				C0DD7D0E253E7D2A002C46BA /* SyNetworkRequest.swift */,
+				C0DD7D0F253E7D2A002C46BA /* SyRequestCollection.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		C0DD7D5225428488002C46BA /* Backstreet Boys */ = {
+			isa = PBXGroup;
+			children = (
+				C02EB5B526BD487A0022C9E2 /* BBMusics.plist */,
+				C0DD7D54254284AA002C46BA /* lrcs03 */,
+				C0DD7D5325428496002C46BA /* music03 */,
+			);
+			path = "Backstreet Boys";
+			sourceTree = "<group>";
+		};
+		C0DD7D5325428496002C46BA /* music03 */ = {
+			isa = PBXGroup;
+			children = (
+				C02EB5A826BD462E0022C9E2 /* All I Have to Give.mp3 */,
+				C02EB5A926BD462E0022C9E2 /* Anywhere for You.mp3 */,
+				C02EB5A626BD462D0022C9E2 /* As Long as You Love Me.mp3 */,
+				C02EB5A726BD462D0022C9E2 /* Get Another Boyfriend.mp3 */,
+				C02EB5AA26BD462E0022C9E2 /* In a World Like This.mp3 */,
+				C02EB5A526BD462D0022C9E2 /* The Answer to Our Life.mp3 */,
+				C0DD7D582542850D002C46BA /* I want it that way.mp3 */,
+			);
+			path = music03;
+			sourceTree = "<group>";
+		};
+		C0DD7D54254284AA002C46BA /* lrcs03 */ = {
+			isa = PBXGroup;
+			children = (
+				C02EB59A26BD461B0022C9E2 /* 030202.lrc */,
+				C02EB59B26BD461B0022C9E2 /* 030303.lrc */,
+				C02EB59926BD461B0022C9E2 /* 030404.lrc */,
+				C02EB59C26BD461C0022C9E2 /* 030505.lrc */,
+				C02EB59D26BD461C0022C9E2 /* 030606.lrc */,
+				C02EB59E26BD461C0022C9E2 /* 030707.lrc */,
+				C0DD7D5525428504002C46BA /* 030101.lrc */,
+			);
+			path = lrcs03;
+			sourceTree = "<group>";
+		};
+		C0EC1DDA249DA63600A8BD14 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				C0EC1DDB249DA63600A8BD14 /* SyMusicPlayVC.swift */,
+				C0EC1DDC249DA63600A8BD14 /* SyMainDetailVC.swift */,
+				C0EC1DDD249DA63600A8BD14 /* SyMainVC.swift */,
+				C0EC1DDE249DA63600A8BD14 /* SyLrcTVC.swift */,
+			);
+			path = vc;
+			sourceTree = "<group>";
+		};
+		C0EC1DE3249DA8DE00A8BD14 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C0EC1DE5249DA8DE00A8BD14 /* SyLrcCell.swift */,
+				C0EC1DE8249DC17900A8BD14 /* SyAudioPlayerView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C0EC1E06249DDDB400A8BD14 /* lrcs02 */ = {
+			isa = PBXGroup;
+			children = (
+				C09B27E126BA9355000ED751 /* 021313.lrc */,
+				C09B27E026BA9355000ED751 /* 021414.lrc */,
+				C0EC1E0E249DDE0B00A8BD14 /* 020101.lrc */,
+				C0EC1E12249DDE0B00A8BD14 /* 020202.lrc */,
+				C0EC1E08249DDE0A00A8BD14 /* 020303.lrc */,
+				C0EC1E09249DDE0A00A8BD14 /* 020404.lrc */,
+				C0EC1E11249DDE0B00A8BD14 /* 020505.lrc */,
+				C0EC1E07249DDE0A00A8BD14 /* 020606.lrc */,
+				C0EC1E0A249DDE0A00A8BD14 /* 020707.lrc */,
+				C0EC1E0D249DDE0B00A8BD14 /* 020808.lrc */,
+				C0EC1E10249DDE0B00A8BD14 /* 020909.lrc */,
+				C0EC1E0F249DDE0B00A8BD14 /* 021010.lrc */,
+				C0EC1E0B249DDE0B00A8BD14 /* 021111.lrc */,
+				C0EC1E0C249DDE0B00A8BD14 /* 021212.lrc */,
+			);
+			path = lrcs02;
+			sourceTree = "<group>";
+		};
+		C0EC1E1F249DDE1E00A8BD14 /* lrcs01 */ = {
+			isa = PBXGroup;
+			children = (
+				C0EC1E20249DDE4F00A8BD14 /* 010101.lrc */,
+				C0EC1ECC249DDF3400A8BD14 /* 010202.lrc */,
+				C0EC1ECE249DDF8C00A8BD14 /* 010303.lrc */,
+				C0EC1ED0249DDFE500A8BD14 /* 010404.lrc */,
+				C0EC1ED2249DE02A00A8BD14 /* 010505.lrc */,
+				C0EC1ED4249DE06300A8BD14 /* 010606.lrc */,
+				C0EC1ED6249DE09F00A8BD14 /* 010707.lrc */,
+				C0EC1ED8249DE0D300A8BD14 /* 010808.lrc */,
+				C0EC1EDA249DE11900A8BD14 /* 010909.lrc */,
+				C0EC1EDC249DE13D00A8BD14 /* 011010.lrc */,
+				C0EC1EDE249DE17B00A8BD14 /* 011111.lrc */,
+				C0EC1EE0249DE1EB00A8BD14 /* 011212.lrc */,
+				C0EC1EE2249DE2DB00A8BD14 /* 011313.lrc */,
+				C0EC1EE4249DE30100A8BD14 /* 011414.lrc */,
+				C0EC1EE6249DE33D00A8BD14 /* 011515.lrc */,
+				C0EC1EE8249DE3D900A8BD14 /* 011616.lrc */,
+				C0EC1EEA249DE43100A8BD14 /* 011717.lrc */,
+				C0EC1EEC249DE47C00A8BD14 /* 011818.lrc */,
+				C0EC1EEE249DE4CF00A8BD14 /* 011919.lrc */,
+				C0EC1EF0249DE4DC00A8BD14 /* 012020.lrc */,
+				C0EC1F12249DEA4200A8BD14 /* 012121.lrc */,
+				C0EC1F2A249DF3FA00A8BD14 /* 012222.lrc */,
+				C0EC1F2E249DFC4900A8BD14 /* 012323.lrc */,
+				C0EC1F30249DFC8900A8BD14 /* 012424.lrc */,
+				C0EC1F28249DEE7600A8BD14 /* 012525.lrc */,
+				C0EC1F32249DFDC100A8BD14 /* 012626.lrc */,
+				C0EC1F34249DFE9500A8BD14 /* 012727.lrc */,
+				C0EC1F02249DE80E00A8BD14 /* 012828.lrc */,
+				C0EC1F0C249DE96D00A8BD14 /* 012929.lrc */,
+				C0EC1F36249DFF1E00A8BD14 /* 013030.lrc */,
+				C0EC1F26249DEE2100A8BD14 /* 013131.lrc */,
+				C0EC1F38249E005C00A8BD14 /* 013232.lrc */,
+				C0EC1F3A249E00D200A8BD14 /* 013333.lrc */,
+				C0EC1EF2249DE52400A8BD14 /* 013434.lrc */,
+				C0EC1EFA249DE64400A8BD14 /* 013535.lrc */,
+				C0EC1F24249DEDD600A8BD14 /* 013636.lrc */,
+				C0EC1F0E249DE9A800A8BD14 /* 013737.lrc */,
+				C0EC1F3C249E020900A8BD14 /* 013838.lrc */,
+				C0EC1F08249DE8FB00A8BD14 /* 013939.lrc */,
+				C0EC1F06249DE89D00A8BD14 /* 014040.lrc */,
+				C0EC1F3E249E027D00A8BD14 /* 014141.lrc */,
+				C0EC1EF8249DE5FC00A8BD14 /* 014242.lrc */,
+				C0EC1F40249E03DD00A8BD14 /* 014343.lrc */,
+				C0EC1F16249DEB1C00A8BD14 /* 014444.lrc */,
+				C0EC1EF4249DE56F00A8BD14 /* 014545.lrc */,
+				C0EC1F42249E05BF00A8BD14 /* 014646.lrc */,
+				C0EC1F44249E05F900A8BD14 /* 014747.lrc */,
+				C0EC1F22249DED4700A8BD14 /* 014848.lrc */,
+				C0EC1EFE249DE6FD00A8BD14 /* 014949.lrc */,
+				C0EC1F46249E067400A8BD14 /* 015050.lrc */,
+				C0EC1F48249E068000A8BD14 /* 015151.lrc */,
+				C0EC1F20249DECFE00A8BD14 /* 015252.lrc */,
+				C0EC1F4A249E068D00A8BD14 /* 015353.lrc */,
+				C0EC1EF6249DE5B300A8BD14 /* 015454.lrc */,
+				C0EC1F04249DE85700A8BD14 /* 015555.lrc */,
+				C0EC1F14249DEA9300A8BD14 /* 015656.lrc */,
+				C0EC1F00249DE74100A8BD14 /* 015757.lrc */,
+				C0EC1F1E249DECAD00A8BD14 /* 015858.lrc */,
+				C0EC1F10249DEA0300A8BD14 /* 015959.lrc */,
+				C0EC1F0A249DE93E00A8BD14 /* 016060.lrc */,
+				C0EC1F4C249E0BA100A8BD14 /* 016161.lrc */,
+				C0EC1F1C249DEC6600A8BD14 /* 016262.lrc */,
+				C0EC1F4E249E0D4300A8BD14 /* 016363.lrc */,
+				C0EC1F1A249DEC2700A8BD14 /* 016464.lrc */,
+				C0EC1F18249DEB6100A8BD14 /* 016565.lrc */,
+				C0EC1F50249E0D9700A8BD14 /* 016666.lrc */,
+				C0EC1F52249E0DA300A8BD14 /* 016767.lrc */,
+				C0EC1F54249E0DAE00A8BD14 /* 016868.lrc */,
+				C0EC1EFC249DE69100A8BD14 /* 016969.lrc */,
+				C0EC1F56249E0F2C00A8BD14 /* 017070.lrc */,
+				C0EC1F58249E0F3800A8BD14 /* 017171.lrc */,
+				C0DD7D4B2542712D002C46BA /* 017272.lrc */,
+			);
+			path = lrcs01;
+			sourceTree = "<group>";
+		};
+		C0EC1E22249DDE6D00A8BD14 /* music02 */ = {
+			isa = PBXGroup;
+			children = (
+				C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */,
+				C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */,
+				C0EC1E28249DDE9700A8BD14 /* 暧昧_薛之谦.mp3 */,
+				C0EC1E26249DDE9700A8BD14 /* 别_薛之谦.mp3 */,
+				C0EC1E25249DDE9700A8BD14 /* 尘_薛之谦.mp3 */,
+				C0EC1E2F249DDE9800A8BD14 /* 初学者_薛之谦.mp3 */,
+				C0EC1E27249DDE9700A8BD14 /* 渡_薛之谦.mp3 */,
+				C0EC1E2D249DDE9800A8BD14 /* 方圆几里_薛之谦.mp3 */,
+				C0EC1E23249DDE9700A8BD14 /* 几个你_薛之谦.mp3 */,
+				C0EC1E2E249DDE9800A8BD14 /* 认真的雪_薛之谦.mp3 */,
+				C0EC1E29249DDE9700A8BD14 /* 天份_薛之谦.mp3 */,
+				C0EC1E24249DDE9700A8BD14 /* 我害怕_薛之谦.mp3 */,
+				C0EC1E2A249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 */,
+				C0EC1E2B249DDE9800A8BD14 /* 演员_薛之谦.mp3 */,
+			);
+			path = music02;
+			sourceTree = "<group>";
+		};
+		C0EC1E3D249DDEA700A8BD14 /* music01 */ = {
+			isa = PBXGroup;
+			children = (
+				C0EC1E7C249DDED100A8BD14 /* 爱在西元前_周杰伦.mp3 */,
+				C0EC1E53249DDECD00A8BD14 /* 暗号_周杰伦.mp3 */,
+				C0EC1E7B249DDED100A8BD14 /* 爸我回来了_周杰伦.mp3 */,
+				C0EC1E65249DDECF00A8BD14 /* 白色风车_周杰伦.mp3 */,
+				C0EC1E66249DDECF00A8BD14 /* 半岛铁盒_周杰伦.mp3 */,
+				C0EC1E62249DDECE00A8BD14 /* 本草纲目_周杰伦.mp3 */,
+				C0EC1E72249DDED000A8BD14 /* 不能说的秘密_周杰伦.mp3 */,
+				C0EC1E51249DDECD00A8BD14 /* 彩虹_周杰伦.mp3 */,
+				C0EC1E7D249DDED100A8BD14 /* 超人不会飞_周杰伦.mp3 */,
+				C0EC1E43249DDECB00A8BD14 /* 大笨钟_周杰伦.mp3 */,
+				C0EC1E52249DDECD00A8BD14 /* 稻香_周杰伦.mp3 */,
+				C0EC1E42249DDECB00A8BD14 /* 东风破_周杰伦.mp3 */,
+				C0EC1E44249DDECB00A8BD14 /* 对不起_周杰伦.mp3 */,
+				C0EC1E45249DDECB00A8BD14 /* 发如雪_周杰伦.mp3 */,
+				C0EC1E7E249DDED100A8BD14 /* 反方向的钟_周杰伦.mp3 */,
+				C0EC1E40249DDECB00A8BD14 /* 枫_周杰伦.mp3 */,
+				C0EC1E54249DDECD00A8BD14 /* 搁浅_周杰伦.mp3 */,
+				C0EC1E7F249DDED200A8BD14 /* 公公偏头痛_周杰伦.mp3 */,
+				C0EC1E63249DDECE00A8BD14 /* 黑色毛衣_周杰伦.mp3 */,
+				C0EC1E64249DDECF00A8BD14 /* 黑色幽默_周杰伦.mp3 */,
+				C0EC1E46249DDECC00A8BD14 /* 红模仿_周杰伦.mp3 */,
+				C0EC1E47249DDECC00A8BD14 /* 黄金甲_周杰伦.mp3 */,
+				C0EC1E7A249DDED100A8BD14 /* 火车叨位去_周杰伦.mp3 */,
+				C0EC1E48249DDECC00A8BD14 /* 简单爱_周杰伦.mp3 */,
+				C0EC1E55249DDECD00A8BD14 /* 将军_周杰伦.mp3 */,
+				C0EC1E56249DDECD00A8BD14 /* 借口_周杰伦.mp3 */,
+				C0EC1E67249DDECF00A8BD14 /* 开不了口_周杰伦.mp3 */,
+				C0EC1E68249DDECF00A8BD14 /* 可爱女人_周杰伦.mp3 */,
+				C0EC1E69249DDECF00A8BD14 /* 浪漫手机_周杰伦.mp3 */,
+				C0EC1E80249DDED200A8BD14 /* 疗伤烧肉粽_周杰伦.mp3 */,
+				C0EC1E49249DDECC00A8BD14 /* 麦芽糖_周杰伦.mp3 */,
+				C0EC1E4A249DDECC00A8BD14 /* 迷迭香_周杰伦.mp3 */,
+				C0EC1E4B249DDECC00A8BD14 /* 迷魂曲_周杰伦.mp3 */,
+				C0EC1E73249DDED000A8BD14 /* 米兰的小铁匠_周杰伦.mp3 */,
+				C0EC1E4C249DDECC00A8BD14 /* 明明就_周杰伦.mp3 */,
+				C0EC1E4D249DDECC00A8BD14 /* 你好吗_周杰伦.mp3 */,
+				C0EC1E6A249DDECF00A8BD14 /* 你听的到_周杰伦.mp3 */,
+				C0EC1E74249DDED000A8BD14 /* 蒲公英的约定_周杰伦.mp3 */,
+				C0EC1E4E249DDECC00A8BD14 /* 七里香_周杰伦.mp3 */,
+				C0EC1E61249DDECE00A8BD14 /* 千里之外_费玉清,周杰伦.mp3 */,
+				C0EC1E6B249DDECF00A8BD14 /* 乔克叔叔_周杰伦.mp3 */,
+				C0EC1E4F249DDECC00A8BD14 /* 青花瓷_周杰伦.mp3 */,
+				C0EC1E57249DDECD00A8BD14 /* 晴天_周杰伦.mp3 */,
+				C0EC1E6C249DDECF00A8BD14 /* 三年二班_周杰伦.mp3 */,
+				C0EC1E50249DDECD00A8BD14 /* 时光机_周杰伦.mp3 */,
+				C0EC1E81249DDED200A8BD14 /* 手写的从前_周杰伦.mp3 */,
+				C0EC1E6D249DDED000A8BD14 /* 四面楚歌_周杰伦.mp3 */,
+				C0EC1E6E249DDED000A8BD14 /* 她的睫毛_周杰伦.mp3 */,
+				C0EC1E58249DDECD00A8BD14 /* 梯田_周杰伦.mp3 */,
+				C0EC1E59249DDECD00A8BD14 /* 甜甜的_周杰伦.mp3 */,
+				C0EC1E82249DDED200A8BD14 /* 听妈妈的话_周杰伦.mp3 */,
+				C0EC1E83249DDED200A8BD14 /* 同一种调调_周杰伦.mp3 */,
+				C0EC1E5A249DDECD00A8BD14 /* 退后_周杰伦.mp3 */,
+				C0EC1E5B249DDECE00A8BD14 /* 外婆_周杰伦.mp3 */,
+				C0EC1E6F249DDED000A8BD14 /* 完美主义_周杰伦.mp3 */,
+				C0EC1E70249DDED000A8BD14 /* 威廉古堡_周杰伦.mp3 */,
+				C0EC1E5C249DDECE00A8BD14 /* 我不配_周杰伦.mp3 */,
+				C0EC1E5D249DDECE00A8BD14 /* 星晴_周杰伦.mp3 */,
+				C0EC1E71249DDED000A8BD14 /* 烟花易冷_周杰伦.mp3 */,
+				C0EC1E84249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 */,
+				C0EC1E5E249DDECE00A8BD14 /* 夜曲_周杰伦.mp3 */,
+				C0EC1E75249DDED000A8BD14 /* 一路向北_周杰伦.mp3 */,
+				C0EC1E76249DDED100A8BD14 /* 伊斯坦堡_周杰伦.mp3 */,
+				C0EC1E77249DDED100A8BD14 /* 以父之名_周杰伦.mp3 */,
+				C0EC1E78249DDED100A8BD14 /* 印地安老斑鸠_周杰伦.mp3 */,
+				C0EC1E3E249DDECB00A8BD14 /* 雨下一整晚_周杰伦.mp3 */,
+				C0EC1E5F249DDECE00A8BD14 /* 园游会_周杰伦.mp3 */,
+				C0EC1E79249DDED100A8BD14 /* 止战之殇_周杰伦.mp3 */,
+				C0EC1E60249DDECE00A8BD14 /* 周大侠_周杰伦.mp3 */,
+				C0EC1E3F249DDECB00A8BD14 /* 最后的战役_周杰伦.mp3 */,
+				C0EC1E41249DDECB00A8BD14 /* Mine Mine_周杰伦.mp3 */,
+				C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */,
+			);
+			path = music01;
+			sourceTree = "<group>";
+		};
+		C0F7E1A7246BFB990027FE02 /* lottie */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E1B4246BFBFB0027FE02 /* ASMR.json */,
+				C0F7E1BA246BFBFC0027FE02 /* data.json */,
+				C0F7E1B3246BFBFB0027FE02 /* Home.json */,
+				C0F7E1B7246BFBFB0027FE02 /* loader.json */,
+				C0F7E1B5246BFBFB0027FE02 /* Meditate.json */,
+				C0F7E1B6246BFBFB0027FE02 /* Sleep.json */,
+				C0F7E1B8246BFBFB0027FE02 /* star.json */,
+				C0F7E1B9246BFBFB0027FE02 /* Video.json */,
+			);
+			path = lottie;
+			sourceTree = "<group>";
+		};
+		C0F7E1C3246BFC7C0027FE02 /* string */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E1C4246BFC7C0027FE02 /* InfoPlist.strings */,
+				C0F7E1C6246BFC7C0027FE02 /* common.strings */,
+			);
+			path = string;
+			sourceTree = "<group>";
+		};
+		C0F7E1F2246D55F40027FE02 /* scrollview */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E1FF246D55F40027FE02 /* SyCycleRollView.swift */,
+				C0F7E200246D55F40027FE02 /* SyCycleViewImageModel.swift */,
+				C0F7E201246D55F40027FE02 /* SyImageDownloader.swift */,
+			);
+			path = scrollview;
+			sourceTree = "<group>";
+		};
+		C0F7E218246E336D0027FE02 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E21B246E33FE0027FE02 /* main */,
+				C0F7E219246E33FE0027FE02 /* me */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
+		C0F7E219246E33FE0027FE02 /* me */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E21A246E33FE0027FE02 /* SyMeVC.swift */,
+			);
+			path = me;
+			sourceTree = "<group>";
+		};
+		C0F7E21B246E33FE0027FE02 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				C095493026B27088003990C0 /* model */,
+				C0EC1DE3249DA8DE00A8BD14 /* view */,
+				C0EC1DDA249DA63600A8BD14 /* vc */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		C0F7E21F246E340B0027FE02 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E220246E340B0027FE02 /* SyTabBarController.swift */,
+			);
+			path = tabbar;
+			sourceTree = "<group>";
+		};
+		C0F7E221246E340B0027FE02 /* baseVC */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E222246E340B0027FE02 /* SyBaseVC.swift */,
+			);
+			path = baseVC;
+			sourceTree = "<group>";
+		};
+		C0F7E229246E4FA60027FE02 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E22F246E51770027FE02 /* mp3s */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
+		C0F7E22F246E51770027FE02 /* mp3s */ = {
+			isa = PBXGroup;
+			children = (
+				C0DD7D5225428488002C46BA /* Backstreet Boys */,
+				C0F7E24E2474CB070027FE02 /* 周杰伦 */,
+				C0F7E24F2474CB120027FE02 /* 薛之谦 */,
+			);
+			path = mp3s;
+			sourceTree = "<group>";
+		};
+		C0F7E236246E57890027FE02 /* musicplayer */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */,
+				C0F7E239246E5AF00027FE02 /* SyPlayerShowView.swift */,
+			);
+			path = musicplayer;
+			sourceTree = "<group>";
+		};
+		C0F7E241247388170027FE02 /* launch */ = {
+			isa = PBXGroup;
+			children = (
+				C0F7E24824738AB40027FE02 /* item_screen_icon.jpg */,
+				C0F7E242247388170027FE02 /* SyLaunchManager.swift */,
+				C0F7E243247388170027FE02 /* SyLaunchModel.swift */,
+			);
+			path = launch;
+			sourceTree = "<group>";
+		};
+		C0F7E24E2474CB070027FE02 /* 周杰伦 */ = {
+			isa = PBXGroup;
+			children = (
+				C02EB5B326BD485E0022C9E2 /* ZJLMusics.plist */,
+				C0EC1E3D249DDEA700A8BD14 /* music01 */,
+				C0EC1E1F249DDE1E00A8BD14 /* lrcs01 */,
+			);
+			path = "周杰伦";
+			sourceTree = "<group>";
+		};
+		C0F7E24F2474CB120027FE02 /* 薛之谦 */ = {
+			isa = PBXGroup;
+			children = (
+				C02EB5B126BD48430022C9E2 /* XZQMusics.plist */,
+				C0EC1E22249DDE6D00A8BD14 /* music02 */,
+				C0EC1E06249DDDB400A8BD14 /* lrcs02 */,
+			);
+			path = "薛之谦";
+			sourceTree = "<group>";
+		};
+		C260674B1C720E029244D4E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F272BB1AAF7E9D1892B90C03 /* Pods-SyMusic.debug.xcconfig */,
+				0C8E96B01C46141D72045970 /* Pods-SyMusic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8592F0D68AE468E4CFD4E20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27EFA56EBE110B60EBCD51CE /* Pods_SyMusic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C04427ED245BD3BA00E70AA4 /* SyMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0442802245BD3BC00E70AA4 /* Build configuration list for PBXNativeTarget "SyMusic" */;
+			buildPhases = (
+				148E90849E0F9927A04F5780 /* [CP] Check Pods Manifest.lock */,
+				C04427EA245BD3BA00E70AA4 /* Sources */,
+				C04427EB245BD3BA00E70AA4 /* Frameworks */,
+				C04427EC245BD3BA00E70AA4 /* Resources */,
+				9BEEA258A44FBB92649E31DE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SyMusic;
+			productName = SyMusic;
+			productReference = C04427EE245BD3BA00E70AA4 /* SyMusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C04427E6245BD3BA00E70AA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = wwsq;
+				TargetAttributes = {
+					C04427ED245BD3BA00E70AA4 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = C04427E9245BD3BA00E70AA4 /* Build configuration list for PBXProject "SyMusic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+				"zh-Hant",
+			);
+			mainGroup = C04427E5245BD3BA00E70AA4;
+			productRefGroup = C04427EF245BD3BA00E70AA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C04427ED245BD3BA00E70AA4 /* SyMusic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C04427EC245BD3BA00E70AA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0EC1EBA249DDED200A8BD14 /* 米兰的小铁匠_周杰伦.mp3 in Resources */,
+				C0EC1EE1249DE1EB00A8BD14 /* 011212.lrc in Resources */,
+				C0EC1E9F249DDED200A8BD14 /* 梯田_周杰伦.mp3 in Resources */,
+				C0EC1EC2249DDED200A8BD14 /* 爸我回来了_周杰伦.mp3 in Resources */,
+				C0EC1EFB249DE64400A8BD14 /* 013535.lrc in Resources */,
+				C0EC1EA7249DDED200A8BD14 /* 周大侠_周杰伦.mp3 in Resources */,
+				C0EC1EAE249DDED200A8BD14 /* 开不了口_周杰伦.mp3 in Resources */,
+				C0EC1EC9249DDED200A8BD14 /* 听妈妈的话_周杰伦.mp3 in Resources */,
+				C02EB5A226BD461C0022C9E2 /* 030505.lrc in Resources */,
+				C0F7E1BD246BFBFC0027FE02 /* Meditate.json in Resources */,
+				C0EC1E8A249DDED200A8BD14 /* 大笨钟_周杰伦.mp3 in Resources */,
+				C0EC1E98249DDED200A8BD14 /* 彩虹_周杰伦.mp3 in Resources */,
+				C0EC1EC6249DDED200A8BD14 /* 公公偏头痛_周杰伦.mp3 in Resources */,
+				C0EC1E33249DDE9800A8BD14 /* 别_薛之谦.mp3 in Resources */,
+				C0EC1EBB249DDED200A8BD14 /* 蒲公英的约定_周杰伦.mp3 in Resources */,
+				C0EC1F3B249E00D200A8BD14 /* 013333.lrc in Resources */,
+				C0EC1E97249DDED200A8BD14 /* 时光机_周杰伦.mp3 in Resources */,
+				C0EC1F41249E03DD00A8BD14 /* 014343.lrc in Resources */,
+				C02EB5B026BD462E0022C9E2 /* In a World Like This.mp3 in Resources */,
+				C0EC1E1B249DDE0B00A8BD14 /* 021010.lrc in Resources */,
+				C0EC1F1D249DEC6600A8BD14 /* 016262.lrc in Resources */,
+				C0EC1E9E249DDED200A8BD14 /* 晴天_周杰伦.mp3 in Resources */,
+				C0DD7D50254271D5002C46BA /* 断了的弦_周杰伦.mp3 in Resources */,
+				C0EC1E19249DDE0B00A8BD14 /* 020808.lrc in Resources */,
+				C0EC1E89249DDED200A8BD14 /* 东风破_周杰伦.mp3 in Resources */,
+				C02EB5AE26BD462E0022C9E2 /* All I Have to Give.mp3 in Resources */,
+				C02EB5AF26BD462E0022C9E2 /* Anywhere for You.mp3 in Resources */,
+				C0EC1EA4249DDED200A8BD14 /* 星晴_周杰伦.mp3 in Resources */,
+				C0EC1F23249DED4700A8BD14 /* 014848.lrc in Resources */,
+				C0EC1E86249DDED200A8BD14 /* 最后的战役_周杰伦.mp3 in Resources */,
+				C0EC1EDB249DE11900A8BD14 /* 010909.lrc in Resources */,
+				C0EC1E34249DDE9800A8BD14 /* 渡_薛之谦.mp3 in Resources */,
+				C02EB5AD26BD462E0022C9E2 /* Get Another Boyfriend.mp3 in Resources */,
+				C0DD7D5625428504002C46BA /* 030101.lrc in Resources */,
+				C0EC1EAF249DDED200A8BD14 /* 可爱女人_周杰伦.mp3 in Resources */,
+				C0EC1F19249DEB6100A8BD14 /* 016565.lrc in Resources */,
+				C0EC1EA0249DDED200A8BD14 /* 甜甜的_周杰伦.mp3 in Resources */,
+				C0EC1F17249DEB1C00A8BD14 /* 014444.lrc in Resources */,
+				C02EB5A126BD461C0022C9E2 /* 030303.lrc in Resources */,
+				C0EC1F0B249DE93E00A8BD14 /* 016060.lrc in Resources */,
+				C0EC1E93249DDED200A8BD14 /* 明明就_周杰伦.mp3 in Resources */,
+				C0F7E1C2246BFBFC0027FE02 /* data.json in Resources */,
+				C0EC1EB7249DDED200A8BD14 /* 威廉古堡_周杰伦.mp3 in Resources */,
+				C0F7E1CA246BFC7C0027FE02 /* InfoPlist.strings in Resources */,
+				C0EC1EA3249DDED200A8BD14 /* 我不配_周杰伦.mp3 in Resources */,
+				C0F7E24924738AB40027FE02 /* item_screen_icon.jpg in Resources */,
+				C0EC1EDF249DE17B00A8BD14 /* 011111.lrc in Resources */,
+				C0EC1E8C249DDED200A8BD14 /* 发如雪_周杰伦.mp3 in Resources */,
+				C0F7E1BF246BFBFC0027FE02 /* loader.json in Resources */,
+				C0EC1F59249E0F3800A8BD14 /* 017171.lrc in Resources */,
+				C0EC1EBF249DDED200A8BD14 /* 印地安老斑鸠_周杰伦.mp3 in Resources */,
+				C0F7E1BB246BFBFC0027FE02 /* Home.json in Resources */,
+				C0EC1E18249DDE0B00A8BD14 /* 021212.lrc in Resources */,
+				C0EC1E15249DDE0B00A8BD14 /* 020404.lrc in Resources */,
+				C0EC1EE7249DE33D00A8BD14 /* 011515.lrc in Resources */,
+				C0EC1E92249DDED200A8BD14 /* 迷魂曲_周杰伦.mp3 in Resources */,
+				C0EC1E94249DDED200A8BD14 /* 你好吗_周杰伦.mp3 in Resources */,
+				C0F7E1BE246BFBFC0027FE02 /* Sleep.json in Resources */,
+				C0EC1EF3249DE52400A8BD14 /* 013434.lrc in Resources */,
+				C02EB5B426BD485E0022C9E2 /* ZJLMusics.plist in Resources */,
+				C0EC1ED9249DE0D300A8BD14 /* 010808.lrc in Resources */,
+				C0EC1E3B249DDE9800A8BD14 /* 认真的雪_薛之谦.mp3 in Resources */,
+				C0EC1E91249DDED200A8BD14 /* 迷迭香_周杰伦.mp3 in Resources */,
+				C0EC1F39249E005C00A8BD14 /* 013232.lrc in Resources */,
+				C0EC1EAD249DDED200A8BD14 /* 半岛铁盒_周杰伦.mp3 in Resources */,
+				C0EC1EEB249DE43100A8BD14 /* 011717.lrc in Resources */,
+				C0F7E1C1246BFBFC0027FE02 /* Video.json in Resources */,
+				C0EC1E87249DDED200A8BD14 /* 枫_周杰伦.mp3 in Resources */,
+				C0EC1EC7249DDED200A8BD14 /* 疗伤烧肉粽_周杰伦.mp3 in Resources */,
+				C0EC1EA2249DDED200A8BD14 /* 外婆_周杰伦.mp3 in Resources */,
+				C02EB59F26BD461C0022C9E2 /* 030404.lrc in Resources */,
+				C09B27E726BA9364000ED751 /* 变废为宝_薛之谦.mp3 in Resources */,
+				C0EC1E1A249DDE0B00A8BD14 /* 020101.lrc in Resources */,
+				C0EC1E85249DDED200A8BD14 /* 雨下一整晚_周杰伦.mp3 in Resources */,
+				C09B27E326BA9355000ED751 /* 021313.lrc in Resources */,
+				C0EC1E96249DDED200A8BD14 /* 青花瓷_周杰伦.mp3 in Resources */,
+				C0EC1F3F249E027D00A8BD14 /* 014141.lrc in Resources */,
+				C0EC1F37249DFF1E00A8BD14 /* 013030.lrc in Resources */,
+				C0EC1F51249E0D9700A8BD14 /* 016666.lrc in Resources */,
+				C0EC1ECF249DDF8C00A8BD14 /* 010303.lrc in Resources */,
+				C0EC1EF5249DE56F00A8BD14 /* 014545.lrc in Resources */,
+				C0EC1EB9249DDED200A8BD14 /* 不能说的秘密_周杰伦.mp3 in Resources */,
+				C02EB5B626BD487B0022C9E2 /* BBMusics.plist in Resources */,
+				C0EC1EE5249DE30100A8BD14 /* 011414.lrc in Resources */,
+				C0EC1E1D249DDE0B00A8BD14 /* 020505.lrc in Resources */,
+				C0EC1F27249DEE2100A8BD14 /* 013131.lrc in Resources */,
+				C0EC1EB3249DDED200A8BD14 /* 三年二班_周杰伦.mp3 in Resources */,
+				C0EC1F4F249E0D4300A8BD14 /* 016363.lrc in Resources */,
+				C0EC1E8E249DDED200A8BD14 /* 黄金甲_周杰伦.mp3 in Resources */,
+				C0EC1EAB249DDED200A8BD14 /* 黑色幽默_周杰伦.mp3 in Resources */,
+				C0EC1F0D249DE96D00A8BD14 /* 012929.lrc in Resources */,
+				C0EC1F47249E067400A8BD14 /* 015050.lrc in Resources */,
+				C0EC1F1B249DEC2700A8BD14 /* 016464.lrc in Resources */,
+				C0EC1F0F249DE9A800A8BD14 /* 013737.lrc in Resources */,
+				C0EC1F45249E05F900A8BD14 /* 014747.lrc in Resources */,
+				C0EC1E8D249DDED200A8BD14 /* 红模仿_周杰伦.mp3 in Resources */,
+				C0EC1E35249DDE9800A8BD14 /* 暧昧_薛之谦.mp3 in Resources */,
+				C0EC1ED7249DE09F00A8BD14 /* 010707.lrc in Resources */,
+				C0EC1EC3249DDED200A8BD14 /* 爱在西元前_周杰伦.mp3 in Resources */,
+				C0EC1EB5249DDED200A8BD14 /* 她的睫毛_周杰伦.mp3 in Resources */,
+				C0EC1EC5249DDED200A8BD14 /* 反方向的钟_周杰伦.mp3 in Resources */,
+				C0EC1ED1249DDFE500A8BD14 /* 010404.lrc in Resources */,
+				C04427FE245BD3BC00E70AA4 /* LaunchScreen.storyboard in Resources */,
+				C0EC1ED5249DE06300A8BD14 /* 010606.lrc in Resources */,
+				C0EC1F13249DEA4200A8BD14 /* 012121.lrc in Resources */,
+				C09B27E226BA9355000ED751 /* 021414.lrc in Resources */,
+				C0EC1F01249DE74100A8BD14 /* 015757.lrc in Resources */,
+				C0EC1E8F249DDED200A8BD14 /* 简单爱_周杰伦.mp3 in Resources */,
+				C0EC1F43249E05BF00A8BD14 /* 014646.lrc in Resources */,
+				C0EC1EB1249DDED200A8BD14 /* 你听的到_周杰伦.mp3 in Resources */,
+				C0DD7D4C2542712D002C46BA /* 017272.lrc in Resources */,
+				C0EC1F35249DFE9500A8BD14 /* 012727.lrc in Resources */,
+				C0EC1EED249DE47C00A8BD14 /* 011818.lrc in Resources */,
+				C0EC1E32249DDE9800A8BD14 /* 尘_薛之谦.mp3 in Resources */,
+				C0EC1E3A249DDE9800A8BD14 /* 方圆几里_薛之谦.mp3 in Resources */,
+				C0EC1EC1249DDED200A8BD14 /* 火车叨位去_周杰伦.mp3 in Resources */,
+				C02EB5AC26BD462E0022C9E2 /* As Long as You Love Me.mp3 in Resources */,
+				C0EC1F03249DE80E00A8BD14 /* 012828.lrc in Resources */,
+				C0EC1EB6249DDED200A8BD14 /* 完美主义_周杰伦.mp3 in Resources */,
+				C0EC1EB2249DDED200A8BD14 /* 乔克叔叔_周杰伦.mp3 in Resources */,
+				C09B27E626BA9364000ED751 /* 天外来物_薛之谦.mp3 in Resources */,
+				C0EC1F4D249E0BA100A8BD14 /* 016161.lrc in Resources */,
+				C0F7E1C0246BFBFC0027FE02 /* star.json in Resources */,
+				C0EC1E31249DDE9800A8BD14 /* 我害怕_薛之谦.mp3 in Resources */,
+				C0EC1EAA249DDED200A8BD14 /* 黑色毛衣_周杰伦.mp3 in Resources */,
+				C0F7E1BC246BFBFC0027FE02 /* ASMR.json in Resources */,
+				C0EC1EBC249DDED200A8BD14 /* 一路向北_周杰伦.mp3 in Resources */,
+				C04427FB245BD3BC00E70AA4 /* Assets.xcassets in Resources */,
+				C0EC1E14249DDE0B00A8BD14 /* 020303.lrc in Resources */,
+				C0EC1F57249E0F2C00A8BD14 /* 017070.lrc in Resources */,
+				C0EC1ECA249DDED200A8BD14 /* 同一种调调_周杰伦.mp3 in Resources */,
+				C0DD7D592542850D002C46BA /* I want it that way.mp3 in Resources */,
+				C0EC1E88249DDED200A8BD14 /* Mine Mine_周杰伦.mp3 in Resources */,
+				C0EC1E9A249DDED200A8BD14 /* 暗号_周杰伦.mp3 in Resources */,
+				C0EC1EB4249DDED200A8BD14 /* 四面楚歌_周杰伦.mp3 in Resources */,
+				C0EC1E21249DDE4F00A8BD14 /* 010101.lrc in Resources */,
+				C0EC1EF7249DE5B300A8BD14 /* 015454.lrc in Resources */,
+				C0EC1EE9249DE3D900A8BD14 /* 011616.lrc in Resources */,
+				C0EC1E1C249DDE0B00A8BD14 /* 020909.lrc in Resources */,
+				C0EC1EDD249DE13D00A8BD14 /* 011010.lrc in Resources */,
+				C0EC1F49249E068000A8BD14 /* 015151.lrc in Resources */,
+				C0EC1EE3249DE2DB00A8BD14 /* 011313.lrc in Resources */,
+				C0EC1EF1249DE4DC00A8BD14 /* 012020.lrc in Resources */,
+				C0EC1E1E249DDE0B00A8BD14 /* 020202.lrc in Resources */,
+				C0EC1EAC249DDED200A8BD14 /* 白色风车_周杰伦.mp3 in Resources */,
+				C0EC1EA1249DDED200A8BD14 /* 退后_周杰伦.mp3 in Resources */,
+				C0EC1E16249DDE0B00A8BD14 /* 020707.lrc in Resources */,
+				C02EB5B226BD48430022C9E2 /* XZQMusics.plist in Resources */,
+				C0EC1E9C249DDED200A8BD14 /* 将军_周杰伦.mp3 in Resources */,
+				C0EC1EA8249DDED200A8BD14 /* 千里之外_费玉清,周杰伦.mp3 in Resources */,
+				C0EC1ECB249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 in Resources */,
+				C0EC1E30249DDE9800A8BD14 /* 几个你_薛之谦.mp3 in Resources */,
+				C0EC1EC0249DDED200A8BD14 /* 止战之殇_周杰伦.mp3 in Resources */,
+				C0EC1EC8249DDED200A8BD14 /* 手写的从前_周杰伦.mp3 in Resources */,
+				C0EC1F3D249E020900A8BD14 /* 013838.lrc in Resources */,
+				C0EC1F1F249DECAD00A8BD14 /* 015858.lrc in Resources */,
+				C0EC1EA6249DDED200A8BD14 /* 园游会_周杰伦.mp3 in Resources */,
+				C0EC1F05249DE85700A8BD14 /* 015555.lrc in Resources */,
+				C0EC1EEF249DE4CF00A8BD14 /* 011919.lrc in Resources */,
+				C0EC1F31249DFC8900A8BD14 /* 012424.lrc in Resources */,
+				C0EC1EA5249DDED200A8BD14 /* 夜曲_周杰伦.mp3 in Resources */,
+				C04427F9245BD3BA00E70AA4 /* Main.storyboard in Resources */,
+				C0EC1E8B249DDED200A8BD14 /* 对不起_周杰伦.mp3 in Resources */,
+				C0EC1EFF249DE6FD00A8BD14 /* 014949.lrc in Resources */,
+				C0EC1EBD249DDED200A8BD14 /* 伊斯坦堡_周杰伦.mp3 in Resources */,
+				C0EC1F09249DE8FB00A8BD14 /* 013939.lrc in Resources */,
+				C02EB5A426BD461C0022C9E2 /* 030707.lrc in Resources */,
+				C0EC1F25249DEDD600A8BD14 /* 013636.lrc in Resources */,
+				C0EC1F2F249DFC4900A8BD14 /* 012323.lrc in Resources */,
+				C0EC1E9D249DDED200A8BD14 /* 借口_周杰伦.mp3 in Resources */,
+				C0EC1EC4249DDED200A8BD14 /* 超人不会飞_周杰伦.mp3 in Resources */,
+				C0EC1F4B249E068D00A8BD14 /* 015353.lrc in Resources */,
+				C02EB5A326BD461C0022C9E2 /* 030606.lrc in Resources */,
+				C0EC1E37249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 in Resources */,
+				C0EC1F29249DEE7600A8BD14 /* 012525.lrc in Resources */,
+				C0EC1EFD249DE69100A8BD14 /* 016969.lrc in Resources */,
+				C0EC1E90249DDED200A8BD14 /* 麦芽糖_周杰伦.mp3 in Resources */,
+				C0EC1E3C249DDE9800A8BD14 /* 初学者_薛之谦.mp3 in Resources */,
+				C0EC1E99249DDED200A8BD14 /* 稻香_周杰伦.mp3 in Resources */,
+				C0EC1E36249DDE9800A8BD14 /* 天份_薛之谦.mp3 in Resources */,
+				C0EC1F33249DFDC100A8BD14 /* 012626.lrc in Resources */,
+				C0EC1F2B249DF3FA00A8BD14 /* 012222.lrc in Resources */,
+				C0EC1F07249DE89D00A8BD14 /* 014040.lrc in Resources */,
+				C0EC1E17249DDE0B00A8BD14 /* 021111.lrc in Resources */,
+				C0EC1F21249DECFE00A8BD14 /* 015252.lrc in Resources */,
+				C0EC1EF9249DE5FC00A8BD14 /* 014242.lrc in Resources */,
+				C0EC1EB8249DDED200A8BD14 /* 烟花易冷_周杰伦.mp3 in Resources */,
+				C0EC1ECD249DDF3400A8BD14 /* 010202.lrc in Resources */,
+				C0EC1EB0249DDED200A8BD14 /* 浪漫手机_周杰伦.mp3 in Resources */,
+				C0EC1F11249DEA0300A8BD14 /* 015959.lrc in Resources */,
+				C0EC1F53249E0DA300A8BD14 /* 016767.lrc in Resources */,
+				C0EC1ED3249DE02A00A8BD14 /* 010505.lrc in Resources */,
+				C0EC1E38249DDE9800A8BD14 /* 演员_薛之谦.mp3 in Resources */,
+				C0EC1E13249DDE0B00A8BD14 /* 020606.lrc in Resources */,
+				C0EC1EBE249DDED200A8BD14 /* 以父之名_周杰伦.mp3 in Resources */,
+				C0EC1EA9249DDED200A8BD14 /* 本草纲目_周杰伦.mp3 in Resources */,
+				C0EC1E95249DDED200A8BD14 /* 七里香_周杰伦.mp3 in Resources */,
+				C0EC1F55249E0DAE00A8BD14 /* 016868.lrc in Resources */,
+				C0F7E1CB246BFC7C0027FE02 /* common.strings in Resources */,
+				C02EB5A026BD461C0022C9E2 /* 030202.lrc in Resources */,
+				C0EC1F15249DEA9300A8BD14 /* 015656.lrc in Resources */,
+				C02EB5AB26BD462E0022C9E2 /* The Answer to Our Life.mp3 in Resources */,
+				C0EC1E9B249DDED200A8BD14 /* 搁浅_周杰伦.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		148E90849E0F9927A04F5780 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SyMusic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BEEA258A44FBB92649E31DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SyMusic/Pods-SyMusic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SyMusic/Pods-SyMusic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SyMusic/Pods-SyMusic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C04427EA245BD3BA00E70AA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0EC1DE9249DC17900A8BD14 /* SyAudioPlayerView.swift in Sources */,
+				C0F7E20D246D55F50027FE02 /* SyCycleRollView.swift in Sources */,
+				C0EC1DDF249DA63600A8BD14 /* SyMusicPlayVC.swift in Sources */,
+				C0F7E23E2472C6400027FE02 /* SyChooseListView.swift in Sources */,
+				C044284924683A4E00E70AA4 /* SyColor.swift in Sources */,
+				C0EC1DE7249DA8DE00A8BD14 /* SyLrcCell.swift in Sources */,
+				C0F7E238246E57B90027FE02 /* SyAVPlayer.swift in Sources */,
+				C0EC1DE0249DA63600A8BD14 /* SyMainDetailVC.swift in Sources */,
+				C0F7E2402472C6890027FE02 /* SyCityChooseView.swift in Sources */,
+				C044284724683A4E00E70AA4 /* SyUserDefaults.swift in Sources */,
+				C044284B24683A4E00E70AA4 /* SyLanguage.swift in Sources */,
+				C095493226B270AF003990C0 /* SyMainItem.swift in Sources */,
+				C044284D24683A4E00E70AA4 /* SySystem.swift in Sources */,
+				C044284F24683A4E00E70AA4 /* SyPublic.swift in Sources */,
+				C0F7E211246D56A50027FE02 /* SyTimeInterval.swift in Sources */,
+				C0F7E217246D6CEB0027FE02 /* SyLabel.swift in Sources */,
+				C044284A24683A4E00E70AA4 /* SyAlertControllerView.swift in Sources */,
+				C0F7E223246E340B0027FE02 /* SyTabBarController.swift in Sources */,
+				C0F7E23A246E5AF00027FE02 /* SyPlayerShowView.swift in Sources */,
+				C0F7E20E246D55F50027FE02 /* SyCycleViewImageModel.swift in Sources */,
+				C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */,
+				C0DD7D10253E7D2A002C46BA /* SyNetworkRequest.swift in Sources */,
+				C0F7E215246D68740027FE02 /* SyTableView.swift in Sources */,
+				C0F7E244247388180027FE02 /* SyLaunchManager.swift in Sources */,
+				C0EC1DE2249DA63600A8BD14 /* SyLrcTVC.swift in Sources */,
+				C0F7E245247388180027FE02 /* SyLaunchModel.swift in Sources */,
+				C0F7E20F246D55F50027FE02 /* SyImageDownloader.swift in Sources */,
+				C0F7E21D246E33FE0027FE02 /* SyMeVC.swift in Sources */,
+				C04427F2245BD3BA00E70AA4 /* AppDelegate.swift in Sources */,
+				C0F7E1D1246C03310027FE02 /* SyButton.swift in Sources */,
+				C0DD7D11253E7D2A002C46BA /* SyRequestCollection.swift in Sources */,
+				C044284C24683A4E00E70AA4 /* SyString.swift in Sources */,
+				C0F7E213246D5C620027FE02 /* SyImageView.swift in Sources */,
+				C02BB773247BE36D00F07E5A /* SyImage.swift in Sources */,
+				C0F7E224246E340B0027FE02 /* SyBaseVC.swift in Sources */,
+				C044284824683A4E00E70AA4 /* SyPrint.swift in Sources */,
+				C0EC1DE1249DA63600A8BD14 /* SyMainVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C04427F7245BD3BA00E70AA4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C04427F8245BD3BA00E70AA4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C04427FC245BD3BC00E70AA4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C04427FD245BD3BC00E70AA4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C0F7E1C4246BFC7C0027FE02 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0F7E1C5246BFC7C0027FE02 /* zh-Hans */,
+				C0F7E1C8246BFC7C0027FE02 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C0F7E1C6246BFC7C0027FE02 /* common.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0F7E1C7246BFC7C0027FE02 /* zh-Hans */,
+				C0F7E1C9246BFC7C0027FE02 /* en */,
+			);
+			name = common.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0442800245BD3BC00E70AA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C0442801245BD3BC00E70AA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0442803245BD3BC00E70AA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F272BB1AAF7E9D1892B90C03 /* Pods-SyMusic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5NWEY8AK7C;
+				INFOPLIST_FILE = SyMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxm5220.SyMusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C0442804245BD3BC00E70AA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C8E96B01C46141D72045970 /* Pods-SyMusic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5NWEY8AK7C;
+				INFOPLIST_FILE = SyMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxm5220.SyMusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C04427E9245BD3BA00E70AA4 /* Build configuration list for PBXProject "SyMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0442800245BD3BC00E70AA4 /* Debug */,
+				C0442801245BD3BC00E70AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0442802245BD3BC00E70AA4 /* Build configuration list for PBXNativeTarget "SyMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0442803245BD3BC00E70AA4 /* Debug */,
+				C0442804245BD3BC00E70AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C04427E6245BD3BA00E70AA4 /* Project object */;
+}
