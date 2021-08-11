@@ -147,7 +147,7 @@ class turnView: UIView, SyAVPlayerDelegate {
 
 //底部播放view
 class SyPlayerShowView: UIView{
-    public var item: MusicItem!
+    public var star: MusicStar!
     var tView: turnView?
     var categoryId: String?
     
@@ -202,10 +202,10 @@ class SyPlayerShowView: UIView{
         super.init(frame: frame)
     }
     
-    convenience init(frame: CGRect, isShow: Bool, categoryId: String?,item: MusicItem) {
+    convenience init(frame: CGRect, isShow: Bool, categoryId: String?,star: MusicStar) {
         self.init(frame: frame)
         self.categoryId = categoryId
-        self.item = item
+        self.star = star
         NotificationCenter.default.addObserver(self, selector: #selector(playBarChangePlayStateWith(notif:)), name: NSNotification.Name(rawValue: SyAVPlayerState), object: nil)
         
         self.layer.shadowColor = UIColor.gray.cgColor //阴影背景
@@ -279,7 +279,7 @@ class SyPlayerShowView: UIView{
             SyAVPlayer.getSharedInstance().play()
         }
         let vc = SyMusicPlayVC()
-        vc.item = self.item
+        vc.star = self.star
         vc.model = SyAVPlayer.getSharedInstance().model
         vc.title = SyAVPlayer.getSharedInstance().model?.name
         vc.categoryId = self.categoryId

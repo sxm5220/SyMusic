@@ -86,7 +86,9 @@ func screenlight(value: Bool) {
 
 //退出app
 func exitApplication() {
-    let window = UIApplication.shared.delegate?.window as? UIWindow
+    guard let window = UIApplication.shared.delegate?.window else {
+        return
+    }
     UIView.animate(withDuration: 0.5, animations: {
         window?.alpha = 0
         window?.frame = CGRect.init(x: screenWidth() / 2, y: screenHeight() / 2, width: 0, height: 0)

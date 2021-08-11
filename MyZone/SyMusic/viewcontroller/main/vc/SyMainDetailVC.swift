@@ -11,20 +11,18 @@ import UIKit
 import MJRefresh
 
 class SyMainDetailVC: SyBaseVC {
-    
-    public var tView: turnView?
-    fileprivate let heightValue: CGFloat = 160.0
+    private let heightValue: CGFloat = 160.0
     public var categoryId: String?
-    public var item: MusicItem!
+    public var star: MusicStar!
     public var m: userItem!
     
-    fileprivate var dataCourseArray: [SyMusicsItem] = [SyMusicsItem]() {
+    private var dataCourseArray: [SyMusicsItem] = [SyMusicsItem]() {
         didSet {
             self.tableView.reloadData()
         }
     }
     
-    lazy var headImageView: UIImageView = {
+    private lazy var headImageView: UIImageView = {
         var imgView = UIImageView(frame: CGRect(x: 20, y: 20, width: screenWidth() - 100, height: heightValue))
         imgView.clipsToBounds = true
         imgView.contentMode = .scaleAspectFill
@@ -32,14 +30,14 @@ class SyMainDetailVC: SyBaseVC {
         return imgView
     }()
     
-    fileprivate lazy var headView: UIView = {
+    private lazy var headView: UIView = {
         var headView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: heightValue + 40))
         headView.backgroundColor = UIColor.clear
         headView.addSubview(self.headImageView)
         return headView
     }()
     
-    fileprivate lazy var tableView: SyTableView = {
+    private lazy var tableView: SyTableView = {
         let heightValue: CGFloat = (screenHeight() - navigationBarWithHeight() - 20)
         
         var tableView = SyTableView(array: [30,0,screenWidth() - 60,heightValue], .plain, self)
@@ -63,21 +61,21 @@ class SyMainDetailVC: SyBaseVC {
         self.tableView.reloadData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tView?.stopTimer()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isBackBar = true
         self.view.addSubview(self.tableView)
         self.title = self.m.name
         self.categoryId = self.m.id
-        self.item = self.m.item
+        self.star = self.m.star
         self.headImageView.image = UIImage.init(named: self.m.icon)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(playBarChangePlayStateWith(notif:)), name: NSNotification.Name(rawValue: SyAVPlayerState), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     @objc func tapAction(sender: UITapGestureRecognizer) {
         let indexValue: Int = sender.view?.tag ?? -1
@@ -87,7 +85,7 @@ class SyMainDetailVC: SyBaseVC {
     }
     
     fileprivate func musicListDataSource(isRefresh: Bool) {
-        SyAVPlayer.dataSource(item: self.item) { (models: [SyMusicsItem]) in
+        SyAVPlayer.dataSource(star: self.star) { (models: [SyMusicsItem]) in
             self.dataCourseArray = models
             self.loadDataComplete()
         }
@@ -109,11 +107,20 @@ class SyMainDetailVC: SyBaseVC {
         SyAVPlayer.getSharedInstance().isIntroductionDetail = false
 
         let vc = SyMusicPlayVC()
-        vc.item = self.item
-        vc.title = model.name
+        vc.star = self.star
         vc.model = model
         vc.categoryId = self.categoryId
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SyMainDetailVC {
+    @objc
+    func playBarChangePlayStateWith(notif : Notification){
+        guard let state = notif.userInfo?[SyAVPlayerState] as? AVPlayerPlayState else {return}
+        if state == .AVPlayerPlayStatePlaying {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -155,45 +162,37 @@ extension SyMainDetailVC: UITableViewDelegate, UITableViewDataSource {
             //headerImageView.sd_setImage(with: URL(string: model.headUrl), placeholderImage: #imageLiteral(resourceName: "item_color_5_icon"))
             cell.contentView.addSubview(headerImageView)
             
+            let imgV = UIImageView(frame: CGRect(x: 5, y: 30, width: 20, height: 20))
+            imgV.animationImages = [#imageLiteral(resourceName: "item_bledevice_playing_01_icon"),#imageLiteral(resourceName: "item_bledevice_playing_02_icon"),#imageLiteral(resourceName: "item_bledevice_playing_03_icon")]
+            imgV.animationDuration = 1
+            imgV.animationRepeatCount = 0
+            imgV.stopAnimating()
+            cell.contentView.addSubview(imgV)
+            
             //名称
-            let titleLabel = SyLabel(frame: CGRect(x: 20, y: 15, width: cell.bounds.size.width - 70, height: 20), text: model.name, textColor: .lightGray, font: UIFont.systemFont(ofSize: 14), textAlignment: .left)
+            let titleLabel = SyLabel(frame: CGRect(x: imgV.frame.maxX + 10, y: 15, width: cell.bounds.size.width - 70, height: 20), text: model.name, textColor: .lightGray, font: UIFont.systemFont(ofSize: 14), textAlignment: .left)
             cell.contentView.addSubview(titleLabel)
             
             //演唱者
-            let singerLabel = SyLabel(frame: CGRect(x: 20, y: titleLabel.frame.maxY + 5, width: titleLabel.bounds.size.width, height: 20), text: model.singer, textColor: .lightGray, font: UIFont.systemFont(ofSize: 10), textAlignment: .left)
+            let singerLabel = SyLabel(frame: CGRect(x: titleLabel.frame.origin.x, y: titleLabel.frame.maxY + 5, width: titleLabel.bounds.size.width, height: 20), text: model.singer, textColor: titleLabel.textColor, font: UIFont.systemFont(ofSize: 10), textAlignment: .left)
             cell.contentView.addSubview(singerLabel)
-            
-            //进度条
-            let progressView = UIProgressView(frame: CGRect(x: singerLabel.frame.origin.x, y: singerLabel.frame.maxY + 5, width: screenWidth() - 80 - 5 - 60 , height: 5))
-            progressView.alpha = 0
-            progressView.progressViewStyle = .default
-            progressView.progress = 0
-            progressView.layer.cornerRadius = progressView.bounds.size.height / 2
-            progressView.trackTintColor = rgbWithValue(r: 220, g: 220, b: 220, alpha: 0.2)
-            progressView.progressTintColor = .white
-            cell.contentView.addSubview(progressView)
             
             if SyAVPlayer.getSharedInstance().musicArray.count > SyAVPlayer.getSharedInstance().currentIndex{
                 if SyAVPlayer.getSharedInstance().musicArray[SyAVPlayer.getSharedInstance().currentIndex].id == model.id && SyAVPlayer.getSharedInstance().musicArray[SyAVPlayer.getSharedInstance().currentIndex].category == self.categoryId { //当前音频播放状态
+                    if SyAVPlayer.getSharedInstance().isPlay {
+                        imgV.startAnimating()
+                        imgV.image = nil
+                    }else{
+                        imgV.stopAnimating()
+                        imgV.image = #imageLiteral(resourceName: "item_bledevice_playing_01_icon")
+                    }
+                    
                     titleLabel.textColor = .white
                     titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
-                    singerLabel.font = UIFont.boldSystemFont(ofSize: 10)
-                    progressView.alpha = 1
-                    self.tView = turnView(frame: CGRect.zero, imageView: headerImageView, progressView)
-                    self.tView?.startTimer()
-                }else{
-                    progressView.alpha = 0
-                    titleLabel.textColor = .lightGray
-                    titleLabel.font = UIFont.systemFont(ofSize: 14)
-                    singerLabel.font = UIFont.systemFont(ofSize: 10)
+                    singerLabel.font = UIFont.boldSystemFont(ofSize: 12)
+                    singerLabel.textColor = titleLabel.textColor
                 }
-            }else{
-                progressView.alpha = 0
-                titleLabel.textColor = .lightGray
-                titleLabel.font = UIFont.systemFont(ofSize: 14)
-                singerLabel.font = UIFont.systemFont(ofSize: 10)
             }
-            singerLabel.textColor = titleLabel.textColor
         }
         return cell
     }

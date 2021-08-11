@@ -17,16 +17,16 @@ class SyNetworkRequest {
         return NetworkRequestShareInstance
     }
     
-    func httpRequest(method: HTTPMethod,
+    /*func httpRequest(method: HTTPMethod,
                      urlString: String,
                      params: [String : Any],
                      success: @escaping ((_ item: [String: AnyObject]) -> Void)) {
         var params = params
-        /*params["access_token"] = userDefaultsForString(forKey: userDefaultAccessTokenKey())
+        params["access_token"] = userDefaultsForString(forKey: userDefaultAccessTokenKey())
         params["lang"] = language()
         params["countryCode"] = userDefaultsForString(forKey: userDefaultCountryCodeKey())
         params["country"] = userDefaultsForString(forKey: userDefaultCountryNameKey())
-        params["city"] = userDefaultsForString(forKey: userDefaultCityNameKey())*/
+        params["city"] = userDefaultsForString(forKey: userDefaultCityNameKey())
         params["systemVersion"] = systemVersion() //当前手机系统版本号
         params["appVersion"] = currentVersion() //当前app版本号
         var request = URLRequest(url: URL.init(string: "")!)
@@ -68,7 +68,7 @@ class SyNetworkRequest {
             }
         }
         dataTask.resume()
-    }
+    }*/
     
     
 }

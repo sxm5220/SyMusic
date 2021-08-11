@@ -13,15 +13,15 @@ import MJRefresh
 
 struct userItem {
     let id,name,icon: String
-    let item: MusicItem
+    let star: MusicStar
 }
 
 class SyMainVC: SyBaseVC {
     fileprivate let heightValue: CGFloat = 250.0
     fileprivate var itemWidth: CGFloat = (screenWidth() - 20 - 45) / 2
-    let items = [userItem(id: "01", name: "周杰伦", icon: "item_jz_icon",item: .ZJL),
-                 userItem(id: "02", name: "薛之谦", icon: "item_xjq_icon",item: .XZQ),
-                 userItem(id: "03", name: "Backstreet Boys", icon: "item_BSBoys_icon",item: .BackstreetBoys)]
+    let items = [userItem(id: "01", name: "周杰伦", icon: "item_jz_icon",star: .JayChou),
+                 userItem(id: "02", name: "薛之谦", icon: "item_xjq_icon",star: .JokerXue),
+                 userItem(id: "03", name: "Backstreet Boys", icon: "item_BSBoys_icon",star: .BackstreetBoys)]
     
     fileprivate lazy var cycleView: SyCycleRollView = {
         var cycleView = SyCycleRollView(frame: CGRect(x: 0, y: 0, width: screenWidth() - 10, height: heightValue), localImageArray: [#imageLiteral(resourceName: "item_JayChou_icon"),#imageLiteral(resourceName: "item_JokerXue_icon"),#imageLiteral(resourceName: "item_BackstreetBoys_icon")])

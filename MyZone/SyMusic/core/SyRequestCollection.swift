@@ -24,7 +24,7 @@ class SyRequestCollection: NSObject {
         _sharedInstance = nil
     }
     
-    //判断app是否需要升级
+    /*/判断app是否需要升级
     func appVersionRequest() {
         var params = [String: Any]()
         params["version"] = currentVersion()
@@ -32,5 +32,5 @@ class SyRequestCollection: NSObject {
         SyNetworkRequest.sharedInstance.httpRequest(method: .post, urlString: "", params: params) { (item) in
             
         }
-    }
+    }*/
 }

@@ -64,13 +64,13 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         }
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-        if UIApplication.shared.keyWindow?.subviews.count ?? 0 > 0 && (self.navigationController?.viewControllers.count ?? 0 == 1 || currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder){
+        guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
+        if windows.count > 0 && (self.navigationController?.viewControllers.count ?? 0 == 1 || currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder){
             var viewFrameY = screenHeight() - (isIphoneX() ? 135 : 100)
             if currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder {
                 viewFrameY = screenHeight()
             }
-            UIApplication.shared.keyWindow?.subviews.forEach { (view) in
+            windows.forEach { (view) in
                 if view.classForCoder == SyPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
                     UIView.animate(withDuration: 0.5) {
                         view.alpha = 1
@@ -83,8 +83,9 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if UIApplication.shared.keyWindow?.subviews.count ?? 0 > 0 && self.navigationController?.viewControllers.count ?? 0 > 1{
-            UIApplication.shared.keyWindow?.subviews.forEach { (view) in
+        guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
+        if windows.count > 0 && self.navigationController?.viewControllers.count ?? 0 > 1{
+            windows.forEach { (view) in
                 if view.classForCoder == SyPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
                     UIView.animate(withDuration: 0.5) {
                         view.alpha = 0

@@ -63,7 +63,7 @@ class SyMusicPlayVC: SyBaseVC {
     var model: SyMusicsItem!
     var dataCourseArray: [SyMusicsItem] = [SyMusicsItem]()
     var categoryId: String?
-    public var item: MusicItem!
+    public var star: MusicStar!
     
     lazy var bgImageView: UIImageView = {
         let v = UIImageView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()))
@@ -89,17 +89,15 @@ class SyMusicPlayVC: SyBaseVC {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if UIApplication.shared.keyWindow?.subviews.count ?? 0 > 0 {
-            UIApplication.shared.keyWindow?.subviews.forEach { (view) in
-                if view.classForCoder == SyPlayerShowView().classForCoder{
-                    userDefaultsSetValue(value: "0", key: voicePlayKey())
-                    view.removeFromSuperview()
-                }
+        guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
+        windows.forEach { (view) in
+            if view.classForCoder == SyPlayerShowView().classForCoder{
+                userDefaultsSetValue(value: "0", key: voicePlayKey())
+                view.removeFromSuperview()
             }
         }
         
-        let v = SyPlayerShowView(frame: CGRect(x: 2, y: screenHeight(), width: screenWidth() - 4, height: 50), isShow: true, categoryId: self.categoryId,item: self.item)
+        let v = SyPlayerShowView(frame: CGRect(x: 2, y: screenHeight(), width: screenWidth() - 4, height: 50), isShow: true, categoryId: self.categoryId,star: self.star)
         UIView.animate(withDuration: 0.5, animations: {
 //            v.playerShowViewTitleLab.text = self.title
             //            v.playerShowViewHeaderImage.sd_setImage(with: URL(string: SyAVPlayer.getSharedInstance().model?.imgUrl ?? ""), placeholderImage: #imageLiteral(resourceName: "item_black_logo_icon"))
@@ -113,14 +111,10 @@ class SyMusicPlayVC: SyBaseVC {
         self.playView.removeLink()
     }
     
-    override func leftBarButtonAction(sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-//        self.playView.tView?.stopTimer()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isBackBar = true
+        self.title = self.model.name
         self.view.addSubview(self.bgImageView)
         self.view.addSubview(self.playView)
         self.musicListDataSource(isRefresh: true)
@@ -136,7 +130,7 @@ class SyMusicPlayVC: SyBaseVC {
     }
     
     fileprivate func musicListDataSource(isRefresh: Bool) {
-        SyAVPlayer.dataSource(item: self.item) { (models: [SyMusicsItem]) in
+        SyAVPlayer.dataSource(star: self.star) { (models: [SyMusicsItem]) in
             self.dataCourseArray = models
             if SyAVPlayer.getSharedInstance().musicArray.count > 0 {
                 SyAVPlayer.getSharedInstance().musicArray.removeAll()
@@ -145,7 +139,7 @@ class SyMusicPlayVC: SyBaseVC {
             for i in 0..<SyAVPlayer.getSharedInstance().musicArray.count {
                 let model: SyMusicsItem = SyAVPlayer.getSharedInstance().musicArray[i]
                 if self.model.id == model.id {
-                    if SyAVPlayer.getSharedInstance().model?.id != model.id { //判断是否当前播放中课程
+                    if SyAVPlayer.getSharedInstance().model?.id != model.id { //判断是否当前播放中歌曲
                         SyAVPlayer.getSharedInstance().playTheLine(index: i, isImmediately: true)
                     }
                 }

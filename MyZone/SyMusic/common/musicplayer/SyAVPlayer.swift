@@ -9,9 +9,9 @@
 import Foundation
 import MediaPlayer
 
-public enum MusicItem {
-    case ZJL //周杰伦
-    case XZQ //薛之谦
+public enum MusicStar {
+    case JayChou //周杰伦
+    case JokerXue //薛之谦
     case BackstreetBoys //后街男孩
 }
 
@@ -172,12 +172,12 @@ class SyAVPlayer: NSObject {
         return musicMessageM
     }
     
-    class func dataSource(item: MusicItem,_ result: ([SyMusicsItem])->()) {
+    class func dataSource(star: MusicStar,_ result: ([SyMusicsItem])->()) {
         var pathStr = "ZJLMusics"
-        switch item {
-        case .ZJL:
+        switch star {
+        case .JayChou:
             pathStr = "ZJLMusics"
-        case .XZQ:
+        case .JokerXue:
             pathStr = "XZQMusics"
         case .BackstreetBoys:
             pathStr = "BBMusics"
@@ -187,7 +187,7 @@ class SyAVPlayer: NSObject {
             result([SyMusicsItem]())
             return
         }
-
+        
         guard let array = NSArray(contentsOfFile: path) else {
             result([SyMusicsItem]())
             return
@@ -274,17 +274,16 @@ class SyAVPlayer: NSObject {
                 //SyPrint("currentTime->\(currentTime) total->\(total) progressValue->\(progressValue)")
                 self.delegate?.updateProgressWith(progress: progressValue)
                 if progressValue > 0 {
-                    if UIApplication.shared.keyWindow?.subviews.count ?? 0 > 0 {
-                        UIApplication.shared.keyWindow?.subviews.forEach { (view) in
-                            if view.classForCoder == SyPlayerShowView().classForCoder{
-                                let v = view as? SyPlayerShowView
-                                v?.playerShowViewProgress.progress = progressValue
-                                v?.playerShowViewHeaderImage.image = UIImage(named: self.model?.icon ?? "")
-                                //v?.playerShowViewTitleLab.text = SyAVPlayer.getSharedInstance().model?.name
-                                let rowLrcM = SyAVPlayer.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().model?.lrcname))
-                                let lrcM = rowLrcM.lrcM
-                                v?.playerShowViewTitleLab.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
-                            }
+                    guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
+                    windows.forEach { (view) in
+                        if view.classForCoder == SyPlayerShowView().classForCoder{
+                            let v = view as? SyPlayerShowView
+                            v?.playerShowViewProgress.progress = progressValue
+                            v?.playerShowViewHeaderImage.image = UIImage(named: self.model?.icon ?? "")
+                            //v?.playerShowViewTitleLab.text = SyAVPlayer.getSharedInstance().model?.name
+                            let rowLrcM = SyAVPlayer.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().model?.lrcname))
+                            let lrcM = rowLrcM.lrcM
+                            v?.playerShowViewTitleLab.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
                         }
                     }
                 }
@@ -364,15 +363,14 @@ class SyAVPlayer: NSObject {
                 }else{
                     self.next()
                     //下一个音频需要刷新 SQPlayerShowView 控件的数据
-                    if UIApplication.shared.keyWindow?.subviews.count ?? 0 > 0 {
-                        UIApplication.shared.keyWindow?.subviews.forEach { (view) in
-                            if view.classForCoder == SyPlayerShowView().classForCoder{
-                                if SyAVPlayer.getSharedInstance().musicArray.count > SyAVPlayer.getSharedInstance().currentIndex{
-                                    let v = view as? SyPlayerShowView
-                                    let model = SyAVPlayer.getSharedInstance().musicArray[SyAVPlayer.getSharedInstance().currentIndex]
-                                    //v?.playerShowViewHeaderImage.sd_setImage(with: URL(string: model.imgUrl), placeholderImage: #imageLiteral(resourceName: "item_black_logo_icon"))
-                                    v?.playerShowViewHeaderImage.image = UIImage.init(named: model.name)
-                                }
+                    guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
+                    windows.forEach { (view) in
+                        if view.classForCoder == SyPlayerShowView().classForCoder{
+                            if SyAVPlayer.getSharedInstance().musicArray.count > SyAVPlayer.getSharedInstance().currentIndex{
+                                let v = view as? SyPlayerShowView
+                                let model = SyAVPlayer.getSharedInstance().musicArray[SyAVPlayer.getSharedInstance().currentIndex]
+                                //v?.playerShowViewHeaderImage.sd_setImage(with: URL(string: model.imgUrl), placeholderImage: #imageLiteral(resourceName: "item_black_logo_icon"))
+                                v?.playerShowViewHeaderImage.image = UIImage.init(named: model.name)
                             }
                         }
                     }
@@ -599,12 +597,12 @@ extension SyAVPlayer {
         let lrcModelAndRow = self.getCurrentLrcM(musicMessageM.costTime, lrcMs: lrcMs)
         let lrcM = lrcModelAndRow.lrcM
         
-        var resultImage: UIImage?
         if self.lastRow != lrcModelAndRow.row {
             self.lastRow = lrcModelAndRow.row
-            resultImage = UIImage.getNewImage(UIImage(named: musicMessageM.musicM?.icon ?? ""), str: lrcM?.lrcContent)
-            if resultImage != nil {
-                self.artWork = MPMediaItemArtwork(image: resultImage!)
+            if let resultImage = UIImage.getNewImage(UIImage(named: musicMessageM.musicM?.icon ?? ""), str: lrcM?.lrcContent){
+                self.artWork = MPMediaItemArtwork(boundsSize: resultImage.size, requestHandler: { size in
+                    return resultImage
+                })
             }
         }
         
@@ -628,16 +626,18 @@ extension SyAVPlayer {
             var info = Dictionary<String,Any>()
             info[MPMediaItemPropertyTitle] = self.model?.name ?? ""
             /*if  let url = self.model?.imgUrl ,let image = UIImage(named: "item_black_logo_icon"){
-                imageView.kf.setImage(with: URL(string:url), placeholder: image, options: nil, progressBlock: nil) { (img, _, _, _) in
-                    if img != nil {
-                        info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image:img!)//显示的图片
-                    }
-                }
-            }else{*/
-                if let image = UIImage(named: "item_headphone_icon"){
-                    info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image:image)//显示的图片
-                }
-//            }
+             imageView.kf.setImage(with: URL(string:url), placeholder: image, options: nil, progressBlock: nil) { (img, _, _, _) in
+             if img != nil {
+             info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image:img!)//显示的图片
+             }
+             }
+             }else{*/
+            if let image = UIImage(named: "item_headphone_icon"){
+                info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size, requestHandler: { size in
+                    return image
+                })//MPMediaItemArtwork(image:image)//显示的图片
+            }
+            //            }
             
             info[MPMediaItemPropertyPlaybackDuration] = self.durantion //总时长
             if let duration = self.player.currentItem?.currentTime() {

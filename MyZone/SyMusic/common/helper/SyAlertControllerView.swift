@@ -11,9 +11,9 @@ import UIKit
 extension UIAlertController {
     //点击背景区域后退出消失的实现
     func tapGesAlert() {
-        let arrayViews: NSArray = UIApplication.shared.keyWindow?.subviews as! NSArray
-        if arrayViews.count > 0 {
-            let backView: UIView = arrayViews.lastObject as? UIView ?? UIView()
+        guard let windows: NSArray = UIApplication.shared.keyWindow?.subviews as? NSArray else { return }
+        if windows.count > 0 {
+            let backView: UIView = windows.lastObject as? UIView ?? UIView()
             backView.isUserInteractionEnabled = true
             backView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tap)))
         }
