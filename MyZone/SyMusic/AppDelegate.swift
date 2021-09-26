@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         
-        //键盘
-        setupKeyBoard()
         //开屏广告
         SyLaunchManager.sharedInstance().setupLaunch()
         

@@ -16,9 +16,6 @@ target 'SyMusic' do
   # 开屏广告
   pod 'XHLaunchAd','~> 3.9.8'
   
-  # 弹出键盘
-  pod 'IQKeyboardManagerSwift'
-  
   # 字体滚动
   pod 'MarqueeLabel/Swift'
   

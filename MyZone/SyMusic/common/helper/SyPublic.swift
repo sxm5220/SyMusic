@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import IQKeyboardManagerSwift
 
 extension CALayer {
     
@@ -64,16 +63,6 @@ func currentViewController(base: UIViewController? = UIApplication.shared.keyWin
         return currentViewController(base: presented)
     }
     return base
-}
-
-// 文本框弹出键盘工具方法
-func setupKeyBoard() {
-    let keyboardManager = IQKeyboardManager.shared
-    keyboardManager.enable = true
-    keyboardManager.enableAutoToolbar = false
-    keyboardManager.shouldResignOnTouchOutside = true
-    //    keyboardManager.toolbarDoneBarButtonItemText = strCommon(key: "sy_complete")
-    //    keyboardManager.shouldToolbarUsesTextFieldTintColor = true
 }
 
 //阿拉伯数字转中文

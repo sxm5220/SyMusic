@@ -17,8 +17,8 @@ struct userItem {
 }
 
 class SyMainVC: SyBaseVC {
-    fileprivate let heightValue: CGFloat = 250.0
-    fileprivate var itemWidth: CGFloat = (screenWidth() - 20 - 45) / 2
+    final let heightValue: CGFloat = 250.0
+    final var itemWidth: CGFloat = (screenWidth() - 20 - 45) / 2
     let items = [userItem(id: "01", name: "周杰伦", icon: "item_jz_icon",star: .JayChou),
                  userItem(id: "02", name: "薛之谦", icon: "item_xjq_icon",star: .JokerXue),
                  userItem(id: "03", name: "Backstreet Boys", icon: "item_BSBoys_icon",star: .BackstreetBoys)]
