@@ -168,8 +168,6 @@ extension SyMainVC: UITableViewDelegate, UITableViewDataSource {
         headerImageView.image = UIImage(named: item.icon)
         headerImageView.tag = index
         headerImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction(sender:))))
-        //headerImageView.image =
-        //headerImageView.sd_setImage(with: URL(string: model.headUrl), placeholderImage: #imageLiteral(resourceName: "item_color_5_icon"))
         cell.contentView.addSubview(headerImageView)
         
         //名称
