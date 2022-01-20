@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.4)
   - FLAnimatedImage (1.0.16)
+  - HGCircularSlider (2.2.0)
   - lottie-ios (2.5.3)
   - LTMorphingLabel (0.9.3)
   - MarqueeLabel/Swift (3.2.1)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - HGCircularSlider
   - lottie-ios (~> 2.5.2)
   - LTMorphingLabel
   - MarqueeLabel/Swift
@@ -24,6 +26,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - FLAnimatedImage
+    - HGCircularSlider
     - lottie-ios
     - LTMorphingLabel
     - MarqueeLabel
@@ -35,6 +38,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   FLAnimatedImage: 8f3e854ebf9680b71f0b6e700939687fc4d82b4b
+  HGCircularSlider: afb1942743a2df156dcc7a3500216e523e14266b
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   LTMorphingLabel: f2b256e4fe665aac27f0d0e8ccdcd79590f0cd70
   MarqueeLabel: 2daf039bf916937c8a4c9adfc13577cc5e51b4ce
@@ -43,6 +47,6 @@ SPEC CHECKSUMS:
   XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
   ZZCircleProgress: 207e454a96f05321be6df16357671d9a870656b6
 
-PODFILE CHECKSUM: a32a0d25ae50c65f3a2f554123d2d36f57f48a04
+PODFILE CHECKSUM: 640d24d5a08f5c410647b010c3a90e65f7d902de
 
 COCOAPODS: 1.10.1

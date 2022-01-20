@@ -27,5 +27,8 @@ target 'SyMusic' do
   
   # 特效字体
   pod 'LTMorphingLabel'
+  
+  # 环形滑动条
+  pod 'HGCircularSlider'
 
 end

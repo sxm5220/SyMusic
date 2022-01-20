@@ -36,14 +36,14 @@ struct tabbarItem {
 
 class SyTabBarController: UITabBarController {
     
-    private let lotAnimationNameArray = ["Video","ASMR"]
+    private let lotAnimationNameArray = ["ASMR","Video"]
     private var animationBarItem: LOTAnimationView?
     private var animationlabel: LTMorphingLabel?
     
-    private let navigationItemTitleArray = [strCommon(key: "sy_main_title"),strCommon(key: "sy_me_title")]
+    private let navigationItemTitleArray = [strCommon(key: "sy_music_title"),strCommon(key: "sy_mv_title")]
     
-    private let tabbarArray = [tabbarItem(title: strCommon(key: "sy_music_title"), image: "item_tabbar_me_icon",viewController: SyMainVC()),
-                            tabbarItem(title: strCommon(key: "sy_me_title"), image: "item_tabbar_main_icon",viewController: SyMeVC())]
+    private let tabbarArray = [tabbarItem(title: strCommon(key: "sy_music_title"), image: "item_tabbar_music_icon",viewController: SyMainVC()),
+                            tabbarItem(title: strCommon(key: "sy_mv_title"), image: "item_tabbar_mv_icon",viewController: SyMVVC())]
     
     override func viewDidLoad() {
         super.viewDidLoad()

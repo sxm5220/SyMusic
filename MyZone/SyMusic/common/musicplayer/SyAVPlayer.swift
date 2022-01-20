@@ -13,6 +13,7 @@ public enum MusicStar {
     case JayChou //周杰伦
     case JokerXue //薛之谦
     case BackstreetBoys //后街男孩
+    case LeehomWang //王力宏
 }
 
 public enum AVPlayerPlayState {
@@ -173,17 +174,19 @@ class SyAVPlayer: NSObject {
     }
     
     class func dataSource(star: MusicStar,_ result: ([SyMusicsItem])->()) {
-        var pathStr = "ZJLMusics"
+        var pathStr = "ZJL"
         switch star {
         case .JayChou:
-            pathStr = "ZJLMusics"
+            pathStr = "ZJL"
         case .JokerXue:
-            pathStr = "XZQMusics"
+            pathStr = "XZQ"
         case .BackstreetBoys:
-            pathStr = "BBMusics"
+            pathStr = "BB"
+        case .LeehomWang:
+            pathStr = "WLH"
         }
         
-        guard let path = Bundle.main.path(forResource: pathStr, ofType: "plist") else {
+        guard let path = Bundle.main.path(forResource: pathStr + "Musics", ofType: "plist") else {
             result([SyMusicsItem]())
             return
         }

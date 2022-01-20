@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-SyMusic/Pods-SyMusic-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
+${BUILT_PRODUCTS_DIR}/HGCircularSlider/HGCircularSlider.framework
 ${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework

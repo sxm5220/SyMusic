@@ -38,12 +38,61 @@
 		C044284F24683A4E00E70AA4 /* SyPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284524683A4E00E70AA4 /* SyPublic.swift */; };
 		C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284624683A4E00E70AA4 /* SyNetwork.swift */; };
 		C095493226B270AF003990C0 /* SyMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C095493126B270AF003990C0 /* SyMainItem.swift */; };
+		C0987F442770AE98006ED836 /* 火力全开.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F102770AE97006ED836 /* 火力全开.mp3 */; };
+		C0987F452770AE98006ED836 /* 你是我心内的一首歌.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F112770AE97006ED836 /* 你是我心内的一首歌.mp3 */; };
+		C0987F462770AE98006ED836 /* 你不知道的事.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F122770AE97006ED836 /* 你不知道的事.mp3 */; };
+		C0987F472770AE98006ED836 /* 改变自己.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F132770AE97006ED836 /* 改变自己.mp3 */; };
+		C0987F482770AE98006ED836 /* 好心分手.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F142770AE97006ED836 /* 好心分手.mp3 */; };
+		C0987F492770AE98006ED836 /* 美.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F152770AE97006ED836 /* 美.mp3 */; };
+		C0987F4A2770AE98006ED836 /* Julia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F162770AE97006ED836 /* Julia.mp3 */; };
+		C0987F4B2770AE98006ED836 /* 花田错.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F172770AE97006ED836 /* 花田错.mp3 */; };
+		C0987F4C2770AE98006ED836 /* 需要人陪.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F182770AE97006ED836 /* 需要人陪.mp3 */; };
+		C0987F4D2770AE98006ED836 /* 唯一.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F192770AE97006ED836 /* 唯一.mp3 */; };
+		C0987F4E2770AE98006ED836 /* 龙的传人.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F1A2770AE97006ED836 /* 龙的传人.mp3 */; };
+		C0987F4F2770AE98006ED836 /* 春雨里洗过的太阳.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F1B2770AE97006ED836 /* 春雨里洗过的太阳.mp3 */; };
+		C0987F502770AE98006ED836 /* 大城小爱(3D).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F1C2770AE97006ED836 /* 大城小爱(3D).mp3 */; };
+		C0987F512770AE98006ED836 /* 爱你等于爱自己.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F1D2770AE97006ED836 /* 爱你等于爱自己.mp3 */; };
+		C0987F522770AE98006ED836 /* 天地龙鳞.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F1E2770AE97006ED836 /* 天地龙鳞.mp3 */; };
+		C0987F532770AE98006ED836 /* 另一个天堂.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F1F2770AE97006ED836 /* 另一个天堂.mp3 */; };
+		C0987F542770AE98006ED836 /* 在梅边.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F202770AE97006ED836 /* 在梅边.mp3 */; };
+		C0987F552770AE98006ED836 /* 柴米油盐酱醋茶.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F212770AE97006ED836 /* 柴米油盐酱醋茶.mp3 */; };
+		C0987F562770AE98006ED836 /* 落叶归根.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F222770AE97006ED836 /* 落叶归根.mp3 */; };
+		C0987F572770AE98006ED836 /* 心跳.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F232770AE97006ED836 /* 心跳.mp3 */; };
+		C0987F582770AE98006ED836 /* 爱的就是你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F242770AE98006ED836 /* 爱的就是你.mp3 */; };
+		C0987F592770AE98006ED836 /* 花田错 (Remix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F252770AE98006ED836 /* 花田错 (Remix).mp3 */; };
+		C0987F5A2770AE98006ED836 /* 公转自转.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F262770AE98006ED836 /* 公转自转.mp3 */; };
+		C0987F5B2770AE98006ED836 /* 完美的互动.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F272770AE98006ED836 /* 完美的互动.mp3 */; };
+		C0987F5C2770AE98006ED836 /* 两个人不等于我们.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F282770AE98006ED836 /* 两个人不等于我们.mp3 */; };
+		C0987F5D2770AE98006ED836 /* 美.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F2A2770AE98006ED836 /* 美.lrc */; };
+		C0987F5E2770AE98006ED836 /* 好心分手.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F2B2770AE98006ED836 /* 好心分手.lrc */; };
+		C0987F5F2770AE98006ED836 /* Julia.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F2C2770AE98006ED836 /* Julia.lrc */; };
+		C0987F602770AE98006ED836 /* 改变自己.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F2D2770AE98006ED836 /* 改变自己.lrc */; };
+		C0987F612770AE98006ED836 /* 你不知道的事.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F2E2770AE98006ED836 /* 你不知道的事.lrc */; };
+		C0987F622770AE98006ED836 /* 火力全开.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F2F2770AE98006ED836 /* 火力全开.lrc */; };
+		C0987F632770AE98006ED836 /* 你是我心内的一首歌.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F302770AE98006ED836 /* 你是我心内的一首歌.lrc */; };
+		C0987F642770AE98006ED836 /* 唯一.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F312770AE98006ED836 /* 唯一.lrc */; };
+		C0987F652770AE98006ED836 /* 大城小爱.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F322770AE98006ED836 /* 大城小爱.lrc */; };
+		C0987F662770AE98006ED836 /* 爱你等于爱自己.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F332770AE98006ED836 /* 爱你等于爱自己.lrc */; };
+		C0987F672770AE98006ED836 /* 龙的传人.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F342770AE98006ED836 /* 龙的传人.lrc */; };
+		C0987F682770AE98006ED836 /* 春雨里洗过的太阳.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F352770AE98006ED836 /* 春雨里洗过的太阳.lrc */; };
+		C0987F692770AE98006ED836 /* 需要人陪.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F362770AE98006ED836 /* 需要人陪.lrc */; };
+		C0987F6A2770AE98006ED836 /* 花田错.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F372770AE98006ED836 /* 花田错.lrc */; };
+		C0987F6B2770AE98006ED836 /* 柴米油盐酱醋茶.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F382770AE98006ED836 /* 柴米油盐酱醋茶.lrc */; };
+		C0987F6C2770AE98006ED836 /* 落叶归根.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F392770AE98006ED836 /* 落叶归根.lrc */; };
+		C0987F6D2770AE98006ED836 /* 在梅边.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F3A2770AE98006ED836 /* 在梅边.lrc */; };
+		C0987F6E2770AE98006ED836 /* 另一个天堂.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F3B2770AE98006ED836 /* 另一个天堂.lrc */; };
+		C0987F6F2770AE98006ED836 /* 天地龙鳞.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F3C2770AE98006ED836 /* 天地龙鳞.lrc */; };
+		C0987F702770AE98006ED836 /* 完美的互动.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F3D2770AE98006ED836 /* 完美的互动.lrc */; };
+		C0987F712770AE98006ED836 /* 两个人不等于我们.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F3E2770AE98006ED836 /* 两个人不等于我们.lrc */; };
+		C0987F722770AE98006ED836 /* 爱的就是你.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F3F2770AE98006ED836 /* 爱的就是你.lrc */; };
+		C0987F732770AE98006ED836 /* 心跳.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F402770AE98006ED836 /* 心跳.lrc */; };
+		C0987F742770AE98006ED836 /* 公转自转.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F412770AE98006ED836 /* 公转自转.lrc */; };
+		C0987F752770AE98006ED836 /* 花田错 (Remix).lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F422770AE98006ED836 /* 花田错 (Remix).lrc */; };
+		C0987F762770AE98006ED836 /* WLHMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0987F432770AE98006ED836 /* WLHMusics.plist */; };
 		C09B27E226BA9355000ED751 /* 021414.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E026BA9355000ED751 /* 021414.lrc */; };
 		C09B27E326BA9355000ED751 /* 021313.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E126BA9355000ED751 /* 021313.lrc */; };
 		C09B27E626BA9364000ED751 /* 天外来物_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */; };
 		C09B27E726BA9364000ED751 /* 变废为宝_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */; };
-		C0DD7D10253E7D2A002C46BA /* SyNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DD7D0E253E7D2A002C46BA /* SyNetworkRequest.swift */; };
-		C0DD7D11253E7D2A002C46BA /* SyRequestCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DD7D0F253E7D2A002C46BA /* SyRequestCollection.swift */; };
 		C0DD7D4C2542712D002C46BA /* 017272.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D4B2542712D002C46BA /* 017272.lrc */; };
 		C0DD7D50254271D5002C46BA /* 断了的弦_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */; };
 		C0DD7D5625428504002C46BA /* 030101.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D5525428504002C46BA /* 030101.lrc */; };
@@ -238,7 +287,7 @@
 		C0F7E213246D5C620027FE02 /* SyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E212246D5C620027FE02 /* SyImageView.swift */; };
 		C0F7E215246D68740027FE02 /* SyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E214246D68740027FE02 /* SyTableView.swift */; };
 		C0F7E217246D6CEB0027FE02 /* SyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E216246D6CEB0027FE02 /* SyLabel.swift */; };
-		C0F7E21D246E33FE0027FE02 /* SyMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E21A246E33FE0027FE02 /* SyMeVC.swift */; };
+		C0F7E21D246E33FE0027FE02 /* SyMVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E21A246E33FE0027FE02 /* SyMVVC.swift */; };
 		C0F7E223246E340B0027FE02 /* SyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E220246E340B0027FE02 /* SyTabBarController.swift */; };
 		C0F7E224246E340B0027FE02 /* SyBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E222246E340B0027FE02 /* SyBaseVC.swift */; };
 		C0F7E238246E57B90027FE02 /* SyAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */; };
@@ -285,12 +334,61 @@
 		C044284524683A4E00E70AA4 /* SyPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyPublic.swift; sourceTree = "<group>"; };
 		C044284624683A4E00E70AA4 /* SyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyNetwork.swift; sourceTree = "<group>"; };
 		C095493126B270AF003990C0 /* SyMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMainItem.swift; sourceTree = "<group>"; };
+		C0987F102770AE97006ED836 /* 火力全开.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "火力全开.mp3"; sourceTree = "<group>"; };
+		C0987F112770AE97006ED836 /* 你是我心内的一首歌.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你是我心内的一首歌.mp3"; sourceTree = "<group>"; };
+		C0987F122770AE97006ED836 /* 你不知道的事.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你不知道的事.mp3"; sourceTree = "<group>"; };
+		C0987F132770AE97006ED836 /* 改变自己.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "改变自己.mp3"; sourceTree = "<group>"; };
+		C0987F142770AE97006ED836 /* 好心分手.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "好心分手.mp3"; sourceTree = "<group>"; };
+		C0987F152770AE97006ED836 /* 美.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "美.mp3"; sourceTree = "<group>"; };
+		C0987F162770AE97006ED836 /* Julia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Julia.mp3; sourceTree = "<group>"; };
+		C0987F172770AE97006ED836 /* 花田错.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "花田错.mp3"; sourceTree = "<group>"; };
+		C0987F182770AE97006ED836 /* 需要人陪.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "需要人陪.mp3"; sourceTree = "<group>"; };
+		C0987F192770AE97006ED836 /* 唯一.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "唯一.mp3"; sourceTree = "<group>"; };
+		C0987F1A2770AE97006ED836 /* 龙的传人.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "龙的传人.mp3"; sourceTree = "<group>"; };
+		C0987F1B2770AE97006ED836 /* 春雨里洗过的太阳.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "春雨里洗过的太阳.mp3"; sourceTree = "<group>"; };
+		C0987F1C2770AE97006ED836 /* 大城小爱(3D).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "大城小爱(3D).mp3"; sourceTree = "<group>"; };
+		C0987F1D2770AE97006ED836 /* 爱你等于爱自己.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爱你等于爱自己.mp3"; sourceTree = "<group>"; };
+		C0987F1E2770AE97006ED836 /* 天地龙鳞.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天地龙鳞.mp3"; sourceTree = "<group>"; };
+		C0987F1F2770AE97006ED836 /* 另一个天堂.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "另一个天堂.mp3"; sourceTree = "<group>"; };
+		C0987F202770AE97006ED836 /* 在梅边.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "在梅边.mp3"; sourceTree = "<group>"; };
+		C0987F212770AE97006ED836 /* 柴米油盐酱醋茶.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "柴米油盐酱醋茶.mp3"; sourceTree = "<group>"; };
+		C0987F222770AE97006ED836 /* 落叶归根.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "落叶归根.mp3"; sourceTree = "<group>"; };
+		C0987F232770AE97006ED836 /* 心跳.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "心跳.mp3"; sourceTree = "<group>"; };
+		C0987F242770AE98006ED836 /* 爱的就是你.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "爱的就是你.mp3"; sourceTree = "<group>"; };
+		C0987F252770AE98006ED836 /* 花田错 (Remix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "花田错 (Remix).mp3"; sourceTree = "<group>"; };
+		C0987F262770AE98006ED836 /* 公转自转.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "公转自转.mp3"; sourceTree = "<group>"; };
+		C0987F272770AE98006ED836 /* 完美的互动.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "完美的互动.mp3"; sourceTree = "<group>"; };
+		C0987F282770AE98006ED836 /* 两个人不等于我们.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "两个人不等于我们.mp3"; sourceTree = "<group>"; };
+		C0987F2A2770AE98006ED836 /* 美.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "美.lrc"; sourceTree = "<group>"; };
+		C0987F2B2770AE98006ED836 /* 好心分手.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "好心分手.lrc"; sourceTree = "<group>"; };
+		C0987F2C2770AE98006ED836 /* Julia.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Julia.lrc; sourceTree = "<group>"; };
+		C0987F2D2770AE98006ED836 /* 改变自己.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "改变自己.lrc"; sourceTree = "<group>"; };
+		C0987F2E2770AE98006ED836 /* 你不知道的事.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "你不知道的事.lrc"; sourceTree = "<group>"; };
+		C0987F2F2770AE98006ED836 /* 火力全开.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "火力全开.lrc"; sourceTree = "<group>"; };
+		C0987F302770AE98006ED836 /* 你是我心内的一首歌.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "你是我心内的一首歌.lrc"; sourceTree = "<group>"; };
+		C0987F312770AE98006ED836 /* 唯一.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "唯一.lrc"; sourceTree = "<group>"; };
+		C0987F322770AE98006ED836 /* 大城小爱.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "大城小爱.lrc"; sourceTree = "<group>"; };
+		C0987F332770AE98006ED836 /* 爱你等于爱自己.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "爱你等于爱自己.lrc"; sourceTree = "<group>"; };
+		C0987F342770AE98006ED836 /* 龙的传人.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "龙的传人.lrc"; sourceTree = "<group>"; };
+		C0987F352770AE98006ED836 /* 春雨里洗过的太阳.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "春雨里洗过的太阳.lrc"; sourceTree = "<group>"; };
+		C0987F362770AE98006ED836 /* 需要人陪.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "需要人陪.lrc"; sourceTree = "<group>"; };
+		C0987F372770AE98006ED836 /* 花田错.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "花田错.lrc"; sourceTree = "<group>"; };
+		C0987F382770AE98006ED836 /* 柴米油盐酱醋茶.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "柴米油盐酱醋茶.lrc"; sourceTree = "<group>"; };
+		C0987F392770AE98006ED836 /* 落叶归根.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "落叶归根.lrc"; sourceTree = "<group>"; };
+		C0987F3A2770AE98006ED836 /* 在梅边.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "在梅边.lrc"; sourceTree = "<group>"; };
+		C0987F3B2770AE98006ED836 /* 另一个天堂.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "另一个天堂.lrc"; sourceTree = "<group>"; };
+		C0987F3C2770AE98006ED836 /* 天地龙鳞.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天地龙鳞.lrc"; sourceTree = "<group>"; };
+		C0987F3D2770AE98006ED836 /* 完美的互动.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "完美的互动.lrc"; sourceTree = "<group>"; };
+		C0987F3E2770AE98006ED836 /* 两个人不等于我们.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "两个人不等于我们.lrc"; sourceTree = "<group>"; };
+		C0987F3F2770AE98006ED836 /* 爱的就是你.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "爱的就是你.lrc"; sourceTree = "<group>"; };
+		C0987F402770AE98006ED836 /* 心跳.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "心跳.lrc"; sourceTree = "<group>"; };
+		C0987F412770AE98006ED836 /* 公转自转.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "公转自转.lrc"; sourceTree = "<group>"; };
+		C0987F422770AE98006ED836 /* 花田错 (Remix).lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "花田错 (Remix).lrc"; sourceTree = "<group>"; };
+		C0987F432770AE98006ED836 /* WLHMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WLHMusics.plist; sourceTree = "<group>"; };
 		C09B27E026BA9355000ED751 /* 021414.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021414.lrc; sourceTree = "<group>"; };
 		C09B27E126BA9355000ED751 /* 021313.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021313.lrc; sourceTree = "<group>"; };
 		C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天外来物_薛之谦.mp3"; sourceTree = "<group>"; };
 		C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "变废为宝_薛之谦.mp3"; sourceTree = "<group>"; };
-		C0DD7D0E253E7D2A002C46BA /* SyNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyNetworkRequest.swift; sourceTree = "<group>"; };
-		C0DD7D0F253E7D2A002C46BA /* SyRequestCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyRequestCollection.swift; sourceTree = "<group>"; };
 		C0DD7D4B2542712D002C46BA /* 017272.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 017272.lrc; sourceTree = "<group>"; };
 		C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "断了的弦_周杰伦.mp3"; sourceTree = "<group>"; };
 		C0DD7D5525428504002C46BA /* 030101.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030101.lrc; sourceTree = "<group>"; };
@@ -487,7 +585,7 @@
 		C0F7E212246D5C620027FE02 /* SyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyImageView.swift; sourceTree = "<group>"; };
 		C0F7E214246D68740027FE02 /* SyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyTableView.swift; sourceTree = "<group>"; };
 		C0F7E216246D6CEB0027FE02 /* SyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyLabel.swift; sourceTree = "<group>"; };
-		C0F7E21A246E33FE0027FE02 /* SyMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMeVC.swift; sourceTree = "<group>"; };
+		C0F7E21A246E33FE0027FE02 /* SyMVVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMVVC.swift; sourceTree = "<group>"; };
 		C0F7E220246E340B0027FE02 /* SyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyTabBarController.swift; sourceTree = "<group>"; };
 		C0F7E222246E340B0027FE02 /* SyBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyBaseVC.swift; sourceTree = "<group>"; };
 		C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyAVPlayer.swift; sourceTree = "<group>"; };
@@ -533,7 +631,6 @@
 		C04427F0245BD3BA00E70AA4 /* SyMusic */ = {
 			isa = PBXGroup;
 			children = (
-				C0DD7D0D253E7D2A002C46BA /* core */,
 				C0F7E218246E336D0027FE02 /* viewcontroller */,
 				C044282C2468374A00E70AA4 /* common */,
 				C04428172467FD5C00E70AA4 /* resource */,
@@ -601,13 +698,78 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		C0DD7D0D253E7D2A002C46BA /* core */ = {
+		C0987F0E2770AE97006ED836 /* 王力宏 */ = {
 			isa = PBXGroup;
 			children = (
-				C0DD7D0E253E7D2A002C46BA /* SyNetworkRequest.swift */,
-				C0DD7D0F253E7D2A002C46BA /* SyRequestCollection.swift */,
+				C0987F0F2770AE97006ED836 /* music04 */,
+				C0987F292770AE98006ED836 /* lrcs04 */,
+				C0987F432770AE98006ED836 /* WLHMusics.plist */,
 			);
-			path = core;
+			path = "王力宏";
+			sourceTree = "<group>";
+		};
+		C0987F0F2770AE97006ED836 /* music04 */ = {
+			isa = PBXGroup;
+			children = (
+				C0987F102770AE97006ED836 /* 火力全开.mp3 */,
+				C0987F112770AE97006ED836 /* 你是我心内的一首歌.mp3 */,
+				C0987F122770AE97006ED836 /* 你不知道的事.mp3 */,
+				C0987F132770AE97006ED836 /* 改变自己.mp3 */,
+				C0987F142770AE97006ED836 /* 好心分手.mp3 */,
+				C0987F152770AE97006ED836 /* 美.mp3 */,
+				C0987F162770AE97006ED836 /* Julia.mp3 */,
+				C0987F172770AE97006ED836 /* 花田错.mp3 */,
+				C0987F182770AE97006ED836 /* 需要人陪.mp3 */,
+				C0987F192770AE97006ED836 /* 唯一.mp3 */,
+				C0987F1A2770AE97006ED836 /* 龙的传人.mp3 */,
+				C0987F1B2770AE97006ED836 /* 春雨里洗过的太阳.mp3 */,
+				C0987F1C2770AE97006ED836 /* 大城小爱(3D).mp3 */,
+				C0987F1D2770AE97006ED836 /* 爱你等于爱自己.mp3 */,
+				C0987F1E2770AE97006ED836 /* 天地龙鳞.mp3 */,
+				C0987F1F2770AE97006ED836 /* 另一个天堂.mp3 */,
+				C0987F202770AE97006ED836 /* 在梅边.mp3 */,
+				C0987F212770AE97006ED836 /* 柴米油盐酱醋茶.mp3 */,
+				C0987F222770AE97006ED836 /* 落叶归根.mp3 */,
+				C0987F232770AE97006ED836 /* 心跳.mp3 */,
+				C0987F242770AE98006ED836 /* 爱的就是你.mp3 */,
+				C0987F252770AE98006ED836 /* 花田错 (Remix).mp3 */,
+				C0987F262770AE98006ED836 /* 公转自转.mp3 */,
+				C0987F272770AE98006ED836 /* 完美的互动.mp3 */,
+				C0987F282770AE98006ED836 /* 两个人不等于我们.mp3 */,
+			);
+			path = music04;
+			sourceTree = "<group>";
+		};
+		C0987F292770AE98006ED836 /* lrcs04 */ = {
+			isa = PBXGroup;
+			children = (
+				C0987F2A2770AE98006ED836 /* 美.lrc */,
+				C0987F2B2770AE98006ED836 /* 好心分手.lrc */,
+				C0987F2C2770AE98006ED836 /* Julia.lrc */,
+				C0987F2D2770AE98006ED836 /* 改变自己.lrc */,
+				C0987F2E2770AE98006ED836 /* 你不知道的事.lrc */,
+				C0987F2F2770AE98006ED836 /* 火力全开.lrc */,
+				C0987F302770AE98006ED836 /* 你是我心内的一首歌.lrc */,
+				C0987F312770AE98006ED836 /* 唯一.lrc */,
+				C0987F322770AE98006ED836 /* 大城小爱.lrc */,
+				C0987F332770AE98006ED836 /* 爱你等于爱自己.lrc */,
+				C0987F342770AE98006ED836 /* 龙的传人.lrc */,
+				C0987F352770AE98006ED836 /* 春雨里洗过的太阳.lrc */,
+				C0987F362770AE98006ED836 /* 需要人陪.lrc */,
+				C0987F372770AE98006ED836 /* 花田错.lrc */,
+				C0987F382770AE98006ED836 /* 柴米油盐酱醋茶.lrc */,
+				C0987F392770AE98006ED836 /* 落叶归根.lrc */,
+				C0987F3A2770AE98006ED836 /* 在梅边.lrc */,
+				C0987F3B2770AE98006ED836 /* 另一个天堂.lrc */,
+				C0987F3C2770AE98006ED836 /* 天地龙鳞.lrc */,
+				C0987F3D2770AE98006ED836 /* 完美的互动.lrc */,
+				C0987F3E2770AE98006ED836 /* 两个人不等于我们.lrc */,
+				C0987F3F2770AE98006ED836 /* 爱的就是你.lrc */,
+				C0987F402770AE98006ED836 /* 心跳.lrc */,
+				C0987F412770AE98006ED836 /* 公转自转.lrc */,
+				C0987F422770AE98006ED836 /* 花田错 (Remix).lrc */,
+			);
+			path = lrcs04;
 			sourceTree = "<group>";
 		};
 		C0DD7D5225428488002C46BA /* Backstreet Boys */ = {
@@ -905,28 +1067,28 @@
 		C0F7E218246E336D0027FE02 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
-				C0F7E21B246E33FE0027FE02 /* main */,
-				C0F7E219246E33FE0027FE02 /* me */,
+				C0F7E21B246E33FE0027FE02 /* Music */,
+				C0F7E219246E33FE0027FE02 /* Music Video */,
 			);
 			path = viewcontroller;
 			sourceTree = "<group>";
 		};
-		C0F7E219246E33FE0027FE02 /* me */ = {
+		C0F7E219246E33FE0027FE02 /* Music Video */ = {
 			isa = PBXGroup;
 			children = (
-				C0F7E21A246E33FE0027FE02 /* SyMeVC.swift */,
+				C0F7E21A246E33FE0027FE02 /* SyMVVC.swift */,
 			);
-			path = me;
+			path = "Music Video";
 			sourceTree = "<group>";
 		};
-		C0F7E21B246E33FE0027FE02 /* main */ = {
+		C0F7E21B246E33FE0027FE02 /* Music */ = {
 			isa = PBXGroup;
 			children = (
 				C095493026B27088003990C0 /* model */,
 				C0EC1DE3249DA8DE00A8BD14 /* view */,
 				C0EC1DDA249DA63600A8BD14 /* vc */,
 			);
-			path = main;
+			path = Music;
 			sourceTree = "<group>";
 		};
 		C0F7E21F246E340B0027FE02 /* tabbar */ = {
@@ -956,6 +1118,7 @@
 		C0F7E22F246E51770027FE02 /* mp3s */ = {
 			isa = PBXGroup;
 			children = (
+				C0987F0E2770AE97006ED836 /* 王力宏 */,
 				C0DD7D5225428488002C46BA /* Backstreet Boys */,
 				C0F7E24E2474CB070027FE02 /* 周杰伦 */,
 				C0F7E24F2474CB120027FE02 /* 薛之谦 */,
@@ -1082,7 +1245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0EC1EBA249DDED200A8BD14 /* 米兰的小铁匠_周杰伦.mp3 in Resources */,
+				C0987F572770AE98006ED836 /* 心跳.mp3 in Resources */,
 				C0EC1EE1249DE1EB00A8BD14 /* 011212.lrc in Resources */,
+				C0987F722770AE98006ED836 /* 爱的就是你.lrc in Resources */,
+				C0987F602770AE98006ED836 /* 改变自己.lrc in Resources */,
 				C0EC1E9F249DDED200A8BD14 /* 梯田_周杰伦.mp3 in Resources */,
 				C0EC1EC2249DDED200A8BD14 /* 爸我回来了_周杰伦.mp3 in Resources */,
 				C0EC1EFB249DE64400A8BD14 /* 013535.lrc in Resources */,
@@ -1091,12 +1257,14 @@
 				C0EC1EC9249DDED200A8BD14 /* 听妈妈的话_周杰伦.mp3 in Resources */,
 				C02EB5A226BD461C0022C9E2 /* 030505.lrc in Resources */,
 				C0F7E1BD246BFBFC0027FE02 /* Meditate.json in Resources */,
+				C0987F612770AE98006ED836 /* 你不知道的事.lrc in Resources */,
 				C0EC1E8A249DDED200A8BD14 /* 大笨钟_周杰伦.mp3 in Resources */,
 				C0EC1E98249DDED200A8BD14 /* 彩虹_周杰伦.mp3 in Resources */,
 				C0EC1EC6249DDED200A8BD14 /* 公公偏头痛_周杰伦.mp3 in Resources */,
 				C0EC1E33249DDE9800A8BD14 /* 别_薛之谦.mp3 in Resources */,
 				C0EC1EBB249DDED200A8BD14 /* 蒲公英的约定_周杰伦.mp3 in Resources */,
 				C0EC1F3B249E00D200A8BD14 /* 013333.lrc in Resources */,
+				C0987F462770AE98006ED836 /* 你不知道的事.mp3 in Resources */,
 				C0EC1E97249DDED200A8BD14 /* 时光机_周杰伦.mp3 in Resources */,
 				C0EC1F41249E03DD00A8BD14 /* 014343.lrc in Resources */,
 				C02EB5B026BD462E0022C9E2 /* In a World Like This.mp3 in Resources */,
@@ -1104,6 +1272,7 @@
 				C0EC1F1D249DEC6600A8BD14 /* 016262.lrc in Resources */,
 				C0EC1E9E249DDED200A8BD14 /* 晴天_周杰伦.mp3 in Resources */,
 				C0DD7D50254271D5002C46BA /* 断了的弦_周杰伦.mp3 in Resources */,
+				C0987F4B2770AE98006ED836 /* 花田错.mp3 in Resources */,
 				C0EC1E19249DDE0B00A8BD14 /* 020808.lrc in Resources */,
 				C0EC1E89249DDED200A8BD14 /* 东风破_周杰伦.mp3 in Resources */,
 				C02EB5AE26BD462E0022C9E2 /* All I Have to Give.mp3 in Resources */,
@@ -1126,17 +1295,24 @@
 				C0EC1EB7249DDED200A8BD14 /* 威廉古堡_周杰伦.mp3 in Resources */,
 				C0F7E1CA246BFC7C0027FE02 /* InfoPlist.strings in Resources */,
 				C0EC1EA3249DDED200A8BD14 /* 我不配_周杰伦.mp3 in Resources */,
+				C0987F4A2770AE98006ED836 /* Julia.mp3 in Resources */,
 				C0F7E24924738AB40027FE02 /* item_screen_icon.jpg in Resources */,
 				C0EC1EDF249DE17B00A8BD14 /* 011111.lrc in Resources */,
 				C0EC1E8C249DDED200A8BD14 /* 发如雪_周杰伦.mp3 in Resources */,
+				C0987F4C2770AE98006ED836 /* 需要人陪.mp3 in Resources */,
 				C0F7E1BF246BFBFC0027FE02 /* loader.json in Resources */,
 				C0EC1F59249E0F3800A8BD14 /* 017171.lrc in Resources */,
 				C0EC1EBF249DDED200A8BD14 /* 印地安老斑鸠_周杰伦.mp3 in Resources */,
 				C0F7E1BB246BFBFC0027FE02 /* Home.json in Resources */,
 				C0EC1E18249DDE0B00A8BD14 /* 021212.lrc in Resources */,
 				C0EC1E15249DDE0B00A8BD14 /* 020404.lrc in Resources */,
+				C0987F762770AE98006ED836 /* WLHMusics.plist in Resources */,
+				C0987F692770AE98006ED836 /* 需要人陪.lrc in Resources */,
+				C0987F712770AE98006ED836 /* 两个人不等于我们.lrc in Resources */,
 				C0EC1EE7249DE33D00A8BD14 /* 011515.lrc in Resources */,
 				C0EC1E92249DDED200A8BD14 /* 迷魂曲_周杰伦.mp3 in Resources */,
+				C0987F702770AE98006ED836 /* 完美的互动.lrc in Resources */,
+				C0987F6B2770AE98006ED836 /* 柴米油盐酱醋茶.lrc in Resources */,
 				C0EC1E94249DDED200A8BD14 /* 你好吗_周杰伦.mp3 in Resources */,
 				C0F7E1BE246BFBFC0027FE02 /* Sleep.json in Resources */,
 				C0EC1EF3249DE52400A8BD14 /* 013434.lrc in Resources */,
@@ -1157,6 +1333,7 @@
 				C0EC1E85249DDED200A8BD14 /* 雨下一整晚_周杰伦.mp3 in Resources */,
 				C09B27E326BA9355000ED751 /* 021313.lrc in Resources */,
 				C0EC1E96249DDED200A8BD14 /* 青花瓷_周杰伦.mp3 in Resources */,
+				C0987F492770AE98006ED836 /* 美.mp3 in Resources */,
 				C0EC1F3F249E027D00A8BD14 /* 014141.lrc in Resources */,
 				C0EC1F37249DFF1E00A8BD14 /* 013030.lrc in Resources */,
 				C0EC1F51249E0D9700A8BD14 /* 016666.lrc in Resources */,
@@ -1167,21 +1344,27 @@
 				C0EC1EE5249DE30100A8BD14 /* 011414.lrc in Resources */,
 				C0EC1E1D249DDE0B00A8BD14 /* 020505.lrc in Resources */,
 				C0EC1F27249DEE2100A8BD14 /* 013131.lrc in Resources */,
+				C0987F582770AE98006ED836 /* 爱的就是你.mp3 in Resources */,
 				C0EC1EB3249DDED200A8BD14 /* 三年二班_周杰伦.mp3 in Resources */,
 				C0EC1F4F249E0D4300A8BD14 /* 016363.lrc in Resources */,
 				C0EC1E8E249DDED200A8BD14 /* 黄金甲_周杰伦.mp3 in Resources */,
 				C0EC1EAB249DDED200A8BD14 /* 黑色幽默_周杰伦.mp3 in Resources */,
+				C0987F532770AE98006ED836 /* 另一个天堂.mp3 in Resources */,
 				C0EC1F0D249DE96D00A8BD14 /* 012929.lrc in Resources */,
 				C0EC1F47249E067400A8BD14 /* 015050.lrc in Resources */,
 				C0EC1F1B249DEC2700A8BD14 /* 016464.lrc in Resources */,
+				C0987F472770AE98006ED836 /* 改变自己.mp3 in Resources */,
 				C0EC1F0F249DE9A800A8BD14 /* 013737.lrc in Resources */,
 				C0EC1F45249E05F900A8BD14 /* 014747.lrc in Resources */,
 				C0EC1E8D249DDED200A8BD14 /* 红模仿_周杰伦.mp3 in Resources */,
 				C0EC1E35249DDE9800A8BD14 /* 暧昧_薛之谦.mp3 in Resources */,
 				C0EC1ED7249DE09F00A8BD14 /* 010707.lrc in Resources */,
 				C0EC1EC3249DDED200A8BD14 /* 爱在西元前_周杰伦.mp3 in Resources */,
+				C0987F6D2770AE98006ED836 /* 在梅边.lrc in Resources */,
 				C0EC1EB5249DDED200A8BD14 /* 她的睫毛_周杰伦.mp3 in Resources */,
+				C0987F742770AE98006ED836 /* 公转自转.lrc in Resources */,
 				C0EC1EC5249DDED200A8BD14 /* 反方向的钟_周杰伦.mp3 in Resources */,
+				C0987F5E2770AE98006ED836 /* 好心分手.lrc in Resources */,
 				C0EC1ED1249DDFE500A8BD14 /* 010404.lrc in Resources */,
 				C04427FE245BD3BC00E70AA4 /* LaunchScreen.storyboard in Resources */,
 				C0EC1ED5249DE06300A8BD14 /* 010606.lrc in Resources */,
@@ -1189,34 +1372,49 @@
 				C09B27E226BA9355000ED751 /* 021414.lrc in Resources */,
 				C0EC1F01249DE74100A8BD14 /* 015757.lrc in Resources */,
 				C0EC1E8F249DDED200A8BD14 /* 简单爱_周杰伦.mp3 in Resources */,
+				C0987F542770AE98006ED836 /* 在梅边.mp3 in Resources */,
 				C0EC1F43249E05BF00A8BD14 /* 014646.lrc in Resources */,
 				C0EC1EB1249DDED200A8BD14 /* 你听的到_周杰伦.mp3 in Resources */,
 				C0DD7D4C2542712D002C46BA /* 017272.lrc in Resources */,
 				C0EC1F35249DFE9500A8BD14 /* 012727.lrc in Resources */,
+				C0987F562770AE98006ED836 /* 落叶归根.mp3 in Resources */,
+				C0987F672770AE98006ED836 /* 龙的传人.lrc in Resources */,
 				C0EC1EED249DE47C00A8BD14 /* 011818.lrc in Resources */,
 				C0EC1E32249DDE9800A8BD14 /* 尘_薛之谦.mp3 in Resources */,
 				C0EC1E3A249DDE9800A8BD14 /* 方圆几里_薛之谦.mp3 in Resources */,
+				C0987F5D2770AE98006ED836 /* 美.lrc in Resources */,
+				C0987F6F2770AE98006ED836 /* 天地龙鳞.lrc in Resources */,
 				C0EC1EC1249DDED200A8BD14 /* 火车叨位去_周杰伦.mp3 in Resources */,
 				C02EB5AC26BD462E0022C9E2 /* As Long as You Love Me.mp3 in Resources */,
+				C0987F482770AE98006ED836 /* 好心分手.mp3 in Resources */,
+				C0987F732770AE98006ED836 /* 心跳.lrc in Resources */,
+				C0987F4F2770AE98006ED836 /* 春雨里洗过的太阳.mp3 in Resources */,
 				C0EC1F03249DE80E00A8BD14 /* 012828.lrc in Resources */,
+				C0987F5F2770AE98006ED836 /* Julia.lrc in Resources */,
 				C0EC1EB6249DDED200A8BD14 /* 完美主义_周杰伦.mp3 in Resources */,
+				C0987F5A2770AE98006ED836 /* 公转自转.mp3 in Resources */,
 				C0EC1EB2249DDED200A8BD14 /* 乔克叔叔_周杰伦.mp3 in Resources */,
 				C09B27E626BA9364000ED751 /* 天外来物_薛之谦.mp3 in Resources */,
 				C0EC1F4D249E0BA100A8BD14 /* 016161.lrc in Resources */,
 				C0F7E1C0246BFBFC0027FE02 /* star.json in Resources */,
+				C0987F6A2770AE98006ED836 /* 花田错.lrc in Resources */,
 				C0EC1E31249DDE9800A8BD14 /* 我害怕_薛之谦.mp3 in Resources */,
 				C0EC1EAA249DDED200A8BD14 /* 黑色毛衣_周杰伦.mp3 in Resources */,
 				C0F7E1BC246BFBFC0027FE02 /* ASMR.json in Resources */,
 				C0EC1EBC249DDED200A8BD14 /* 一路向北_周杰伦.mp3 in Resources */,
 				C04427FB245BD3BC00E70AA4 /* Assets.xcassets in Resources */,
+				C0987F522770AE98006ED836 /* 天地龙鳞.mp3 in Resources */,
+				C0987F5C2770AE98006ED836 /* 两个人不等于我们.mp3 in Resources */,
 				C0EC1E14249DDE0B00A8BD14 /* 020303.lrc in Resources */,
 				C0EC1F57249E0F2C00A8BD14 /* 017070.lrc in Resources */,
 				C0EC1ECA249DDED200A8BD14 /* 同一种调调_周杰伦.mp3 in Resources */,
 				C0DD7D592542850D002C46BA /* I want it that way.mp3 in Resources */,
 				C0EC1E88249DDED200A8BD14 /* Mine Mine_周杰伦.mp3 in Resources */,
 				C0EC1E9A249DDED200A8BD14 /* 暗号_周杰伦.mp3 in Resources */,
+				C0987F592770AE98006ED836 /* 花田错 (Remix).mp3 in Resources */,
 				C0EC1EB4249DDED200A8BD14 /* 四面楚歌_周杰伦.mp3 in Resources */,
 				C0EC1E21249DDE4F00A8BD14 /* 010101.lrc in Resources */,
+				C0987F662770AE98006ED836 /* 爱你等于爱自己.lrc in Resources */,
 				C0EC1EF7249DE5B300A8BD14 /* 015454.lrc in Resources */,
 				C0EC1EE9249DE3D900A8BD14 /* 011616.lrc in Resources */,
 				C0EC1E1C249DDE0B00A8BD14 /* 020909.lrc in Resources */,
@@ -1227,11 +1425,16 @@
 				C0EC1E1E249DDE0B00A8BD14 /* 020202.lrc in Resources */,
 				C0EC1EAC249DDED200A8BD14 /* 白色风车_周杰伦.mp3 in Resources */,
 				C0EC1EA1249DDED200A8BD14 /* 退后_周杰伦.mp3 in Resources */,
+				C0987F512770AE98006ED836 /* 爱你等于爱自己.mp3 in Resources */,
 				C0EC1E16249DDE0B00A8BD14 /* 020707.lrc in Resources */,
 				C02EB5B226BD48430022C9E2 /* XZQMusics.plist in Resources */,
 				C0EC1E9C249DDED200A8BD14 /* 将军_周杰伦.mp3 in Resources */,
+				C0987F6C2770AE98006ED836 /* 落叶归根.lrc in Resources */,
+				C0987F6E2770AE98006ED836 /* 另一个天堂.lrc in Resources */,
 				C0EC1EA8249DDED200A8BD14 /* 千里之外_费玉清,周杰伦.mp3 in Resources */,
 				C0EC1ECB249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 in Resources */,
+				C0987F502770AE98006ED836 /* 大城小爱(3D).mp3 in Resources */,
+				C0987F632770AE98006ED836 /* 你是我心内的一首歌.lrc in Resources */,
 				C0EC1E30249DDE9800A8BD14 /* 几个你_薛之谦.mp3 in Resources */,
 				C0EC1EC0249DDED200A8BD14 /* 止战之殇_周杰伦.mp3 in Resources */,
 				C0EC1EC8249DDED200A8BD14 /* 手写的从前_周杰伦.mp3 in Resources */,
@@ -1241,17 +1444,24 @@
 				C0EC1F05249DE85700A8BD14 /* 015555.lrc in Resources */,
 				C0EC1EEF249DE4CF00A8BD14 /* 011919.lrc in Resources */,
 				C0EC1F31249DFC8900A8BD14 /* 012424.lrc in Resources */,
+				C0987F4E2770AE98006ED836 /* 龙的传人.mp3 in Resources */,
 				C0EC1EA5249DDED200A8BD14 /* 夜曲_周杰伦.mp3 in Resources */,
+				C0987F4D2770AE98006ED836 /* 唯一.mp3 in Resources */,
 				C04427F9245BD3BA00E70AA4 /* Main.storyboard in Resources */,
 				C0EC1E8B249DDED200A8BD14 /* 对不起_周杰伦.mp3 in Resources */,
 				C0EC1EFF249DE6FD00A8BD14 /* 014949.lrc in Resources */,
 				C0EC1EBD249DDED200A8BD14 /* 伊斯坦堡_周杰伦.mp3 in Resources */,
+				C0987F5B2770AE98006ED836 /* 完美的互动.mp3 in Resources */,
+				C0987F682770AE98006ED836 /* 春雨里洗过的太阳.lrc in Resources */,
 				C0EC1F09249DE8FB00A8BD14 /* 013939.lrc in Resources */,
 				C02EB5A426BD461C0022C9E2 /* 030707.lrc in Resources */,
 				C0EC1F25249DEDD600A8BD14 /* 013636.lrc in Resources */,
 				C0EC1F2F249DFC4900A8BD14 /* 012323.lrc in Resources */,
 				C0EC1E9D249DDED200A8BD14 /* 借口_周杰伦.mp3 in Resources */,
+				C0987F552770AE98006ED836 /* 柴米油盐酱醋茶.mp3 in Resources */,
 				C0EC1EC4249DDED200A8BD14 /* 超人不会飞_周杰伦.mp3 in Resources */,
+				C0987F622770AE98006ED836 /* 火力全开.lrc in Resources */,
+				C0987F452770AE98006ED836 /* 你是我心内的一首歌.mp3 in Resources */,
 				C0EC1F4B249E068D00A8BD14 /* 015353.lrc in Resources */,
 				C02EB5A326BD461C0022C9E2 /* 030606.lrc in Resources */,
 				C0EC1E37249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 in Resources */,
@@ -1265,14 +1475,18 @@
 				C0EC1F2B249DF3FA00A8BD14 /* 012222.lrc in Resources */,
 				C0EC1F07249DE89D00A8BD14 /* 014040.lrc in Resources */,
 				C0EC1E17249DDE0B00A8BD14 /* 021111.lrc in Resources */,
+				C0987F652770AE98006ED836 /* 大城小爱.lrc in Resources */,
+				C0987F442770AE98006ED836 /* 火力全开.mp3 in Resources */,
 				C0EC1F21249DECFE00A8BD14 /* 015252.lrc in Resources */,
 				C0EC1EF9249DE5FC00A8BD14 /* 014242.lrc in Resources */,
 				C0EC1EB8249DDED200A8BD14 /* 烟花易冷_周杰伦.mp3 in Resources */,
 				C0EC1ECD249DDF3400A8BD14 /* 010202.lrc in Resources */,
+				C0987F752770AE98006ED836 /* 花田错 (Remix).lrc in Resources */,
 				C0EC1EB0249DDED200A8BD14 /* 浪漫手机_周杰伦.mp3 in Resources */,
 				C0EC1F11249DEA0300A8BD14 /* 015959.lrc in Resources */,
 				C0EC1F53249E0DA300A8BD14 /* 016767.lrc in Resources */,
 				C0EC1ED3249DE02A00A8BD14 /* 010505.lrc in Resources */,
+				C0987F642770AE98006ED836 /* 唯一.lrc in Resources */,
 				C0EC1E38249DDE9800A8BD14 /* 演员_薛之谦.mp3 in Resources */,
 				C0EC1E13249DDE0B00A8BD14 /* 020606.lrc in Resources */,
 				C0EC1EBE249DDED200A8BD14 /* 以父之名_周杰伦.mp3 in Resources */,
@@ -1357,16 +1571,14 @@
 				C0F7E23A246E5AF00027FE02 /* SyPlayerShowView.swift in Sources */,
 				C0F7E20E246D55F50027FE02 /* SyCycleViewImageModel.swift in Sources */,
 				C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */,
-				C0DD7D10253E7D2A002C46BA /* SyNetworkRequest.swift in Sources */,
 				C0F7E215246D68740027FE02 /* SyTableView.swift in Sources */,
 				C0F7E244247388180027FE02 /* SyLaunchManager.swift in Sources */,
 				C0EC1DE2249DA63600A8BD14 /* SyLrcTVC.swift in Sources */,
 				C0F7E245247388180027FE02 /* SyLaunchModel.swift in Sources */,
 				C0F7E20F246D55F50027FE02 /* SyImageDownloader.swift in Sources */,
-				C0F7E21D246E33FE0027FE02 /* SyMeVC.swift in Sources */,
+				C0F7E21D246E33FE0027FE02 /* SyMVVC.swift in Sources */,
 				C04427F2245BD3BA00E70AA4 /* AppDelegate.swift in Sources */,
 				C0F7E1D1246C03310027FE02 /* SyButton.swift in Sources */,
-				C0DD7D11253E7D2A002C46BA /* SyRequestCollection.swift in Sources */,
 				C044284C24683A4E00E70AA4 /* SyString.swift in Sources */,
 				C0F7E213246D5C620027FE02 /* SyImageView.swift in Sources */,
 				C02BB773247BE36D00F07E5A /* SyImage.swift in Sources */,

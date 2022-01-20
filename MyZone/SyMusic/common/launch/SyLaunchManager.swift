@@ -41,7 +41,7 @@ class SyLaunchManager: NSObject {
         
         let model = SyLaunchModel()
         model.content = "item_screen_icon.jpg"
-        model.screenTime = 3
+        model.screenTime = 1
         self.imageLaunchAd(model: model)
     }
     
