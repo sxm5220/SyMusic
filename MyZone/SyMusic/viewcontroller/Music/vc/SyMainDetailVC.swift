@@ -37,7 +37,6 @@ class SyMainDetailVC: SyBaseVC {
     
     private lazy var tableView: SyTableView = {
         let heightValue: CGFloat = (screenHeight() - navigationBarWithHeight() - 50)
-        
         var tableView = SyTableView(array: [30,0,screenWidth() - 60,heightValue], .plain, self)
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .singleLine
