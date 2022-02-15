@@ -8,47 +8,26 @@
 
 import Foundation
 
- class SyMusicMessageItem: NSObject {
-     var musicM: SyMusicsItem?
-     var costTime: TimeInterval = 0
-     var totalTime: TimeInterval = 0
-     var isPlaying: Bool = false
-     var costTimeFormat: String {
-         get {
-             return Timer.getFormatTime(costTime)
-         }
-     }
-     var totalTimeFormat: String {
-         get {
-             return Timer.getFormatTime(totalTime)
-         }
-     }
- }
+struct SyMusicMessageItem: Codable {
+    let musicM: SyMusicsItem
+    var costTime: TimeInterval = 0
+    var totalTime: TimeInterval = 0
+    var isPlaying: Bool
+}
 
- class SyLrcItem: NSObject {
-     var beginTime: TimeInterval = 0
-     var endTime: TimeInterval = 0
-     var lrcContent: String = ""
- }
+struct SyMusicsItem: Codable {
+    let id: String
+    let category: String
+    let name: String
+    let icon: String
+    let singerIcon: String
+    let singer: String
+    let lrcname: String
+    let filename: String
+}
 
- class SyMusicsItem: Codable {
-     var id: String = ""
-     var category: String = ""
-     var name: String = ""
-     var icon: String = ""
-     var singerIcon: String = ""
-     var singer: String = ""
-     var lrcname: String = ""
-     var filename: String = ""
-     
-     func initWithDictionary(dic: NSDictionary) {
-         self.id = dicForValue(dic: dic, key: "id")
-         self.category = dicForValue(dic: dic, key: "category")
-         self.name = dicForValue(dic: dic, key: "name")
-         self.icon = dicForValue(dic: dic, key: "icon")
-         self.singerIcon = dicForValue(dic: dic, key: "singerIcon")
-         self.singer = dicForValue(dic: dic, key: "singer")
-         self.lrcname = dicForValue(dic: dic, key: "lrcname")
-         self.filename = dicForValue(dic: dic, key: "filename")
-     }
- }
+struct SyLrcItem: Codable {
+    var beginTime: TimeInterval = 0
+    var endTime: TimeInterval = 0
+    let lrcContent: String
+}

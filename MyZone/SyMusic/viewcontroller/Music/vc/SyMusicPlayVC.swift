@@ -53,14 +53,14 @@ extension SyMusicPlayVC: SyAudioPlayerViewDelegate {
     
     //切换歌曲的时候（上/下一首）
     func changePlay() {
-        self.title = SyAVPlayer.getSharedInstance().model?.name
+        self.title = SyAVPlayer.getSharedInstance().musicItem?.name
         SyAVPlayer.getSharedInstance().pause()
         self.playView.indicator.startAnimating()
     }
 }
 
 class SyMusicPlayVC: SyBaseVC {
-    var model: SyMusicsItem!
+    var musicItem: SyMusicsItem?
     var dataCourseArray: [SyMusicsItem] = [SyMusicsItem]()
     var categoryId: String?
     public var star: MusicStar!
@@ -70,7 +70,7 @@ class SyMusicPlayVC: SyBaseVC {
         v.contentMode = .scaleAspectFill
         v.isUserInteractionEnabled = true
         v.clipsToBounds = true
-        v.image = UIImage.init(named: SyAVPlayer.getSharedInstance().model?.singerIcon ?? "item_headphone_icon")
+        v.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
         //初始化一个基于模糊效果的视觉效果视图
         let blur = UIBlurEffect(style: .systemMaterialDark)
         let blurView = UIVisualEffectView(effect: blur)
@@ -101,7 +101,7 @@ class SyMusicPlayVC: SyBaseVC {
         UIView.animate(withDuration: 0.5, animations: {
 //            v.playerShowViewTitleLab.text = self.title
             //            v.playerShowViewHeaderImage.sd_setImage(with: URL(string: SyAVPlayer.getSharedInstance().model?.imgUrl ?? ""), placeholderImage: #imageLiteral(resourceName: "item_black_logo_icon"))
-            v.playerShowViewHeaderImage.image = UIImage(named: self.model?.icon ?? "")
+            v.playerShowViewHeaderImage.image = UIImage(named: self.musicItem?.icon ?? "")
             v.frame.origin.y = currentViewController()?.navigationController?.viewControllers.count == 1 ? (screenHeight() - (isIphoneX() ? 135 : 100)) : screenHeight()
             userDefaultsSetValue(value: "1", key: voicePlayKey())
         }, completion: { (isCompletion) in
@@ -114,7 +114,7 @@ class SyMusicPlayVC: SyBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isBackBar = true
-        self.title = self.model.name
+        self.title = self.musicItem?.name
         self.view.addSubview(self.bgImageView)
         self.view.addSubview(self.playView)
         self.musicListDataSource(isRefresh: true)
@@ -138,11 +138,10 @@ class SyMusicPlayVC: SyBaseVC {
             SyAVPlayer.getSharedInstance().musicArray = self.dataCourseArray
         
             for i in 0..<SyAVPlayer.getSharedInstance().musicArray.count {
-                let model: SyMusicsItem = SyAVPlayer.getSharedInstance().musicArray[i]
-                if self.model.id == model.id {
-                    if SyAVPlayer.getSharedInstance().model?.id != model.id || SyAVPlayer.getSharedInstance().model?.category != model.category { //不同歌曲id或分类都可以更换 //判断是否当前播放中歌曲
-                        SyAVPlayer.getSharedInstance().playTheLine(index: i, isImmediately: true)
-                    }
+                let item: SyMusicsItem = SyAVPlayer.getSharedInstance().musicArray[i]
+                guard self.musicItem?.id == item.id else { return }
+                if SyAVPlayer.getSharedInstance().musicItem?.id != item.id || SyAVPlayer.getSharedInstance().musicItem?.category != item.category { //不同歌曲id或分类都可以更换 //判断是否当前播放中歌曲
+                    SyAVPlayer.getSharedInstance().playTheLine(index: i, isImmediately: true)
                 }
             }
         }

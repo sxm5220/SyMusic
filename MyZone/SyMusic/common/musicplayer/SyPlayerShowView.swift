@@ -280,8 +280,8 @@ class SyPlayerShowView: UIView{
         }
         let vc = SyMusicPlayVC()
         vc.star = self.star
-        vc.model = SyAVPlayer.getSharedInstance().model
-        vc.title = SyAVPlayer.getSharedInstance().model?.name
+        vc.musicItem = SyAVPlayer.getSharedInstance().musicItem
+        vc.title = SyAVPlayer.getSharedInstance().musicItem?.name
         vc.categoryId = self.categoryId
         vc.modalPresentationStyle = .fullScreen
         currentViewController()?.navigationController?.pushViewController(vc, animated: true)

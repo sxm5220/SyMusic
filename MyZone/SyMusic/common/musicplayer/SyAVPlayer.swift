@@ -112,7 +112,7 @@ class SyAVPlayer: NSObject {
     
     weak var delegate : SyAVPlayerDelegate?
     var timeObserVer : Any?
-    var model: SyMusicsItem?
+    var musicItem: SyMusicsItem?
     var imageView = UIImageView() //为了设置锁屏封面
     // 音频播放数组  例如 多个需要连续播放的音频 用比较好
     var musicArray : [SyMusicsItem] = []
@@ -140,10 +140,7 @@ class SyAVPlayer: NSObject {
             if timeAndContent.count != 2 { continue }
             let time = timeAndContent[0]
             let content = timeAndContent[1]
-            let lrcM = SyLrcItem()
-            lrcM.beginTime = Timer.getTimeInterval(time)
-            lrcM.lrcContent = content
-            lrcMs.append(lrcM)
+            lrcMs.append(SyLrcItem(beginTime: Timer.getTimeInterval(time), endTime: Timer.getTimeInterval(time), lrcContent: content))
         }
         
         for i in 0..<lrcMs.count {
@@ -162,15 +159,31 @@ class SyAVPlayer: NSObject {
         return (0, nil)
     }
     
-    fileprivate var musicMessageM = SyMusicMessageItem()
-    func getMusicMessageModel() -> SyMusicMessageItem {
-        musicMessageM.musicM = self.model
-        if let current = self.player.currentItem?.currentTime(){
-            musicMessageM.costTime = CMTimeGetSeconds(current)
+    //加载本地.plist文件数据
+    class func plistData(pathStr: String) -> [SyMusicsItem] {
+        guard let plistUrl = Bundle.main.path(forResource: pathStr + "Musics", ofType: "plist") else { return [] }
+        do {
+            let plistData = try Data(contentsOf: URL(fileURLWithPath: plistUrl))
+            let plist = try PropertyListSerialization.propertyList(from: plistData, options: .mutableContainers, format: nil)
+            let dataArry = plist as! [[String:String]]
+            var musicMs = [SyMusicsItem]()
+            for dic in dataArry {
+//                SyPrint("name=>>\(dicForValue(dic: dic as NSDictionary, key: "name"))")
+                let dicValue = dic as NSDictionary
+                musicMs.append(SyMusicsItem(id: dicForValue(dic: dicValue, key: "id"),
+                                            category: dicForValue(dic: dicValue, key: "category"),
+                                            name: dicForValue(dic: dicValue, key: "name"),
+                                            icon: dicForValue(dic: dicValue, key: "icon"),
+                                            singerIcon: dicForValue(dic: dicValue, key: "singerIcon"),
+                                            singer: dicForValue(dic: dicValue, key: "singer"),
+                                            lrcname: dicForValue(dic: dicValue, key: "lrcname"),
+                                            filename: dicForValue(dic: dicValue, key: "filename")))
+            }
+            return musicMs
+        } catch {
+            SyPrint(error.localizedDescription)
         }
-        musicMessageM.totalTime = self.durantion
-        musicMessageM.isPlaying = self.isPlay
-        return musicMessageM
+        return []
     }
     
     class func dataSource(star: MusicStar,_ result: ([SyMusicsItem])->()) {
@@ -185,24 +198,7 @@ class SyAVPlayer: NSObject {
         case .LeehomWang:
             pathStr = "WLH"
         }
-        
-        guard let path = Bundle.main.path(forResource: pathStr + "Musics", ofType: "plist") else {
-            result([SyMusicsItem]())
-            return
-        }
-        
-        guard let array = NSArray(contentsOfFile: path) else {
-            result([SyMusicsItem]())
-            return
-        }
-        SyPrint("array=>>\(array)")
-        var musicMs = [SyMusicsItem]()
-        for item in array {
-            let musicM = SyMusicsItem()
-            musicM.initWithDictionary(dic: item as! NSDictionary)
-            musicMs.append(musicM)
-        }
-        result(musicMs)
+        result(plistData(pathStr: pathStr))
     }
     
     /*/是否免费可播放
@@ -282,9 +278,9 @@ class SyAVPlayer: NSObject {
                         if view.classForCoder == SyPlayerShowView().classForCoder{
                             let v = view as? SyPlayerShowView
                             v?.playerShowViewProgress.progress = progressValue
-                            v?.playerShowViewHeaderImage.image = UIImage(named: self.model?.icon ?? "")
+                            v?.playerShowViewHeaderImage.image = UIImage(named: self.musicItem?.icon ?? "")
                             //v?.playerShowViewTitleLab.text = SyAVPlayer.getSharedInstance().model?.name
-                            let rowLrcM = SyAVPlayer.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().model?.lrcname))
+                            let rowLrcM = SyAVPlayer.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname))
                             let lrcM = rowLrcM.lrcM
                             v?.playerShowViewTitleLab.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
                         }
@@ -371,9 +367,9 @@ class SyAVPlayer: NSObject {
                         if view.classForCoder == SyPlayerShowView().classForCoder{
                             if SyAVPlayer.getSharedInstance().musicArray.count > SyAVPlayer.getSharedInstance().currentIndex{
                                 let v = view as? SyPlayerShowView
-                                let model = SyAVPlayer.getSharedInstance().musicArray[SyAVPlayer.getSharedInstance().currentIndex]
+                                let item = SyAVPlayer.getSharedInstance().musicArray[SyAVPlayer.getSharedInstance().currentIndex]
                                 //v?.playerShowViewHeaderImage.sd_setImage(with: URL(string: model.imgUrl), placeholderImage: #imageLiteral(resourceName: "item_black_logo_icon"))
-                                v?.playerShowViewHeaderImage.image = UIImage.init(named: model.name)
+                                v?.playerShowViewHeaderImage.image = UIImage.init(named: item.name)
                             }
                         }
                     }
@@ -453,7 +449,7 @@ extension SyAVPlayer {
             self.playerItem = playerItem
             self.currentUrl = record.name
             self.isImmediately = isImmediately
-            self.model = record
+            self.musicItem = record
             self.currentIndex = index
             if !isImmediately {
                 self.pause()
@@ -587,22 +583,29 @@ extension SyAVPlayer {
     
     //更新锁屏界面信息
     func setupLockMessage() {
-        let musicMessageM = getMusicMessageModel()
+//        musicMessageM.musicM = self.model
+//        if let current = self.player.currentItem?.currentTime(){
+//            musicMessageM.costTime = CMTimeGetSeconds(current)
+//        }
+//        musicMessageM.totalTime = self.durantion
+//        musicMessageM.isPlaying = self.isPlay
+        guard let item = self.musicItem else { return }
+        let musicMessageM = SyMusicMessageItem(musicM: item, costTime: CMTimeGetSeconds((self.player.currentItem?.currentTime())!), totalTime: self.durantion, isPlaying: self.isPlay)
         let center = MPNowPlayingInfoCenter.default()
         
-        let musicName = musicMessageM.musicM?.name ?? ""
-        let singerName = musicMessageM.musicM?.singer ?? ""
+        let musicName = musicMessageM.musicM.name
+        let singerName = musicMessageM.musicM.singer
         let costTime = musicMessageM.costTime
         let totalTime = musicMessageM.totalTime
         
-        let lrcFileName = musicMessageM.musicM?.lrcname
+        let lrcFileName = musicMessageM.musicM.lrcname
         let lrcMs = self.getLrcMs(lrcFileName)
         let lrcModelAndRow = self.getCurrentLrcM(musicMessageM.costTime, lrcMs: lrcMs)
         let lrcM = lrcModelAndRow.lrcM
         
         if self.lastRow != lrcModelAndRow.row {
             self.lastRow = lrcModelAndRow.row
-            if let resultImage = UIImage.getNewImage(UIImage(named: musicMessageM.musicM?.icon ?? ""), str: lrcM?.lrcContent){
+            if let resultImage = UIImage.getNewImage(UIImage(named: musicMessageM.musicM.icon), str: lrcM?.lrcContent){
                 self.artWork = MPMediaItemArtwork(boundsSize: resultImage.size, requestHandler: { size in
                     return resultImage
                 })
@@ -625,9 +628,9 @@ extension SyAVPlayer {
     
     // 设置锁屏时 播放中心的播放信息
     func setNowPlayingInfo(){
-        if (self.playType == .PlayTypeLine || self.playType == .PlayTypeSpecial) && self.model != nil {
+        if (self.playType == .PlayTypeLine || self.playType == .PlayTypeSpecial) && self.musicItem != nil {
             var info = Dictionary<String,Any>()
-            info[MPMediaItemPropertyTitle] = self.model?.name ?? ""
+            info[MPMediaItemPropertyTitle] = self.musicItem?.name
             /*if  let url = self.model?.imgUrl ,let image = UIImage(named: "item_black_logo_icon"){
              imageView.kf.setImage(with: URL(string:url), placeholder: image, options: nil, progressBlock: nil) { (img, _, _, _) in
              if img != nil {

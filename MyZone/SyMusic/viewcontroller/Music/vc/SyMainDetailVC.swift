@@ -63,7 +63,7 @@ class SyMainDetailVC: SyBaseVC {
         self.isBackBar = true
         self.view.addSubview(self.tableView)
         self.title = self.useritem.name
-        self.headImageView.image = UIImage.init(named: self.useritem.icon)
+        self.headImageView.image = UIImage.init(named: self.useritem?.icon ?? "")
         
         NotificationCenter.default.addObserver(self, selector: #selector(playBarChangePlayStateWith(notif:)), name: NSNotification.Name(rawValue: SyAVPlayerState), object: nil)
     }
@@ -94,8 +94,8 @@ class SyMainDetailVC: SyBaseVC {
     }
     
     fileprivate func pushVC(index: Int) {
-        let model = self.dataCourseArray[index]
-        if SyAVPlayer.getSharedInstance().isPlay && SyAVPlayer.getSharedInstance().model?.id != model.id{
+        let item = self.dataCourseArray[index]
+        if SyAVPlayer.getSharedInstance().isPlay && SyAVPlayer.getSharedInstance().musicItem?.id != item.id{
             SyAVPlayer.getSharedInstance().player.pause()
             SyAVPlayer.getSharedInstance().isPlay = false
         }
@@ -103,7 +103,7 @@ class SyMainDetailVC: SyBaseVC {
 
         let vc = SyMusicPlayVC()
         vc.star = self.useritem.star
-        vc.model = model
+        vc.musicItem = item
         vc.categoryId = self.useritem.id
         self.navigationController?.pushViewController(vc, animated: true)
     }

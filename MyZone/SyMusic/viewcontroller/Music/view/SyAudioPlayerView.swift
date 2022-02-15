@@ -71,8 +71,8 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         self.progressView.progress = CGFloat(progress)
         self.endTimerLab.text = SyAVPlayer.getSharedInstance().totalTime
         self.startTimerLab.text = SyAVPlayer.getSharedInstance().currentTime
-        self.vc.title = SyAVPlayer.getSharedInstance().model?.name
-        self.vc.bgImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().model?.singerIcon ?? "")
+        self.vc.title = SyAVPlayer.getSharedInstance().musicItem?.name
+        self.vc.bgImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "")
         self.centerImageView.image = self.vc.bgImageView.image
         if progress > 0 && self.indicator.isAnimating {
             self.indicator.stopAnimating()
@@ -80,15 +80,15 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
     }
     
     func changeMusicToIndex(index: Int) {
-        self.vc.bgImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().model?.singerIcon ?? "")
+        self.vc.bgImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "")
         self.centerImageView.image = self.vc.bgImageView.image
-        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().model?.lrcname)
+        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname)
     }
     
     func updateBufferProgress(progress: Float) {
         self.endTimerLab.text = SyAVPlayer.getSharedInstance().totalTime
         self.startTimerLab.text = SyAVPlayer.getSharedInstance().currentTime
-        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().model?.lrcname)
+        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname)
     }
     
     var vc: SyMusicPlayVC!
@@ -247,7 +247,7 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         
         self.isSingleCycle = userDefaultsForString(forKey: cycleVoiceStateKey()) == "1" ? true : false
         
-        self.centerImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().model?.singerIcon ?? "item_headphone_icon")
+        self.centerImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
         self.addSubview(centerImageView)
         self.addSubview(lrcLabel)
         self.addSubview(lrcScrollView)
@@ -293,7 +293,7 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         animation.repeatCount = MAXFLOAT
         self.centerImageView.layer.add(animation, forKey: "rotation")
         
-        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().model?.lrcname)
+        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname)
     }
     
     @objc func sliderTouchUp(sender: UISlider) {
@@ -313,7 +313,7 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
                 delegate.preMusicActionFunc()
             }
         case 2: //播放暂停
-            if SyAVPlayer.getSharedInstance().model?.name.trimmingCharactersCount ?? 0 > 0 {
+            if SyAVPlayer.getSharedInstance().musicItem?.name.trimmingCharactersCount ?? 0 > 0 {
                 if self.indicator.isAnimating {
                     return
                 }
