@@ -25,7 +25,7 @@ class SyMainVC: SyBaseVC {
                  userItem(id: "04", name: "王力宏", icon: "item_lh_icon", star: .LeehomWang)]
     
     /*fileprivate lazy var cycleView: SyCycleRollView = {
-        var cycleView = SyCycleRollView(frame: CGRect(x: 0, y: 0, width: screenWidth() - 10, height: heightValue), localImageArray: [#imageLiteral(resourceName: "item_JayChou_icon"),#imageLiteral(resourceName: "item_JokerXue_icon"),#imageLiteral(resourceName: "item_BackstreetBoys_icon")])
+        var cycleView = SyCycleRollView(frame: CGRect(x: 0, y: 0, width: screenWidth() - 10, height: heightValue), localImageArray: [])
         //设置代理，监听点击图片的事件
         cycleView.delegate = self
         return cycleView

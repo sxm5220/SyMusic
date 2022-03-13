@@ -142,12 +142,12 @@ func systemVersion() -> Double {
 
 //屏幕宽
 func screenWidth() -> CGFloat {
-    return UIScreen.main.bounds.size.width
+    return UIScreen.main.bounds.width
 }
 
 //屏幕高
 func screenHeight() -> CGFloat {
-    return UIScreen.main.bounds.size.height
+    return UIScreen.main.bounds.height
 }
 
 //tableView高

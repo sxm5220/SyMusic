@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		017470856F70AE65D9373B43 /* Pods_SyMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EFA56EBE110B60EBCD51CE /* Pods_SyMusic.framework */; };
+		C0157AE927DCC35C00FB13FD /* LeehomWang.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0157AE827DCC35C00FB13FD /* LeehomWang.MOV */; };
+		C0157AEC27DCC36C00FB13FD /* BackstreetBoys.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0157AEB27DCC36B00FB13FD /* BackstreetBoys.MOV */; };
+		C0157AEF27DCC37900FB13FD /* JayChou.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0157AEE27DCC37900FB13FD /* JayChou.MOV */; };
+		C0157AF227DCC38500FB13FD /* JokerXue.MOV in Resources */ = {isa = PBXBuildFile; fileRef = C0157AF127DCC38500FB13FD /* JokerXue.MOV */; };
 		C02BB773247BE36D00F07E5A /* SyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BB772247BE36D00F07E5A /* SyImage.swift */; };
 		C02EB59F26BD461C0022C9E2 /* 030404.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59926BD461B0022C9E2 /* 030404.lrc */; };
 		C02EB5A026BD461C0022C9E2 /* 030202.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C02EB59A26BD461B0022C9E2 /* 030202.lrc */; };
@@ -21,9 +25,9 @@
 		C02EB5AE26BD462E0022C9E2 /* All I Have to Give.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A826BD462E0022C9E2 /* All I Have to Give.mp3 */; };
 		C02EB5AF26BD462E0022C9E2 /* Anywhere for You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5A926BD462E0022C9E2 /* Anywhere for You.mp3 */; };
 		C02EB5B026BD462E0022C9E2 /* In a World Like This.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5AA26BD462E0022C9E2 /* In a World Like This.mp3 */; };
-		C02EB5B226BD48430022C9E2 /* XZQMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B126BD48430022C9E2 /* XZQMusics.plist */; };
-		C02EB5B426BD485E0022C9E2 /* ZJLMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B326BD485E0022C9E2 /* ZJLMusics.plist */; };
-		C02EB5B626BD487B0022C9E2 /* BBMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B526BD487A0022C9E2 /* BBMusics.plist */; };
+		C02EB5B226BD48430022C9E2 /* JokerXueMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B126BD48430022C9E2 /* JokerXueMusics.plist */; };
+		C02EB5B426BD485E0022C9E2 /* JayChouMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B326BD485E0022C9E2 /* JayChouMusics.plist */; };
+		C02EB5B626BD487B0022C9E2 /* BackstreetBoysMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B526BD487A0022C9E2 /* BackstreetBoysMusics.plist */; };
 		C04427F2245BD3BA00E70AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */; };
 		C04427F9245BD3BA00E70AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04427F7245BD3BA00E70AA4 /* Main.storyboard */; };
 		C04427FB245BD3BC00E70AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04427FA245BD3BC00E70AA4 /* Assets.xcassets */; };
@@ -37,6 +41,10 @@
 		C044284D24683A4E00E70AA4 /* SySystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284324683A4E00E70AA4 /* SySystem.swift */; };
 		C044284F24683A4E00E70AA4 /* SyPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284524683A4E00E70AA4 /* SyPublic.swift */; };
 		C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044284624683A4E00E70AA4 /* SyNetwork.swift */; };
+		C04E71F227DDC0F1006B63D0 /* SyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E71F127DDC0F1006B63D0 /* SyArray.swift */; };
+		C084728327D9ADC600A1F519 /* SyVideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C084728127D9ADC600A1F519 /* SyVideoPlayerManager.swift */; };
+		C084728427D9ADC600A1F519 /* SyVideoPlayerShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C084728227D9ADC600A1F519 /* SyVideoPlayerShowView.swift */; };
+		C084728627D9B02500A1F519 /* SyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C084728527D9B02500A1F519 /* SyView.swift */; };
 		C095493226B270AF003990C0 /* SyMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C095493126B270AF003990C0 /* SyMainItem.swift */; };
 		C0987F442770AE98006ED836 /* 火力全开.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F102770AE97006ED836 /* 火力全开.mp3 */; };
 		C0987F452770AE98006ED836 /* 你是我心内的一首歌.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0987F112770AE97006ED836 /* 你是我心内的一首歌.mp3 */; };
@@ -88,7 +96,7 @@
 		C0987F732770AE98006ED836 /* 心跳.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F402770AE98006ED836 /* 心跳.lrc */; };
 		C0987F742770AE98006ED836 /* 公转自转.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F412770AE98006ED836 /* 公转自转.lrc */; };
 		C0987F752770AE98006ED836 /* 花田错 (Remix).lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0987F422770AE98006ED836 /* 花田错 (Remix).lrc */; };
-		C0987F762770AE98006ED836 /* WLHMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0987F432770AE98006ED836 /* WLHMusics.plist */; };
+		C0987F762770AE98006ED836 /* LeehomWangMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0987F432770AE98006ED836 /* LeehomWangMusics.plist */; };
 		C09B27E226BA9355000ED751 /* 021414.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E026BA9355000ED751 /* 021414.lrc */; };
 		C09B27E326BA9355000ED751 /* 021313.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E126BA9355000ED751 /* 021313.lrc */; };
 		C09B27E626BA9364000ED751 /* 天外来物_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */; };
@@ -290,10 +298,9 @@
 		C0F7E21D246E33FE0027FE02 /* SyMVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E21A246E33FE0027FE02 /* SyMVVC.swift */; };
 		C0F7E223246E340B0027FE02 /* SyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E220246E340B0027FE02 /* SyTabBarController.swift */; };
 		C0F7E224246E340B0027FE02 /* SyBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E222246E340B0027FE02 /* SyBaseVC.swift */; };
-		C0F7E238246E57B90027FE02 /* SyAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */; };
-		C0F7E23A246E5AF00027FE02 /* SyPlayerShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E239246E5AF00027FE02 /* SyPlayerShowView.swift */; };
+		C0F7E238246E57B90027FE02 /* SyMusicPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E237246E57B90027FE02 /* SyMusicPlayerManager.swift */; };
+		C0F7E23A246E5AF00027FE02 /* SyMusicPlayerShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E239246E5AF00027FE02 /* SyMusicPlayerShowView.swift */; };
 		C0F7E23E2472C6400027FE02 /* SyChooseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E23D2472C6400027FE02 /* SyChooseListView.swift */; };
-		C0F7E2402472C6890027FE02 /* SyCityChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E23F2472C6890027FE02 /* SyCityChooseView.swift */; };
 		C0F7E244247388180027FE02 /* SyLaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E242247388170027FE02 /* SyLaunchManager.swift */; };
 		C0F7E245247388180027FE02 /* SyLaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7E243247388170027FE02 /* SyLaunchModel.swift */; };
 		C0F7E24924738AB40027FE02 /* item_screen_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0F7E24824738AB40027FE02 /* item_screen_icon.jpg */; };
@@ -302,6 +309,10 @@
 /* Begin PBXFileReference section */
 		0C8E96B01C46141D72045970 /* Pods-SyMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SyMusic.release.xcconfig"; path = "Target Support Files/Pods-SyMusic/Pods-SyMusic.release.xcconfig"; sourceTree = "<group>"; };
 		27EFA56EBE110B60EBCD51CE /* Pods_SyMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SyMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0157AE827DCC35C00FB13FD /* LeehomWang.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = LeehomWang.MOV; sourceTree = "<group>"; };
+		C0157AEB27DCC36B00FB13FD /* BackstreetBoys.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = BackstreetBoys.MOV; sourceTree = "<group>"; };
+		C0157AEE27DCC37900FB13FD /* JayChou.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = JayChou.MOV; sourceTree = "<group>"; };
+		C0157AF127DCC38500FB13FD /* JokerXue.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = JokerXue.MOV; sourceTree = "<group>"; };
 		C02BB772247BE36D00F07E5A /* SyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyImage.swift; sourceTree = "<group>"; };
 		C02EB59926BD461B0022C9E2 /* 030404.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030404.lrc; sourceTree = "<group>"; };
 		C02EB59A26BD461B0022C9E2 /* 030202.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030202.lrc; sourceTree = "<group>"; };
@@ -315,9 +326,9 @@
 		C02EB5A826BD462E0022C9E2 /* All I Have to Give.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "All I Have to Give.mp3"; sourceTree = "<group>"; };
 		C02EB5A926BD462E0022C9E2 /* Anywhere for You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Anywhere for You.mp3"; sourceTree = "<group>"; };
 		C02EB5AA26BD462E0022C9E2 /* In a World Like This.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "In a World Like This.mp3"; sourceTree = "<group>"; };
-		C02EB5B126BD48430022C9E2 /* XZQMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = XZQMusics.plist; sourceTree = "<group>"; };
-		C02EB5B326BD485E0022C9E2 /* ZJLMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZJLMusics.plist; sourceTree = "<group>"; };
-		C02EB5B526BD487A0022C9E2 /* BBMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BBMusics.plist; sourceTree = "<group>"; };
+		C02EB5B126BD48430022C9E2 /* JokerXueMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerXueMusics.plist; sourceTree = "<group>"; };
+		C02EB5B326BD485E0022C9E2 /* JayChouMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JayChouMusics.plist; sourceTree = "<group>"; };
+		C02EB5B526BD487A0022C9E2 /* BackstreetBoysMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BackstreetBoysMusics.plist; sourceTree = "<group>"; };
 		C04427EE245BD3BA00E70AA4 /* SyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04427F8245BD3BA00E70AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -333,6 +344,10 @@
 		C044284324683A4E00E70AA4 /* SySystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SySystem.swift; sourceTree = "<group>"; };
 		C044284524683A4E00E70AA4 /* SyPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyPublic.swift; sourceTree = "<group>"; };
 		C044284624683A4E00E70AA4 /* SyNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyNetwork.swift; sourceTree = "<group>"; };
+		C04E71F127DDC0F1006B63D0 /* SyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyArray.swift; sourceTree = "<group>"; };
+		C084728127D9ADC600A1F519 /* SyVideoPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyVideoPlayerManager.swift; sourceTree = "<group>"; };
+		C084728227D9ADC600A1F519 /* SyVideoPlayerShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyVideoPlayerShowView.swift; sourceTree = "<group>"; };
+		C084728527D9B02500A1F519 /* SyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyView.swift; sourceTree = "<group>"; };
 		C095493126B270AF003990C0 /* SyMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMainItem.swift; sourceTree = "<group>"; };
 		C0987F102770AE97006ED836 /* 火力全开.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "火力全开.mp3"; sourceTree = "<group>"; };
 		C0987F112770AE97006ED836 /* 你是我心内的一首歌.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "你是我心内的一首歌.mp3"; sourceTree = "<group>"; };
@@ -384,7 +399,7 @@
 		C0987F402770AE98006ED836 /* 心跳.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "心跳.lrc"; sourceTree = "<group>"; };
 		C0987F412770AE98006ED836 /* 公转自转.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "公转自转.lrc"; sourceTree = "<group>"; };
 		C0987F422770AE98006ED836 /* 花田错 (Remix).lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "花田错 (Remix).lrc"; sourceTree = "<group>"; };
-		C0987F432770AE98006ED836 /* WLHMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WLHMusics.plist; sourceTree = "<group>"; };
+		C0987F432770AE98006ED836 /* LeehomWangMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LeehomWangMusics.plist; sourceTree = "<group>"; };
 		C09B27E026BA9355000ED751 /* 021414.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021414.lrc; sourceTree = "<group>"; };
 		C09B27E126BA9355000ED751 /* 021313.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021313.lrc; sourceTree = "<group>"; };
 		C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天外来物_薛之谦.mp3"; sourceTree = "<group>"; };
@@ -588,10 +603,9 @@
 		C0F7E21A246E33FE0027FE02 /* SyMVVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMVVC.swift; sourceTree = "<group>"; };
 		C0F7E220246E340B0027FE02 /* SyTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyTabBarController.swift; sourceTree = "<group>"; };
 		C0F7E222246E340B0027FE02 /* SyBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyBaseVC.swift; sourceTree = "<group>"; };
-		C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyAVPlayer.swift; sourceTree = "<group>"; };
-		C0F7E239246E5AF00027FE02 /* SyPlayerShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyPlayerShowView.swift; sourceTree = "<group>"; };
+		C0F7E237246E57B90027FE02 /* SyMusicPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMusicPlayerManager.swift; sourceTree = "<group>"; };
+		C0F7E239246E5AF00027FE02 /* SyMusicPlayerShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyMusicPlayerShowView.swift; sourceTree = "<group>"; };
 		C0F7E23D2472C6400027FE02 /* SyChooseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyChooseListView.swift; sourceTree = "<group>"; };
-		C0F7E23F2472C6890027FE02 /* SyCityChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyCityChooseView.swift; sourceTree = "<group>"; };
 		C0F7E242247388170027FE02 /* SyLaunchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLaunchManager.swift; sourceTree = "<group>"; };
 		C0F7E243247388170027FE02 /* SyLaunchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyLaunchModel.swift; sourceTree = "<group>"; };
 		C0F7E24824738AB40027FE02 /* item_screen_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = item_screen_icon.jpg; sourceTree = "<group>"; };
@@ -610,6 +624,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0157AE727DCC35C00FB13FD /* mv04 */ = {
+			isa = PBXGroup;
+			children = (
+				C0157AE827DCC35C00FB13FD /* LeehomWang.MOV */,
+			);
+			path = mv04;
+			sourceTree = "<group>";
+		};
+		C0157AEA27DCC36B00FB13FD /* mv03 */ = {
+			isa = PBXGroup;
+			children = (
+				C0157AEB27DCC36B00FB13FD /* BackstreetBoys.MOV */,
+			);
+			path = mv03;
+			sourceTree = "<group>";
+		};
+		C0157AED27DCC37900FB13FD /* mv01 */ = {
+			isa = PBXGroup;
+			children = (
+				C0157AEE27DCC37900FB13FD /* JayChou.MOV */,
+			);
+			path = mv01;
+			sourceTree = "<group>";
+		};
+		C0157AF027DCC38500FB13FD /* mv02 */ = {
+			isa = PBXGroup;
+			children = (
+				C0157AF127DCC38500FB13FD /* JokerXue.MOV */,
+			);
+			path = mv02;
+			sourceTree = "<group>";
+		};
 		C04427E5245BD3BA00E70AA4 = {
 			isa = PBXGroup;
 			children = (
@@ -657,7 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				C0F7E241247388170027FE02 /* launch */,
-				C0F7E236246E57890027FE02 /* musicplayer */,
+				C0F7E236246E57890027FE02 /* avplayer */,
 				C0F7E221246E340B0027FE02 /* baseVC */,
 				C0F7E21F246E340B0027FE02 /* tabbar */,
 				C0F7E1F2246D55F40027FE02 /* scrollview */,
@@ -669,6 +715,7 @@
 		C044283C24683A4E00E70AA4 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				C084728527D9B02500A1F519 /* SyView.swift */,
 				C0F7E210246D56A50027FE02 /* SyTimeInterval.swift */,
 				C044283D24683A4E00E70AA4 /* SyUserDefaults.swift */,
 				C044283E24683A4E00E70AA4 /* SyPrint.swift */,
@@ -684,8 +731,8 @@
 				C0F7E214246D68740027FE02 /* SyTableView.swift */,
 				C0F7E216246D6CEB0027FE02 /* SyLabel.swift */,
 				C0F7E23D2472C6400027FE02 /* SyChooseListView.swift */,
-				C0F7E23F2472C6890027FE02 /* SyCityChooseView.swift */,
 				C02BB772247BE36D00F07E5A /* SyImage.swift */,
+				C04E71F127DDC0F1006B63D0 /* SyArray.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -701,9 +748,10 @@
 		C0987F0E2770AE97006ED836 /* 王力宏 */ = {
 			isa = PBXGroup;
 			children = (
+				C0157AE727DCC35C00FB13FD /* mv04 */,
 				C0987F0F2770AE97006ED836 /* music04 */,
 				C0987F292770AE98006ED836 /* lrcs04 */,
-				C0987F432770AE98006ED836 /* WLHMusics.plist */,
+				C0987F432770AE98006ED836 /* LeehomWangMusics.plist */,
 			);
 			path = "王力宏";
 			sourceTree = "<group>";
@@ -775,7 +823,8 @@
 		C0DD7D5225428488002C46BA /* Backstreet Boys */ = {
 			isa = PBXGroup;
 			children = (
-				C02EB5B526BD487A0022C9E2 /* BBMusics.plist */,
+				C0157AEA27DCC36B00FB13FD /* mv03 */,
+				C02EB5B526BD487A0022C9E2 /* BackstreetBoysMusics.plist */,
 				C0DD7D54254284AA002C46BA /* lrcs03 */,
 				C0DD7D5325428496002C46BA /* music03 */,
 			);
@@ -1126,13 +1175,15 @@
 			path = mp3s;
 			sourceTree = "<group>";
 		};
-		C0F7E236246E57890027FE02 /* musicplayer */ = {
+		C0F7E236246E57890027FE02 /* avplayer */ = {
 			isa = PBXGroup;
 			children = (
-				C0F7E237246E57B90027FE02 /* SyAVPlayer.swift */,
-				C0F7E239246E5AF00027FE02 /* SyPlayerShowView.swift */,
+				C084728127D9ADC600A1F519 /* SyVideoPlayerManager.swift */,
+				C084728227D9ADC600A1F519 /* SyVideoPlayerShowView.swift */,
+				C0F7E237246E57B90027FE02 /* SyMusicPlayerManager.swift */,
+				C0F7E239246E5AF00027FE02 /* SyMusicPlayerShowView.swift */,
 			);
-			path = musicplayer;
+			path = avplayer;
 			sourceTree = "<group>";
 		};
 		C0F7E241247388170027FE02 /* launch */ = {
@@ -1148,7 +1199,8 @@
 		C0F7E24E2474CB070027FE02 /* 周杰伦 */ = {
 			isa = PBXGroup;
 			children = (
-				C02EB5B326BD485E0022C9E2 /* ZJLMusics.plist */,
+				C0157AED27DCC37900FB13FD /* mv01 */,
+				C02EB5B326BD485E0022C9E2 /* JayChouMusics.plist */,
 				C0EC1E3D249DDEA700A8BD14 /* music01 */,
 				C0EC1E1F249DDE1E00A8BD14 /* lrcs01 */,
 			);
@@ -1158,7 +1210,8 @@
 		C0F7E24F2474CB120027FE02 /* 薛之谦 */ = {
 			isa = PBXGroup;
 			children = (
-				C02EB5B126BD48430022C9E2 /* XZQMusics.plist */,
+				C0157AF027DCC38500FB13FD /* mv02 */,
+				C02EB5B126BD48430022C9E2 /* JokerXueMusics.plist */,
 				C0EC1E22249DDE6D00A8BD14 /* music02 */,
 				C0EC1E06249DDDB400A8BD14 /* lrcs02 */,
 			);
@@ -1306,7 +1359,7 @@
 				C0F7E1BB246BFBFC0027FE02 /* Home.json in Resources */,
 				C0EC1E18249DDE0B00A8BD14 /* 021212.lrc in Resources */,
 				C0EC1E15249DDE0B00A8BD14 /* 020404.lrc in Resources */,
-				C0987F762770AE98006ED836 /* WLHMusics.plist in Resources */,
+				C0987F762770AE98006ED836 /* LeehomWangMusics.plist in Resources */,
 				C0987F692770AE98006ED836 /* 需要人陪.lrc in Resources */,
 				C0987F712770AE98006ED836 /* 两个人不等于我们.lrc in Resources */,
 				C0EC1EE7249DE33D00A8BD14 /* 011515.lrc in Resources */,
@@ -1316,7 +1369,7 @@
 				C0EC1E94249DDED200A8BD14 /* 你好吗_周杰伦.mp3 in Resources */,
 				C0F7E1BE246BFBFC0027FE02 /* Sleep.json in Resources */,
 				C0EC1EF3249DE52400A8BD14 /* 013434.lrc in Resources */,
-				C02EB5B426BD485E0022C9E2 /* ZJLMusics.plist in Resources */,
+				C02EB5B426BD485E0022C9E2 /* JayChouMusics.plist in Resources */,
 				C0EC1ED9249DE0D300A8BD14 /* 010808.lrc in Resources */,
 				C0EC1E3B249DDE9800A8BD14 /* 认真的雪_薛之谦.mp3 in Resources */,
 				C0EC1E91249DDED200A8BD14 /* 迷迭香_周杰伦.mp3 in Resources */,
@@ -1340,7 +1393,7 @@
 				C0EC1ECF249DDF8C00A8BD14 /* 010303.lrc in Resources */,
 				C0EC1EF5249DE56F00A8BD14 /* 014545.lrc in Resources */,
 				C0EC1EB9249DDED200A8BD14 /* 不能说的秘密_周杰伦.mp3 in Resources */,
-				C02EB5B626BD487B0022C9E2 /* BBMusics.plist in Resources */,
+				C02EB5B626BD487B0022C9E2 /* BackstreetBoysMusics.plist in Resources */,
 				C0EC1EE5249DE30100A8BD14 /* 011414.lrc in Resources */,
 				C0EC1E1D249DDE0B00A8BD14 /* 020505.lrc in Resources */,
 				C0EC1F27249DEE2100A8BD14 /* 013131.lrc in Resources */,
@@ -1427,10 +1480,11 @@
 				C0EC1EA1249DDED200A8BD14 /* 退后_周杰伦.mp3 in Resources */,
 				C0987F512770AE98006ED836 /* 爱你等于爱自己.mp3 in Resources */,
 				C0EC1E16249DDE0B00A8BD14 /* 020707.lrc in Resources */,
-				C02EB5B226BD48430022C9E2 /* XZQMusics.plist in Resources */,
+				C02EB5B226BD48430022C9E2 /* JokerXueMusics.plist in Resources */,
 				C0EC1E9C249DDED200A8BD14 /* 将军_周杰伦.mp3 in Resources */,
 				C0987F6C2770AE98006ED836 /* 落叶归根.lrc in Resources */,
 				C0987F6E2770AE98006ED836 /* 另一个天堂.lrc in Resources */,
+				C0157AF227DCC38500FB13FD /* JokerXue.MOV in Resources */,
 				C0EC1EA8249DDED200A8BD14 /* 千里之外_费玉清,周杰伦.mp3 in Resources */,
 				C0EC1ECB249DDED200A8BD14 /* 爷爷泡的茶_周杰伦.mp3 in Resources */,
 				C0987F502770AE98006ED836 /* 大城小爱(3D).mp3 in Resources */,
@@ -1445,6 +1499,7 @@
 				C0EC1EEF249DE4CF00A8BD14 /* 011919.lrc in Resources */,
 				C0EC1F31249DFC8900A8BD14 /* 012424.lrc in Resources */,
 				C0987F4E2770AE98006ED836 /* 龙的传人.mp3 in Resources */,
+				C0157AE927DCC35C00FB13FD /* LeehomWang.MOV in Resources */,
 				C0EC1EA5249DDED200A8BD14 /* 夜曲_周杰伦.mp3 in Resources */,
 				C0987F4D2770AE98006ED836 /* 唯一.mp3 in Resources */,
 				C04427F9245BD3BA00E70AA4 /* Main.storyboard in Resources */,
@@ -1458,6 +1513,7 @@
 				C0EC1F25249DEDD600A8BD14 /* 013636.lrc in Resources */,
 				C0EC1F2F249DFC4900A8BD14 /* 012323.lrc in Resources */,
 				C0EC1E9D249DDED200A8BD14 /* 借口_周杰伦.mp3 in Resources */,
+				C0157AEC27DCC36C00FB13FD /* BackstreetBoys.MOV in Resources */,
 				C0987F552770AE98006ED836 /* 柴米油盐酱醋茶.mp3 in Resources */,
 				C0EC1EC4249DDED200A8BD14 /* 超人不会飞_周杰伦.mp3 in Resources */,
 				C0987F622770AE98006ED836 /* 火力全开.lrc in Resources */,
@@ -1466,6 +1522,7 @@
 				C02EB5A326BD461C0022C9E2 /* 030606.lrc in Resources */,
 				C0EC1E37249DDE9800A8BD14 /* 哑巴_薛之谦.mp3 in Resources */,
 				C0EC1F29249DEE7600A8BD14 /* 012525.lrc in Resources */,
+				C0157AEF27DCC37900FB13FD /* JayChou.MOV in Resources */,
 				C0EC1EFD249DE69100A8BD14 /* 016969.lrc in Resources */,
 				C0EC1E90249DDED200A8BD14 /* 麦芽糖_周杰伦.mp3 in Resources */,
 				C0EC1E3C249DDE9800A8BD14 /* 初学者_薛之谦.mp3 in Resources */,
@@ -1550,15 +1607,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C084728627D9B02500A1F519 /* SyView.swift in Sources */,
 				C0EC1DE9249DC17900A8BD14 /* SyAudioPlayerView.swift in Sources */,
 				C0F7E20D246D55F50027FE02 /* SyCycleRollView.swift in Sources */,
 				C0EC1DDF249DA63600A8BD14 /* SyMusicPlayVC.swift in Sources */,
 				C0F7E23E2472C6400027FE02 /* SyChooseListView.swift in Sources */,
+				C084728427D9ADC600A1F519 /* SyVideoPlayerShowView.swift in Sources */,
 				C044284924683A4E00E70AA4 /* SyColor.swift in Sources */,
 				C0EC1DE7249DA8DE00A8BD14 /* SyLrcCell.swift in Sources */,
-				C0F7E238246E57B90027FE02 /* SyAVPlayer.swift in Sources */,
+				C0F7E238246E57B90027FE02 /* SyMusicPlayerManager.swift in Sources */,
 				C0EC1DE0249DA63600A8BD14 /* SyMainDetailVC.swift in Sources */,
-				C0F7E2402472C6890027FE02 /* SyCityChooseView.swift in Sources */,
 				C044284724683A4E00E70AA4 /* SyUserDefaults.swift in Sources */,
 				C044284B24683A4E00E70AA4 /* SyLanguage.swift in Sources */,
 				C095493226B270AF003990C0 /* SyMainItem.swift in Sources */,
@@ -1568,8 +1626,9 @@
 				C0F7E217246D6CEB0027FE02 /* SyLabel.swift in Sources */,
 				C044284A24683A4E00E70AA4 /* SyAlertControllerView.swift in Sources */,
 				C0F7E223246E340B0027FE02 /* SyTabBarController.swift in Sources */,
-				C0F7E23A246E5AF00027FE02 /* SyPlayerShowView.swift in Sources */,
+				C0F7E23A246E5AF00027FE02 /* SyMusicPlayerShowView.swift in Sources */,
 				C0F7E20E246D55F50027FE02 /* SyCycleViewImageModel.swift in Sources */,
+				C084728327D9ADC600A1F519 /* SyVideoPlayerManager.swift in Sources */,
 				C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */,
 				C0F7E215246D68740027FE02 /* SyTableView.swift in Sources */,
 				C0F7E244247388180027FE02 /* SyLaunchManager.swift in Sources */,
@@ -1581,6 +1640,7 @@
 				C0F7E1D1246C03310027FE02 /* SyButton.swift in Sources */,
 				C044284C24683A4E00E70AA4 /* SyString.swift in Sources */,
 				C0F7E213246D5C620027FE02 /* SyImageView.swift in Sources */,
+				C04E71F227DDC0F1006B63D0 /* SyArray.swift in Sources */,
 				C02BB773247BE36D00F07E5A /* SyImage.swift in Sources */,
 				C0F7E224246E340B0027FE02 /* SyBaseVC.swift in Sources */,
 				C044284824683A4E00E70AA4 /* SyPrint.swift in Sources */,
@@ -1752,7 +1812,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E2AHMHGHNH;
+				DEVELOPMENT_TEAM = 5NWEY8AK7C;
 				INFOPLIST_FILE = SyMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1772,7 +1832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E2AHMHGHNH;
+				DEVELOPMENT_TEAM = 5NWEY8AK7C;
 				INFOPLIST_FILE = SyMusic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

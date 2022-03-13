@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SyLaunchManager.sharedInstance().setupLaunch()
         
         //检测网络状态
-        NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusChanged(_:)), name: NSNotification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusChanged(_:)), name: NSNotification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
         Reach().monitorReachabilityChanges()
         
         self.window?.rootViewController = SyTabBarController()
@@ -38,18 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if event?.type == .remoteControl && userDefaultsForString(forKey: voicePlayKey()) == "1" {
             switch event!.subtype {
             case .remoteControlPlay:
-                SyAVPlayer.getSharedInstance().play()
+                SyMusicPlayerManager.getSharedInstance().play()
             case .remoteControlPause:
-                SyAVPlayer.getSharedInstance().pause()
+                SyMusicPlayerManager.getSharedInstance().pause()
             case .remoteControlNextTrack:
-                SyAVPlayer.getSharedInstance().next()
+                SyMusicPlayerManager.getSharedInstance().next()
             case .remoteControlPreviousTrack:
-                SyAVPlayer.getSharedInstance().previous()
+                SyMusicPlayerManager.getSharedInstance().previous()
             case .remoteControlTogglePlayPause:
-                if SyAVPlayer.getSharedInstance().isPlay {
-                    SyAVPlayer.getSharedInstance().pause()
+                if SyMusicPlayerManager.getSharedInstance().isPlay {
+                    SyMusicPlayerManager.getSharedInstance().pause()
                 } else {
-                    SyAVPlayer.getSharedInstance().current()
+                    SyMusicPlayerManager.getSharedInstance().current()
                 }
             default:
                 break

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MarqueeLabel
+import LTMorphingLabel
 
 //UILabel高度
 func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
@@ -34,6 +35,37 @@ extension UILabel {
 
 //歌词文本
 class SyLrcLabel: UILabel {
+    
+    var radio: CGFloat = 0.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if self.text?.trimmingCharactersCount ?? 0 > 0 {
+            UIColor.white.set()
+            UIRectFillUsingBlendMode(CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.size.width * radio, height: rect.size.height), CGBlendMode.sourceIn)
+        }else{
+            UIColor.clear.set()
+        }
+    }
+}
+
+//动效歌词文本
+class SyLrcDEffectLabel: LTMorphingLabel {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.morphingDuration = 0.5
+        self.morphingEffect = LTMorphingEffect(rawValue: 3)!
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var radio: CGFloat = 0.0 {
         didSet {
             setNeedsDisplay()

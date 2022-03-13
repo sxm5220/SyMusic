@@ -14,6 +14,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     
     var rightBarButton: SyBadgeButton!
     var isBackBar: Bool = false //返回按钮
+    let imagesArray = [#imageLiteral(resourceName: "item_cover01_icon"),#imageLiteral(resourceName: "item_cover02_icon"),#imageLiteral(resourceName: "item_cover03_icon"),#imageLiteral(resourceName: "item_cover04_icon"),#imageLiteral(resourceName: "item_cover05_icon"),#imageLiteral(resourceName: "item_cover06_icon"),#imageLiteral(resourceName: "item_cover07_icon"),#imageLiteral(resourceName: "item_cover08_icon"),#imageLiteral(resourceName: "item_cover09_icon"),#imageLiteral(resourceName: "item_cover10_icon"),#imageLiteral(resourceName: "item_cover11_icon"),#imageLiteral(resourceName: "item_cover12_icon"),#imageLiteral(resourceName: "item_cover13_icon"),#imageLiteral(resourceName: "item_cover14_icon"),#imageLiteral(resourceName: "item_cover15_icon"),#imageLiteral(resourceName: "item_cover16_icon")]
     
     func leftBarButtonItemWithImage(image: UIImage) -> UIBarButtonItem {
         let leftButton = buttonWithImageFrame(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30),
@@ -30,7 +31,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func rightBarButtonItemWithImage(image: UIImage) -> UIBarButtonItem {
-        self.rightBarButton = buttonWithImageFrame(frame: CGRect.init(x: 0, y: 0, width: 25, height: 25),
+        self.rightBarButton = buttonWithImageFrame(frame: CGRect.init(x: 0, y: 0, width: 25, height: 20),
                                                    imageName: image,
                                                    tag: 0,
                                                    target: self,
@@ -41,8 +42,8 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     func rightBarButtonItemWithTitle(title: String) -> UIBarButtonItem {
         self.rightBarButton = buttonWithTitleFrame(frame: CGRect.init(x: 0, y: 0, width: 60, height: 20),
                                                    title: title,
-                                                   titleColor: UIColor.darkGray,
-                                                   backgroundColor: UIColor.clear,
+                                                   titleColor: .darkGray,
+                                                   backgroundColor: .clear,
                                                    cornerRadius: 2,
                                                    tag: 0,
                                                    target: self,
@@ -58,7 +59,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.isBackBar {
-            self.navigationItem.leftBarButtonItem = leftBarButtonItemWithImage(image: #imageLiteral(resourceName: "item_back_icon"))
+            self.navigationItem.leftBarButtonItem = leftBarButtonItemWithImage(image: sfImage(name: "arrow.backward"))
         }else{
             self.navigationItem.leftBarButtonItem = nil
         }
@@ -71,7 +72,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
                 viewFrameY = screenHeight()
             }
             windows.forEach { (view) in
-                if view.classForCoder == SyPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
+                if view.classForCoder == SyMusicPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
                     UIView.animate(withDuration: 0.5) {
                         view.alpha = 1
                         view.frame.origin.y = viewFrameY
@@ -86,7 +87,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
         if windows.count > 0 && self.navigationController?.viewControllers.count ?? 0 > 1{
             windows.forEach { (view) in
-                if view.classForCoder == SyPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
+                if view.classForCoder == SyMusicPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
                     UIView.animate(withDuration: 0.5) {
                         view.alpha = 0
                         view.frame.origin.y = screenHeight()
@@ -95,6 +96,22 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
+    private lazy var bgImageView: UIImageView = {
+        let imgV = UIImageView(frame: self.view.frame)
+        imgV.contentMode = .scaleAspectFill
+        imgV.isUserInteractionEnabled = false
+        imgV.image = self.imagesArray[4]
+        imgV.clipsToBounds = true
+        imgV.alpha = 1.0
+        //初始化一个基于模糊效果的视觉效果视图
+        let blur = UIBlurEffect(style: .systemChromeMaterialDark)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = imgV.frame
+        blurView.layer.masksToBounds = true
+        imgV.addSubview(blurView)
+        return imgV
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +123,28 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.view.addSubview(self.bgImageView)
+        //无限换背景
+        DispatchQueue.global().async {
+            var num = 1
+            repeat {
+                num -= 1
+                if num == 0 {
+                    num = 1
+                }
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 6.0) {
+                        self.bgImageView.alpha = 0.1
+                    } completion: { isComp in
+                        self.bgImageView.image = self.imagesArray.sample!
+                        UIView.animate(withDuration: 6.0) {
+                            self.bgImageView.alpha = 1.0
+                        }
+                    }
+                }
+                sleep(20)
+            }while num > 0
+        }
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {

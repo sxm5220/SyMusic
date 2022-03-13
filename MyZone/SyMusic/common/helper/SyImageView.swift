@@ -8,6 +8,17 @@
 
 import UIKit
 
+func sfImage(name: String , _ pointSize : CGFloat? = nil, _ symbolWeight: UIImage.SymbolWeight? = nil, _ color: UIColor? = nil, _ renderingMode: UIImage.RenderingMode? = nil) -> UIImage {
+    // 1.可以配置 weight、scale、textStyle等
+    let config = UIImage.SymbolConfiguration(pointSize: pointSize ?? 30, weight: symbolWeight ?? .semibold)
+    // 2.初始化`UIImage`，当然也可以不传 Configuration
+    let img =  UIImage(systemName: name, withConfiguration: config)
+    // 3.修改颜色 和 mode
+    let sfImg = img?.withTintColor(color ?? .white, renderingMode: renderingMode ?? .alwaysOriginal)
+    guard let icon = sfImg else { return UIImage() }
+    return icon
+}
+
 extension UIImageView {
     //高性能设置圆角
     func roundCorner(imageView: UIImageView) -> CAShapeLayer {

@@ -11,6 +11,7 @@ import MediaPlayer
 import ZZCircleProgress
 import Toast_Swift
 import HGCircularSlider
+import MarqueeLabel
 
 extension SyAudioPlayerView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {//alpha change
@@ -23,79 +24,52 @@ extension SyAudioPlayerView: UIScrollViewDelegate {
     }
 }
 
-extension SyAudioPlayerView {
-    @objc
-    func playBarChangePlayStateWith(notif : Notification){
-        //        let url = notif.userInfo?[CurrentPlayUrl]
-        if let type = notif.userInfo?[PlayType] as? SyAVPlayerType,type != .PlayTypeLine {
-            self.progressView.progress = 0.0
-            self.playBtn.setBackgroundImage(#imageLiteral(resourceName: "item_audio_player_star_icon"), for: .normal)
-        }
-        guard let state = notif.userInfo?[SyAVPlayerState] as? AVPlayerPlayState else {return}
-        switch state {
-        case AVPlayerPlayState.AVPlayerPlayStatePreparing,AVPlayerPlayState.AVPlayerPlayStateBeigin,AVPlayerPlayState.AVPlayerPlayStatePlaying:
-            self.playBtn.setBackgroundImage(#imageLiteral(resourceName: "item_audio_player_play_icon"), for: .normal)
-        case .AVPlayerPlayStatePause:
-            self.playBtn.setBackgroundImage(#imageLiteral(resourceName: "item_audio_player_star_icon"), for: .normal)
-        case .AVPlayerPlayStateEnd:
-            self.endTimerLab.text = "00:00"
-            self.playBtn.setBackgroundImage(#imageLiteral(resourceName: "item_audio_player_star_icon"), for: .normal)
-        case .AVPlayerPlayStateNotPlay:
-            self.endTimerLab.text = ""
-            self.startTimerLab.text = ""
-            self.progressView.progress = 0.0
-            self.playBtn.setBackgroundImage(#imageLiteral(resourceName: "item_audio_player_star_icon"), for: .normal)
-        case .AVPlayerPlayStateBufferEmpty:
-            SyPrint("没有缓存了不可以播放.......(2)")
-        case .AVPlayerPlayStateBufferToKeepUp:
-            SyPrint("有缓存了可以播放了.......(1)")
-        case .AVPlayerPlayStateseekToZeroBeforePlay:
-            self.progressView.progress = 0.0
-        default:
-            self.playBtn.setBackgroundImage(#imageLiteral(resourceName: "item_audio_player_star_icon"), for: .normal)
-        }
-    }
-}
-
 public protocol SyAudioPlayerViewDelegate: NSObjectProtocol {
     func preMusicActionFunc()
     func nextMusicActionFunc()
     func playListActionFunc()
 }
 
-class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
+class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     
     weak open var delegate: SyAudioPlayerViewDelegate?
     
     func updateProgressWith(progress: Float) {
         self.progressView.progress = CGFloat(progress)
-        self.endTimerLab.text = SyAVPlayer.getSharedInstance().totalTime
-        self.startTimerLab.text = SyAVPlayer.getSharedInstance().currentTime
-        self.vc.title = SyAVPlayer.getSharedInstance().musicItem?.name
-        self.vc.bgImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "")
+        self.endTimerLab.text = SyMusicPlayerManager.getSharedInstance().totalTime
+        self.startTimerLab.text = SyMusicPlayerManager.getSharedInstance().currentTime
+        self.vc.title = SyMusicPlayerManager.getSharedInstance().musicItem?.name
+        self.vc.bgImageView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
         self.centerImageView.image = self.vc.bgImageView.image
         if progress > 0 && self.indicator.isAnimating {
             self.indicator.stopAnimating()
+            if self.vc.avplayer.player?.status.rawValue == AVPlayerItem.Status.readyToPlay.rawValue {
+                self.vc.avplayer.player?.play()
+            }
         }
     }
     
     func changeMusicToIndex(index: Int) {
-        self.vc.bgImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "")
+        self.vc.bgImageView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
         self.centerImageView.image = self.vc.bgImageView.image
-        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname)
+        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
     }
     
     func updateBufferProgress(progress: Float) {
-        self.endTimerLab.text = SyAVPlayer.getSharedInstance().totalTime
-        self.startTimerLab.text = SyAVPlayer.getSharedInstance().currentTime
-        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname)
+        self.endTimerLab.text = SyMusicPlayerManager.getSharedInstance().totalTime
+        self.startTimerLab.text = SyMusicPlayerManager.getSharedInstance().currentTime
+        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
     }
     
     var vc: SyMusicPlayVC!
     fileprivate static let kMargin: CGFloat = 100.0
     fileprivate let KSettingBtnMargin: CGFloat = 30.0
     fileprivate let kValue = screenWidth() - kMargin * 2
-    fileprivate let playImages = [#imageLiteral(resourceName: "item_menu_icon"),#imageLiteral(resourceName: "item_prev_song_icon"),#imageLiteral(resourceName: "item_audio_player_play_icon"),#imageLiteral(resourceName: "item_next_song_icon"),#imageLiteral(resourceName: "item_loop_all_icon")]
+    fileprivate let playImages = [sfImage(name: "music.note.list"),
+                                  sfImage(name: "backward.end"),
+                                  sfImage(name: "pause"),
+                                  sfImage(name: "forward.end"),
+                                  sfImage(name: "repeat")]
     fileprivate let kw = (screenWidth() - 30*5) / 6
     var isSingleCycle: Bool = false
     var cycleBtn: UIButton = UIButton()
@@ -122,6 +96,15 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         imgView.image = #imageLiteral(resourceName: "item_headphone_icon")
         imgView.contentMode = .scaleAspectFill
         imgView.layer.mask = imgView.roundCorner(imageView: imgView)
+        imgView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
+        imgView.layer.removeAnimation(forKey: "rotation")
+        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation.fromValue = 0
+        animation.toValue = Double.pi * 2
+        animation.duration = 30
+        animation.isRemovedOnCompletion = false
+        animation.repeatCount = MAXFLOAT
+        imgView.layer.add(animation, forKey: "rotation")
         return imgView
     }()
     
@@ -164,7 +147,7 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         v.startAngle = 0
         v.reduceAngle = 180
         v.strokeWidth = 3
-        v.pointImage.image = #imageLiteral(resourceName: "item_music_slider_circle_icon")
+        v.pointImage.image = sfImage(name: "circlebadge.fill")
         v.duration = 0.1
         //        v.showPoint = true
         v.progress = 0
@@ -173,10 +156,12 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         return v
     }()
     
+    //歌词
     lazy var lrcVC: SyLrcTVC = {
         let v = SyLrcTVC()
         v.tableView.isUserInteractionEnabled = true
         v.tableView.backgroundColor = .clear
+        v.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
         return v
     }()
     
@@ -196,9 +181,9 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
         return v
     }()
     
-    //歌词
-    lazy var lrcLabel: SyLrcLabel = {
-        let lab = SyLrcLabel(frame: CGRect(x: 20, y: self.progressView.frame.maxY + 100, width: self.bounds.size.width - 20*2, height: 20))
+    //主页动态歌词
+    lazy var lrcLabel: SyLrcDEffectLabel = {
+        let lab = SyLrcDEffectLabel(frame: CGRect(x: 20, y: self.progressView.frame.maxY + 100, width: self.bounds.size.width - 20*2, height: 20))
         lab.textColor = .lightGray
         lab.textAlignment = .center
         return lab
@@ -220,85 +205,72 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
     @objc
     func updateLrc() {
         var time: TimeInterval = 0
-        if let current = SyAVPlayer.getSharedInstance().player.currentItem?.currentTime(){
+        if let current = SyMusicPlayerManager.getSharedInstance().player.currentItem?.currentTime(){
             time = TimeInterval(CMTimeGetSeconds(current))
         }
-        let rowLrcM = SyAVPlayer.getSharedInstance().getCurrentLrcM(time, lrcMs: self.lrcVC.lrcMs)
+        let rowLrcM = SyMusicPlayerManager.getSharedInstance().getCurrentLrcM(time, lrcMs: self.lrcVC.lrcMs)
         let lrcM = rowLrcM.lrcM
-        lrcLabel.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
+        self.lrcLabel.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
         if lrcM != nil {
-            lrcLabel.radio = CGFloat((time - lrcM!.beginTime) / (lrcM!.endTime - lrcM!.beginTime))
-            self.lrcVC.progress = lrcLabel.radio//同步更新歌词进度，一行歌词着色进度
+            self.lrcLabel.radio = CGFloat((time - lrcM!.beginTime) / (lrcM!.endTime - lrcM!.beginTime))
+            self.lrcVC.progress = self.lrcLabel.radio//同步更新歌词进度，一行歌词着色进度
             self.lrcVC.scrollRow = rowLrcM.row//流动整屏时用到的位置行
         }
         if UIApplication.shared.applicationState == .background {
-            SyAVPlayer.getSharedInstance().setupLockMessage()//更新锁屏界面信息
+            SyMusicPlayerManager.getSharedInstance().setupLockMessage()//更新锁屏界面信息
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addNotification()
+        SyMusicPlayerManager.getSharedInstance().delegate = self
+        self.isSingleCycle = userDefaultsForString(forKey: cycleVoiceStateKey()) == "1" ? true : false
     }
     
     convenience init(frame: CGRect, vc: SyMusicPlayVC) {
         self.init(frame: frame)
         self.vc = vc
+
+        self.addSubview(self.centerImageView)
+        self.addSubview(self.lrcLabel)
+        self.addSubview(self.lrcScrollView)
         
-        self.isSingleCycle = userDefaultsForString(forKey: cycleVoiceStateKey()) == "1" ? true : false
-        
-        self.centerImageView.image = UIImage.init(named: SyAVPlayer.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
-        self.addSubview(centerImageView)
-        self.addSubview(lrcLabel)
-        self.addSubview(lrcScrollView)
-        
-        for i in 0..<playImages.count {
+        for i in 0..<self.playImages.count {
             var btnValue = KSettingBtnMargin
             var rectyValue = self.progressView.frame.maxY + 170
-            if i == 0 || i == (playImages.count - 1){
+            if i == 0 || i == (self.playImages.count - 1){
                 btnValue -= 10
                 rectyValue += 5
             }else if i == 2 {
-                btnValue += 20
-                rectyValue -= 10
+                btnValue += 10
+                rectyValue -= 5
             }
-            let btn = buttonWithImageFrame(frame: CGRect(x: kw + (KSettingBtnMargin + kw)*CGFloat(i) + (i == 2 ? -10 : 0), y: rectyValue, width: btnValue, height: btnValue), imageName: playImages[i], tag: i, target: self, action: #selector(btnAction(sender:)))
+            let btn = buttonWithImageFrame(frame: CGRect(x: kw + (KSettingBtnMargin + kw)*CGFloat(i) + (i == 2 ? -5 : 0), y: rectyValue, width: btnValue, height: btnValue), imageName: self.playImages[i], tag: i, target: self, action: #selector(btnAction(sender:)))
             self.addSubview(btn)
             if i == 2 {
-                indicator.center = btn.center
+                self.indicator.center = btn.center
                 self.playBtn = btn
             }else if i == 4 {
                 self.cycleBtn = btn
                 if self.isSingleCycle {
-                    self.cycleBtn.setBackgroundImage(#imageLiteral(resourceName: "item_loop_single_icon"), for: .normal)
+                    self.cycleBtn.setBackgroundImage(sfImage(name: "repeat.1"), for: .normal)
                 }else{
-                    self.cycleBtn.setBackgroundImage(#imageLiteral(resourceName: "item_loop_all_icon"), for: .normal)
+                    self.cycleBtn.setBackgroundImage(sfImage(name: "repeat"), for: .normal)
                 }
             }
         }
-        self.addSubview(startTimerLab)
-        self.addSubview(endTimerLab)
-        self.addSubview(progressView)
-        self.addSubview(indicator)
+        self.addSubview(self.startTimerLab)
+        self.addSubview(self.endTimerLab)
+        self.addSubview(self.progressView)
+        self.addSubview(self.indicator)
         self.indicator.startAnimating()
-        SyAVPlayer.getSharedInstance().delegate = self
-        self.addLink()
-        //大圆图播放旋转动画
-        self.centerImageView.layer.removeAnimation(forKey: "rotation")
-        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-        animation.fromValue = 0
-        animation.toValue = Double.pi * 2
-        animation.duration = 30
-        animation.isRemovedOnCompletion = false
-        animation.repeatCount = MAXFLOAT
-        self.centerImageView.layer.add(animation, forKey: "rotation")
         
-        self.lrcVC.lrcMs = SyAVPlayer.getSharedInstance().getLrcMs(SyAVPlayer.getSharedInstance().musicItem?.lrcname)
+        self.addLink()
     }
     
     @objc func sliderTouchUp(sender: UISlider) {
         //跳到指定时间点播放
-        SyAVPlayer.getSharedInstance().musicSeekToTime(time: Float(self.progressView.progress))
+        SyMusicPlayerManager.getSharedInstance().musicSeekToTime(time: Float(self.progressView.progress))
     }
     
     @objc
@@ -313,7 +285,7 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
                 delegate.preMusicActionFunc()
             }
         case 2: //播放暂停
-            if SyAVPlayer.getSharedInstance().musicItem?.name.trimmingCharactersCount ?? 0 > 0 {
+            if SyMusicPlayerManager.getSharedInstance().musicItem?.name.trimmingCharactersCount ?? 0 > 0 {
                 if self.indicator.isAnimating {
                     return
                 }
@@ -331,34 +303,23 @@ class SyAudioPlayerView: UIView, SyAVPlayerDelegate {
     }
     
     func playFunc() {
-        self.updateLrcLink?.isPaused = SyAVPlayer.getSharedInstance().isPlay
-        SyAVPlayer.getSharedInstance().isPlay == true ? SyAVPlayer.getSharedInstance().pause() : SyAVPlayer.getSharedInstance().play()
-        SyAVPlayer.getSharedInstance().isPlay == true ? self.centerImageView.layer.resumeAnimate() : self.centerImageView.layer.pauseAnimate()
+        self.updateLrcLink?.isPaused = SyMusicPlayerManager.getSharedInstance().isPlay
+        SyMusicPlayerManager.getSharedInstance().isPlay == true ? SyMusicPlayerManager.getSharedInstance().pause() : SyMusicPlayerManager.getSharedInstance().play()
+        SyMusicPlayerManager.getSharedInstance().isPlay == true ? self.centerImageView.layer.resumeAnimate() : self.centerImageView.layer.pauseAnimate()
+        SyMusicPlayerManager.getSharedInstance().isPlay == true ? self.vc.avplayer.player?.play() : self.vc.avplayer.player?.pause()
     }
     
     func cycleFunc() {
         self.isSingleCycle = !self.isSingleCycle
         if self.isSingleCycle {
-            self.cycleBtn.setBackgroundImage(#imageLiteral(resourceName: "item_loop_single_icon"), for: .normal)
+            self.cycleBtn.setBackgroundImage(sfImage(name: "repeat.1"), for: .normal)
             userDefaultsSetValue(value: "1", key: cycleVoiceStateKey())
             self.makeToast(strCommon(key: "sy_single_cycle_title"))
         }else{
-            self.cycleBtn.setBackgroundImage(#imageLiteral(resourceName: "item_loop_all_icon"), for: .normal)
+            self.cycleBtn.setBackgroundImage(sfImage(name: "repeat"), for: .normal)
             userDefaultsSetValue(value: "0", key: cycleVoiceStateKey())
             self.makeToast(strCommon(key: "sy_list_cycle_title"))
         }
-    }
-    
-    fileprivate func addNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(playBarChangePlayStateWith(notif:)), name: NSNotification.Name(rawValue: SyAVPlayerState), object: nil)
-    }
-    
-    fileprivate func removeNotification() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: SyAVPlayerState), object: nil)
-    }
-    
-    deinit {
-        self.removeNotification()
     }
     
     required init?(coder aDecoder: NSCoder) {

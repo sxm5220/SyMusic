@@ -8,6 +8,13 @@
 
 import Foundation
 
+public enum MusicStar: String {
+    case JayChou = "JayChou" //周杰伦
+    case JokerXue = "JokerXue" //薛之谦
+    case BackstreetBoys = "BackstreetBoys" //后街男孩
+    case LeehomWang = "LeehomWang" //王力宏
+}
+
 struct SyMusicMessageItem: Codable {
     let musicM: SyMusicsItem
     var costTime: TimeInterval = 0

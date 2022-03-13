@@ -13,17 +13,22 @@ typealias ResultSure = (String) -> Void
 class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var id: String?
     var myClosure: ResultSure?
+    private let viewbgColor = UIColor.black
+    private let viewAlpha = 0.8
+    private let pickerHeight: CGFloat = 266
+    private let bgHeight: CGFloat = 306
     
     fileprivate lazy var bgView: UIView = {
         let view = UIView()
-        view.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: BGWIDTH, height: BGHEIGHT)
-        view.backgroundColor = .darkGray
+        view.frame = CGRect.init(x: 0, y: screenHeight(), width: screenWidth(), height: bgHeight)
+        view.backgroundColor = viewbgColor
+        view.alpha = viewAlpha
         return view
     }()
     
     fileprivate lazy var pickerView :UIPickerView = {
         let pv = UIPickerView()
-        pv.frame = CGRect.init(x: 0, y: BGHEIGHT - PICKERHEIGHT, width: BGWIDTH, height: PICKERHEIGHT)
+        pv.frame = CGRect.init(x: 0, y: bgHeight - pickerHeight - 30, width: screenWidth(), height: pickerHeight)
         pv.delegate = self
         pv.dataSource = self
         return pv
@@ -31,18 +36,19 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     fileprivate lazy var toolBarView: UIView = {
         let tv = UIView()
-        tv.frame = CGRect.init(x: 0, y: 0, width: BGWIDTH, height: BGHEIGHT - PICKERHEIGHT)
-        tv.backgroundColor = .black
+        tv.frame = CGRect.init(x: 0, y: 0, width: screenWidth(), height: bgHeight - pickerHeight + 10)
+        tv.backgroundColor = viewbgColor
+        tv.alpha = viewAlpha
         return tv
     }()
     
     fileprivate lazy var cancleBtn: UIButton = {
-        let btn = buttonWithTitleFrame(frame: CGRect.init(x: 10, y: 5, width: 50, height: BGHEIGHT - PICKERHEIGHT - 10), title: strCommon(key: "sy_canel"), titleColor: .lightGray, backgroundColor: .clear, cornerRadius: 5, tag: 10, target: self, action: #selector(actionBtnClick(sender:)))
+        let btn = buttonWithTitleFrame(frame: CGRect.init(x: 10, y: 10, width: 50, height: bgHeight - pickerHeight - 10), title: strCommon(key: "sy_canel"), titleColor: .white, backgroundColor: .clear, cornerRadius: 5, tag: 10, target: self, action: #selector(actionBtnClick(sender:)))
         return btn
     }()
     
     fileprivate lazy var sureBtn: UIButton = {
-        let btn = buttonWithTitleFrame(frame: CGRect.init(x: BGWIDTH - 60, y: 5, width: 50, height: BGHEIGHT - PICKERHEIGHT - 10), title: strCommon(key: "sy_sure"), titleColor: .lightGray, backgroundColor: .clear, cornerRadius: 5, tag: 11, target: self, action: #selector(actionBtnClick(sender:)))
+        let btn = buttonWithTitleFrame(frame: CGRect.init(x: screenWidth() - 60, y: 10, width: 50, height: bgHeight - pickerHeight - 10), title: strCommon(key: "sy_sure"), titleColor: .white, backgroundColor: .clear, cornerRadius: 5, tag: 11, target: self, action: #selector(actionBtnClick(sender:)))
         return btn
     }()
     
@@ -98,14 +104,14 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     func showPickerView() -> Void {
         UIView.animate(withDuration: 0.3) {
             self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-            self.bgView.frame = CGRect.init(x: 0, y: KEY_WINDOW_HEIGHT - BGHEIGHT - (isIphoneX() ? 50 : 30), width: BGWIDTH, height: BGHEIGHT + (isIphoneX() ? 50 : 30))
+            self.bgView.frame = CGRect.init(x: 0, y: screenHeight() - self.bgHeight - (isIphoneX() ? 50 : 30), width: screenWidth(), height: self.bgHeight + (isIphoneX() ? 50 : 30))
         }
     }
     
     //hidePickerView
     func hidePickerView() -> Void {
         UIView.animate(withDuration: 0.3, animations: {
-            self.bgView.frame = CGRect.init(x: 0, y: KEY_WINDOW_HEIGHT, width: BGWIDTH, height: BGHEIGHT + (isIphoneX() ? 50 : 30))
+            self.bgView.frame = CGRect.init(x: 0, y: screenHeight(), width: screenWidth(), height: self.bgHeight + (isIphoneX() ? 50 : 30))
             self.alpha = 0
         }) { (finished) in
             self.removeFromSuperview()
@@ -120,7 +126,7 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: 30))
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = NSTextAlignment.center
-        label.textColor = .lightGray
+        label.textColor = .white
         if self.dataSource.count > row {
             let model = self.dataSource[row]
             label.text = model.name
