@@ -163,7 +163,7 @@ class SyMusicPlayerShowView: UIView{
     }()
     
     lazy var playerShowViewTitleLab: LTMorphingLabel = {
-        let lab = LTMorphingLabel(frame: CGRect(x: playerShowViewHeaderImage.frame.maxX + 2, y: 5, width: self.frame.size.width - 55 - playerShowViewHeaderImage.frame.maxX - 2, height: 40))
+        let lab = LTMorphingLabel(frame: CGRect(x: playerShowViewHeaderImage.frame.maxX + 2, y: 5, width: self.frame.size.width - 60 - playerShowViewHeaderImage.frame.maxX - 2, height: 40))
         lab.morphingDuration = 0.8
         lab.morphingEffect = LTMorphingEffect(rawValue: 3)!
         lab.isUserInteractionEnabled = true

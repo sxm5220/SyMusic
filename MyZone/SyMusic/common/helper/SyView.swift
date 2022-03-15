@@ -171,7 +171,7 @@ extension UIView {
     
     //view水波效果
     func rippleEffectView(name: String, view: UIView) {
-        let animation = CATransition.init()
+        let animation = CATransition()
         //animation.delegate = self
         animation.duration = 3
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)

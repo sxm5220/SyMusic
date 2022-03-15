@@ -14,6 +14,7 @@ import HGCircularSlider
 import MarqueeLabel
 
 extension SyAudioPlayerView: UIScrollViewDelegate {
+    //滚动到歌词页面（page 2），主页面（page 1）alpha = 0
     func scrollViewDidScroll(_ scrollView: UIScrollView) {//alpha change
         let radio = 1 - scrollView.contentOffset.x / scrollView.frame.size.width
         self.startTimerLab.alpha = radio
@@ -21,6 +22,7 @@ extension SyAudioPlayerView: UIScrollViewDelegate {
         self.progressView.alpha = radio
         self.centerImageView.alpha = radio
         self.lrcLabel.alpha = radio
+        self.waterWaveView.alpha = radio
     }
 }
 
@@ -74,7 +76,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     var isSingleCycle: Bool = false
     var cycleBtn: UIButton = UIButton()
     var playBtn: UIButton = UIButton()
-    
+    private let KWaterWave: CGFloat = screenWidth() * 0.5 + 50.0 //水波纹宽度
     fileprivate let imgWidth: CGFloat = screenWidth() * 0.5
     
     lazy var context: CIContext = {
@@ -89,10 +91,19 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
         return indicator
     }()
     
+    //水波动效
+    fileprivate lazy var waterWaveView: SyWaterWaveView = {
+        let view = SyWaterWaveView.init(frame: CGRect.init(x: (screenWidth() - KWaterWave) / 2, y: screenHeight() / 3 - KWaterWave / 2 , width: KWaterWave, height: KWaterWave))
+        view.backgroundColor = .clear
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
     //音频背景图
     lazy var centerImageView: UIImageView = {
-        let imgView = UIImageView.init(frame: CGRect.init(x: (screenWidth() - imgWidth) / 2, y: (screenHeight() - imgWidth) / 2 - 150, width: imgWidth, height: imgWidth))
+        let imgView = UIImageView.init(frame: CGRect.init(x: (screenWidth() - imgWidth) / 2, y: 0, width: imgWidth, height: imgWidth))
         imgView.clipsToBounds = true
+        imgView.center = self.waterWaveView.center
         imgView.image = #imageLiteral(resourceName: "item_headphone_icon")
         imgView.contentMode = .scaleAspectFill
         imgView.layer.mask = imgView.roundCorner(imageView: imgView)
@@ -142,7 +153,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     lazy var progressView: ZZCircleProgress = {
         let v = ZZCircleProgress.init(frame: CGRect(x: 0, y: 0, width: self.centerImageView.bounds.size.width + 50, height: self.centerImageView.bounds.size.width + 50))
         v.center = self.centerImageView.center
-        v.pathBackColor = .darkGray
+        v.pathBackColor = UIColor.init(white: 0.667, alpha: 0.2)//.darkGray
         v.pathFillColor = .white//rgbWithValue(r: 65, g: 44, b: 142, alpha: 1.0)
         v.startAngle = 0
         v.reduceAngle = 180
@@ -230,7 +241,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     convenience init(frame: CGRect, vc: SyMusicPlayVC) {
         self.init(frame: frame)
         self.vc = vc
-
+        self.addSubview(self.waterWaveView)
         self.addSubview(self.centerImageView)
         self.addSubview(self.lrcLabel)
         self.addSubview(self.lrcScrollView)

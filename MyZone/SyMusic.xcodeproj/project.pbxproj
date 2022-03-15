@@ -101,6 +101,7 @@
 		C09B27E326BA9355000ED751 /* 021313.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E126BA9355000ED751 /* 021313.lrc */; };
 		C09B27E626BA9364000ED751 /* 天外来物_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */; };
 		C09B27E726BA9364000ED751 /* 变废为宝_薛之谦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */; };
+		C0BA727127E0490B0067A2B4 /* SyWaterWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA727027E0490B0067A2B4 /* SyWaterWaveView.swift */; };
 		C0DD7D4C2542712D002C46BA /* 017272.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D4B2542712D002C46BA /* 017272.lrc */; };
 		C0DD7D50254271D5002C46BA /* 断了的弦_周杰伦.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */; };
 		C0DD7D5625428504002C46BA /* 030101.lrc in Resources */ = {isa = PBXBuildFile; fileRef = C0DD7D5525428504002C46BA /* 030101.lrc */; };
@@ -404,6 +405,7 @@
 		C09B27E126BA9355000ED751 /* 021313.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 021313.lrc; sourceTree = "<group>"; };
 		C09B27E426BA9364000ED751 /* 天外来物_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天外来物_薛之谦.mp3"; sourceTree = "<group>"; };
 		C09B27E526BA9364000ED751 /* 变废为宝_薛之谦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "变废为宝_薛之谦.mp3"; sourceTree = "<group>"; };
+		C0BA727027E0490B0067A2B4 /* SyWaterWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyWaterWaveView.swift; sourceTree = "<group>"; };
 		C0DD7D4B2542712D002C46BA /* 017272.lrc */ = {isa = PBXFileReference; lastKnownFileType = text; path = 017272.lrc; sourceTree = "<group>"; };
 		C0DD7D4F254271D5002C46BA /* 断了的弦_周杰伦.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "断了的弦_周杰伦.mp3"; sourceTree = "<group>"; };
 		C0DD7D5525428504002C46BA /* 030101.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 030101.lrc; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 			children = (
 				C0EC1DE5249DA8DE00A8BD14 /* SyLrcCell.swift */,
 				C0EC1DE8249DC17900A8BD14 /* SyAudioPlayerView.swift */,
+				C0BA727027E0490B0067A2B4 /* SyWaterWaveView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1621,6 +1624,7 @@
 				C044284B24683A4E00E70AA4 /* SyLanguage.swift in Sources */,
 				C095493226B270AF003990C0 /* SyMainItem.swift in Sources */,
 				C044284D24683A4E00E70AA4 /* SySystem.swift in Sources */,
+				C0BA727127E0490B0067A2B4 /* SyWaterWaveView.swift in Sources */,
 				C044284F24683A4E00E70AA4 /* SyPublic.swift in Sources */,
 				C0F7E211246D56A50027FE02 /* SyTimeInterval.swift in Sources */,
 				C0F7E217246D6CEB0027FE02 /* SyLabel.swift in Sources */,
