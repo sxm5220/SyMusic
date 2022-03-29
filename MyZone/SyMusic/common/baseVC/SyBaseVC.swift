@@ -14,10 +14,10 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     
     var rightBarButton: SyBadgeButton!
     var isBackBar: Bool = false //返回按钮
-    let imagesArray = [#imageLiteral(resourceName: "item_cover01_icon"),#imageLiteral(resourceName: "item_cover02_icon"),#imageLiteral(resourceName: "item_cover03_icon"),#imageLiteral(resourceName: "item_cover04_icon"),#imageLiteral(resourceName: "item_cover05_icon"),#imageLiteral(resourceName: "item_cover06_icon"),#imageLiteral(resourceName: "item_cover07_icon"),#imageLiteral(resourceName: "item_cover08_icon"),#imageLiteral(resourceName: "item_cover09_icon"),#imageLiteral(resourceName: "item_cover10_icon"),#imageLiteral(resourceName: "item_cover11_icon"),#imageLiteral(resourceName: "item_cover12_icon"),#imageLiteral(resourceName: "item_cover13_icon"),#imageLiteral(resourceName: "item_cover14_icon"),#imageLiteral(resourceName: "item_cover15_icon"),#imageLiteral(resourceName: "item_cover16_icon")]
+    let imagesArray = [#imageLiteral(resourceName: "item_cover01_icon"),#imageLiteral(resourceName: "item_cover02_icon"),#imageLiteral(resourceName: "item_cover03_icon"),#imageLiteral(resourceName: "item_cover04_icon"),#imageLiteral(resourceName: "item_cover05_icon"),#imageLiteral(resourceName: "item_cover06_icon"),#imageLiteral(resourceName: "item_cover07_icon")]
     
     func leftBarButtonItemWithImage(image: UIImage) -> UIBarButtonItem {
-        let leftButton = buttonWithImageFrame(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30),
+        let leftButton = buttonWithImageFrame(frame: CGRect.init(x: 5, y: 5, width: 15, height: 15),
                                               imageName: image,
                                               tag: 0,
                                               target: self,
@@ -59,7 +59,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.isBackBar {
-            self.navigationItem.leftBarButtonItem = leftBarButtonItemWithImage(image: sfImage(name: "arrow.backward"))
+            self.navigationItem.leftBarButtonItem = leftBarButtonItemWithImage(image: sfImage(name: "arrow.backward",15))
         }else{
             self.navigationItem.leftBarButtonItem = nil
         }
@@ -67,7 +67,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
         if windows.count > 0 && (self.navigationController?.viewControllers.count ?? 0 == 1 || currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder){
-            var viewFrameY = screenHeight() - (isIphoneX() ? 135 : 100)
+            var viewFrameY = screenHeight() - 135
             if currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder {
                 viewFrameY = screenHeight()
             }
@@ -123,6 +123,18 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        if isNewVersion() {
+            //开屏图
+            let guidePageImageView = SyGuidePageView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()),imageNameArray: ["guideImage6.gif","guideImage7.gif","guideImage8.gif"], isHiddenSkipButton: false)
+            
+            //开屏视频
+            //TODO: 视频有问题？？？
+            //let vidoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "show", ofType: "mp4")!)
+            //let guidePageVideoView = SyGuidePageView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()), videoURL: vidoUrl, isHiddenSkipButton: false)
+            
+            UIApplication.shared.windows.first { $0.isKeyWindow }?.addSubview(guidePageImageView)
+        }
+        
         self.view.addSubview(self.bgImageView)
         //无限换背景
         DispatchQueue.global().async {

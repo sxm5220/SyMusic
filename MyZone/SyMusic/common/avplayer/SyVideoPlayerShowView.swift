@@ -177,7 +177,7 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
         coverView.addSubview(toolBarView)
         
         // 菊花转
-        loadingView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.white)
+        loadingView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.large)
         loadingView.center = coverView.center
         self.addSubview(loadingView)
     }

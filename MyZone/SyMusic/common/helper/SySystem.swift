@@ -114,20 +114,6 @@ func isIphoneDevice() -> Bool {
     }
     return false
 }
-//iPhone X 适配
-func isIphoneX() -> Bool {
-    if isIphoneDevice() && UIScreen.main.bounds.height == 812 {
-        return true
-    }
-    return false
-}
-
-func isIphone5() -> Bool {
-    if isIphoneDevice() && UIScreen.main.bounds.height == 568.0 {
-        return true
-    }
-    return false
-}
 
 //当前app版本号
 func currentVersion() -> String {
@@ -152,11 +138,7 @@ func screenHeight() -> CGFloat {
 
 //tableView高
 func screenHeightWithTableView() -> CGFloat {
-    var heightValue = screenHeight() - navigationBarWithHeight()
-    if isIphoneX() {
-        heightValue -= 34
-    }
-    return heightValue
+    return screenHeight() - navigationBarWithHeight() - 34
 }
 
 //距离顶部（导航栏）的距离
@@ -171,10 +153,7 @@ func toolBarWithHeight() -> CGFloat {
 
 //状态栏
 func statusBarWithHeight() -> CGFloat {
-    if isIphoneX() {
-        return 44
-    }
-    return 20
+    return 44
 }
 
 //字符串不为空 可用

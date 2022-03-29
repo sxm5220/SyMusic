@@ -14,7 +14,7 @@ target 'SyMusic' do
   pod 'ZZCircleProgress'
   
   # 开屏广告
-  pod 'XHLaunchAd','~> 3.9.8'
+  pod 'XHLaunchAd','~> 3.9.10'
   
   # 字体滚动
   pod 'MarqueeLabel/Swift'

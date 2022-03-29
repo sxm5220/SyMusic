@@ -145,7 +145,6 @@ class turnView: UIView, SyMusicPlayerManagerDelegate {
 class SyMusicPlayerShowView: UIView{
     public var star: MusicStar!
     var tView: turnView?
-    var categoryId: String?
     
     lazy var playerShowViewCloseBtn: UIButton = {
         var btn = buttonWithImageFrame(frame: CGRect(x: 10, y: 15, width: 20, height: 20), imageName:sfImage(name: "bonjour"), tag: 0, target: self, action: #selector(btnAction(sender:)))
@@ -195,9 +194,8 @@ class SyMusicPlayerShowView: UIView{
         super.init(frame: frame)
     }
     
-    convenience init(frame: CGRect, isShow: Bool, categoryId: String?,star: MusicStar) {
+    convenience init(frame: CGRect, isShow: Bool, star: MusicStar) {
         self.init(frame: frame)
-        self.categoryId = categoryId
         self.star = star
         NotificationCenter.default.addObserver(self, selector: #selector(playBarChangePlayStateWith(notif:)), name: NSNotification.Name(rawValue: SyMusicPlayerManagerState), object: nil)
         
@@ -270,9 +268,7 @@ class SyMusicPlayerShowView: UIView{
         }
         let vc = SyMusicPlayVC()
         vc.star = self.star
-        vc.musicItem = SyMusicPlayerManager.getSharedInstance().musicItem
-        vc.title = SyMusicPlayerManager.getSharedInstance().musicItem?.name
-        vc.categoryId = self.categoryId
+//        vc.musicItem = SyMusicPlayerManager.getSharedInstance().musicItem
         vc.modalPresentationStyle = .fullScreen
         currentViewController()?.navigationController?.pushViewController(vc, animated: true)
     }

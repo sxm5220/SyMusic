@@ -62,6 +62,7 @@ func currentViewController(base: UIViewController? = UIApplication.shared.keyWin
     if let presented = base?.presentedViewController {
         return currentViewController(base: presented)
     }
+    
     return base
 }
 

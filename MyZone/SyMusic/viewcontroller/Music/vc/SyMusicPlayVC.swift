@@ -54,15 +54,14 @@ extension SyMusicPlayVC: SyAudioPlayerViewDelegate {
     
     //切换歌曲的时候（上/下一首）
     func changePlay() {
-        self.title = SyMusicPlayerManager.getSharedInstance().musicItem?.name
+        self.title = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName
         SyMusicPlayerManager.getSharedInstance().pause()
         self.playView.indicator.startAnimating()
     }
 }
 
 class SyMusicPlayVC: SyBaseVC {
-    var musicItem: SyMusicsItem?
-    var categoryId: String?
+    var musicName: String?
     public var star: MusicStar!
     private var showMV: String?
     
@@ -72,7 +71,7 @@ class SyMusicPlayVC: SyBaseVC {
         v.isUserInteractionEnabled = true
         v.clipsToBounds = true
         v.alpha = 0.9 //值越大视频越模糊不清
-        v.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
+        v.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicImageName ?? "item_headphone_icon")//UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
         //初始化一个基于模糊效果的视觉效果视图
         let blur = UIBlurEffect(style: .systemChromeMaterialDark)
         let blurView = UIVisualEffectView(effect: blur)
@@ -114,11 +113,12 @@ class SyMusicPlayVC: SyBaseVC {
             }
         }
         
-        let v = SyMusicPlayerShowView(frame: CGRect(x: 2, y: screenHeight(), width: screenWidth() - 4, height: 50), isShow: true, categoryId: self.categoryId,star: self.star)
+        let v = SyMusicPlayerShowView(frame: CGRect(x: 2, y: screenHeight(), width: screenWidth() - 4, height: 50), isShow: true,star: self.star)
         UIView.animate(withDuration: 0.5, animations: {
-            v.playerShowViewHeaderImage.image = UIImage(named: self.musicItem?.icon ?? "")
-            v.frame.origin.y = currentViewController()?.navigationController?.viewControllers.count == 1 ? (screenHeight() - (isIphoneX() ? 135 : 100)) : screenHeight()
+            v.frame.origin.y = currentViewController()?.navigationController?.viewControllers.count == 1 ? (screenHeight() - 135) : screenHeight()
             userDefaultsSetValue(value: "1", key: voicePlayKey())
+            guard let image = SyMusicPlayerManager.getSharedInstance().musicImageName else { return }
+            v.playerShowViewHeaderImage.image = UIImage(named: image)
         }, completion: { (isCompletion) in
             UIApplication.shared.keyWindow?.addSubview(v)
         })
@@ -128,7 +128,7 @@ class SyMusicPlayVC: SyBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isBackBar = true
-        self.title = self.musicItem?.name
+        self.title = self.musicName
         self.showMV = self.star.rawValue
         self.view.layer.addSublayer(self.avplayer)
         self.view.addSubview(self.bgImageView)

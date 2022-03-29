@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Lottie
 import MJRefresh
+import SafariServices
 
 struct userItem {
     let id,name,icon: String
@@ -104,7 +105,7 @@ class SyMainVC: SyBaseVC {
     }
     
     fileprivate func pushVC(index: Int) {
-        let vc = SyMainDetailVC()
+        let vc = SyAlbumListVC()
         vc.useritem = self.userItems[index]
         self.navigationController?.pushViewController(vc, animated: true)
     }

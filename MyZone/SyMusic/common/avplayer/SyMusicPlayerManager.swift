@@ -104,6 +104,10 @@ class SyMusicPlayerManager: NSObject {
     
     weak var delegate : SyMusicPlayerManagerDelegate?
     var timeObserVer : Any?
+    var singerUser: String? //作家（歌手）
+    var composerId: String? //作家（歌手）唯一标识id
+    var albumId: String? //专辑唯一id
+    var musicImageName: String?
     var musicItem: SyMusicsItem?
     var imageView = UIImageView() //为了设置锁屏封面
     // 音频播放数组  例如 多个需要连续播放的音频 用比较好
@@ -112,10 +116,11 @@ class SyMusicPlayerManager: NSObject {
     fileprivate var artWork: MPMediaItemArtwork?
     
     func getLrcMs(_ lrcName: String?) -> [SyLrcItem] {
-        if lrcName == nil {
-            return [SyLrcItem]()
-        }
-        guard let path = Bundle.main.path(forResource: lrcName, ofType: nil) else { return [SyLrcItem]() }
+//        if lrcName == nil {
+//            return [SyLrcItem]()
+//        }
+        guard let lrc = lrcName else { return [SyLrcItem]() }
+        guard let path = Bundle.main.path(forResource: lrc + ".lrc", ofType: nil) else { return [SyLrcItem]() }
         var lrcContent = ""
         do {
             lrcContent = try String(contentsOfFile: path)
@@ -152,33 +157,32 @@ class SyMusicPlayerManager: NSObject {
     }
     
     //加载本地.plist文件数据
-    class func plistData(pathStr: String) -> [SyMusicsItem] {
-        guard let plistUrl = Bundle.main.path(forResource: pathStr + "Musics", ofType: "plist") else { return [] }
+    class func plistData(pathStr: String) -> SyComposerItem? {
+        guard let plistUrl = Bundle.main.path(forResource: pathStr + "Musics", ofType: "plist") else { return nil }
         do {
             let plistData = try Data(contentsOf: URL(fileURLWithPath: plistUrl))
             let plist = try PropertyListSerialization.propertyList(from: plistData, options: .mutableContainers, format: nil)
-            let dataArry = plist as! [[String:String]]
-            var musicMs = [SyMusicsItem]()
-            for dic in dataArry {
-//                SyPrint("name=>>\(dicForValue(dic: dic as NSDictionary, key: "name"))")
-                let dicValue = dic as NSDictionary
-                musicMs.append(SyMusicsItem(id: dicForValue(dic: dicValue, key: "id"),
-                                            category: dicForValue(dic: dicValue, key: "category"),
-                                            name: dicForValue(dic: dicValue, key: "name"),
-                                            icon: dicForValue(dic: dicValue, key: "icon"),
-                                            singerIcon: dicForValue(dic: dicValue, key: "singerIcon"),
-                                            singer: dicForValue(dic: dicValue, key: "singer"),
-                                            lrcname: dicForValue(dic: dicValue, key: "lrcname"),
-                                            filename: dicForValue(dic: dicValue, key: "filename")))
+            guard let dataDic = plist as? NSDictionary else { return nil }
+            guard let composerDataArray = dataDic.object(forKey: "albums") as? NSArray else { return nil }
+            var albumsItems = [SyAlbumItem]()
+            for composerItem in composerDataArray {
+                guard let composerDic = composerItem as? NSDictionary else { return nil }
+                guard let albumDataArray = composerDic.object(forKey: "albumData") as? NSArray else { return nil }
+                var musicsItems = [SyMusicsItem]()
+                for dicItem in albumDataArray {
+                    guard let dic = dicItem as? NSDictionary else { return nil }
+                    musicsItems.append(SyMusicsItem(id: dicForValue(dic: dic, key: "id"), musicName: dicForValue(dic: dic, key: "musicName"), composerName: dicForValue(dic: dic, key: "composerName"), lyricistName: dicForValue(dic: dic, key: "lyricistName"), duration: dicForValue(dic: dic, key: "duration")))
+                }
+                albumsItems.append(SyAlbumItem(albumId: dicForValue(dic: composerDic, key: "albumId"), albumName: dicForValue(dic: composerDic, key: "albumName"), albumImage: dicForValue(dic: composerDic, key: "albumImage"), productionCompany: dicForValue(dic: composerDic, key: "productionCompany"), issueDate: dicForValue(dic: composerDic, key: "issueDate"), albumData: musicsItems))
             }
-            return musicMs
+            return SyComposerItem(composerId: dicForValue(dic: dataDic, key: "composerId"), albums: albumsItems)
         } catch {
             SyPrint(error.localizedDescription)
         }
-        return []
+        return nil
     }
     
-    class func dataSource(star: MusicStar,_ result: ([SyMusicsItem])->()) {
+    class func dataSource(star: MusicStar,_ result: (SyComposerItem?)->()) {
         result(plistData(pathStr: star.rawValue))
     }
     
@@ -259,9 +263,10 @@ class SyMusicPlayerManager: NSObject {
                         if view.classForCoder == SyMusicPlayerShowView().classForCoder{
                             let v = view as? SyMusicPlayerShowView
                             v?.playerShowViewProgress.progress = progressValue
-                            v?.playerShowViewHeaderImage.image = UIImage(named: self.musicItem?.icon ?? "")
-                            //v?.playerShowViewTitleLab.text = SyMusicPlayerManager.getSharedInstance().model?.name
-                            let rowLrcM = SyMusicPlayerManager.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname))
+                            guard let albumImage = self.musicImageName else { return }
+                            v?.playerShowViewHeaderImage.image = UIImage(named: albumImage)
+                            guard let lrcName = self.musicItem?.musicName else { return }
+                            let rowLrcM = SyMusicPlayerManager.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyMusicPlayerManager.getSharedInstance().getLrcMs(lrcName))
                             let lrcM = rowLrcM.lrcM
                             v?.playerShowViewTitleLab.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
                         }
@@ -341,8 +346,10 @@ class SyMusicPlayerManager: NSObject {
                     if view.classForCoder == SyMusicPlayerShowView().classForCoder{
                         if SyMusicPlayerManager.getSharedInstance().musicArray.count > SyMusicPlayerManager.getSharedInstance().currentIndex{
                             let v = view as? SyMusicPlayerShowView
-                            let item = SyMusicPlayerManager.getSharedInstance().musicArray[SyMusicPlayerManager.getSharedInstance().currentIndex]
-                            v?.playerShowViewHeaderImage.image = UIImage.init(named: item.name)
+                            //let item = SyMusicPlayerManager.getSharedInstance().musicArray[SyMusicPlayerManager.getSharedInstance().currentIndex]
+                            guard let albumImage = self.musicImageName else { return }
+                            v?.playerShowViewHeaderImage.image = UIImage(named: albumImage)
+                            //UIImage.init(named: item.name)
                         }
                     }
                 }
@@ -414,12 +421,12 @@ extension SyMusicPlayerManager {
         self.playType = .PlayTypeLine // 记录播放类型 以便做出不同处理
         
         let record = self.musicArray[index]
-        if record.name.trimmingCharactersCount > 0 {
-            guard let playUrl = Bundle.main.url(forResource: record.filename, withExtension: nil) else {return}
+        if record.musicName.trimmingCharactersCount > 0 {
+            guard let playUrl = Bundle.main.url(forResource: "\(record.musicName).mp3", withExtension: nil) else {return}
             let playerItem = AVPlayerItem(url: playUrl)
             //            let playerItem = AVPlayerItem(url: URL(string: record.name)!)
             self.playerItem = playerItem
-            self.currentUrl = record.name
+            self.currentUrl = record.musicName
             self.isImmediately = isImmediately
             self.musicItem = record
             self.currentIndex = index
@@ -565,25 +572,33 @@ extension SyMusicPlayerManager {
         let musicMessageM = SyMusicMessageItem(musicM: item, costTime: CMTimeGetSeconds((self.player.currentItem?.currentTime())!), totalTime: self.durantion, isPlaying: self.isPlay)
         let center = MPNowPlayingInfoCenter.default()
         
-        let musicName = musicMessageM.musicM.name
-        let singerName = musicMessageM.musicM.singer
+        let musicName = musicMessageM.musicM.musicName
         let costTime = musicMessageM.costTime
         let totalTime = musicMessageM.totalTime
         
-        let lrcFileName = musicMessageM.musicM.lrcname
+        let lrcFileName = musicMessageM.musicM.musicName//musicMessageM.musicM.lrcname
         let lrcMs = self.getLrcMs(lrcFileName)
         let lrcModelAndRow = self.getCurrentLrcM(musicMessageM.costTime, lrcMs: lrcMs)
         let lrcM = lrcModelAndRow.lrcM
-        
+        guard let image = self.musicImageName else { return }
+        let albumImage = UIImage(named: image)
         if self.lastRow != lrcModelAndRow.row {
             self.lastRow = lrcModelAndRow.row
-            if let resultImage = UIImage.getNewImage(UIImage(named: musicMessageM.musicM.icon), str: lrcM?.lrcContent){
+            //TODO: 此处应该是每首歌曲对于的图片，暂时放置专辑图片代替
+            if let resultImage = UIImage.getNewImage(albumImage, str: lrcM?.lrcContent){
                 self.artWork = MPMediaItemArtwork(boundsSize: resultImage.size, requestHandler: { size in
                     return resultImage
                 })
             }
+            /*if let resultImage = UIImage.getNewImage(UIImage(named: musicMessageM.musicM.icon), str: lrcM?.lrcContent){
+                self.artWork = MPMediaItemArtwork(boundsSize: resultImage.size, requestHandler: { size in
+                    return resultImage
+                })
+            }*/
         }
         
+        //let singerName = musicMessageM.musicM.singer
+        guard let singerName = self.singerUser else { return }
         let dic: NSMutableDictionary = [
             MPMediaItemPropertyAlbumTitle: musicName,
             MPMediaItemPropertyArtist: singerName,
@@ -602,7 +617,7 @@ extension SyMusicPlayerManager {
     func setNowPlayingInfo(){
         if (self.playType == .PlayTypeLine || self.playType == .PlayTypeSpecial) && self.musicItem != nil {
             var info = Dictionary<String,Any>()
-            info[MPMediaItemPropertyTitle] = self.musicItem?.name
+            info[MPMediaItemPropertyTitle] = self.musicItem?.musicName//self.musicItem?.name
             /*if  let url = self.model?.imgUrl ,let image = UIImage(named: "item_black_logo_icon"){
              imageView.kf.setImage(with: URL(string:url), placeholder: image, options: nil, progressBlock: nil) { (img, _, _, _) in
              if img != nil {

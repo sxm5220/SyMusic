@@ -104,14 +104,14 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     func showPickerView() -> Void {
         UIView.animate(withDuration: 0.3) {
             self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-            self.bgView.frame = CGRect.init(x: 0, y: screenHeight() - self.bgHeight - (isIphoneX() ? 50 : 30), width: screenWidth(), height: self.bgHeight + (isIphoneX() ? 50 : 30))
+            self.bgView.frame = CGRect.init(x: 0, y: screenHeight() - self.bgHeight - 50, width: screenWidth(), height: self.bgHeight + 50)
         }
     }
     
     //hidePickerView
     func hidePickerView() -> Void {
         UIView.animate(withDuration: 0.3, animations: {
-            self.bgView.frame = CGRect.init(x: 0, y: screenHeight(), width: screenWidth(), height: self.bgHeight + (isIphoneX() ? 50 : 30))
+            self.bgView.frame = CGRect.init(x: 0, y: screenHeight(), width: screenWidth(), height: self.bgHeight + 50)
             self.alpha = 0
         }) { (finished) in
             self.removeFromSuperview()
@@ -128,8 +128,8 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         label.textAlignment = NSTextAlignment.center
         label.textColor = .white
         if self.dataSource.count > row {
-            let model = self.dataSource[row]
-            label.text = model.name
+            let musicItem = self.dataSource[row]
+            label.text = musicItem.musicName
         }
         return label
     }

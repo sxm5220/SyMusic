@@ -52,7 +52,7 @@ class SyTabBarController: UITabBarController {
         self.tabBar.backgroundColor = .clear
         self.tabBar.tintColor = rgbWithHex(rgbValue: 0xc676ff)
         
-        setupChildController()
+        self.setupChildController()
     }
     
     override func viewDidAppear(_ animated: Bool) {

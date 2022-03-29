@@ -1,132 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>01</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030101.lrc</string>
-		<key>filename</key>
-		<string>I want it that way.mp3</string>
-		<key>name</key>
-		<string>I Want It That Way</string>
-	</dict>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>02</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030202.lrc</string>
-		<key>filename</key>
-		<string>As Long as You Love Me.mp3</string>
-		<key>name</key>
-		<string>As Long as You Love Me</string>
-	</dict>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>03</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030303.lrc</string>
-		<key>filename</key>
-		<string>The Answer to Our Life.mp3</string>
-		<key>name</key>
-		<string>The Answer to Our Life</string>
-	</dict>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>04</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030404.lrc</string>
-		<key>filename</key>
-		<string>In a World Like This.mp3</string>
-		<key>name</key>
-		<string>In a World Like This</string>
-	</dict>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>05</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030505.lrc</string>
-		<key>filename</key>
-		<string>Get Another Boyfriend.mp3</string>
-		<key>name</key>
-		<string>Get Another Boyfriend</string>
-	</dict>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>06</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030606.lrc</string>
-		<key>filename</key>
-		<string>All I Have to Give.mp3</string>
-		<key>name</key>
-		<string>All I Have to Give</string>
-	</dict>
-	<dict>
-		<key>category</key>
-		<string>03</string>
-		<key>id</key>
-		<string>07</string>
-		<key>icon</key>
-		<string>item_bsb_icon</string>
-		<key>singerIcon</key>
-		<string>item_bsb_icon</string>
-		<key>singer</key>
-		<string>Backstreet Boys</string>
-		<key>lrcname</key>
-		<string>030707.lrc</string>
-		<key>filename</key>
-		<string>Anywhere for You.mp3</string>
-		<key>name</key>
-		<string>Anywhere for You</string>
-	</dict>
-</array>
+    <dict>
+        <key>composerId</key>
+        <string>03</string>
+        <key>albums</key>
+        <array>
+            <dict>
+                <key>albumId</key>
+                <string>01</string>
+                <key>albumName</key>
+                <string>后街男孩</string>
+                <key>albumImage</key>
+                <string>item_backstreetBoys_01_icon</string>
+                <key>productionCompany</key>
+                <string>Jive</string>
+                <key>issueDate</key>
+                <string>1996年5月6日（欧洲）/ 1996年9月（加拿大）</string>
+                <key>albumData</key>
+                <array>
+                    <dict>
+                        <key>id</key>
+                        <string>01</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>3:29</string>
+                        <key>musicName</key>
+                        <string>I want it that way</string>
+                    </dict>
+                    <dict>
+                        <key>id</key>
+                        <string>02</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>3:23</string>
+                        <key>musicName</key>
+                        <string>As Long as You Love Me</string>
+                    </dict>
+                    <dict>
+                        <key>id</key>
+                        <string>03</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>4:21</string>
+                        <key>musicName</key>
+                        <string>All I Have to Give</string>
+                    </dict>
+                    <dict>
+                        <key>id</key>
+                        <string>04</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>4:18</string>
+                        <key>musicName</key>
+                        <string>Anywhere for You</string>
+                    </dict>
+                    <dict>
+                        <key>id</key>
+                        <string>05</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>3:01</string>
+                        <key>musicName</key>
+                        <string>Get Another Boyfriend</string>
+                    </dict>
+                    <dict>
+                        <key>id</key>
+                        <string>06</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>3:33</string>
+                        <key>musicName</key>
+                        <string>In a World Like This</string>
+                    </dict>
+                    <dict>
+                        <key>id</key>
+                        <string>07</string>
+                        <key>lyricistName</key>
+                        <string>Backstreet Boys</string>
+                        <key>composerName</key>
+                        <string>Backstreet Boys</string>
+                        <key>duration</key>
+                        <string>3:07</string>
+                        <key>musicName</key>
+                        <string>The Answer to Our Life</string>
+                    </dict>
+                </array>
+            </dict>
+        </array>
+    </dict>
 </plist>

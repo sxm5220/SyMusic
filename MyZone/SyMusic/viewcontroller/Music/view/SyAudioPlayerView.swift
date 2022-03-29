@@ -40,27 +40,33 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
         self.progressView.progress = CGFloat(progress)
         self.endTimerLab.text = SyMusicPlayerManager.getSharedInstance().totalTime
         self.startTimerLab.text = SyMusicPlayerManager.getSharedInstance().currentTime
-        self.vc.title = SyMusicPlayerManager.getSharedInstance().musicItem?.name
-        self.vc.bgImageView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
-        self.centerImageView.image = self.vc.bgImageView.image
-        if progress > 0 && self.indicator.isAnimating {
+        self.vc.title = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName
+        if progress > 0 && self.indicator.isAnimating{
             self.indicator.stopAnimating()
-            if self.vc.avplayer.player?.status.rawValue == AVPlayerItem.Status.readyToPlay.rawValue {
-                self.vc.avplayer.player?.play()
-            }
         }
+        //背景视频控制播放
+        if self.vc.avplayer.player?.timeControlStatus.rawValue == AVPlayer.TimeControlStatus.paused.rawValue && SyMusicPlayerManager.getSharedInstance().isPlay {
+            self.vc.avplayer.player?.play()
+        }
+        guard let image =  SyMusicPlayerManager.getSharedInstance().musicImageName else { return }
+        self.vc.bgImageView.image = UIImage(named: image)//UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
+        self.centerImageView.image = self.vc.bgImageView.image
     }
     
     func changeMusicToIndex(index: Int) {
-        self.vc.bgImageView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
+        guard let image = SyMusicPlayerManager.getSharedInstance().musicImageName else { return }
+        self.vc.bgImageView.image = UIImage(named: image)//UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
         self.centerImageView.image = self.vc.bgImageView.image
-        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
+        guard let musicName = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName else { return }
+        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(musicName) //SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
     }
     
     func updateBufferProgress(progress: Float) {
         self.endTimerLab.text = SyMusicPlayerManager.getSharedInstance().totalTime
         self.startTimerLab.text = SyMusicPlayerManager.getSharedInstance().currentTime
-        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
+        guard let musicName = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName else { return }
+        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(musicName)
+        //self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
     }
     
     var vc: SyMusicPlayVC!
@@ -107,7 +113,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
         imgView.image = #imageLiteral(resourceName: "item_headphone_icon")
         imgView.contentMode = .scaleAspectFill
         imgView.layer.mask = imgView.roundCorner(imageView: imgView)
-        imgView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "item_headphone_icon")
+        imgView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicImageName ?? "item_headphone_icon")
         imgView.layer.removeAnimation(forKey: "rotation")
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.fromValue = 0
@@ -172,7 +178,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
         let v = SyLrcTVC()
         v.tableView.isUserInteractionEnabled = true
         v.tableView.backgroundColor = .clear
-        v.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
+        v.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.musicName)
         return v
     }()
     
@@ -296,7 +302,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
                 delegate.preMusicActionFunc()
             }
         case 2: //播放暂停
-            if SyMusicPlayerManager.getSharedInstance().musicItem?.name.trimmingCharactersCount ?? 0 > 0 {
+            if SyMusicPlayerManager.getSharedInstance().musicItem?.musicName.trimmingCharactersCount ?? 0 > 0 {
                 if self.indicator.isAnimating {
                     return
                 }
