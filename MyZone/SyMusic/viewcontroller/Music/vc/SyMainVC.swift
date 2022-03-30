@@ -58,7 +58,7 @@ class SyMainVC: SyBaseVC {
         return tableView
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.backgroundColor = .clear
         self.navigationController?.navigationBar.isTranslucent = true
@@ -81,7 +81,7 @@ class SyMainVC: SyBaseVC {
 //                self.cycleView.pauseTimer()
 //            }
 //        }
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()

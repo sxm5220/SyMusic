@@ -63,8 +63,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         }else{
             self.navigationItem.leftBarButtonItem = nil
         }
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+
         guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
         if windows.count > 0 && (self.navigationController?.viewControllers.count ?? 0 == 1 || currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder){
             var viewFrameY = screenHeight() - 135
@@ -84,6 +83,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
         if windows.count > 0 && self.navigationController?.viewControllers.count ?? 0 > 1{
             windows.forEach { (view) in
@@ -97,66 +97,15 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    private lazy var bgImageView: UIImageView = {
-        let imgV = UIImageView(frame: self.view.frame)
-        imgV.contentMode = .scaleAspectFill
-        imgV.isUserInteractionEnabled = false
-        imgV.image = self.imagesArray[4]
-        imgV.clipsToBounds = true
-        imgV.alpha = 1.0
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+        self.view.layer.contents = UIImage(named: "item_cover06_icon")?.cgImage
         //初始化一个基于模糊效果的视觉效果视图
         let blur = UIBlurEffect(style: .systemChromeMaterialDark)
         let blurView = UIVisualEffectView(effect: blur)
-        blurView.frame = imgV.frame
+        blurView.frame = self.view.frame
         blurView.layer.masksToBounds = true
-        imgV.addSubview(blurView)
-        return imgV
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //tableview向上移动了64的高度，加上这句代码会回正
-        self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
-        self.view.backgroundColor = themeColor()
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        if isNewVersion() {
-            //开屏图
-            let guidePageImageView = SyGuidePageView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()),imageNameArray: ["guideImage6.gif","guideImage7.gif","guideImage8.gif"], isHiddenSkipButton: false)
-            
-            //开屏视频
-            //TODO: 视频有问题？？？
-            //let vidoUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "show", ofType: "mp4")!)
-            //let guidePageVideoView = SyGuidePageView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()), videoURL: vidoUrl, isHiddenSkipButton: false)
-            
-            UIApplication.shared.windows.first { $0.isKeyWindow }?.addSubview(guidePageImageView)
-        }
-        
-        self.view.addSubview(self.bgImageView)
-        //无限换背景
-        DispatchQueue.global().async {
-            var num = 1
-            repeat {
-                num -= 1
-                if num == 0 {
-                    num = 1
-                }
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: 6.0) {
-                        self.bgImageView.alpha = 0.1
-                    } completion: { isComp in
-                        self.bgImageView.image = self.imagesArray.sample!
-                        UIView.animate(withDuration: 6.0) {
-                            self.bgImageView.alpha = 1.0
-                        }
-                    }
-                }
-                sleep(20)
-            }while num > 0
-        }
+        self.view.addSubview(blurView)
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {

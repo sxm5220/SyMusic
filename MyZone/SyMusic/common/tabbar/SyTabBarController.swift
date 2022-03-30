@@ -15,9 +15,23 @@ class SyNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO: 导航栏透明？？
         self.navigationBar.barTintColor = rgbWithHex(rgbValue: 0x121112)
         self.navigationBar.isTranslucent = false
         self.navigationBar.titleTextAttributes = (NSDictionary.init(object: rgbWithHexBm(rgbValue: 0xffffff), forKey: NSAttributedString.Key.foregroundColor as NSCopying) as! [NSAttributedString.Key : Any])
+       /* if #available(iOS 15.0, *) {
+            let app = UINavigationBarAppearance()
+            app.configureWithOpaqueBackground()  // 重置背景和阴影颜色
+            app.backgroundEffect = nil
+            app.titleTextAttributes = [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+                NSAttributedString.Key.foregroundColor: UIColor.white
+            ]
+            app.backgroundColor = .clear // 设置导航栏背景色
+            app.shadowColor = nil
+            UINavigationBar.appearance().scrollEdgeAppearance = nil  // 带scroll滑动的页面
+            UINavigationBar.appearance().standardAppearance = app // 常规页面。描述导航栏以标准高度
+        }*/
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
