@@ -53,18 +53,28 @@ class SyWebVC: SyBaseVC {
         super.viewDidLoad()
         self.isBackBar = true
         self.navigationController?.navigationBar.isTranslucent = true
-        self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight()))
+        self.webView = WKWebView()
         self.webView.scrollView.backgroundColor = .black
         self.view.addSubview(self.webView)
+        self.webView.snp.makeConstraints { make in
+            make.width.equalTo(self.view.width)
+            make.height.equalTo(self.view.height)
+            make.center.equalTo(self.view.center)
+        }
         
 //        self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: NSKeyValueObservingOptions.new, context: nil)
         guard let url = self.urlString else { return }
         self.webView.load(URLRequest(url: URL(string: url)!))
         
-        self.progressView = UIProgressView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: 2))
+        self.progressView = UIProgressView()
         self.progressView.progressViewStyle = .bar
         self.progressView.progressTintColor = .white
         self.navigationController?.view.addSubview(self.progressView)
+        self.progressView.snp.makeConstraints { make in
+            make.width.equalTo(self.view.width)
+            make.height.equalTo(2)
+            make.center.equalTo(self.navigationController!.view.center)
+        }
     }
     
     /*override class func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

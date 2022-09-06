@@ -15,12 +15,12 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     var myClosure: ResultSure?
     private let viewbgColor = UIColor.black
     private let viewAlpha = 0.8
-    private let pickerHeight: CGFloat = 266
-    private let bgHeight: CGFloat = 306
+    private let toolBarHeight: CGFloat = 50
+    private let pickerHeight: CGFloat = 250
+    private let bgHeight: CGFloat = 300
     
     fileprivate lazy var bgView: UIView = {
         let view = UIView()
-        view.frame = CGRect.init(x: 0, y: screenHeight(), width: screenWidth(), height: bgHeight)
         view.backgroundColor = viewbgColor
         view.alpha = viewAlpha
         return view
@@ -28,7 +28,6 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     fileprivate lazy var pickerView :UIPickerView = {
         let pv = UIPickerView()
-        pv.frame = CGRect.init(x: 0, y: bgHeight - pickerHeight - 30, width: screenWidth(), height: pickerHeight)
         pv.delegate = self
         pv.dataSource = self
         return pv
@@ -36,19 +35,18 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     fileprivate lazy var toolBarView: UIView = {
         let tv = UIView()
-        tv.frame = CGRect.init(x: 0, y: 0, width: screenWidth(), height: bgHeight - pickerHeight + 10)
         tv.backgroundColor = viewbgColor
         tv.alpha = viewAlpha
         return tv
     }()
     
     fileprivate lazy var cancleBtn: UIButton = {
-        let btn = buttonWithTitleFrame(frame: CGRect.init(x: 10, y: 10, width: 50, height: bgHeight - pickerHeight - 10), title: strCommon(key: "sy_canel"), titleColor: .white, backgroundColor: .clear, cornerRadius: 5, tag: 10, target: self, action: #selector(actionBtnClick(sender:)))
+        let btn = buttonWithTitleFrame(title: strCommon(key: "sy_canel"), titleColor: .white, backgroundColor: .clear, cornerRadius: 5, tag: 0, target: self, action: #selector(actionBtnClick(sender:)))
         return btn
     }()
     
     fileprivate lazy var sureBtn: UIButton = {
-        let btn = buttonWithTitleFrame(frame: CGRect.init(x: screenWidth() - 60, y: 10, width: 50, height: bgHeight - pickerHeight - 10), title: strCommon(key: "sy_sure"), titleColor: .white, backgroundColor: .clear, cornerRadius: 5, tag: 11, target: self, action: #selector(actionBtnClick(sender:)))
+        let btn = buttonWithTitleFrame(title: strCommon(key: "sy_sure"), titleColor: .white, backgroundColor: .clear, cornerRadius: 5, tag: 1, target: self, action: #selector(actionBtnClick(sender:)))
         return btn
     }()
     
@@ -56,7 +54,9 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     func actionBtnClick(sender: UIButton) {
         self.hidePickerView()
         switch sender.tag {
-        case 11:
+        case 0:
+            self.hidePickerView()
+        case 1:
             if self.myClosure != nil {
                 self.myClosure!(self.id!)
             }
@@ -70,52 +70,98 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return array
     }()
     
+    //TODO: snapkit动画没有实现????
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initSubViews()
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        self.addSubview(self.bgView)
+        [self.cancleBtn,self.sureBtn].forEach { view in
+            self.toolBarView.addSubview(view)
+        }
+        [self.pickerView,self.toolBarView].forEach { view in
+            self.bgView.addSubview(view)
+        }
+        
+        self.bgView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.height.equalTo(self.bgHeight)
+        }
+        
+        self.pickerView.snp.makeConstraints { make in
+            make.trailing.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.height.equalTo(self.pickerHeight)
+        }
+        
+        self.toolBarView.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+            make.height.equalTo(self.toolBarHeight)
+        }
+        
+        self.cancleBtn.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview().offset(20)
+            make.width.equalTo(60)
+            make.height.equalTo(30)
+        }
+        
+        self.sureBtn.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalToSuperview().offset(20)
+            make.width.equalTo(60)
+            make.height.equalTo(30)
+        }
     }
     
-    convenience init(frame: CGRect, dataSource: [SyMusicsItem]) {
-        self.init(frame: frame)
+    convenience init(dataSource: [SyMusicsItem]) {
+        self.init(frame: CGRect.zero)
         self.dataSource = dataSource
         if self.dataSource.count > 0 {
             let model = self.dataSource[0]
             self.id = model.id
         }
+        /*///  告诉self.view约束需要更新
+        self.needsUpdateConstraints()
+        /// 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+        self.updateConstraintsIfNeeded()
+        
+        UIView.animate(withDuration: 0.5, delay: 0.2) {
+            self.bgView.snp.updateConstraints({ (make) in
+                make.bottom.equalToSuperview().offset(-self.bgHeight)
+            })
+           ///更新动画
+            self.layoutIfNeeded()
+        }*/
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //loadSubViews
-    func initSubViews() -> Void {
-        self.addSubview(self.bgView)
-        
-        self.bgView.addSubview(self.pickerView)
-        self.bgView.addSubview(self.toolBarView)
-        self.toolBarView.addSubview(self.cancleBtn)
-        self.toolBarView.addSubview(self.sureBtn)
-        
-        self.showPickerView()
-    }
-    
-    //showPickerView
-    func showPickerView() -> Void {
-        UIView.animate(withDuration: 0.3) {
-            self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-            self.bgView.frame = CGRect.init(x: 0, y: screenHeight() - self.bgHeight - 50, width: screenWidth(), height: self.bgHeight + 50)
-        }
-    }
-    
     //hidePickerView
-    func hidePickerView() -> Void {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.bgView.frame = CGRect.init(x: 0, y: screenHeight(), width: screenWidth(), height: self.bgHeight + 50)
+    private func hidePickerView() {
+        UIView.animate(withDuration: 0.5, delay: 0.5) {
+            self.bgView.snp.updateConstraints { make in
+                make.bottom.equalToSuperview()
+            }
+            ///更新动画
+//            self.layoutIfNeeded()
+            self.alpha = 0
+            UIView.animate(withDuration: 0.2) {
+                self.removeFromSuperview()
+            }
+        }
+        /*UIView.animate(withDuration: 0.5, animations: {
+            self.bgView.snp.updateConstraints { make in
+                make.bottom.equalToSuperview()
+            }
+            ///更新动画
+            self.layoutIfNeeded()
             self.alpha = 0
         }) { (finished) in
             self.removeFromSuperview()
-        }
+        }*/
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -123,10 +169,13 @@ class SyChooseListView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: 30))
+//        let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: 30))
+//        label.adjustsFontSizeToFitWidth = true
+//        label.textAlignment = NSTextAlignment.center
+//        label.textColor = .white
+        let label = SyLabel(text: "", textColor: .white, font: UIFont.systemFont(ofSize: 18), textAlignment: .center)
+        label.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: 30)
         label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = NSTextAlignment.center
-        label.textColor = .white
         if self.dataSource.count > row {
             let musicItem = self.dataSource[row]
             label.text = musicItem.musicName

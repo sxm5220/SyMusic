@@ -38,9 +38,7 @@ func screenshotsImage() -> UIImage {
 }
 
 //主题色
-func themeColor() -> UIColor {
-    return rgbWithHex(rgbValue: 0x121112)//rgbWithValue(r: 241, g: 242, b: 243, alpha: 1.0)
-}
+internal let themeColor = rgbWithHex(rgbValue: 0x121112)//rgbWithValue(r: 241, g: 242, b: 243, alpha: 1.0)
 
 //字典获取value
 func dicForValue(dic: NSDictionary, key: String) -> String {

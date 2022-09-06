@@ -21,6 +21,16 @@ func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
     label.sizeToFit()
     return label.frame.height
 }
+    
+func labWithAttributeCollection(text: String, textColor: UIColor, font: UIFont, textAlignment: NSTextAlignment) -> UILabel {
+    let lab = UILabel()
+    lab.text = text
+    lab.textColor = textColor
+    lab.font = font
+    lab.textAlignment = textAlignment
+    lab.lineBreakMode = .byTruncatingTail
+    return lab
+}
 
 extension UILabel {
     func addShadow(blurRadius: CGFloat = 0, widthOffset: Double = 0, heightOffset: Double = 0, opacity: Float = 0.4) {
@@ -89,8 +99,8 @@ class SyLabel: UILabel {
         super.init(frame: frame)
     }
     
-    convenience init(frame: CGRect, text: String, textColor: UIColor, font: UIFont, textAlignment: NSTextAlignment) {
-        self.init(frame: frame)
+    convenience init(text: String, textColor: UIColor, font: UIFont, textAlignment: NSTextAlignment) {
+        self.init(frame: CGRect.zero)
         self.text = text
         self.textColor = textColor
         self.font = font
@@ -109,12 +119,11 @@ class SyMarqueeLabel: MarqueeLabel {
         super.init(frame: frame, duration: duration, fadeLength: fade)
     }
     
-    convenience init(frame: CGRect,
-                     text: String,
+    convenience init(text: String,
                      textColor: UIColor,
                      font: UIFont,
                      textAlignment: NSTextAlignment) {
-        self.init(frame: frame, duration: 25.0, fadeLength: 10)
+        self.init(frame: CGRect.zero, duration: 25.0, fadeLength: 10)
         self.text = text
         self.textColor = textColor
         self.font = font

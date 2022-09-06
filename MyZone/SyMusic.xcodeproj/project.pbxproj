@@ -16,6 +16,9 @@
 		C02EB5B226BD48430022C9E2 /* JokerXueMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B126BD48430022C9E2 /* JokerXueMusics.plist */; };
 		C02EB5B426BD485E0022C9E2 /* JayChouMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B326BD485E0022C9E2 /* JayChouMusics.plist */; };
 		C02EB5B626BD487B0022C9E2 /* BackstreetBoysMusics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02EB5B526BD487A0022C9E2 /* BackstreetBoysMusics.plist */; };
+		C034196828BCAF9500219A83 /* download_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = C034196728BCAF9500219A83 /* download_animation.json */; };
+		C034196A28BCC01700219A83 /* download_lot.json in Resources */ = {isa = PBXBuildFile; fileRef = C034196928BCC01700219A83 /* download_lot.json */; };
+		C036761328A65E86002F2C4F /* SyT1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036761228A65E86002F2C4F /* SyT1.swift */; };
 		C04427F2245BD3BA00E70AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */; };
 		C04427F9245BD3BA00E70AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04427F7245BD3BA00E70AA4 /* Main.storyboard */; };
 		C04427FB245BD3BC00E70AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04427FA245BD3BC00E70AA4 /* Assets.xcassets */; };
@@ -475,6 +478,10 @@
 		C0AEF96627EAD1D400D2676B /* 两个人不等于我们.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0AEF93227EAD1D400D2676B /* 两个人不等于我们.mp3 */; };
 		C0AEF96727EAD1D400D2676B /* item_LeehomWang_01_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C0AEF93327EAD1D400D2676B /* item_LeehomWang_01_icon.png */; };
 		C0BA727127E0490B0067A2B4 /* SyWaterWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA727027E0490B0067A2B4 /* SyWaterWaveView.swift */; };
+		C0BDE96528AA176E00427BCE /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0BDE96428AA176D00427BCE /* NativeAdView.xib */; };
+		C0BDE96728AA28B700427BCE /* SyRewardedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDE96628AA28B700427BCE /* SyRewardedVC.swift */; };
+		C0D89DDA28A8F8B300FA9525 /* SyAppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D89DD928A8F8B300FA9525 /* SyAppOpenAdManager.swift */; };
+		C0D89DDC28A8FA0700FA9525 /* SySplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D89DDB28A8FA0700FA9525 /* SySplashVC.swift */; };
 		C0EC1DDF249DA63600A8BD14 /* SyMusicPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDB249DA63600A8BD14 /* SyMusicPlayVC.swift */; };
 		C0EC1DE0249DA63600A8BD14 /* SyAlbumMusicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDC249DA63600A8BD14 /* SyAlbumMusicListVC.swift */; };
 		C0EC1DE1249DA63600A8BD14 /* SyMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC1DDD249DA63600A8BD14 /* SyMainVC.swift */; };
@@ -521,6 +528,9 @@
 		C02EB5B126BD48430022C9E2 /* JokerXueMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerXueMusics.plist; sourceTree = "<group>"; };
 		C02EB5B326BD485E0022C9E2 /* JayChouMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JayChouMusics.plist; sourceTree = "<group>"; };
 		C02EB5B526BD487A0022C9E2 /* BackstreetBoysMusics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BackstreetBoysMusics.plist; sourceTree = "<group>"; };
+		C034196728BCAF9500219A83 /* download_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download_animation.json; sourceTree = "<group>"; };
+		C034196928BCC01700219A83 /* download_lot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download_lot.json; sourceTree = "<group>"; };
+		C036761228A65E86002F2C4F /* SyT1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyT1.swift; sourceTree = "<group>"; };
 		C04427EE245BD3BA00E70AA4 /* SyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04427F1245BD3BA00E70AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04427F8245BD3BA00E70AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -982,6 +992,10 @@
 		C0AEF93227EAD1D400D2676B /* 两个人不等于我们.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "两个人不等于我们.mp3"; sourceTree = "<group>"; };
 		C0AEF93327EAD1D400D2676B /* item_LeehomWang_01_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_LeehomWang_01_icon.png; sourceTree = "<group>"; };
 		C0BA727027E0490B0067A2B4 /* SyWaterWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyWaterWaveView.swift; sourceTree = "<group>"; };
+		C0BDE96428AA176D00427BCE /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
+		C0BDE96628AA28B700427BCE /* SyRewardedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyRewardedVC.swift; sourceTree = "<group>"; };
+		C0D89DD928A8F8B300FA9525 /* SyAppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyAppOpenAdManager.swift; sourceTree = "<group>"; };
+		C0D89DDB28A8FA0700FA9525 /* SySplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SySplashVC.swift; sourceTree = "<group>"; };
 		C0EC1DDB249DA63600A8BD14 /* SyMusicPlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMusicPlayVC.swift; sourceTree = "<group>"; };
 		C0EC1DDC249DA63600A8BD14 /* SyAlbumMusicListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyAlbumMusicListVC.swift; sourceTree = "<group>"; };
 		C0EC1DDD249DA63600A8BD14 /* SyMainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyMainVC.swift; sourceTree = "<group>"; };
@@ -1110,6 +1124,7 @@
 		C044282C2468374A00E70AA4 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C0D89DD828A8F85600FA9525 /* GoogleAds */,
 				C077EBB927EC5DA1008097F0 /* launcherpage */,
 				C0F7E241247388170027FE02 /* launch */,
 				C0F7E236246E57890027FE02 /* avplayer */,
@@ -2133,6 +2148,16 @@
 			path = musics;
 			sourceTree = "<group>";
 		};
+		C0D89DD828A8F85600FA9525 /* GoogleAds */ = {
+			isa = PBXGroup;
+			children = (
+				C0D89DD928A8F8B300FA9525 /* SyAppOpenAdManager.swift */,
+				C0D89DDB28A8FA0700FA9525 /* SySplashVC.swift */,
+				C0BDE96628AA28B700427BCE /* SyRewardedVC.swift */,
+			);
+			path = GoogleAds;
+			sourceTree = "<group>";
+		};
 		C0DD7D5225428488002C46BA /* Backstreet Boys */ = {
 			isa = PBXGroup;
 			children = (
@@ -2151,6 +2176,8 @@
 				C0EC1DDD249DA63600A8BD14 /* SyMainVC.swift */,
 				C0EC1DDE249DA63600A8BD14 /* SyLrcTVC.swift */,
 				C05D21DA27E4A33200F579CC /* SyAlbumListVC.swift */,
+				C036761228A65E86002F2C4F /* SyT1.swift */,
+				C0BDE96428AA176D00427BCE /* NativeAdView.xib */,
 			);
 			path = vc;
 			sourceTree = "<group>";
@@ -2168,6 +2195,8 @@
 		C0F7E1A7246BFB990027FE02 /* lottie */ = {
 			isa = PBXGroup;
 			children = (
+				C034196728BCAF9500219A83 /* download_animation.json */,
+				C034196928BCC01700219A83 /* download_lot.json */,
 				C0F7E1B4246BFBFB0027FE02 /* ASMR.json */,
 				C0F7E1BA246BFBFC0027FE02 /* data.json */,
 				C0F7E1B3246BFBFB0027FE02 /* Home.json */,
@@ -2658,6 +2687,7 @@
 				C05D209727E46A8500F579CC /* 爱的飞行日记.mp3 in Resources */,
 				C05D21C927E49EBA00F579CC /* 土耳其冰淇淋.lrc in Resources */,
 				C0AEF8C027EAC70800D2676B /* 方圆几里.lrc in Resources */,
+				C034196A28BCC01700219A83 /* download_lot.json in Resources */,
 				C099D02D27E3593A008F86E7 /* 同一种调调.mp3 in Resources */,
 				C099D00927E35939008F86E7 /* 爸我回来了.lrc in Resources */,
 				C099D04B27E3593A008F86E7 /* 困兽之斗.lrc in Resources */,
@@ -2722,6 +2752,7 @@
 				C0AEF96327EAD1D400D2676B /* 花田错 (Remix).mp3 in Resources */,
 				C0AEF93827EAD1D400D2676B /* 改变自己.lrc in Resources */,
 				C099D00227E35939008F86E7 /* 对不起.lrc in Resources */,
+				C0BDE96528AA176E00427BCE /* NativeAdView.xib in Resources */,
 				C05D20F327E4765B00F579CC /* 无双.lrc in Resources */,
 				C0AEF8C227EAC70800D2676B /* 渡.lrc in Resources */,
 				C099D08127E36DA5008F86E7 /* 四面楚歌.lrc in Resources */,
@@ -2806,6 +2837,7 @@
 				C05D210227E4765C00F579CC /* 我不配.mp3 in Resources */,
 				C099D05327E3593A008F86E7 /* 搁浅.mp3 in Resources */,
 				C099D03E27E3593A008F86E7 /* 最后的战役.mp3 in Resources */,
+				C034196828BCAF9500219A83 /* download_animation.json in Resources */,
 				C099D08927E36DA6008F86E7 /* 飘移.mp3 in Resources */,
 				C05D21D227E49EBA00F579CC /* 床边故事.mp3 in Resources */,
 				C099D00B27E35939008F86E7 /* 双截棍.lrc in Resources */,
@@ -2911,6 +2943,7 @@
 				C084728627D9B02500A1F519 /* SyView.swift in Sources */,
 				C0EC1DE9249DC17900A8BD14 /* SyAudioPlayerView.swift in Sources */,
 				C0F7E20D246D55F50027FE02 /* SyCycleRollView.swift in Sources */,
+				C0BDE96728AA28B700427BCE /* SyRewardedVC.swift in Sources */,
 				C0EC1DDF249DA63600A8BD14 /* SyMusicPlayVC.swift in Sources */,
 				C0F7E23E2472C6400027FE02 /* SyChooseListView.swift in Sources */,
 				C084728427D9ADC600A1F519 /* SyVideoPlayerShowView.swift in Sources */,
@@ -2920,6 +2953,7 @@
 				C0F7E238246E57B90027FE02 /* SyMusicPlayerManager.swift in Sources */,
 				C077EBBD27EC5DA3008097F0 /* SyGuidePageView.swift in Sources */,
 				C0EC1DE0249DA63600A8BD14 /* SyAlbumMusicListVC.swift in Sources */,
+				C0D89DDC28A8FA0700FA9525 /* SySplashVC.swift in Sources */,
 				C044284724683A4E00E70AA4 /* SyUserDefaults.swift in Sources */,
 				C044284B24683A4E00E70AA4 /* SyLanguage.swift in Sources */,
 				C095493226B270AF003990C0 /* SyMainItem.swift in Sources */,
@@ -2933,9 +2967,11 @@
 				C0F7E23A246E5AF00027FE02 /* SyMusicPlayerShowView.swift in Sources */,
 				C0F7E20E246D55F50027FE02 /* SyCycleViewImageModel.swift in Sources */,
 				C084728327D9ADC600A1F519 /* SyVideoPlayerManager.swift in Sources */,
+				C036761328A65E86002F2C4F /* SyT1.swift in Sources */,
 				C044285024683A4E00E70AA4 /* SyNetwork.swift in Sources */,
 				C0F7E215246D68740027FE02 /* SyTableView.swift in Sources */,
 				C0F7E244247388180027FE02 /* SyLaunchManager.swift in Sources */,
+				C0D89DDA28A8F8B300FA9525 /* SyAppOpenAdManager.swift in Sources */,
 				C0EC1DE2249DA63600A8BD14 /* SyLrcTVC.swift in Sources */,
 				C0F7E245247388180027FE02 /* SyLaunchModel.swift in Sources */,
 				C0F7E20F246D55F50027FE02 /* SyImageDownloader.swift in Sources */,
@@ -3118,6 +3154,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5NWEY8AK7C;
 				INFOPLIST_FILE = SyMusic/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3138,6 +3175,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5NWEY8AK7C;
 				INFOPLIST_FILE = SyMusic/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

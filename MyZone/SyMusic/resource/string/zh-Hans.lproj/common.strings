@@ -8,8 +8,8 @@
 
 "sy_main_title"="主页";
 "sy_me_title"="我的";
-"sy_music_title"="Music";
-"sy_mv_title"="MV";
+"sy_music_title"="音乐";
+"sy_mv_title"="视频";
 "sy_please_wait_tip"="请稍后...";
 "sy_connect_exception"="网络请求异常";
 "sy_outtimer"="网络请求超时！";

@@ -13,7 +13,7 @@ func clearAllUserDefaultsData() {
     let userDefaults = UserDefaults.standard
     let dicData = userDefaults.dictionaryRepresentation()
     for keyValue in dicData {
-        if keyValue.key != appVersionKey() {
+        if keyValue.key != appVersionKey {
                 userDefaults.removeObject(forKey: keyValue.key)
                 userDefaults.synchronize()
         }
@@ -35,16 +35,10 @@ func userDefaultsForString(forKey: String) -> String {
     return ""
 }
 
-func appVersionKey() -> String {
-    return "app_last_version"
-}
+internal let appVersionKey = "app_last_version"
 
 //播放收起来
-func voicePlayKey() -> String {
-    return "voice_play_key"
-}
+internal let voicePlayKey = "voice_play_key"
 
 //音频播放页面循环状态
-func cycleVoiceStateKey() -> String {
-    return "cycle_voice_state_key"
-}
+internal let cycleVoiceStateKey = "cycle_voice_state_key"

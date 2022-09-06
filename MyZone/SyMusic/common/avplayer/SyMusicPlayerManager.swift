@@ -23,15 +23,13 @@ public enum AVPlayerPlayState {
 }
 
 public enum SyMusicPlayerManagerType {
-    case PlayTypeLine    //景点，线路
-    case PlayTypeSpecial //专题播放
-    case PlayTypeTry     //试听
-    case PlayTypeAnswer  //回答问题
-    case PlayTypeDefult  //其他
+    case PlayTypeFree    //免费
+    case PlayTypeAudition //试听
+    case PlayTypePay     //付费
 }
 
 protocol SyMusicPlayerManagerDelegate : AnyObject {
-    func updateProgressWith(progress : Float)
+    func updateProgressWith(progress : Float, currentTime: TimeInterval)
     func changeMusicToIndex(index : Int)
     func updateBufferProgress(progress : Float)
 }
@@ -74,7 +72,7 @@ class SyMusicPlayerManager: NSObject {
     var seekToZeroBeforePlay: Bool = false  //播放前是否跳到 0
     
     var isImmediately: Bool = false   //是否立即播放
-    var isEmptyBufferPause: Bool = false //没加载玩是否暂停
+    var isEmptyBufferPause: Bool = false //没加载完是否暂停
     var isFinish: Bool = false      //是否播放结束
     var isSeekingToTime: Bool = false // 是否正在拖动slide  调整播放时间
     
@@ -84,12 +82,11 @@ class SyMusicPlayerManager: NSObject {
         }
         return  0.0
     }
-    var progress: Float = 0.0  //播放进度
+    var progressValue: Float = 0.0 //播放进度
     var currentIndex: Int = 0   //当前播放
-    var payStatus: Bool = false //课程是否付费
-    //当你播放的不仅仅是音乐的话，而是多种类型的音频 例如： 试听，问题回答，音乐连续播 等等
-    // 这时一定要提前分好类  会好一点
-    var playType: SyMusicPlayerManagerType = SyMusicPlayerManagerType.PlayTypeTry  //1 景点，线路  2 专题播放  3 试听  4 回答问题 5 其他
+    var payStatus: Bool = false //音频是否付费
+
+    var playType: SyMusicPlayerManagerType = SyMusicPlayerManagerType.PlayTypeFree //免费
     
     // 播放速度    改变播放速度
     var playSpeed: Float = 1.0 {
@@ -104,12 +101,9 @@ class SyMusicPlayerManager: NSObject {
     
     weak var delegate : SyMusicPlayerManagerDelegate?
     var timeObserVer : Any?
-    var singerUser: String? //作家（歌手）
+    var albumItem: SyAlbumItem? //歌曲专辑
     var composerId: String? //作家（歌手）唯一标识id
-    var albumId: String? //专辑唯一id
-    var musicImageName: String?
     var musicItem: SyMusicsItem?
-    var imageView = UIImageView() //为了设置锁屏封面
     // 音频播放数组  例如 多个需要连续播放的音频 用比较好
     var musicArray : [SyMusicsItem] = []
     fileprivate var lastRow = -1
@@ -247,31 +241,15 @@ class SyMusicPlayerManager: NSObject {
             guard let `self` = self else { return }
             
             let currentTime = CMTimeGetSeconds(time)
-            self.progress = Float(currentTime)
             if self.isSeekingToTime {
                 return
             }
             
             let total = self.durantion
             if total > 0 {
-                let progressValue = Float(currentTime) / Float(total)
+                self.progressValue = Float(currentTime) / Float(total)
                 //SyPrint("currentTime->\(currentTime) total->\(total) progressValue->\(progressValue)")
-                self.delegate?.updateProgressWith(progress: progressValue)
-                if progressValue > 0 {
-                    guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
-                    windows.forEach { (view) in
-                        if view.classForCoder == SyMusicPlayerShowView().classForCoder{
-                            let v = view as? SyMusicPlayerShowView
-                            v?.playerShowViewProgress.progress = progressValue
-                            guard let albumImage = self.musicImageName else { return }
-                            v?.playerShowViewHeaderImage.image = UIImage(named: albumImage)
-                            guard let lrcName = self.musicItem?.musicName else { return }
-                            let rowLrcM = SyMusicPlayerManager.getSharedInstance().getCurrentLrcM(currentTime, lrcMs: SyMusicPlayerManager.getSharedInstance().getLrcMs(lrcName))
-                            let lrcM = rowLrcM.lrcM
-                            v?.playerShowViewTitleLab.text = lrcM?.lrcContent//更新歌词，固定的单行歌词
-                        }
-                    }
-                }
+                self.delegate?.updateProgressWith(progress: self.progressValue, currentTime: currentTime)
             }
         }
     }
@@ -334,25 +312,24 @@ class SyMusicPlayerManager: NSObject {
         self.seekToZeroBeforePlay = true
         self.isPlay = false
         self.updateCurrentPlayState(state: AVPlayerPlayState.AVPlayerPlayStateEnd)
-        if (self.playType == SyMusicPlayerManagerType.PlayTypeLine ||
-            self.playType == SyMusicPlayerManagerType.PlayTypeSpecial) {
-            if userDefaultsForString(forKey: cycleVoiceStateKey()) == "1" {
+        if (self.playType == .PlayTypeFree || self.playType == .PlayTypePay) {
+            if userDefaultsForString(forKey: cycleVoiceStateKey) == "1" {
                 self.current()
             }else{
                 self.next()
-                //下一个音频需要刷新 SQPlayerShowView 控件的数据
+                /*/下一个音频需要刷新 SQPlayerShowView 控件的数据
                 guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
                 windows.forEach { (view) in
                     if view.classForCoder == SyMusicPlayerShowView().classForCoder{
                         if SyMusicPlayerManager.getSharedInstance().musicArray.count > SyMusicPlayerManager.getSharedInstance().currentIndex{
                             let v = view as? SyMusicPlayerShowView
                             //let item = SyMusicPlayerManager.getSharedInstance().musicArray[SyMusicPlayerManager.getSharedInstance().currentIndex]
-                            guard let albumImage = self.musicImageName else { return }
+                            guard let albumImage = SyMusicPlayerManager.getSharedInstance().albumItem?.albumImage else { return }
                             v?.playerShowViewHeaderImage.image = UIImage(named: albumImage)
                             //UIImage.init(named: item.name)
                         }
                     }
-                }
+                }*/
             }
         }
     }
@@ -418,7 +395,7 @@ extension SyMusicPlayerManager {
     ///   - isImmediately: 是否立即播放
     func playTheLine(index :Int,isImmediately :Bool){
         self.currentItemRemoveObserver()
-        self.playType = .PlayTypeLine // 记录播放类型 以便做出不同处理
+        self.playType = .PlayTypeFree // 记录播放类型 以便做出不同处理
         
         let record = self.musicArray[index]
         if record.musicName.trimmingCharactersCount > 0 {
@@ -443,7 +420,7 @@ extension SyMusicPlayerManager {
         self.pause()
         self.isImmediately = false
         self.currentUrl = nil
-        self.progress = 0.0
+        self.progressValue = 0.0
         self.isPlay = false
         UIApplication.shared.endReceivingRemoteControlEvents()
     }
@@ -479,7 +456,7 @@ extension SyMusicPlayerManager {
     
     //播放当前这首（单曲循环）
     func current() {
-        if self.playType == SyMusicPlayerManagerType.PlayTypeLine || self.playType == SyMusicPlayerManagerType.PlayTypeSpecial {
+        if self.playType == .PlayTypeFree || self.playType == .PlayTypePay {
             let index = self.currentIndex
             self.changeTheMusicByIndex(index: index)
         }
@@ -487,7 +464,7 @@ extension SyMusicPlayerManager {
     
     /// 下一首
     func next(){
-        if self.playType == SyMusicPlayerManagerType.PlayTypeLine || self.playType == SyMusicPlayerManagerType.PlayTypeSpecial {
+        if self.playType == .PlayTypeFree || self.playType == .PlayTypePay {
             let index = self.currentIndex + 1
             let count = self.musicArray.count
             if index >= count {
@@ -512,7 +489,7 @@ extension SyMusicPlayerManager {
     
     /// 上一首
     func previous(){
-        if self.playType == SyMusicPlayerManagerType.PlayTypeLine || self.playType == SyMusicPlayerManagerType.PlayTypeSpecial {
+        if self.playType == .PlayTypeFree || self.playType == .PlayTypePay {
             let index = self.currentIndex - 1
             if index < 0 {
                 SyPrint("已是第一个了")
@@ -556,7 +533,7 @@ extension SyMusicPlayerManager {
                 self.isSeekingToTime = false
                 self.setNowPlayingInfo()
             }
-            self.progress = 0
+            self.progressValue = 0
         }
     }
     
@@ -580,7 +557,7 @@ extension SyMusicPlayerManager {
         let lrcMs = self.getLrcMs(lrcFileName)
         let lrcModelAndRow = self.getCurrentLrcM(musicMessageM.costTime, lrcMs: lrcMs)
         let lrcM = lrcModelAndRow.lrcM
-        guard let image = self.musicImageName else { return }
+        guard let image = SyMusicPlayerManager.getSharedInstance().albumItem?.albumImage else { return }
         let albumImage = UIImage(named: image)
         if self.lastRow != lrcModelAndRow.row {
             self.lastRow = lrcModelAndRow.row
@@ -597,11 +574,9 @@ extension SyMusicPlayerManager {
             }*/
         }
         
-        //let singerName = musicMessageM.musicM.singer
-        guard let singerName = self.singerUser else { return }
         let dic: NSMutableDictionary = [
             MPMediaItemPropertyAlbumTitle: musicName,
-            MPMediaItemPropertyArtist: singerName,
+            MPMediaItemPropertyLyrics:lrcM?.lrcContent ?? "",
             MPMediaItemPropertyPlaybackDuration: totalTime,
             MPNowPlayingInfoPropertyElapsedPlaybackTime: costTime
         ]
@@ -615,7 +590,7 @@ extension SyMusicPlayerManager {
     
     // 设置锁屏时 播放中心的播放信息
     func setNowPlayingInfo(){
-        if (self.playType == .PlayTypeLine || self.playType == .PlayTypeSpecial) && self.musicItem != nil {
+        if (self.playType == .PlayTypeFree || self.playType == .PlayTypePay) && self.musicItem != nil {
             var info = Dictionary<String,Any>()
             info[MPMediaItemPropertyTitle] = self.musicItem?.musicName//self.musicItem?.name
             /*if  let url = self.model?.imgUrl ,let image = UIImage(named: "item_black_logo_icon"){

@@ -33,15 +33,15 @@ func textSizeWithString(_ str: String, font: UIFont, maxSize:CGSize) -> CGSize {
 
 // 自适应屏幕宽度
 func FIT_SCREEN_WIDTH(_ size: CGFloat) -> CGFloat {
-    return size * screenWidth() / 375.0
+    return size * screenWidth / 375.0
 }
 // 自适应屏幕高度
 func FIT_SCREEN_HEIGHT(_ size: CGFloat) -> CGFloat {
-    return size * screenHeight() / 667.0
+    return size * screenHeight / 667.0
 }
 // 自适应屏幕字体大小
 func AUTO_FONT(_ size: CGFloat) -> UIFont {
-    let autoSize = size * screenWidth() / 375.0
+    let autoSize = size * screenWidth / 375.0
     return UIFont.systemFont(ofSize: autoSize)
 }
 
@@ -167,14 +167,27 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
         self.addSubview(coverView)
         
         // 顶部View条
-        navView = UIView(frame:(CGRect(x: 0, y: 0, width: coverView.width, height: navigationHeight)))
+        navView = UIView()
         navView.backgroundColor = UIColor.clear
         coverView.addSubview(navView)
+        navView.snp.makeConstraints { make in
+            //frame:(CGRect(x: 0, y: 0, width: coverView.width, height: navigationHeight))
+            make.left.top.equalTo(0)
+            make.width.equalTo(coverView.width)
+            make.height.equalTo(navigationHeight)
+        }
         
         // 底部进度条view
-        toolBarView = UIView(frame: CGRect(x: 0, y: coverView.height-toolBarViewH, width: coverView.width, height: toolBarViewH))
+        toolBarView = UIView()
         toolBarView.backgroundColor = rgbWithValue(r: 0, g: 0, b: 0, alpha: 0.6)
         coverView.addSubview(toolBarView)
+        toolBarView.snp.makeConstraints { make in
+            //frame: CGRect(x: 0, y: coverView.height-toolBarViewH, width: coverView.width, height: toolBarViewH)
+            make.left.equalTo(0)
+            make.top.equalTo(coverView.snp_bottomMargin).offset(-toolBarViewH)
+            make.width.equalTo(coverView.width)
+            make.height.equalTo(toolBarViewH)
+        }
         
         // 菊花转
         loadingView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.large)
@@ -193,33 +206,54 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
     // 返回按钮
     func makeBackButton() {
         
-        backBtn = UIButton(frame:(CGRect(x: FIT_SCREEN_WIDTH(10), y: 20, width: FIT_SCREEN_WIDTH(25), height: FIT_SCREEN_WIDTH(25))))
-        backBtn.y = (navigationHeight - backBtn.height) * 0.5
+        backBtn = UIButton()
         backBtn.setBackgroundImage(UIImage(named: "item_video_return_icon"), for: UIControl.State())
         backBtn.addTarget(self, action: #selector(backBtnDidClicked), for: UIControl.Event.touchUpInside)
         self.addSubview(backBtn)
+        backBtn.snp.makeConstraints { make in
+            //frame:(CGRect(x: FIT_SCREEN_WIDTH(10), y: 20, width: FIT_SCREEN_WIDTH(25), height: FIT_SCREEN_WIDTH(25)))
+            make.top.equalTo(20)
+            make.left.width.height.equalTo(FIT_SCREEN_WIDTH(25))
+            
+        }
+        backBtn.y = (navigationHeight - backBtn.height) * 0.5
     }
     
     //分享按钮
     private func makeShareButton() {
         
-        navView.addSubview(shareBtn)
-        shareBtn.frame = CGRect(x: 0, y: 0, width: FIT_SCREEN_WIDTH(25), height: FIT_SCREEN_HEIGHT(25))
-        shareBtn.right = navView.width - FIT_SCREEN_WIDTH(10)
-        shareBtn.centerY = backBtn.centerY
         shareBtn.setImage(UIImage(named: "item_video_share_icon"), for: UIControl.State.normal)
         shareBtn.addTarget(self, action: #selector(shareBtnClicked), for: UIControl.Event.touchUpInside)
+        navView.addSubview(shareBtn)
+        shareBtn.snp.makeConstraints { make in
+            make.left.top.equalTo(0)
+            make.right.equalTo(navView.width).offset(-FIT_SCREEN_WIDTH(10))
+            make.width.equalTo(FIT_SCREEN_WIDTH(25))
+            make.height.equalTo(FIT_SCREEN_HEIGHT(25))
+            make.centerY.equalTo(backBtn.centerY)
+        }
+        //shareBtn.frame = CGRect(x: 0, y: 0, width: FIT_SCREEN_WIDTH(25), height: FIT_SCREEN_HEIGHT(25))
+        //shareBtn.right = navView.width - FIT_SCREEN_WIDTH(10)
+//        shareBtn.centerY = backBtn.centerY
+        
     }
     
     // 播放、暂停按钮
     private func makePlayButton() {
-        
-        toolBarView.addSubview(startButton)
-        startButton.frame = CGRect(x: Padding, y: 0, width: FIT_SCREEN_WIDTH(15), height: FIT_SCREEN_WIDTH(18))
-        startButton.y = toolBarView.height/2.0 - startButton.height/2.0
         startButton.setBackgroundImage(UIImage(named: "item_video_pause_icon"), for: UIControl.State.selected)
         startButton.setBackgroundImage(UIImage(named: "item_video_play_icon"), for: UIControl.State())
         startButton.addTarget(self, action: #selector(startAction(_:)), for: UIControl.Event.touchUpInside)
+        toolBarView.addSubview(startButton)
+        startButton.snp.makeConstraints { make in
+            make.left.equalTo(Padding)
+            make.top.equalTo(toolBarView.height/2.0).offset(-startButton.height/2.0)
+            make.width.equalTo(FIT_SCREEN_WIDTH(15))
+            make.height.equalTo(FIT_SCREEN_WIDTH(18))
+            
+        }
+        //startButton.frame = CGRect(x: Padding, y: 0, width: FIT_SCREEN_WIDTH(15), height: FIT_SCREEN_WIDTH(18))
+        //startButton.y = toolBarView.height/2.0 - startButton.height/2.0
+        
     }
     
     // 亮度、声音滑动条
@@ -233,9 +267,15 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
         self.addSubview(lightSlider)
         
         // 系统
-        let volumeView = MPVolumeView(frame: CGRect(x: -3000, y: -1000, width: 100, height: 100))
+        let volumeView = MPVolumeView()
         volumeView.sizeToFit()
         self.addSubview(volumeView)
+        volumeView.snp.makeConstraints { make in
+            //frame: CGRect(x: -3000, y: -1000, width: 100, height: 100)
+            make.left.equalTo(-3000)
+            make.top.equalTo(-1000)
+            make.width.height.equalTo(100)
+        }
         for view in volumeView.subviews {
             if (view.superclass?.isSubclass(of: UISlider.classForCoder()) == true) {
                 systemSlider = view as! UISlider
@@ -256,22 +296,35 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
     
     // 进度缓冲条
     private func makeProgress() {
-        
-        toolBarView.addSubview(progressView)
         let progressX = leftTimeLabel.right + Padding
-        progressView.frame = CGRect(x: progressX, y: 0, width: rightTimeLabel.x - progressX - Padding, height: Padding)
-        progressView.centerY = startButton.centerY
         progressView.trackTintColor = ProgressColor //进度条颜色
         progressView.progressTintColor = ProgressTintColor
+        toolBarView.addSubview(progressView)
+        progressView.snp.makeConstraints { make in
+            // progressView.frame = CGRect(x: progressX, y: 0, width: rightTimeLabel.x - progressX - Padding, height: Padding)
+            //progressView.centerY = startButton.centerY
+            make.left.equalTo(progressX)
+            make.top.equalTo(0)
+            make.width.equalTo(rightTimeLabel.x - progressX - Padding)
+            make.height.equalTo(Padding)
+            make.centerY.equalTo(startButton.centerY)
+        }
     }
     
     // 滑动条
     private func makeSlider() {
         
         toolBarView.addSubview(progressSlider)
-        progressSlider.frame = CGRect(x: progressView.x - 2, y: 0, width: progressView.width + 4, height: toolBarViewH)
-        progressSlider.centerY = progressView.centerY
-        toolBarView.addSubview(progressSlider)
+        progressSlider.snp.makeConstraints { make in
+            //progressSlider.frame = CGRect(x: progressView.x - 2, y: 0, width: progressView.width + 4, height: toolBarViewH)
+            //progressSlider.centerY = progressView.centerY
+            make.left.equalTo(progressView.x).offset(-2)
+            make.top.equalTo(0)
+            make.width.equalTo(progressView.width + 4)
+            make.height.equalTo(toolBarViewH)
+            make.centerY.equalTo(progressView.centerY)
+        }
+        
         var image = UIImage(named: "item_video_round_icon") //红点
         image = image?.scaleImageToSize(size: CGSize(width: FIT_SCREEN_WIDTH(15), height: FIT_SCREEN_WIDTH(15)))
         progressSlider.setThumbImage(image, for: UIControl.State.normal)
@@ -294,13 +347,20 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
         }
         let totalTimeStr = rightTimeLabel.text ?? initTimeString//取总时长算宽度，避免开始时当前时间字符串长度小于总的
         let leftTimeWidth = textSizeWithString(totalTimeStr, font: leftTimeLabel.font, maxSize: CGSize(width: toolBarView.width, height: toolBarView.height)).width + FIT_SCREEN_WIDTH(5)
-        leftTimeLabel.frame =  CGRect(x: 0, y: 0, width: leftTimeWidth, height: Padding)
-        leftTimeLabel.centerY = startButton.centerY
-        leftTimeLabel.x = startButton.right + Padding
         leftTimeLabel.textColor = UIColor.white
         leftTimeLabel.font = AUTO_FONT(12.0)
         leftTimeLabel.textAlignment = NSTextAlignment.center
         toolBarView.addSubview(leftTimeLabel)
+        leftTimeLabel.snp.makeConstraints { make in
+            //leftTimeLabel.frame =  CGRect(x: 0, y: 0, width: leftTimeWidth, height: Padding)
+//            leftTimeLabel.centerY = startButton.centerY
+//            leftTimeLabel.x = startButton.right + Padding
+            make.top.equalTo(0)
+            make.left.equalTo(startButton.right).offset(Padding)
+            make.width.equalTo(leftTimeWidth)
+            make.height.equalTo(Padding)
+            make.centerY.equalTo(startButton.centerY)
+        }
     }
     
     //右侧播放时间
@@ -311,22 +371,24 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
         }
         let totalTimeStr = rightTimeLabel.text
         let rightTimeWidth = textSizeWithString(totalTimeStr!, font: rightTimeLabel.font, maxSize: CGSize(width: toolBarView.width, height: toolBarView.height)).width + FIT_SCREEN_WIDTH(5)
-        rightTimeLabel.frame = CGRect(x: 0, y: 0, width: rightTimeWidth, height: Padding)
-        rightTimeLabel.centerY = startButton.centerY
-        rightTimeLabel.right = maxButton.x - Padding
-        
         rightTimeLabel.textColor = UIColor.white
         rightTimeLabel.font = leftTimeLabel.font
         rightTimeLabel.textAlignment = NSTextAlignment.center
         toolBarView.addSubview(rightTimeLabel)
+        rightTimeLabel.snp.makeConstraints { make in
+            // rightTimeLabel.frame = CGRect(x: 0, y: 0, width: rightTimeWidth, height: Padding)
+//            rightTimeLabel.centerY = startButton.centerY
+//            rightTimeLabel.right = maxButton.x - Padding
+            make.left.top.equalTo(0)
+            make.right.equalTo(maxButton.left).offset(-Padding)
+            make.width.equalTo(rightTimeWidth)
+            make.height.equalTo(Padding)
+            make.centerY.equalTo(startButton.centerY)
+        }
     }
     
     // 全屏按钮
     private func makeMaxButton() {
-        
-        maxButton.frame = CGRect(x: 0, y: 0, width: FIT_SCREEN_WIDTH(25), height: FIT_SCREEN_WIDTH(25))
-        maxButton.right = toolBarView.right - Padding
-        maxButton.y = toolBarView.height/2 - maxButton.height/2
         if isFullScreen == true {
             maxButton.setBackgroundImage(UIImage(named: "item_video_min_icon"), for: UIControl.State())
         } else {
@@ -334,6 +396,15 @@ class SyVideoPlayerShowView: UIView, UIGestureRecognizerDelegate {
         }
         maxButton.addTarget(self, action: #selector(maxBtnClicked), for: UIControl.Event.touchUpInside)
         toolBarView.addSubview(maxButton)
+//        maxButton.frame = CGRect(x: 0, y: 0, width: FIT_SCREEN_WIDTH(25), height: FIT_SCREEN_WIDTH(25))
+//        maxButton.right = toolBarView.right - Padding
+//        maxButton.y = toolBarView.height/2 - maxButton.height/2
+        maxButton.snp.makeConstraints { make in
+            make.left.equalTo(0)
+            make.top.equalTo(toolBarView.height/2).offset(-maxButton.height/2)
+            make.right.equalTo(toolBarView.right).offset(-Padding)
+            make.width.height.equalTo(FIT_SCREEN_WIDTH(25))
+        }
     }
     
     // 添加手势
@@ -538,8 +609,8 @@ extension SyVideoPlayerShowView {
                 self.transform = CGAffineTransform(rotationAngle: -CGFloat(Double.pi/2))
             }
         })
-        self.frame = CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight())
-        playerLayer.frame = CGRect(x: 0, y: 0, width: screenHeight(), height: screenWidth())
+        self.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+        playerLayer.frame = CGRect(x: 0, y: 0, width: screenHeight, height: screenWidth)
         
         _ = self.subviews.map (
             { $0.removeFromSuperview() }
@@ -588,7 +659,7 @@ extension SyVideoPlayerShowView {
         let timeSecond = CMTimeGetSeconds(currentTime)
         let totalTimeStr = refreshTimeLabelValue(CMTimeMake(value: Int64(timeSecond), timescale: 1))
         
-        let contantSize = CGSize(width: screenWidth(), height: screenHeight())
+        let contantSize = CGSize(width: screenWidth, height: screenHeight)
         //左侧时间宽度
         let leftTimeWidth = textSizeWithString(totalTimeStr, font: leftTimeLabel.font, maxSize: contantSize).width
         leftTimeLabel.width = leftTimeWidth + FIT_SCREEN_WIDTH(5)

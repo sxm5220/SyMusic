@@ -13,6 +13,12 @@ import Toast_Swift
 import HGCircularSlider
 import MarqueeLabel
 
+public protocol SyAudioPlayerViewDelegate: NSObjectProtocol {
+    func preMusicActionFunc()
+    func nextMusicActionFunc()
+    func playListActionFunc()
+}
+
 extension SyAudioPlayerView: UIScrollViewDelegate {
     //滚动到歌词页面（page 2），主页面（page 1）alpha = 0
     func scrollViewDidScroll(_ scrollView: UIScrollView) {//alpha change
@@ -26,64 +32,22 @@ extension SyAudioPlayerView: UIScrollViewDelegate {
     }
 }
 
-public protocol SyAudioPlayerViewDelegate: NSObjectProtocol {
-    func preMusicActionFunc()
-    func nextMusicActionFunc()
-    func playListActionFunc()
-}
-
-class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
+class SyAudioPlayerView: UIView {
     
     weak open var delegate: SyAudioPlayerViewDelegate?
     
-    func updateProgressWith(progress: Float) {
-        self.progressView.progress = CGFloat(progress)
-        self.endTimerLab.text = SyMusicPlayerManager.getSharedInstance().totalTime
-        self.startTimerLab.text = SyMusicPlayerManager.getSharedInstance().currentTime
-        self.vc.title = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName
-        if progress > 0 && self.indicator.isAnimating{
-            self.indicator.stopAnimating()
-        }
-        //背景视频控制播放
-        if self.vc.avplayer.player?.timeControlStatus.rawValue == AVPlayer.TimeControlStatus.paused.rawValue && SyMusicPlayerManager.getSharedInstance().isPlay {
-            self.vc.avplayer.player?.play()
-        }
-        guard let image =  SyMusicPlayerManager.getSharedInstance().musicImageName else { return }
-        self.vc.bgImageView.image = UIImage(named: image)//UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
-        self.centerImageView.image = self.vc.bgImageView.image
-    }
-    
-    func changeMusicToIndex(index: Int) {
-        guard let image = SyMusicPlayerManager.getSharedInstance().musicImageName else { return }
-        self.vc.bgImageView.image = UIImage(named: image)//UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicItem?.singerIcon ?? "")
-        self.centerImageView.image = self.vc.bgImageView.image
-        guard let musicName = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName else { return }
-        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(musicName) //SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
-    }
-    
-    func updateBufferProgress(progress: Float) {
-        self.endTimerLab.text = SyMusicPlayerManager.getSharedInstance().totalTime
-        self.startTimerLab.text = SyMusicPlayerManager.getSharedInstance().currentTime
-        guard let musicName = SyMusicPlayerManager.getSharedInstance().musicItem?.musicName else { return }
-        self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(musicName)
-        //self.lrcVC.lrcMs = SyMusicPlayerManager.getSharedInstance().getLrcMs(SyMusicPlayerManager.getSharedInstance().musicItem?.lrcname)
-    }
-    
     var vc: SyMusicPlayVC!
-    fileprivate static let kMargin: CGFloat = 100.0
-    fileprivate let KSettingBtnMargin: CGFloat = 30.0
-    fileprivate let kValue = screenWidth() - kMargin * 2
-    fileprivate let playImages = [sfImage(name: "music.note.list"),
-                                  sfImage(name: "backward.end"),
-                                  sfImage(name: "pause"),
-                                  sfImage(name: "forward.end"),
-                                  sfImage(name: "repeat")]
-    fileprivate let kw = (screenWidth() - 30*5) / 6
+    
+    private let playImages = [sfImage(name: "music.note.list"),
+                              sfImage(name: "backward.end"),
+                              sfImage(name: "pause"),
+                              sfImage(name: "forward.end"),
+                              sfImage(name: "repeat")]
     var isSingleCycle: Bool = false
     var cycleBtn: UIButton = UIButton()
     var playBtn: UIButton = UIButton()
-    private let KWaterWave: CGFloat = screenWidth() * 0.5 + 50.0 //水波纹宽度
-    fileprivate let imgWidth: CGFloat = screenWidth() * 0.5
+    private let KWaterWave: CGFloat = screenWidth * 0.5 + 50.0 //水波纹宽度
+    private var imgWidth: CGFloat = 0
     
     lazy var context: CIContext = {
         return CIContext(options: nil)
@@ -98,8 +62,8 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     }()
     
     //水波动效
-    fileprivate lazy var waterWaveView: SyWaterWaveView = {
-        let view = SyWaterWaveView.init(frame: CGRect.init(x: (screenWidth() - KWaterWave) / 2, y: screenHeight() / 3 - KWaterWave / 2 , width: KWaterWave, height: KWaterWave))
+    public lazy var waterWaveView: SyWaterWaveView = {
+        let view = SyWaterWaveView()
         view.backgroundColor = .clear
         view.isUserInteractionEnabled = true
         return view
@@ -107,13 +71,14 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     
     //音频背景图
     lazy var centerImageView: UIImageView = {
-        let imgView = UIImageView.init(frame: CGRect.init(x: (screenWidth() - imgWidth) / 2, y: 0, width: imgWidth, height: imgWidth))
+        let imgView = UIImageView()
+        imgView.frame = CGRect(x: (screenWidth - imgWidth) / 2, y: 160, width: imgWidth, height: imgWidth)
         imgView.clipsToBounds = true
-        imgView.center = self.waterWaveView.center
+//        imgView.center = self.waterWaveView.center
         imgView.image = #imageLiteral(resourceName: "item_headphone_icon")
         imgView.contentMode = .scaleAspectFill
         imgView.layer.mask = imgView.roundCorner(imageView: imgView)
-        imgView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicImageName ?? "item_headphone_icon")
+        //imgView.image = UIImage.init(named: SyMusicPlayerManager.getSharedInstance().musicImageName ?? "item_headphone_icon")
         imgView.layer.removeAnimation(forKey: "rotation")
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.fromValue = 0
@@ -127,15 +92,13 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     
     //播放时间
     lazy var startTimerLab: SyLabel = {
-        let lab = SyLabel.init(frame: CGRect.init(x: self.centerImageView.frame.origin.x - 50, y: 0, width: 50, height: 20), text: "00:00", textColor: .lightGray, font: UIFont.systemFont(ofSize: 11), textAlignment: .center)
-        lab.center.y = self.centerImageView.center.y - 15
+        let lab = SyLabel.init(text: "00:00", textColor: .lightGray, font: UIFont.systemFont(ofSize: 11), textAlignment: .center)
         return lab
     }()
     
     //结束时间
     lazy var endTimerLab: SyLabel = {
-        let lab = SyLabel.init(frame: CGRect.init(x: self.centerImageView.frame.maxX, y: startTimerLab.frame.origin.y, width: startTimerLab.bounds.size.width, height: 20), text: "00:00", textColor: .lightGray, font: UIFont.systemFont(ofSize: 11), textAlignment: .center)
-        lab.center.y = self.startTimerLab.center.y
+        let lab = SyLabel.init(text: "00:00", textColor: .lightGray, font: UIFont.systemFont(ofSize: 11), textAlignment: .center)
         return lab
     }()
     
@@ -157,8 +120,8 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     
     //播放进度条
     lazy var progressView: ZZCircleProgress = {
-        let v = ZZCircleProgress.init(frame: CGRect(x: 0, y: 0, width: self.centerImageView.bounds.size.width + 50, height: self.centerImageView.bounds.size.width + 50))
-        v.center = self.centerImageView.center
+        let v = ZZCircleProgress()
+//        v.center = self.centerImageView.center
         v.pathBackColor = UIColor.init(white: 0.667, alpha: 0.2)//.darkGray
         v.pathFillColor = .white//rgbWithValue(r: 65, g: 44, b: 142, alpha: 1.0)
         v.startAngle = 0
@@ -183,7 +146,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     }()
     
     lazy var lrcScrollView: UIScrollView = {
-        let v = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.progressView.frame.maxY + 150))
+        let v = UIScrollView()
         v.addSubview(self.lrcVC.tableView)//添加歌词控制器的tableview（歌词视图） 到 滚动视图中进行占位
         v.backgroundColor = .clear
         v.bounces = true
@@ -200,19 +163,14 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     
     //主页动态歌词
     lazy var lrcLabel: SyLrcDEffectLabel = {
-        let lab = SyLrcDEffectLabel(frame: CGRect(x: 20, y: self.progressView.frame.maxY + 100, width: self.bounds.size.width - 20*2, height: 20))
+        let lab = SyLrcDEffectLabel()
         lab.textColor = .lightGray
         lab.textAlignment = .center
         return lab
     }()
     
     //歌词变的定时器
-    fileprivate var updateLrcLink: CADisplayLink?
-    
-    func addLink() {
-        updateLrcLink = CADisplayLink(target: self, selector: #selector(self.updateLrc))
-        updateLrcLink?.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
-    }
+    private var updateLrcLink: CADisplayLink?
     
     func removeLink() {
         updateLrcLink?.invalidate()
@@ -240,21 +198,87 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        SyMusicPlayerManager.getSharedInstance().delegate = self
-        self.isSingleCycle = userDefaultsForString(forKey: cycleVoiceStateKey()) == "1" ? true : false
+        self.imgWidth = screenWidth * 0.5
+        
+        self.isSingleCycle = userDefaultsForString(forKey: cycleVoiceStateKey) == "1" ? true : false
     }
     
-    convenience init(frame: CGRect, vc: SyMusicPlayVC) {
-        self.init(frame: frame)
+    convenience init(vc: SyMusicPlayVC) {
+        self.init(frame: CGRect.zero)
         self.vc = vc
-        self.addSubview(self.waterWaveView)
-        self.addSubview(self.centerImageView)
-        self.addSubview(self.lrcLabel)
-        self.addSubview(self.lrcScrollView)
         
+        [self.waterWaveView,self.centerImageView,self.lrcLabel,self.lrcScrollView,self.startTimerLab,self.endTimerLab,self.progressView,self.indicator].forEach { view in
+            self.addSubview(view)
+        }
+        
+        /*let centerImageViewLeading = (screenWidth - imgWidth) / 2
+        let centerImageViewTop = screenHeight / 3 + imgWidth / 2
+        self.centerImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(centerImageViewLeading)
+            make.top.equalToSuperview().offset(centerImageViewTop)
+            make.width.height.equalTo(imgWidth)
+        }*/
+        
+        let waterWaveViewLeading = (screenWidth - KWaterWave) / 2
+        let waterWaveViewTop = 135
+        self.waterWaveView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(waterWaveViewLeading)
+            make.top.equalToSuperview().offset(waterWaveViewTop)
+            make.width.height.equalTo(KWaterWave)
+        }
+        
+        let lrcLabelTop = screenHeight / 2 + 80
+        self.lrcLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(lrcLabelTop)
+            make.width.equalTo(screenWidth - 40)
+            make.height.equalTo(20)
+        }
+         
+        let startTimerLableading = (screenWidth - imgWidth) / 2 - 50
+        let startTimerLabTop = screenHeight / 3 - 50
+        self.startTimerLab.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(startTimerLableading)
+            make.top.equalToSuperview().offset(startTimerLabTop)
+            make.width.equalTo(50)
+            make.height.equalTo(20)
+        }
+        
+        let endTimerLableading = (screenWidth - imgWidth) / 2 - 50
+        self.endTimerLab.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-endTimerLableading)
+            make.top.equalToSuperview().offset(startTimerLabTop)
+            make.width.equalTo(50)
+            make.height.equalTo(20)
+        }
+        
+        let progressViewTop = startTimerLabTop - imgWidth / 2 + 5
+        let progressViewLeading = (screenWidth - imgWidth) / 2 - 25
+        self.progressView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(progressViewLeading)
+            make.top.equalToSuperview().offset(progressViewTop)
+            make.width.equalTo(imgWidth + 50)
+            make.height.equalTo(imgWidth + 55)
+        }
+        
+        self.lrcScrollView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(lrcLabelTop + 30)
+        }
+        
+        let indicatorLeading = (screenWidth - 60) / 2
+        self.indicator.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(indicatorLeading)
+            make.top.equalToSuperview().offset(lrcLabelTop + 40)
+            make.height.width.equalTo(60)
+        }
+        
+        let kw: CGFloat = (screenWidth - 30*5) / 6
+        let KSettingBtnMargin: CGFloat = 30.0
         for i in 0..<self.playImages.count {
             var btnValue = KSettingBtnMargin
-            var rectyValue = self.progressView.frame.maxY + 170
+            var rectyValue = lrcLabelTop + 50.0
             if i == 0 || i == (self.playImages.count - 1){
                 btnValue -= 10
                 rectyValue += 5
@@ -262,7 +286,8 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
                 btnValue += 10
                 rectyValue -= 5
             }
-            let btn = buttonWithImageFrame(frame: CGRect(x: kw + (KSettingBtnMargin + kw)*CGFloat(i) + (i == 2 ? -5 : 0), y: rectyValue, width: btnValue, height: btnValue), imageName: self.playImages[i], tag: i, target: self, action: #selector(btnAction(sender:)))
+            let btn = buttonWithImageFrame(imageName: self.playImages[i], tag: i, target: self, action: #selector(btnAction(sender:)))
+            btn.frame = CGRect(x: kw + (KSettingBtnMargin + kw)*CGFloat(i) + (i == 2 ? -5 : 0), y: rectyValue, width: btnValue, height: btnValue)
             self.addSubview(btn)
             if i == 2 {
                 self.indicator.center = btn.center
@@ -276,19 +301,17 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
                 }
             }
         }
-        self.addSubview(self.startTimerLab)
-        self.addSubview(self.endTimerLab)
-        self.addSubview(self.progressView)
-        self.addSubview(self.indicator)
+        
         self.indicator.startAnimating()
         
-        self.addLink()
+        self.updateLrcLink = CADisplayLink(target: self, selector: #selector(self.updateLrc))
+        self.updateLrcLink?.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
     }
-    
+    /*
     @objc func sliderTouchUp(sender: UISlider) {
         //跳到指定时间点播放
         SyMusicPlayerManager.getSharedInstance().musicSeekToTime(time: Float(self.progressView.progress))
-    }
+    }*/
     
     @objc
     func btnAction(sender: UIButton) {
@@ -306,7 +329,7 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
                 if self.indicator.isAnimating {
                     return
                 }
-                self.playFunc()
+                self.playOrPauseFunc()
             }
         case 3: //下一曲
             if let delegate = self.delegate {
@@ -319,22 +342,23 @@ class SyAudioPlayerView: UIView, SyMusicPlayerManagerDelegate {
         }
     }
     
-    func playFunc() {
+    func playOrPauseFunc() {
         self.updateLrcLink?.isPaused = SyMusicPlayerManager.getSharedInstance().isPlay
         SyMusicPlayerManager.getSharedInstance().isPlay == true ? SyMusicPlayerManager.getSharedInstance().pause() : SyMusicPlayerManager.getSharedInstance().play()
         SyMusicPlayerManager.getSharedInstance().isPlay == true ? self.centerImageView.layer.resumeAnimate() : self.centerImageView.layer.pauseAnimate()
         SyMusicPlayerManager.getSharedInstance().isPlay == true ? self.vc.avplayer.player?.play() : self.vc.avplayer.player?.pause()
+        SyMusicPlayerManager.getSharedInstance().isPlay == true ? self.waterWaveView.reStartFun() : self.waterWaveView.pauseFun()
     }
     
     func cycleFunc() {
         self.isSingleCycle = !self.isSingleCycle
         if self.isSingleCycle {
             self.cycleBtn.setBackgroundImage(sfImage(name: "repeat.1"), for: .normal)
-            userDefaultsSetValue(value: "1", key: cycleVoiceStateKey())
+            userDefaultsSetValue(value: "1", key: cycleVoiceStateKey)
             self.makeToast(strCommon(key: "sy_single_cycle_title"))
         }else{
             self.cycleBtn.setBackgroundImage(sfImage(name: "repeat"), for: .normal)
-            userDefaultsSetValue(value: "0", key: cycleVoiceStateKey())
+            userDefaultsSetValue(value: "0", key: cycleVoiceStateKey)
             self.makeToast(strCommon(key: "sy_list_cycle_title"))
         }
     }

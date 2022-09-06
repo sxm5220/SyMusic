@@ -21,8 +21,7 @@ class SyAlbumListVC: SyBaseVC {
     }
     
     fileprivate lazy var tableView: SyTableView = {
-       let heightValue: CGFloat = screenHeight() - toolBarWithHeight() - navigationBarWithHeight() - 5
-        var tableView = SyTableView(array: [10, 5,screenWidth() - 20,heightValue], .grouped, self)
+        var tableView = SyTableView(style: .grouped, delegate: self)
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.separatorColor = .darkGray//rgbWithValue(r: 220, g: 220, b: 220, alpha: 1.0)
@@ -42,6 +41,11 @@ class SyAlbumListVC: SyBaseVC {
         self.isBackBar = true
         self.title = strCommon(key: "sy_album")
         self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
     
     fileprivate func albumListDataSource(isRefresh: Bool) {
@@ -108,24 +112,46 @@ extension SyAlbumListVC: UITableViewDelegate, UITableViewDataSource {
     fileprivate func cellContentView(cell: UITableViewCell, item: SyAlbumItem, index: Int, isSecond: Bool) {
         
         //专辑图
-        let albumImageView = UIImageView(frame: CGRect(x: 20, y: 20, width: itemWidth, height: itemWidth))
+        let albumImageView = UIImageView()
         albumImageView.layer.cornerRadius = 10
         albumImageView.clipsToBounds = true
         albumImageView.contentMode = .scaleAspectFill
         albumImageView.image = UIImage(named: item.albumImage)
         cell.contentView.addSubview(albumImageView)
+        albumImageView.snp.makeConstraints { make in
+            make.leading.top.equalTo(20)
+            make.width.height.equalTo(itemWidth)
+        }
         
+        let widthLab = screenWidth - itemWidth - 80
         //专辑名称
-        let albumNameLab = SyMarqueeLabel(frame: CGRect(x: albumImageView.frame.maxX + 20, y: albumImageView.frame.minY + 15, width: cell.bounds.size.width - albumImageView.bounds.size.width - 50, height: 20), text: item.albumName, textColor: .white, font: UIFont.boldSystemFont(ofSize: 18), textAlignment: .left)
+        let albumNameLab = SyMarqueeLabel(text: item.albumName, textColor: .white, font: UIFont.boldSystemFont(ofSize: 18), textAlignment: .left)
         cell.contentView.addSubview(albumNameLab)
+        albumNameLab.snp.makeConstraints { make in
+            make.left.equalTo(albumImageView.snp_rightMargin).offset(20)
+            make.top.equalTo(albumImageView.snp_topMargin).offset(10)
+            make.width.equalTo(widthLab)
+            make.height.equalTo(20)
+        }
         
         //发行公司
-        let productionCompanyLab = SyMarqueeLabel(frame: CGRect(x: albumNameLab.frame.origin.x, y: albumNameLab.frame.maxY + 10, width: albumNameLab.bounds.size.width, height: 20), text: item.productionCompany, textColor: .white, font: UIFont.systemFont(ofSize: 15), textAlignment: .left)
+        let productionCompanyLab = SyMarqueeLabel(text: item.productionCompany, textColor: .white, font: UIFont.systemFont(ofSize: 15), textAlignment: .left)
         cell.contentView.addSubview(productionCompanyLab)
+        productionCompanyLab.snp.makeConstraints { make in
+            make.left.equalTo(albumImageView.snp_rightMargin).offset(20)
+            make.top.equalTo(albumImageView.snp_topMargin).offset(40)
+            make.width.equalTo(widthLab)
+            make.height.equalTo(20)
+        }
         
         //发行时间
-        let issueDateLab = SyMarqueeLabel(frame: CGRect(x: productionCompanyLab.frame.origin.x, y: productionCompanyLab.frame.maxY + 10, width: productionCompanyLab.bounds.size.width, height: 20), text: item.issueDate, textColor: .white, font: productionCompanyLab.font, textAlignment: .left)
+        let issueDateLab = SyMarqueeLabel(text: item.issueDate, textColor: .white, font: productionCompanyLab.font, textAlignment: .left)
         cell.contentView.addSubview(issueDateLab)
-        
+        issueDateLab.snp.makeConstraints { make in
+            make.left.equalTo(albumImageView.snp_rightMargin).offset(20)
+            make.top.equalTo(albumImageView.snp_topMargin).offset(70)
+            make.width.equalTo(widthLab)
+            make.height.equalTo(20)
+        }
     }
 }

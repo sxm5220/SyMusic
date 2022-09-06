@@ -15,7 +15,8 @@ class SyLrcCell: UITableViewCell {
     }
     
     lazy var lrcLabel: SyLrcLabel = {
-        let lab = SyLrcLabel(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: 20))
+        let lab = SyLrcLabel()
+        lab.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 20)
         lab.textColor = .lightGray
         lab.textAlignment = .center
         return lab

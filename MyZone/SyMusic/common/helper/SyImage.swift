@@ -244,11 +244,11 @@ extension UIImage {
         
         var fHeight: CGFloat = 0
         for sContent in arrContent {
-            let stringSize = (sContent as? NSString)?.boundingRect(with: CGSize.init(width: screenWidth(), height: 10000), options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
+            let stringSize = (sContent as? NSString)?.boundingRect(with: CGSize.init(width: screenWidth, height: 10000), options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
             arrHeight.add(stringSize?.height as Any)
             fHeight += (stringSize?.height)!
         }
-        let newSize = CGSize.init(width: screenWidth() + 20, height: fHeight + 50)
+        let newSize = CGSize.init(width: screenWidth + 20, height: fHeight + 50)
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         let ctx = UIGraphicsGetCurrentContext()
         ctx!.setCharacterSpacing(10)
@@ -260,7 +260,7 @@ extension UIImage {
         var fPosY: CGFloat = 20
         for sContent in arrContent {
             let numHeight: CGFloat = arrHeight.object(at: nIndex) as! CGFloat
-            (sContent as? NSString)?.draw(in: CGRect.init(x: 10, y: fPosY, width: screenWidth(), height: numHeight), withAttributes: [NSAttributedString.Key.font: font])
+            (sContent as? NSString)?.draw(in: CGRect.init(x: 10, y: fPosY, width: screenWidth, height: numHeight), withAttributes: [NSAttributedString.Key.font: font])
             fPosY += numHeight
             nIndex += 1
         }

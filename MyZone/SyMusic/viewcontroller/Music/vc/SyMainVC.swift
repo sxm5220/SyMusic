@@ -19,21 +19,21 @@ struct userItem {
 
 class SyMainVC: SyBaseVC {
     final let heightValue: CGFloat = 250.0
-    final var itemWidth: CGFloat = (screenWidth() - 20 - 45) / 2
+    final var itemWidth: CGFloat = (screenWidth - 20 - 45) / 2
     let userItems = [userItem(id: "01", name: "周杰伦", icon: "item_jz_icon",star: .JayChou),
                  userItem(id: "02", name: "薛之谦", icon: "item_xjq_icon",star: .JokerXue),
                  userItem(id: "03", name: "Backstreet Boys", icon: "item_BSBoys_icon",star: .BackstreetBoys),
                  userItem(id: "04", name: "王力宏", icon: "item_lh_icon", star: .LeehomWang)]
     
     /*fileprivate lazy var cycleView: SyCycleRollView = {
-        var cycleView = SyCycleRollView(frame: CGRect(x: 0, y: 0, width: screenWidth() - 10, height: heightValue), localImageArray: [])
+        var cycleView = SyCycleRollView(frame: CGRect(x: 0, y: 0, width: screenWidth - 10, height: heightValue), localImageArray: [])
         //设置代理，监听点击图片的事件
         cycleView.delegate = self
         return cycleView
     }()
     
     fileprivate lazy var headView: UIView = {
-        var headView = UIView(frame: CGRect(x: 5, y: -90, width: screenWidth() - 10, height: heightValue))
+        var headView = UIView(frame: CGRect(x: 5, y: -90, width: screenWidth - 10, height: heightValue))
         headView.backgroundColor = UIColor.white
         headView.layer.cornerRadius = 10
         headView.clipsToBounds = true
@@ -42,11 +42,10 @@ class SyMainVC: SyBaseVC {
     }()*/
     
     fileprivate lazy var tableView: SyTableView = {
-       let heightValue: CGFloat = screenHeight() - toolBarWithHeight() - navigationBarWithHeight() - 5
-        var tableView = SyTableView(array: [10, 5,screenWidth() - 20,heightValue], .grouped, self)
+        var tableView = SyTableView(style: .grouped, delegate: self)
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = .darkGray//rgbWithValue(r: 220, g: 220, b: 220, alpha: 1.0)
+        tableView.separatorColor = .darkGray
         tableView.separatorInset = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
@@ -88,6 +87,11 @@ class SyMainVC: SyBaseVC {
         self.title = strCommon(key: "sy_music_title")
 //        self.view.addSubview(self.headView)
         self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
     
     @objc func tapAction(sender: UITapGestureRecognizer) {
@@ -161,8 +165,9 @@ extension SyMainVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     fileprivate func cellContentView(cell: UITableViewCell, item: userItem, index: Int, isSecond: Bool) {
+        
         //头像
-        let headerImageView = UIImageView(frame: CGRect(x: 10 + (isSecond ? ((screenWidth() - 10 * 3) / 2 + 10) : 0), y: 10, width: itemWidth, height: itemWidth))
+        let headerImageView = UIImageView()
         headerImageView.layer.cornerRadius = 10
         headerImageView.isUserInteractionEnabled = true
         headerImageView.clipsToBounds = true
@@ -172,9 +177,21 @@ extension SyMainVC: UITableViewDelegate, UITableViewDataSource {
         headerImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction(sender:))))
         cell.contentView.addSubview(headerImageView)
         
+        let rectX = isSecond ? ((screenWidth - 10 * 3) / 2 + 20) : 10
+        
+        headerImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(rectX+10)
+            make.top.equalToSuperview().offset(10)
+            make.width.height.equalTo(itemWidth)
+        }
         //名称
-        let titleLabel = SyLabel(frame: CGRect(x: 0, y: headerImageView.frame.maxY + 8, width: headerImageView.bounds.size.width, height: 20), text: item.name, textColor: .white, font: UIFont.boldSystemFont(ofSize: 20), textAlignment: .center)
-        titleLabel.center.x = headerImageView.center.x
+        let titleLabel = SyLabel(text: item.name, textColor: .white, font: UIFont.boldSystemFont(ofSize: 20), textAlignment: .center)
         cell.contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(rectX+10)
+            make.top.equalToSuperview().offset(itemWidth + 20)
+            make.width.equalTo(itemWidth)
+            make.height.equalTo(20)
+        }
     }
 }

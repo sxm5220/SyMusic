@@ -39,13 +39,13 @@ class SyLaunchManager: NSObject {
         }*/
         
         //图片开屏广告 - 本地数据
-        //self.imageBylocaldata(duration: 2,localImage: "launchAd_image.gif", openUrl: "https://sxm5220.github.io")
+        self.imageBylocaldata(duration: 2,localImage: "launchAd_image.gif", openUrl: "https://sxm5220.github.io")
         
         //图片开屏广告 - 网络数据
-//        self.imageByNetworkdata()
+        //self.imageByNetworkdata()
         
         //视频开屏广告 - 本地数据
-        self.videoBylocaldata(duration: 2,localVideo: "launchAd_video.mp4", openUrl: "https://sxm5220.github.io")
+        //self.videoBylocaldata(duration: 2,localVideo: "launchAd_video.mp4", openUrl: "https://sxm5220.github.io")
     }
     
     //图片开屏广告 - 本地数据
@@ -57,7 +57,7 @@ class SyLaunchManager: NSObject {
         //广告停留时间
         imageAdconfiguration.duration = duration
         //广告frame
-        imageAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight() * 0.8)
+        imageAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight * 0.8)
         //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
         //注意本地广告图片,直接放在工程目录,不要放在Assets里面,否则不识别,此处涉及到内存优化
         imageAdconfiguration.imageNameOrURLString = localImage
@@ -99,7 +99,7 @@ class SyLaunchManager: NSObject {
         //广告停留时间
         imageAdconfiguration.duration = 5//TODO:获取网络给定时间
         //广告frame
-        imageAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight() * 0.8)
+        imageAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight * 0.8)
         //广告图片URLString/或本地图片名(.jpg/.gif请带上后缀)
         //注意本地广告图片,直接放在工程目录,不要放在Assets里面,否则不识别,此处涉及到内存优化
         imageAdconfiguration.imageNameOrURLString = ""//TODO:获取网络给定图片显示url
@@ -136,7 +136,7 @@ class SyLaunchManager: NSObject {
         //广告停留时间
         videoAdconfiguration.duration = duration
         //广告frame
-        videoAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight())
+        videoAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         //广告视频URLString/或本地视频名(请带上后缀)
         videoAdconfiguration.videoNameOrURLString = localVideo
         //是否关闭音频
@@ -182,7 +182,7 @@ class SyLaunchManager: NSObject {
         //广告停留时间
         videoAdconfiguration.duration = 5 //TODO：获取停留时间
         //广告frame
-        videoAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth(), height: screenHeight())
+        videoAdconfiguration.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         //广告视频URLString/或本地视频名(请带上后缀)
         //注意:视频广告只支持先缓存,下次显示(看效果请二次运行)
         videoAdconfiguration.videoNameOrURLString = "" //TODO: 视频url
@@ -213,7 +213,8 @@ class SyLaunchManager: NSObject {
     
     private func launchAdSubViewsAlreadyView() -> [UIView] {
         let yValue: CGFloat = 46
-        let lab = SyLabel(frame: CGRect(x: screenWidth() - 140, y: yValue, width: 60.0, height: 30.0), text: strCommon(key: "sy_loaded"), textColor: .white, font: .systemFont(ofSize: 12), textAlignment: .center)
+        let lab = SyLabel(text: strCommon(key: "sy_loaded"), textColor: .white, font: .systemFont(ofSize: 12), textAlignment: .center)
+        lab.frame = CGRect(x: screenWidth - 140, y: yValue, width: 60.0, height: 30.0)
         lab.layer.cornerRadius = 5
         lab.layer.masksToBounds = true
         lab.backgroundColor = rgbWithValue(r: 0, g: 0, b: 0, alpha: 0.5)
@@ -222,7 +223,8 @@ class SyLaunchManager: NSObject {
     
     private func launchAdSubViews() -> [UIView] {
         let yValue: CGFloat = 80
-        let lab = SyLabel(frame: CGRect(x: screenWidth() - 170, y: yValue, width: 60.0, height: 30.0), text: strCommon(key: "sy_loaded"), textColor: .white, font: .systemFont(ofSize: 12), textAlignment: .center)
+        let lab = SyLabel(text: strCommon(key: "sy_loaded"), textColor: .white, font: .systemFont(ofSize: 12), textAlignment: .center)
+        lab.frame = CGRect(x: screenWidth - 170, y: yValue, width: 60.0, height: 30.0)
         lab.layer.cornerRadius = 5
         lab.layer.masksToBounds = true
         lab.backgroundColor = rgbWithValue(r: 0, g: 0, b: 0, alpha: 0.5)
@@ -230,7 +232,8 @@ class SyLaunchManager: NSObject {
     }
     
     fileprivate func customSkipView() -> UIView {
-        let btn = buttonWithTitleFrame(frame: CGRect(x: screenWidth() - 100, y: 80, width: 80, height: 40), title: "跳过", titleColor: .white, backgroundColor: .lightGray, cornerRadius: 20, tag: 0, target: self, action: #selector(btnAction(sender:)))
+        let btn = buttonWithTitleFrame(title: "跳过", titleColor: .white, backgroundColor: .lightGray, cornerRadius: 20, tag: 0, target: self, action: #selector(btnAction(sender:)))
+        btn.frame = CGRect(x: screenWidth - 100, y: 80, width: 80, height: 40)
         return btn
     }
     

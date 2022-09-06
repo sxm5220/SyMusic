@@ -9,15 +9,15 @@
 import UIKit
 
 class SyWaterWaveView: UIView {
-    
     public let itemsSize = CGSize.init(width: 44, height: 44)
     public var itemsArray: NSMutableArray = NSMutableArray()
     public var animationLayer: CALayer!
-    
+    public var isShow: Bool = false
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: CGRect.zero)
         
-        NotificationCenter.default.addObserver(self, selector:#selector(self.resume),name: UIApplication.didBecomeActiveNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector:#selector(self.enterBackground),name: UIApplication.didEnterBackgroundNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector:#selector(self.becomeActive),name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     override func didMoveToWindow() {
@@ -28,15 +28,42 @@ class SyWaterWaveView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func resume() {
-        self.animationLayer.removeFromSuperlayer()
-        self.setNeedsDisplay()
+    public func pauseFun() {
+        let pauseTime = self.animationLayer.convertTime(CACurrentMediaTime(), from: nil)
+        self.animationLayer.speed = 0
+        self.animationLayer.timeOffset = pauseTime
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    public func reStartFun() {
+        //self.animationLayer.removeFromSuperlayer()
+        //self.setNeedsDisplay()
+        
+        let pauseTime = self.animationLayer.timeOffset
+        self.animationLayer.speed = 1
+        self.animationLayer.timeOffset = 0
+        self.animationLayer.beginTime = 0
+        let timeSincePause = self.animationLayer.convertTime(CACurrentMediaTime(), from: nil) - pauseTime
+        self.animationLayer.beginTime = timeSincePause
     }
     
+    /*/进入后台暂停
+    @objc func enterBackground() {
+        if SyMusicPlayerManager.getSharedInstance().isPlay {
+            self.pauseFun()
+        }
+    }
+    
+    //从后台打开
+    @objc func becomeActive() {
+        if SyMusicPlayerManager.getSharedInstance().isPlay {
+            self.reStartFun()
+        }
+    }*/
+    
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+    /*
     public func itemFrameIntersectsInOtherItem(frame: CGRect) -> Bool {
         for item in self.itemsArray {
             if ((item as? UIView)?.frame.intersects(frame)) != nil {
@@ -54,9 +81,12 @@ class SyWaterWaveView: UIView {
         let x = cos(angle) * radius
         let y = sin(angle) * radius
         return CGPoint.init(x: CGFloat(x) + self.bounds.size.width / 2, y: CGFloat(y) + self.bounds.size.height / 2)
-    }
+    }*/
     
     override func draw(_ rect: CGRect) {
+        if self.isShow { //从后台打开或进入后台 不要重复绘画
+            return
+        }
         UIColor.clear.setFill()
         UIRectFill(rect)
         let pulsingCount = 8 //值越大波圈越密
@@ -79,14 +109,17 @@ class SyWaterWaveView: UIView {
             animationGroup.duration = animationDuration
             animationGroup.repeatCount = HUGE
             animationGroup.timingFunction = defaultCurve
+            animationGroup.isRemovedOnCompletion = false
             
             let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
             scaleAnimation.fromValue = Double(0)
             scaleAnimation.toValue = Double(1.5)
+            scaleAnimation.isRemovedOnCompletion = false
             
             let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
             opacityAnimation.values = [1,0.7,0]
             opacityAnimation.keyTimes = [0,0.5,1]
+            opacityAnimation.isRemovedOnCompletion = false
             
             animationGroup.animations = [scaleAnimation,opacityAnimation]
             

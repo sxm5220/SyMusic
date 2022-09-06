@@ -43,7 +43,7 @@ class SyGuidePageView: UIView {
         self.addSubview(self.playerManager.playerView)
 
         // 视频引导页进入按钮
-        let movieStartButton = UIButton.init(frame: CGRect.init(x: 20, y: screenHeight()-70, width: screenWidth()-40, height: 40))
+        let movieStartButton = UIButton.init(frame: CGRect.init(x: 20, y: screenHeight-70, width: screenWidth-40, height: 40))
         movieStartButton.layer.cornerRadius = movieStartButton.bounds.size.height * 0.5
         movieStartButton.layer.borderColor = UIColor.white.cgColor
         movieStartButton.layer.borderWidth = 1
@@ -69,7 +69,7 @@ extension SyGuidePageView {
     func addScrollView(frame: CGRect)  {
         self.guidePageView = UIScrollView.init(frame: frame)
         guidePageView.backgroundColor = UIColor.lightGray
-        guidePageView.contentSize = CGSize.init(width: screenWidth() * (CGFloat)((self.imageArray?.count)!), height: screenHeight())
+        guidePageView.contentSize = CGSize.init(width: screenWidth * (CGFloat)((self.imageArray?.count)!), height: screenHeight)
         guidePageView.bounces = false
         guidePageView.alpha = 1.0
         guidePageView.isPagingEnabled = true
@@ -83,7 +83,7 @@ extension SyGuidePageView {
         if isHiddenSkipButton {
             return
         }
-        let skipButton = UIButton.init(frame: CGRect.init(x: screenWidth() - 60, y: 50, width: 50, height: 30))
+        let skipButton = UIButton.init(frame: CGRect.init(x: screenWidth - 60, y: 50, width: 50, height: 30))
         skipButton.setTitle(strCommon(key: "sy_skip_title"), for: .normal)
         skipButton.backgroundColor = UIColor.darkGray
         skipButton.setTitleColor(UIColor.white, for: .normal)
@@ -107,7 +107,7 @@ extension SyGuidePageView {
             return
         }
         for i in 0..<imageArray.count {
-            let imageView = UIImageView.init(frame: CGRect.init(x: screenWidth() * CGFloat(i), y: 0, width: screenWidth(), height: screenHeight()))
+            let imageView = UIImageView.init(frame: CGRect.init(x: screenWidth * CGFloat(i), y: 0, width: screenWidth, height: screenHeight))
             imageView.contentMode = .scaleAspectFill
             let idString = (imageArray[i] as NSString).substring(from: imageArray[i].count - 3)
             if idString == "gif" {
@@ -136,7 +136,7 @@ extension SyGuidePageView {
     }
     func addPageControl() -> Void {
         // 设置引导页上的页面控制器
-        self.imagePageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: screenHeight() - 40, width: screenWidth(), height: 40))
+        self.imagePageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: screenHeight - 40, width: screenWidth, height: 40))
         self.imagePageControl.currentPage = 0
         self.imagePageControl.backgroundColor = UIColor.clear
         self.imagePageControl.numberOfPages = self.imageArray?.count ?? 0

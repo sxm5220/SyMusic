@@ -11,7 +11,7 @@ import UIKit
 import MJRefresh
 
 class SyAlbumMusicListVC: SyBaseVC {
-    private let heightValue: CGFloat = 160.0
+    private let heightValue: CGFloat = 180.0
     public var albumItem: SyAlbumItem!
     public var useritem: userItem!
     public var composerId: String!
@@ -23,7 +23,7 @@ class SyAlbumMusicListVC: SyBaseVC {
     }
     
     private lazy var headImageView: UIImageView = {
-        var imgView = UIImageView(frame: CGRect(x: 20, y: 20, width: screenWidth() - 100, height: heightValue))
+        var imgView = UIImageView()
         imgView.clipsToBounds = true
         imgView.contentMode = .scaleAspectFill
         imgView.layer.cornerRadius = 20
@@ -31,20 +31,20 @@ class SyAlbumMusicListVC: SyBaseVC {
     }()
     
     private lazy var headView: UIView = {
-        var headView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth(), height: heightValue + 40))
+        var headView = UIView()
         headView.backgroundColor = UIColor.clear
         headView.addSubview(self.headImageView)
         return headView
     }()
     
     private lazy var tableView: SyTableView = {
-        let heightValue: CGFloat = (screenHeight() - navigationBarWithHeight() - 50)
-        var tableView = SyTableView(array: [30,0,screenWidth() - 60,heightValue], .plain, self)
+        var tableView = SyTableView(style: .grouped, delegate: self)
+        tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
-        tableView.separatorStyle = .singleLine
+        tableView.separatorStyle = .none
         tableView.separatorColor = rgbWithValue(r: 220, g: 220, b: 220, alpha: 0.2)
         tableView.tableHeaderView = self.headView
-        tableView.separatorInset = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
+        tableView.separatorInset = UIEdgeInsets(top: 5, left: 40, bottom: 5, right: 40)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             [weak self] in
@@ -78,9 +78,26 @@ class SyAlbumMusicListVC: SyBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isBackBar = true
-        self.view.addSubview(self.tableView)
         self.title = self.albumItem.albumName
+        
+        self.view.addSubview(self.tableView)
         self.headImageView.image = UIImage.init(named: self.useritem?.icon ?? "")
+        
+        self.tableView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        self.headView.snp.makeConstraints { make in
+            make.height.equalTo(heightValue)
+            make.width.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+        
+        self.headImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 40, bottom: 10, right: 40))
+        }
     }
     
     @objc func tapAction(sender: UITapGestureRecognizer) {
@@ -93,12 +110,10 @@ class SyAlbumMusicListVC: SyBaseVC {
     fileprivate func musicListDataSource(isRefresh: Bool) {
         self.dataCourseArray = self.albumItem.albumData
         if self.dataCourseArray.count > 0 {
-            let musicComposerId = SyMusicPlayerManager.getSharedInstance().composerId
-            let albumId = SyMusicPlayerManager.getSharedInstance().albumId
             //当前目录是正在播放中的目录歌曲
             //同一作家和同一个专辑
-            if self.useritem.id == musicComposerId &&
-                self.albumItem.albumId == albumId{
+            if self.useritem.id == SyMusicPlayerManager.getSharedInstance().composerId &&
+                self.albumItem.albumId == SyMusicPlayerManager.getSharedInstance().albumItem?.albumId{
                 self.isCurrentPlayMusic = true
             }else{
                 self.isCurrentPlayMusic = false
@@ -120,11 +135,11 @@ class SyAlbumMusicListVC: SyBaseVC {
         //作家（歌手）唯一标识id
         SyMusicPlayerManager.getSharedInstance().composerId = self.composerId
         //专辑id
-        SyMusicPlayerManager.getSharedInstance().albumId = self.albumItem.albumId
+        SyMusicPlayerManager.getSharedInstance().albumItem = self.albumItem
         //作家（歌手）名字
-        SyMusicPlayerManager.getSharedInstance().singerUser = self.useritem.name
+//        SyMusicPlayerManager.getSharedInstance().singerUser = self.useritem.name
         //专辑的图片（正常的应该是该歌曲对应的图片）
-        SyMusicPlayerManager.getSharedInstance().musicImageName = self.albumItem.albumImage
+        //SyMusicPlayerManager.getSharedInstance().musicImageName = self.albumItem.albumImage
     }
     
     fileprivate func pushVC(index: Int) {
@@ -184,9 +199,10 @@ extension SyAlbumMusicListVC: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .clear
         if self.dataCourseArray.count > indexPath.row {
             let musicItem = self.dataCourseArray[indexPath.row]
+            
             //头像
-            let headerImageView = UIImageView(frame: CGRect(x: screenWidth() - 70 - 60, y: 15, width: 50, height: 50))
-            headerImageView.layer.cornerRadius = headerImageView.bounds.size.height / 2
+            let headerImageView = UIImageView()
+            headerImageView.layer.cornerRadius = 50 / 2
             headerImageView.isUserInteractionEnabled = true
             headerImageView.clipsToBounds = true
             headerImageView.layer.borderWidth = 0.5
@@ -196,27 +212,51 @@ extension SyAlbumMusicListVC: UITableViewDelegate, UITableViewDataSource {
             headerImageView.tag = indexPath.row
             headerImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction(sender:))))
             cell.contentView.addSubview(headerImageView)
+            headerImageView.snp.makeConstraints { make in
+                make.top.equalTo(15)
+                make.trailing.equalToSuperview().offset(-60)
+                make.width.height.equalTo(50)
+            }
             
-            let imgV = UIImageView(frame: CGRect(x: 5, y: 30, width: 20, height: 20))
+            let imgV = UIImageView()
             imgV.animationImages = [#imageLiteral(resourceName: "item_play01_icon"),#imageLiteral(resourceName: "item_play02_icon"),#imageLiteral(resourceName: "item_play03_icon"),#imageLiteral(resourceName: "item_play03_icon"),#imageLiteral(resourceName: "item_play02_icon"),#imageLiteral(resourceName: "item_play01_icon")]
             imgV.animationDuration = 1.2
             imgV.animationRepeatCount = 0
             imgV.stopAnimating()
             cell.contentView.addSubview(imgV)
+            imgV.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(30)
+                make.top.equalTo(35)
+                make.width.height.equalTo(20)
+            }
             
             //名称
-            let titleLabel = SyMarqueeLabel(frame: CGRect(x: imgV.frame.maxX + 10, y: 20, width: cell.bounds.size.width - 130, height: 20), text: musicItem.musicName, textColor: .white, font: UIFont.systemFont(ofSize: 15), textAlignment: .left)
+            let titleLabel = SyMarqueeLabel(text: musicItem.musicName, textColor: .white, font: UIFont.systemFont(ofSize: 15), textAlignment: .left)
             cell.contentView.addSubview(titleLabel)
             
             let singerName = strCommon(key: "sy_composerName") + "：\(musicItem.composerName)"
             let lyricisName = strCommon(key: "sy_lyricisName") + "：\(musicItem.lyricistName)"
             //编曲者
-            let detailLabel = SyMarqueeLabel(frame: CGRect(x: titleLabel.frame.origin.x, y: titleLabel.frame.maxY + 10, width: titleLabel.bounds.size.width, height: 20), text: singerName + " " + lyricisName, textColor: .lightGray, font: UIFont.systemFont(ofSize: 12), textAlignment: .left)
+            let detailLabel = SyMarqueeLabel(text: singerName + " " + lyricisName, textColor: .lightGray, font: UIFont.systemFont(ofSize: 12), textAlignment: .left)
             cell.contentView.addSubview(detailLabel)
+            
+            titleLabel.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(60)
+                make.trailing.equalToSuperview().offset(-130)
+                make.top.equalTo(20)
+                make.height.equalTo(20)
+            }
+            
+            detailLabel.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(60)
+                make.trailing.equalToSuperview().offset(-130)
+                make.top.equalTo(50)
+                make.height.equalTo(20)
+            }
             
             let currentIndex = SyMusicPlayerManager.getSharedInstance().currentIndex
             if SyMusicPlayerManager.getSharedInstance().musicArray.count > currentIndex {
-                if SyMusicPlayerManager.getSharedInstance().composerId == self.composerId && SyMusicPlayerManager.getSharedInstance().albumId == self.albumItem.albumId && SyMusicPlayerManager.getSharedInstance().musicArray[currentIndex].id == musicItem.id &&
+                if SyMusicPlayerManager.getSharedInstance().composerId == self.composerId && SyMusicPlayerManager.getSharedInstance().albumItem?.albumId == self.albumItem.albumId && SyMusicPlayerManager.getSharedInstance().musicArray[currentIndex].id == musicItem.id &&
                     SyMusicPlayerManager.getSharedInstance().musicItem?.id != nil { //当前音频播放状态
                     if SyMusicPlayerManager.getSharedInstance().isPlay {
                         imgV.startAnimating()

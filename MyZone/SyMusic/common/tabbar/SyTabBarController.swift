@@ -44,20 +44,18 @@ class SyNavigationController: UINavigationController {
 }
 
 struct tabbarItem {
-    let title,image: String
+    let title,image,lotAnimationName: String
     let viewController: UIViewController
 }
 
 class SyTabBarController: UITabBarController {
-    
-    private let lotAnimationNameArray = ["ASMR","Video"]
-    private var animationBarItem: LOTAnimationView?
+
+    private var animationBarItem: AnimationView?
     private var animationlabel: LTMorphingLabel?
-    
-    private let navigationItemTitleArray = [strCommon(key: "sy_music_title"),strCommon(key: "sy_mv_title")]
-    
-    private let tabbarArray = [tabbarItem(title: strCommon(key: "sy_music_title"), image: "item_tabbar_music_icon",viewController: SyMainVC()),
-                            tabbarItem(title: strCommon(key: "sy_mv_title"), image: "item_tabbar_mv_icon",viewController: SyMVVC())]
+    //tabbarItem(title: strCommon(key: "sy_main_title"), image: "item_tabbar_home_icon",lotAnimationName: "Home", viewController: SyT1()),
+    private let tabbarArray = [tabbarItem(title: strCommon(key: "sy_music_title"), image: "item_tabbar_music_icon",lotAnimationName: "ASMR",viewController: SyMainVC()),
+                               
+                               tabbarItem(title: strCommon(key: "sy_mv_title"), image: "item_tabbar_mv_icon",lotAnimationName: "Video",viewController: SyMVVC())]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +82,7 @@ class SyTabBarController: UITabBarController {
     func setupChildController()  {
         for i in 0..<self.tabbarArray.count {
             addChildViewController(index: i, self.tabbarArray[i].viewController,
-                                   navigationItemTitle: self.navigationItemTitleArray[i],
+                                   navigationItemTitle: self.tabbarArray[i].title,
                                    title: self.tabbarArray[i].title ,
                                    imageName: self.tabbarArray[i].image)
         }
@@ -138,13 +136,25 @@ class SyTabBarController: UITabBarController {
         views.subviews.forEach { (v) in
             if v.isMember(of: NSClassFromString("UITabBarSwappableImageView")!) {
                 self.animationBarItem?.removeFromSuperview()
-                let lottieLogoView = LOTAnimationView(name: lotAnimationNameArray[index])
-                lottieLogoView.frame = CGRect(x: 0, y: 0, width: v.bounds.size.width, height: v.bounds.size.height)
-                lottieLogoView.center = CGPoint(x: v.bounds.size.width / 2, y: v.bounds.size.height / 2)
-                lottieLogoView.play { (isAnimationFinished) in
-                    //
-                }
+                let lottieLogoView = AnimationView(name: self.tabbarArray[index].lotAnimationName)
+                lottieLogoView.contentMode = .scaleAspectFit
+                lottieLogoView.play()
+//                lottieLogoView.loopMode = .loop //循环模式
+//                lottieLogoView.animationSpeed = 0.5 //动画速度
+//                lottieLogoView.play { (isAnimationFinished) in
+//                    //
+//                }
                 v.addSubview(lottieLogoView)
+                lottieLogoView.snp.makeConstraints { make in
+                    //lottieLogoView.frame = CGRect(x: 0, y: 0, width: v.bounds.size.width, height: v.bounds.size.height)
+//                    lottieLogoView.center = CGPoint(x: v.bounds.size.width / 2, y: v.bounds.size.height / 2)
+                    make.left.top.equalTo(0)
+                    make.width.equalTo(v.width)
+                    make.height.equalTo(v.height)
+                    make.centerX.equalTo(v.centerX).offset(-v.width/2)
+                    make.centerY.equalTo(v.centerY).offset(-v.height/2)
+                }
+                SyPrint("tag==>\(v.tag)")
                 self.animationBarItem = lottieLogoView
             }
         }
@@ -152,7 +162,7 @@ class SyTabBarController: UITabBarController {
         views.subviews.forEach { (v) in
             if v.isMember(of: NSClassFromString("UITabBarButtonLabel")!) {
                 self.animationlabel?.removeFromSuperview()
-                let lab = LTMorphingLabel(frame: CGRect(x: 0, y: 0, width: v.bounds.size.width, height: v.bounds.size.height))
+                let lab = LTMorphingLabel()
                 lab.center = CGPoint(x: v.bounds.size.width / 2, y: v.bounds.size.height / 2)
                 lab.textAlignment = .center
                 lab.text = self.tabbarArray[index].title
@@ -161,6 +171,13 @@ class SyTabBarController: UITabBarController {
                 lab.font = UIFont.systemFont(ofSize: 10)
                 lab.textColor = rgbWithHex(rgbValue: 0xc676ff)
                 v.addSubview(lab)
+                lab.snp.makeConstraints { make in
+                    //frame: CGRect(x: 0, y: 0, width: v.bounds.size.width, height: v.bounds.size.height)
+                    make.left.top.equalTo(0)
+                    make.width.equalTo(v.width)
+                    make.height.equalTo(v.height)
+                }
+                SyPrint("tag==>\(v.tag)")
                 self.animationlabel = lab
             }
         }

@@ -16,6 +16,25 @@ enum TYButtonEdgeInsetsStyle : Int {
     case right // image在右，label在左
 }
 
+func labWithTitleAttributeCollection(title: String,
+                          titleColor: UIColor,
+                          backgroundColor: UIColor,
+                          cornerRadius: CGFloat,
+                          tag: Int,
+                          target: AnyObject,
+                          action: Selector) -> SyBadgeButton {
+    let button = SyBadgeButton()
+    button.setTitle(title, for: .normal)
+    button.setTitleColor(titleColor, for: .normal)
+    button.backgroundColor = backgroundColor
+    if cornerRadius > 0 {
+        button.layer.cornerRadius = cornerRadius
+    }
+    button.tag = tag
+    button.addTarget(target, action: action, for: .touchUpInside)
+    return button
+}
+
 extension UIButton {
     
     func layoutButton(with style: TYButtonEdgeInsetsStyle, imageTitleSpace space: CGFloat) {
@@ -75,8 +94,7 @@ extension UIButton {
     }
 }
 
-func buttonWithTitleFrame(frame: CGRect,
-                          title: String,
+func buttonWithTitleFrame(title: String,
                           titleColor: UIColor,
                           backgroundColor: UIColor,
                           cornerRadius: CGFloat,
@@ -84,7 +102,7 @@ func buttonWithTitleFrame(frame: CGRect,
                           target: AnyObject,
                           action: Selector) -> SyBadgeButton {
     let button = SyBadgeButton()
-    button.frame = frame
+    button.frame = CGRect.zero
     button.setTitle(title, for: .normal)
     button.setTitleColor(titleColor, for: .normal)
     button.backgroundColor = backgroundColor
@@ -96,13 +114,12 @@ func buttonWithTitleFrame(frame: CGRect,
     return button
 }
 
-func buttonWithImageFrame(frame: CGRect,
-                          imageName: UIImage,
+func buttonWithImageFrame(imageName: UIImage,
                           tag: Int,
                           target: AnyObject,
                           action: Selector) -> SyBadgeButton {
     let button = SyBadgeButton()
-    button.frame = frame
+    button.frame = CGRect.zero
     button.backgroundColor = UIColor.clear
     button.setBackgroundImage(imageName, for: .normal)
     button.tag = tag

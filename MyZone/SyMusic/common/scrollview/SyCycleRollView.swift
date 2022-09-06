@@ -24,8 +24,7 @@ public class SyCycleRollView: UIView, UIScrollViewDelegate {
     
     //subviews
     fileprivate lazy var scrollView: UIScrollView = {
-        let rect = CGRect(x: 0, y: 0, width: kwidth, height: kheight)
-        let view: UIScrollView = UIScrollView(frame: rect)
+        let view: UIScrollView = UIScrollView()
         view.contentSize = CGSize(width: kwidth*3, height: 0)
         view.contentOffset = CGPoint(x: kwidth, y: 0)
         view.decelerationRate = UIScrollView.DecelerationRate(rawValue: 3)
@@ -41,14 +40,14 @@ public class SyCycleRollView: UIView, UIScrollViewDelegate {
     }()
     
     fileprivate lazy var currentImageView: UIImageView = {
-        let imageView: UIImageView = UIImageView(frame: CGRect(x: kwidth, y: 0, width: kwidth, height: kheight))
+        let imageView: UIImageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
     fileprivate lazy var nextImageView: UIImageView = {
-        let imageView: UIImageView = UIImageView(frame: CGRect(x: kwidth, y: 0, width: kwidth, height: kheight))
+        let imageView: UIImageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -190,9 +189,34 @@ public class SyCycleRollView: UIView, UIScrollViewDelegate {
         //多于一张图片的时候才可以滚动
         scrollView.isScrollEnabled = self.imageModelArray.count > 1 ? true : false
         addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.left.top.equalTo(0)
+            make.width.equalTo(kwidth)
+            make.height.equalTo(kheight)
+        }
         scrollView.addSubview(currentImageView)
+        currentImageView.snp.makeConstraints { make in
+            make.left.equalTo(kwidth)
+            make.top.equalTo(0)
+            make.width.equalTo(kwidth)
+            make.height.equalTo(kheight)
+        }
         scrollView.addSubview(nextImageView)
+        nextImageView.snp.makeConstraints { make in
+            make.left.equalTo(kwidth)
+            make.top.equalTo(0)
+            make.width.equalTo(kwidth)
+            make.height.equalTo(kheight)
+        }
         addSubview(pageControl)
+        pageControl.snp.makeConstraints { make in
+        let size = pageControl.size(forNumberOfPages: pageControl.numberOfPages)
+//            let point = CGPoint(x: kwidth/2 - size.width/2, y: kheight - size.height / 2 - 10)
+//            pageControl.frame = CGRect(origin: point, size: size)
+            make.left.equalTo(kwidth/2).offset(-size.width/2)
+            make.top.equalTo(kheight).offset(-(size.height / 2 + 10))
+            make.size.equalTo(size)
+        }
         
         scrollView.addGestureRecognizer(tapGesture)
     }
@@ -202,9 +226,6 @@ public class SyCycleRollView: UIView, UIScrollViewDelegate {
         //pageControl
         pageControl.numberOfPages = imageModelArray.count
         pageControl.currentPage = currentIndex
-        let size = pageControl.size(forNumberOfPages: pageControl.numberOfPages)
-        let point = CGPoint(x: kwidth/2 - size.width/2, y: kheight - size.height / 2 - 10)
-        pageControl.frame = CGRect(origin: point, size: size)
     }
     
     //MARK: - update model array and page control

@@ -202,7 +202,7 @@ extension UIView {
 
 func findFirstResponder(view: UIView) -> UIView {
     
-    var firstResponder = UIView.init()
+    var firstResponder = UIView()
     if view.isFirstResponder {
         return view
     }

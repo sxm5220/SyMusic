@@ -11,6 +11,17 @@ import Foundation
 import UIKit
 import AVFoundation
 
+//字符串不为空 可用
+func availableString(value: String?) -> String {
+    return value?.trimmingCharactersCount ?? 0 > 0 ? value! : ""
+}
+
+//整形不为空 可用
+func availableInt(value: Int?) -> Int {
+    return value != nil ? value! : 0
+}
+
+
 //是否是横屏
 func isLandscape() -> Bool {
    var orientation = false
@@ -91,7 +102,7 @@ func exitApplication() {
     }
     UIView.animate(withDuration: 0.5, animations: {
         window?.alpha = 0
-        window?.frame = CGRect.init(x: screenWidth() / 2, y: screenHeight() / 2, width: 0, height: 0)
+        window?.frame = CGRect.init(x: screenWidth / 2, y: screenHeight / 2, width: 0, height: 0)
     }) { (isFinished) in
         exit(0)
     }
@@ -99,69 +110,39 @@ func exitApplication() {
 
 //用于版本比较
 func isNewVersion() -> Bool {
-    let lastVersion = userDefaultsForString(forKey: appVersionKey())
+    let lastVersion = userDefaultsForString(forKey: appVersionKey)
     //SyPrint("当前版本\(currentVersion());,前一版本\(lastVersion)")
-    if (lastVersion.count == 0) || (currentVersion() > lastVersion){
-        userDefaultsSetValue(value: currentVersion(), key: appVersionKey())
+    if (lastVersion.count == 0) || (currentVersion as! String > lastVersion) {
+        userDefaultsSetValue(value: currentVersion, key: appVersionKey)
         return true
     }
     return false
 }
 
-func isIphoneDevice() -> Bool {
-    if UIDevice.current.userInterfaceIdiom == .phone {
-        return true
-    }
-    return false
-}
+//是否是手机设备
+internal let isIphoneDevice = UIDevice.current.userInterfaceIdiom == .phone
 
 //当前app版本号
-func currentVersion() -> String {
-    let version: String! = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-    return version
-}
+internal let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
 
 //获取当前手机系统版本号
-func systemVersion() -> Double {
-    return (UIDevice.current.systemVersion as NSString).doubleValue
-}
+internal let systemVersion = (UIDevice.current.systemVersion as NSString).doubleValue
 
 //屏幕宽
-func screenWidth() -> CGFloat {
-    return UIScreen.main.bounds.width
-}
+internal let screenWidth = UIScreen.main.bounds.width
 
 //屏幕高
-func screenHeight() -> CGFloat {
-    return UIScreen.main.bounds.height
-}
+internal let screenHeight = UIScreen.main.bounds.height
 
 //tableView高
-func screenHeightWithTableView() -> CGFloat {
-    return screenHeight() - navigationBarWithHeight() - 34
-}
+internal let screenHeightWithTableView = screenHeight - navigationBarWithHeight - 34.0
 
 //距离顶部（导航栏）的距离
-func navigationBarWithHeight() -> CGFloat {
-    return 64
-}
+internal let navigationBarWithHeight = 64.0
 
 //距离底部（工具栏）的距离
-func toolBarWithHeight() -> CGFloat {
-    return 44
-}
+internal let toolBarWithHeight = 44.0
 
 //状态栏
-func statusBarWithHeight() -> CGFloat {
-    return 44
-}
+internal let statusBarWithHeight = 44.0
 
-//字符串不为空 可用
-func availableString(value: String?) -> String {
-    return value?.trimmingCharactersCount ?? 0 > 0 ? value! : ""
-}
-
-//整形不为空 可用
-func availableInt(value: Int?) -> Int {
-    return value != nil ? value! : 0
-}

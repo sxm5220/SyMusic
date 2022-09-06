@@ -17,11 +17,11 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     let imagesArray = [#imageLiteral(resourceName: "item_cover01_icon"),#imageLiteral(resourceName: "item_cover02_icon"),#imageLiteral(resourceName: "item_cover03_icon"),#imageLiteral(resourceName: "item_cover04_icon"),#imageLiteral(resourceName: "item_cover05_icon"),#imageLiteral(resourceName: "item_cover06_icon"),#imageLiteral(resourceName: "item_cover07_icon")]
     
     func leftBarButtonItemWithImage(image: UIImage) -> UIBarButtonItem {
-        let leftButton = buttonWithImageFrame(frame: CGRect.init(x: 5, y: 5, width: 15, height: 15),
-                                              imageName: image,
+        let leftButton = buttonWithImageFrame(imageName: image,
                                               tag: 0,
                                               target: self,
                                               action: #selector(leftBarButtonAction(sender:)))
+        leftButton.frame = CGRect.init(x: 5, y: 5, width: 15, height: 15)
         let leftBarButton = UIBarButtonItem.init(customView: leftButton)
         return leftBarButton
     }
@@ -31,17 +31,16 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func rightBarButtonItemWithImage(image: UIImage) -> UIBarButtonItem {
-        self.rightBarButton = buttonWithImageFrame(frame: CGRect.init(x: 0, y: 0, width: 25, height: 20),
-                                                   imageName: image,
+        self.rightBarButton = buttonWithImageFrame(imageName: image,
                                                    tag: 0,
                                                    target: self,
                                                    action: #selector(rightBarButtonAction(sender:)))
+        self.rightBarButton.frame = CGRect.init(x: 0, y: 0, width: 25, height: 20)
         return UIBarButtonItem.init(customView: self.rightBarButton)
     }
     
     func rightBarButtonItemWithTitle(title: String) -> UIBarButtonItem {
-        self.rightBarButton = buttonWithTitleFrame(frame: CGRect.init(x: 0, y: 0, width: 60, height: 20),
-                                                   title: title,
+        self.rightBarButton = buttonWithTitleFrame(title: title,
                                                    titleColor: .darkGray,
                                                    backgroundColor: .clear,
                                                    cornerRadius: 2,
@@ -49,6 +48,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
                                                    target: self,
                                                    action: #selector(rightBarButtonAction(sender:)))
         self.rightBarButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.rightBarButton.frame = CGRect.init(x: 0, y: 0, width: 60, height: 20)
         return UIBarButtonItem.init(customView: self.rightBarButton)
     }
     
@@ -66,12 +66,12 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
 
         guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
         if windows.count > 0 && (self.navigationController?.viewControllers.count ?? 0 == 1 || currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder){
-            var viewFrameY = screenHeight() - 135
+            var viewFrameY = screenHeight - 135
             if currentViewController()?.classForCoder == SyMusicPlayVC().classForCoder {
-                viewFrameY = screenHeight()
+                viewFrameY = screenHeight
             }
             windows.forEach { (view) in
-                if view.classForCoder == SyMusicPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
+                if view.classForCoder == SyMusicPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey) == "1" {
                     UIView.animate(withDuration: 0.5) {
                         view.alpha = 1
                         view.frame.origin.y = viewFrameY
@@ -83,22 +83,31 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         guard let windows: [UIView] = UIApplication.shared.keyWindow?.subviews else { return }
         if windows.count > 0 && self.navigationController?.viewControllers.count ?? 0 > 1{
             windows.forEach { (view) in
-                if view.classForCoder == SyMusicPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey()) == "1" {
+                if view.classForCoder == SyMusicPlayerShowView().classForCoder && userDefaultsForString(forKey: voicePlayKey) == "1" {
                     UIView.animate(withDuration: 0.5) {
                         view.alpha = 0
-                        view.frame.origin.y = screenHeight()
+                        view.frame.origin.y = screenHeight
                     }
                 }
             }
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //右滑返回
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        //导航栏标题文字颜色
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.white]
+        
         self.view.layer.contents = UIImage(named: "item_cover06_icon")?.cgImage
         //初始化一个基于模糊效果的视觉效果视图
         let blur = UIBlurEffect(style: .systemChromeMaterialDark)
@@ -108,6 +117,7 @@ class SyBaseVC: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(blurView)
     }
     
+    //右滑返回手势
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
